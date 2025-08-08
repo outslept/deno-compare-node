@@ -1,12360 +1,1925 @@
-# Deno & Node.js API Comparison
-
-## Overview
-
+# Deno vs Node.js: Built-in API comparison
 This repository provides a comparative overview of the Deno and Node.js runtime API.
 
 Scrolling down, you should be able to see what's available in Deno, what's not, and how they differ.
 
-Heavily inspired and taken most code from [compare-bun-node](https://github.com/privatenumber/compare-bun-node/) by [@privatenumber](https://github.com/privatenumber).
+Updated Aug 8, 2025 • Node.js v24.5.0 • deno 2.4.2 (stable, release, x86_64-pc-windows-msvc)
 
-**Last updated on Aug 8, 2025 with Deno deno 2.4.2 (stable, release, x86_64-pc-windows-msvc) Node.js v23.5.0.**
+## Module details
 
-## Node.js APIs compared
-
+<a id="assert"></a>
 <details>
-			<summary><code>assert</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>assert</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    AssertionError: <ref *2> class AssertionError extends Error {},
-    CallTracker: <ref *3> ƒ deprecated(length: 0) {},
-    deepEqual: <ref *4> ƒ deepEqual(length: 3) {},
-    deepStrictEqual: <ref *5> ƒ deepStrictEqual(length: 3) {},
-    default: <ref *6> ƒ ok(length: 0) {
-        fail: <ref *7> ƒ fail(length: 5) {},
-        AssertionError: [Circular: *2],
-        ok: [Circular: *6],
-        equal: <ref *8> ƒ equal(length: 3) {},
-        notEqual: <ref *9> ƒ notEqual(length: 3) {},
-        deepEqual: [Circular: *4],
-        notDeepEqual: <ref *10> ƒ notDeepEqual(length: 3) {},
-        deepStrictEqual: [Circular: *5],
-        notDeepStrictEqual: <ref *11> ƒ notDeepStrictEqual(length: 3) {},
-        strictEqual: <ref *12> ƒ strictEqual(length: 3) {},
-        notStrictEqual: <ref *13> ƒ notStrictEqual(length: 3) {},
-        partialDeepStrictEqual: <ref *14> ƒ partialDeepStrictEqual(length: 3) {},
-        throws: <ref *15> ƒ throws(length: 1) {},
-        rejects: <ref *16> async ƒ rejects(length: 1) {},
-        doesNotThrow: <ref *17> ƒ doesNotThrow(length: 1) {},
-        doesNotReject: <ref *18> async ƒ doesNotReject(length: 1) {},
-        ifError: <ref *19> ƒ ifError(length: 1) {},
-        match: <ref *20> ƒ match(length: 3) {},
-        doesNotMatch: <ref *21> ƒ doesNotMatch(length: 3) {},
-        CallTracker: [Circular: *3],
-        strict: <ref *22> ƒ strict(length: 0) {
-            fail: [Circular: *7],
-            AssertionError: [Circular: *2],
-            ok: [Circular: *6],
-            equal: [Circular: *12],
-            notEqual: [Circular: *13],
-            deepEqual: [Circular: *5],
-            notDeepEqual: [Circular: *11],
-            deepStrictEqual: [Circular: *5],
-            notDeepStrictEqual: [Circular: *11],
-            strictEqual: [Circular: *12],
-            notStrictEqual: [Circular: *13],
-            partialDeepStrictEqual: [Circular: *14],
-            throws: [Circular: *15],
-            rejects: [Circular: *16],
-            doesNotThrow: [Circular: *17],
-            doesNotReject: [Circular: *18],
-            ifError: [Circular: *19],
-            match: [Circular: *20],
-            doesNotMatch: [Circular: *21],
-            CallTracker: [Circular: *3],
-            strict: [Circular: *22]
-        }
-    },
-    doesNotMatch: [Circular: *21],
-    doesNotReject: [Circular: *18],
-    doesNotThrow: [Circular: *17],
-    equal: [Circular: *8],
-    fail: [Circular: *7],
-    ifError: [Circular: *19],
-    match: [Circular: *20],
-    notDeepEqual: [Circular: *10],
-    notDeepStrictEqual: [Circular: *11],
-    notEqual: [Circular: *9],
-    notStrictEqual: [Circular: *13],
-    ok: [Circular: *6],
-    partialDeepStrictEqual: [Circular: *14],
-    rejects: [Circular: *16],
-    strict: [Circular: *22],
-    strictEqual: [Circular: *12],
-    throws: [Circular: *15]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/assert.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    AssertionError: <ref *2> class AssertionError extends Error {},
-    CallTracker: <ref *3> ƒ deprecated(length: 0) {},
-    deepEqual: <ref *4> ƒ deepEqual(length: 3) {},
-    deepStrictEqual: <ref *5> ƒ deepStrictEqual(length: 3) {},
-    default: <ref *6> ƒ assert(length: 2) {
-        AssertionError: [Circular: *2],
-        CallTracker: [Circular: *3],
-        deepEqual: [Circular: *4],
-        deepStrictEqual: [Circular: *5],
-        doesNotMatch: <ref *7> ƒ doesNotMatch(length: 3) {},
-        doesNotReject: <ref *8> ƒ doesNotReject(length: 3) {},
-        doesNotThrow: <ref *9> ƒ doesNotThrow(length: 3) {},
-        equal: <ref *10> ƒ equal(length: 3) {},
-        fail: <ref *11> ƒ fail(length: 5) {},
-        ifError: <ref *12> ƒ ifError(length: 1) {},
-        match: <ref *13> ƒ match(length: 3) {},
-        notDeepEqual: <ref *14> ƒ notDeepEqual(length: 3) {},
-        notDeepStrictEqual: <ref *15> ƒ notDeepStrictEqual(length: 3) {},
-        notEqual: <ref *16> ƒ notEqual(length: 3) {},
-        notStrictEqual: <ref *17> ƒ notStrictEqual(length: 3) {},
-        ok: [Circular: *6],
-        rejects: <ref *18> ƒ rejects(length: 3) {},
-        strict: <ref *19> ƒ strict(length: 2) {
-            AssertionError: [Circular: *2],
-            CallTracker: [Circular: *3],
-            deepEqual: [Circular: *5],
-            deepStrictEqual: [Circular: *5],
-            doesNotMatch: [Circular: *7],
-            doesNotReject: [Circular: *8],
-            doesNotThrow: [Circular: *9],
-            equal: <ref *20> ƒ strictEqual(length: 3) {},
-            fail: [Circular: *11],
-            ifError: [Circular: *12],
-            match: [Circular: *13],
-            notDeepEqual: [Circular: *15],
-            notDeepStrictEqual: [Circular: *15],
-            notEqual: [Circular: *17],
-            notStrictEqual: [Circular: *17],
-            ok: [Circular: *6],
-            rejects: [Circular: *18],
-            strict: [Circular: *19],
-            strictEqual: [Circular: *20],
-            throws: <ref *21> ƒ throws(length: 3) {}
-        },
-        strictEqual: [Circular: *20],
-        throws: [Circular: *21]
-    },
-    doesNotMatch: [Circular: *7],
-    doesNotReject: [Circular: *8],
-    doesNotThrow: [Circular: *9],
-    equal: [Circular: *10],
-    fail: [Circular: *11],
-    ifError: [Circular: *12],
-    match: [Circular: *13],
-    notDeepEqual: [Circular: *14],
-    notDeepStrictEqual: [Circular: *15],
-    notEqual: [Circular: *16],
-    notStrictEqual: [Circular: *17],
-    ok: [Circular: *6],
-    rejects: [Circular: *18],
-    strict: [Circular: *19],
-    strictEqual: [Circular: *20],
-    throws: [Circular: *21]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/assert.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="assert-strict"></a>
 <details>
-			<summary><code>assert/strict</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>assert/strict</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    AssertionError: <ref *2> class AssertionError extends Error {},
-    CallTracker: <ref *3> ƒ deprecated(length: 0) {},
-    deepEqual: <ref *4> ƒ deepStrictEqual(length: 3) {},
-    deepStrictEqual: [Circular: *4],
-    default: <ref *5> ƒ strict(length: 0) {
-        fail: <ref *6> ƒ fail(length: 5) {},
-        AssertionError: [Circular: *2],
-        ok: <ref *7> ƒ ok(length: 0) {
-            fail: [Circular: *6],
-            AssertionError: [Circular: *2],
-            ok: [Circular: *7],
-            equal: ƒ equal(length: 3) {},
-            notEqual: ƒ notEqual(length: 3) {},
-            deepEqual: ƒ deepEqual(length: 3) {},
-            notDeepEqual: ƒ notDeepEqual(length: 3) {},
-            deepStrictEqual: [Circular: *4],
-            notDeepStrictEqual: <ref *12> ƒ notDeepStrictEqual(length: 3) {},
-            strictEqual: <ref *13> ƒ strictEqual(length: 3) {},
-            notStrictEqual: <ref *14> ƒ notStrictEqual(length: 3) {},
-            partialDeepStrictEqual: <ref *15> ƒ partialDeepStrictEqual(length: 3) {},
-            throws: <ref *16> ƒ throws(length: 1) {},
-            rejects: <ref *17> async ƒ rejects(length: 1) {},
-            doesNotThrow: <ref *18> ƒ doesNotThrow(length: 1) {},
-            doesNotReject: <ref *19> async ƒ doesNotReject(length: 1) {},
-            ifError: <ref *20> ƒ ifError(length: 1) {},
-            match: <ref *21> ƒ match(length: 3) {},
-            doesNotMatch: <ref *22> ƒ doesNotMatch(length: 3) {},
-            CallTracker: [Circular: *3],
-            strict: [Circular: *5]
-        },
-        equal: [Circular: *13],
-        notEqual: [Circular: *14],
-        deepEqual: [Circular: *4],
-        notDeepEqual: [Circular: *12],
-        deepStrictEqual: [Circular: *4],
-        notDeepStrictEqual: [Circular: *12],
-        strictEqual: [Circular: *13],
-        notStrictEqual: [Circular: *14],
-        partialDeepStrictEqual: [Circular: *15],
-        throws: [Circular: *16],
-        rejects: [Circular: *17],
-        doesNotThrow: [Circular: *18],
-        doesNotReject: [Circular: *19],
-        ifError: [Circular: *20],
-        match: [Circular: *21],
-        doesNotMatch: [Circular: *22],
-        CallTracker: [Circular: *3],
-        strict: [Circular: *5]
-    },
-    doesNotMatch: [Circular: *22],
-    doesNotReject: [Circular: *19],
-    doesNotThrow: [Circular: *18],
-    equal: [Circular: *13],
-    fail: [Circular: *6],
-    ifError: [Circular: *20],
-    match: [Circular: *21],
-    notDeepEqual: [Circular: *12],
-    notDeepStrictEqual: [Circular: *12],
-    notEqual: [Circular: *14],
-    notStrictEqual: [Circular: *14],
-    ok: [Circular: *7],
-    partialDeepStrictEqual: [Circular: *15],
-    rejects: [Circular: *17],
-    strict: [Circular: *5],
-    strictEqual: [Circular: *13],
-    throws: [Circular: *16]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/assert_strict.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    AssertionError: <ref *2> class AssertionError extends Error {},
-    deepEqual: <ref *3> ƒ deepEqual(length: 3) {},
-    deepStrictEqual: <ref *4> ƒ deepStrictEqual(length: 3) {},
-    default: <ref *5> ƒ strict(length: 2) {
-        AssertionError: [Circular: *2],
-        CallTracker: <ref *6> ƒ deprecated(length: 0) {},
-        deepEqual: [Circular: *4],
-        deepStrictEqual: [Circular: *4],
-        doesNotMatch: <ref *7> ƒ doesNotMatch(length: 3) {},
-        doesNotReject: <ref *8> ƒ doesNotReject(length: 3) {},
-        doesNotThrow: <ref *9> ƒ doesNotThrow(length: 3) {},
-        equal: <ref *10> ƒ strictEqual(length: 3) {},
-        fail: <ref *11> ƒ fail(length: 5) {},
-        ifError: <ref *12> ƒ ifError(length: 1) {},
-        match: <ref *13> ƒ match(length: 3) {},
-        notDeepEqual: <ref *14> ƒ notDeepStrictEqual(length: 3) {},
-        notDeepStrictEqual: [Circular: *14],
-        notEqual: <ref *15> ƒ notStrictEqual(length: 3) {},
-        notStrictEqual: [Circular: *15],
-        ok: <ref *16> ƒ assert(length: 2) {
-            AssertionError: [Circular: *2],
-            CallTracker: [Circular: *6],
-            deepEqual: [Circular: *3],
-            deepStrictEqual: [Circular: *4],
-            doesNotMatch: [Circular: *7],
-            doesNotReject: [Circular: *8],
-            doesNotThrow: [Circular: *9],
-            equal: <ref *17> ƒ equal(length: 3) {},
-            fail: [Circular: *11],
-            ifError: [Circular: *12],
-            match: [Circular: *13],
-            notDeepEqual: <ref *18> ƒ notDeepEqual(length: 3) {},
-            notDeepStrictEqual: [Circular: *14],
-            notEqual: <ref *19> ƒ notEqual(length: 3) {},
-            notStrictEqual: [Circular: *15],
-            ok: [Circular: *16],
-            rejects: <ref *20> ƒ rejects(length: 3) {},
-            strict: [Circular: *5],
-            strictEqual: [Circular: *10],
-            throws: <ref *21> ƒ throws(length: 3) {}
-        },
-        rejects: [Circular: *20],
-        strict: [Circular: *5],
-        strictEqual: [Circular: *10],
-        throws: [Circular: *21]
-    },
-    doesNotMatch: [Circular: *7],
-    doesNotReject: [Circular: *8],
-    doesNotThrow: [Circular: *9],
-    equal: [Circular: *17],
-    fail: [Circular: *11],
-    ifError: [Circular: *12],
-    match: [Circular: *13],
-    notDeepEqual: [Circular: *18],
-    notDeepStrictEqual: [Circular: *14],
-    notEqual: [Circular: *19],
-    notStrictEqual: [Circular: *15],
-    ok: [Circular: *16],
-    rejects: [Circular: *20],
-    strict: [Circular: *5],
-    strictEqual: [Circular: *10],
-    throws: [Circular: *21]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/assert_strict.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="async_hooks"></a>
 <details>
-			<summary><code>async_hooks</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>async_hooks</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    AsyncLocalStorage: <ref *2> class AsyncLocalStorage {},
-    AsyncResource: <ref *3> class AsyncResource {},
-    asyncWrapProviders: <ref *4> [Object: null prototype] {
-        NONE: 0,
-        DIRHANDLE: 1,
-        DNSCHANNEL: 2,
-        ELDHISTOGRAM: 3,
-        FILEHANDLE: 4,
-        FILEHANDLECLOSEREQ: 5,
-        BLOBREADER: 6,
-        FSEVENTWRAP: 7,
-        FSREQCALLBACK: 8,
-        FSREQPROMISE: 9,
-        GETADDRINFOREQWRAP: 10,
-        GETNAMEINFOREQWRAP: 11,
-        HEAPSNAPSHOT: 12,
-        HTTP2SESSION: 13,
-        HTTP2STREAM: 14,
-        HTTP2PING: 15,
-        HTTP2SETTINGS: 16,
-        HTTPINCOMINGMESSAGE: 17,
-        HTTPCLIENTREQUEST: 18,
-        JSSTREAM: 19,
-        JSUDPWRAP: 20,
-        MESSAGEPORT: 21,
-        PIPECONNECTWRAP: 22,
-        PIPESERVERWRAP: 23,
-        PIPEWRAP: 24,
-        PROCESSWRAP: 25,
-        PROMISE: 26,
-        QUERYWRAP: 27,
-        QUIC_ENDPOINT: 28,
-        QUIC_LOGSTREAM: 29,
-        QUIC_PACKET: 30,
-        QUIC_SESSION: 31,
-        QUIC_STREAM: 32,
-        QUIC_UDP: 33,
-        SHUTDOWNWRAP: 34,
-        SIGNALWRAP: 35,
-        STATWATCHER: 36,
-        STREAMPIPE: 37,
-        TCPCONNECTWRAP: 38,
-        TCPSERVERWRAP: 39,
-        TCPWRAP: 40,
-        TTYWRAP: 41,
-        UDPSENDWRAP: 42,
-        UDPWRAP: 43,
-        SIGINTWATCHDOG: 44,
-        WORKER: 45,
-        WORKERHEAPSNAPSHOT: 46,
-        WRITEWRAP: 47,
-        ZLIB: 48,
-        CHECKPRIMEREQUEST: 49,
-        PBKDF2REQUEST: 50,
-        KEYPAIRGENREQUEST: 51,
-        KEYGENREQUEST: 52,
-        KEYEXPORTREQUEST: 53,
-        CIPHERREQUEST: 54,
-        DERIVEBITSREQUEST: 55,
-        HASHREQUEST: 56,
-        RANDOMBYTESREQUEST: 57,
-        RANDOMPRIMEREQUEST: 58,
-        SCRYPTREQUEST: 59,
-        SIGNREQUEST: 60,
-        TLSWRAP: 61,
-        VERIFYREQUEST: 62
-    },
-    createHook: <ref *5> ƒ createHook(length: 1) {},
-    default: {
-        [get/set] AsyncLocalStorage: [Circular: *2],
-        createHook: [Circular: *5],
-        executionAsyncId: <ref *7> ƒ executionAsyncId(length: 0) {},
-        triggerAsyncId: <ref *8> ƒ triggerAsyncId(length: 0) {},
-        executionAsyncResource: <ref *9> ƒ executionAsyncResource(length: 0) {},
-        asyncWrapProviders: [Circular: *4],
-        AsyncResource: [Circular: *3]
-    },
-    executionAsyncId: [Circular: *7],
-    executionAsyncResource: [Circular: *9],
-    triggerAsyncId: [Circular: *8]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/async_hooks.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    AsyncLocalStorage: <ref *2> class AsyncLocalStorage {},
-    AsyncResource: <ref *3> class AsyncResource {},
-    asyncWrapProviders: <ref *4> [Object: null prototype] {
-        NONE: 0,
-        DIRHANDLE: 1,
-        DNSCHANNEL: 2,
-        ELDHISTOGRAM: 3,
-        FILEHANDLE: 4,
-        FILEHANDLECLOSEREQ: 5,
-        BLOBREADER: 6,
-        FSEVENTWRAP: 7,
-        FSREQCALLBACK: 8,
-        FSREQPROMISE: 9,
-        GETADDRINFOREQWRAP: 10,
-        GETNAMEINFOREQWRAP: 11,
-        HEAPSNAPSHOT: 12,
-        HTTP2SESSION: 13,
-        HTTP2STREAM: 14,
-        HTTP2PING: 15,
-        HTTP2SETTINGS: 16,
-        HTTPINCOMINGMESSAGE: 17,
-        HTTPCLIENTREQUEST: 18,
-        JSSTREAM: 19,
-        JSUDPWRAP: 20,
-        MESSAGEPORT: 21,
-        PIPECONNECTWRAP: 22,
-        PIPESERVERWRAP: 23,
-        PIPEWRAP: 24,
-        PROCESSWRAP: 25,
-        PROMISE: 26,
-        QUERYWRAP: 27,
-        QUIC_ENDPOINT: 28,
-        QUIC_LOGSTREAM: 29,
-        QUIC_PACKET: 30,
-        QUIC_SESSION: 31,
-        QUIC_STREAM: 32,
-        QUIC_UDP: 33,
-        SHUTDOWNWRAP: 34,
-        SIGNALWRAP: 35,
-        STATWATCHER: 36,
-        STREAMPIPE: 37,
-        TCPCONNECTWRAP: 38,
-        TCPSERVERWRAP: 39,
-        TCPWRAP: 40,
-        TTYWRAP: 41,
-        UDPSENDWRAP: 42,
-        UDPWRAP: 43,
-        SIGINTWATCHDOG: 44,
-        WORKER: 45,
-        WORKERHEAPSNAPSHOT: 46,
-        WRITEWRAP: 47,
-        ZLIB: 48,
-        CHECKPRIMEREQUEST: 49,
-        PBKDF2REQUEST: 50,
-        KEYPAIRGENREQUEST: 51,
-        KEYGENREQUEST: 52,
-        KEYEXPORTREQUEST: 53,
-        CIPHERREQUEST: 54,
-        DERIVEBITSREQUEST: 55,
-        HASHREQUEST: 56,
-        RANDOMBYTESREQUEST: 57,
-        RANDOMPRIMEREQUEST: 58,
-        SCRYPTREQUEST: 59,
-        SIGNREQUEST: 60,
-        TLSWRAP: 61,
-        VERIFYREQUEST: 62
-    },
-    createHook: <ref *5> ƒ createHook(length: 0) {},
-    default: {
-        AsyncLocalStorage: [Circular: *2],
-        createHook: [Circular: *5],
-        executionAsyncId: <ref *7> ƒ executionAsyncId(length: 0) {},
-        triggerAsyncId: <ref *8> ƒ triggerAsyncId(length: 0) {},
-        executionAsyncResource: <ref *9> ƒ executionAsyncResource(length: 0) {},
-        asyncWrapProviders: [Circular: *4],
-        AsyncResource: [Circular: *3]
-    },
-    executionAsyncId: [Circular: *7],
-    executionAsyncResource: [Circular: *9],
-    triggerAsyncId: [Circular: *8]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/async_hooks.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="buffer"></a>
 <details>
-			<summary><code>buffer</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>buffer</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Blob: <ref *2> class Blob {},
-    Buffer: <ref *3> ƒ Buffer(length: 3) {
-        poolSize: 8192,
-        from: ƒ from(length: 3) {},
-        copyBytesFrom: ƒ copyBytesFrom(length: 3) {},
-        of: ƒ of(length: 0) {},
-        alloc: ƒ alloc(length: 3) {},
-        allocUnsafe: ƒ allocUnsafe(length: 1) {},
-        allocUnsafeSlow: ƒ allocUnsafeSlow(length: 1) {},
-        isBuffer: ƒ isBuffer(length: 1) {},
-        compare: ƒ compare(length: 2) {},
-        isEncoding: <ref *12> ƒ isEncoding(length: 1) {},
-        concat: ƒ concat(length: 2) {},
-        byteLength: ƒ byteLength(length: 2) {},
-        Symbol(kIsEncodingSymbol): [Circular: *12]
-    },
-    File: <ref *15> class File extends Blob {},
-    INSPECT_MAX_BYTES: 50,
-    SlowBuffer: <ref *16> ƒ SlowBuffer(length: 1) {},
-    atob: <ref *17> ƒ atob(length: 1) {},
-    btoa: <ref *18> ƒ btoa(length: 1) {},
-    constants: <ref *19> {
-        MAX_LENGTH: 9007199254740991,
-        MAX_STRING_LENGTH: 536870888
-    },
-    default: {
-        Buffer: [Circular: *3],
-        SlowBuffer: [Circular: *16],
-        transcode: <ref *21> ƒ transcode(length: 3) {},
-        isUtf8: <ref *22> ƒ isUtf8(length: 1) {},
-        isAscii: <ref *23> ƒ isAscii(length: 1) {},
-        kMaxLength: 9007199254740991,
-        kStringMaxLength: 536870888,
-        btoa: [Circular: *18],
-        atob: [Circular: *17],
-        constants: [Circular: *19],
-        [get/set] INSPECT_MAX_BYTES: 50,
-        Blob: [Circular: *2],
-        resolveObjectURL: <ref *24> ƒ resolveObjectURL(length: 1) {},
-        File: [Circular: *15]
-    },
-    isAscii: [Circular: *23],
-    isUtf8: [Circular: *22],
-    kMaxLength: 9007199254740991,
-    kStringMaxLength: 536870888,
-    resolveObjectURL: [Circular: *24],
-    transcode: [Circular: *21]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/buffer.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Blob: <ref *2> class Blob {},
-    Buffer: <ref *3> ƒ Buffer(length: 3) {
-        poolSize: 8192,
-        from: ƒ from(length: 3) {},
-        copyBytesFrom: ƒ copyBytesFrom(length: 3) {},
-        of: ƒ of(length: 0) {},
-        alloc: ƒ alloc(length: 3) {},
-        allocUnsafe: ƒ allocUnsafe(length: 1) {},
-        allocUnsafeSlow: ƒ allocUnsafeSlow(length: 1) {},
-        isBuffer: ƒ isBuffer(length: 1) {},
-        compare: ƒ compare(length: 2) {},
-        isEncoding: ƒ isEncoding(length: 1) {},
-        concat: ƒ concat(length: 2) {},
-        byteLength: ƒ byteLength(length: 2) {}
-    },
-    INSPECT_MAX_BYTES: 50,
-    SlowBuffer: <ref *15> ƒ SlowBuffer(length: 1) {},
-    atob: <ref *16> ƒ atob(length: 1) {},
-    btoa: <ref *17> ƒ btoa(length: 1) {},
-    constants: <ref *18> {
-        MAX_LENGTH: 9007199254740991,
-        MAX_STRING_LENGTH: 536870888
-    },
-    default: {
-        atob: [Circular: *16],
-        btoa: [Circular: *17],
-        Blob: [Circular: *2],
-        Buffer: [Circular: *3],
-        constants: [Circular: *18],
-        isAscii: <ref *20> ƒ isAscii(length: 1) {},
-        isUtf8: <ref *21> ƒ isUtf8(length: 1) {},
-        [get/set] INSPECT_MAX_BYTES: 50,
-        kMaxLength: 9007199254740991,
-        kStringMaxLength: 536870888,
-        SlowBuffer: [Circular: *15],
-        transcode: <ref *22> ƒ transcode(length: 3) {}
-    },
-    isAscii: [Circular: *20],
-    isUtf8: [Circular: *21],
-    kMaxLength: 9007199254740991,
-    kStringMaxLength: 536870888,
-    transcode: [Circular: *22]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/buffer.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="child_process"></a>
 <details>
-			<summary><code>child_process</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>child_process</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ChildProcess: <ref *2> ƒ ChildProcess(length: 0) {},
-    _forkChild: <ref *3> ƒ _forkChild(length: 2) {},
-    default: {
-        _forkChild: [Circular: *3],
-        ChildProcess: [Circular: *2],
-        exec: <ref *5> ƒ exec(length: 3) {},
-        execFile: <ref *6> ƒ execFile(length: 4) {},
-        execFileSync: <ref *7> ƒ execFileSync(length: 3) {},
-        execSync: <ref *8> ƒ execSync(length: 2) {},
-        fork: <ref *9> ƒ fork(length: 1) {},
-        spawn: <ref *10> ƒ spawn(length: 3) {},
-        spawnSync: <ref *11> ƒ spawnSync(length: 3) {}
-    },
-    exec: [Circular: *5],
-    execFile: [Circular: *6],
-    execFileSync: [Circular: *7],
-    execSync: [Circular: *8],
-    fork: [Circular: *9],
-    spawn: [Circular: *10],
-    spawnSync: [Circular: *11]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/child_process.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ChildProcess: <ref *2> class ChildProcess extends EventEmitter {},
-    default: {
-        fork: <ref *4> ƒ fork(length: 3) {},
-        spawn: <ref *5> ƒ spawn(length: 3) {},
-        exec: <ref *6> ƒ exec(length: 3) {},
-        execFile: <ref *7> ƒ execFile(length: 4) {},
-        execFileSync: <ref *8> ƒ execFileSync(length: 3) {},
-        execSync: <ref *9> ƒ execSync(length: 2) {},
-        ChildProcess: [Circular: *2],
-        spawnSync: <ref *10> ƒ spawnSync(length: 3) {}
-    },
-    exec: [Circular: *6],
-    execFile: [Circular: *7],
-    execFileSync: [Circular: *8],
-    execSync: [Circular: *9],
-    fork: [Circular: *4],
-    spawn: [Circular: *5],
-    spawnSync: [Circular: *10]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/child_process.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="cluster"></a>
 <details>
-			<summary><code>cluster</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>cluster</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    SCHED_NONE: 1,
-    SCHED_RR: 2,
-    Worker: <ref *2> ƒ Worker(length: 1) {},
-    _events: <ref *3> [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    default: EventEmitter {
-        _events: [Circular: *3],
-        _eventsCount: 0,
-        _maxListeners: undefined,
-        isWorker: false,
-        isMaster: true,
-        isPrimary: true,
-        Worker: [Circular: *2],
-        workers: <ref *5> {},
-        settings: <ref *6> {},
-        SCHED_NONE: 1,
-        SCHED_RR: 2,
-        schedulingPolicy: 1,
-        setupPrimary: <ref *7> ƒ (length: 1) {},
-        setupMaster: [Circular: *7],
-        fork: <ref *8> ƒ (length: 1) {},
-        disconnect: <ref *9> ƒ (length: 1) {},
-        Symbol(shapeMode): false,
-        Symbol(kCapture): false
-    },
-    disconnect: [Circular: *9],
-    fork: [Circular: *8],
-    isMaster: true,
-    isPrimary: true,
-    isWorker: false,
-    schedulingPolicy: 1,
-    settings: [Circular: *6],
-    setupMaster: [Circular: *7],
-    setupPrimary: [Circular: *7],
-    workers: [Circular: *5]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/cluster.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    SCHED_NONE: 1,
-    SCHED_RR: 2,
-    Worker: <ref *2> class Worker {},
-    default: EventEmitter {
-        _events: [Object: null prototype] {},
-        _eventsCount: 0,
-        _maxListeners: undefined,
-        isWorker: false,
-        isMaster: true,
-        isPrimary: true,
-        Worker: [Circular: *2],
-        workers: <ref *5> {},
-        settings: {},
-        setupPrimary: <ref *7> ƒ setupPrimary(length: 0) {},
-        setupMaster: [Circular: *7],
-        fork: <ref *8> ƒ fork(length: 1) {},
-        disconnect: <ref *9> ƒ disconnect(length: 0) {},
-        SCHED_NONE: 1,
-        SCHED_RR: 2,
-        Symbol(kCapture): false
-    },
-    disconnect: [Circular: *9],
-    fork: [Circular: *8],
-    isMaster: true,
-    isPrimary: true,
-    isWorker: false,
-    schedulingPolicy: undefined,
-    settings: {},
-    setupMaster: [Circular: *7],
-    setupPrimary: [Circular: *7],
-    worker: undefined,
-    workers: [Circular: *5]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/cluster.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="console"></a>
 <details>
-			<summary><code>console</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>console</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Console: <ref *2> ƒ Console(length: 1) {},
-    assert: <ref *3> ƒ assert(length: 0) {},
-    clear: <ref *4> ƒ clear(length: 0) {},
-    context: <ref *5> ƒ context(length: 1) {},
-    count: <ref *6> ƒ count(length: 0) {},
-    countReset: <ref *7> ƒ countReset(length: 0) {},
-    createTask: <ref *8> ƒ createTask(length: 0) {},
-    debug: <ref *9> ƒ debug(length: 0) {},
-    default: {
-        log: <ref *11> ƒ log(length: 0) {},
-        warn: <ref *12> ƒ warn(length: 0) {},
-        dir: <ref *13> ƒ dir(length: 0) {},
-        time: <ref *14> ƒ time(length: 0) {},
-        timeEnd: <ref *15> ƒ timeEnd(length: 0) {},
-        timeLog: <ref *16> ƒ timeLog(length: 0) {},
-        trace: <ref *17> ƒ trace(length: 0) {},
-        assert: [Circular: *3],
-        clear: [Circular: *4],
-        count: [Circular: *6],
-        countReset: [Circular: *7],
-        group: <ref *18> ƒ group(length: 0) {},
-        groupEnd: <ref *19> ƒ groupEnd(length: 0) {},
-        table: <ref *20> ƒ table(length: 0) {},
-        debug: [Circular: *9],
-        info: <ref *21> ƒ info(length: 0) {},
-        dirxml: <ref *22> ƒ dirxml(length: 0) {},
-        error: <ref *23> ƒ error(length: 0) {},
-        groupCollapsed: <ref *24> ƒ groupCollapsed(length: 0) {},
-        Console: [Circular: *2],
-        profile: <ref *25> ƒ profile(length: 0) {},
-        profileEnd: <ref *26> ƒ profileEnd(length: 0) {},
-        timeStamp: <ref *27> ƒ timeStamp(length: 0) {},
-        context: [Circular: *5],
-        createTask: [Circular: *8]
-    },
-    dir: [Circular: *13],
-    dirxml: [Circular: *22],
-    error: [Circular: *23],
-    group: [Circular: *18],
-    groupCollapsed: [Circular: *24],
-    groupEnd: [Circular: *19],
-    info: [Circular: *21],
-    log: [Circular: *11],
-    profile: [Circular: *25],
-    profileEnd: [Circular: *26],
-    table: [Circular: *20],
-    time: [Circular: *14],
-    timeEnd: [Circular: *15],
-    timeLog: [Circular: *16],
-    timeStamp: [Circular: *27],
-    trace: [Circular: *17],
-    warn: [Circular: *12]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/console.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Console: <ref *2> ƒ Console(length: 1) {},
-    assert: <ref *3> ƒ assert(length: 0) {},
-    clear: <ref *4> ƒ clear(length: 0) {},
-    count: <ref *5> ƒ count(length: 0) {},
-    countReset: <ref *6> ƒ countReset(length: 0) {},
-    debug: <ref *7> ƒ debug(length: 0) {},
-    default: {
-        log: <ref *9> ƒ log(length: 0) {},
-        debug: [Circular: *7],
-        info: <ref *10> ƒ info(length: 0) {},
-        dir: <ref *11> ƒ dir(length: 0) {},
-        dirxml: [Circular: *11],
-        warn: <ref *12> ƒ warn(length: 0) {},
-        error: <ref *13> ƒ error(length: 0) {},
-        assert: [Circular: *3],
-        count: [Circular: *5],
-        countReset: [Circular: *6],
-        table: <ref *14> ƒ table(length: 0) {},
-        time: <ref *15> ƒ time(length: 0) {},
-        timeLog: <ref *16> ƒ timeLog(length: 0) {},
-        timeEnd: <ref *17> ƒ timeEnd(length: 0) {},
-        group: <ref *18> ƒ group(length: 0) {},
-        groupCollapsed: [Circular: *18],
-        groupEnd: <ref *19> ƒ groupEnd(length: 0) {},
-        clear: [Circular: *4],
-        trace: <ref *20> ƒ trace(length: 0) {},
-        profile: <ref *21> ƒ profile(length: 1) {},
-        profileEnd: <ref *22> ƒ profileEnd(length: 1) {},
-        timeStamp: <ref *23> ƒ timeStamp(length: 1) {},
-        indentLevel: 0,
-        Console: [Circular: *2],
-        createTask: ƒ createTask(length: 0) {},
-        Symbol(isConsoleInstance): true
-    },
-    dir: [Circular: *11],
-    dirxml: [Circular: *11],
-    error: [Circular: *13],
-    group: [Circular: *18],
-    groupCollapsed: [Circular: *18],
-    groupEnd: [Circular: *19],
-    indentLevel: 0,
-    info: [Circular: *10],
-    log: [Circular: *9],
-    profile: [Circular: *21],
-    profileEnd: [Circular: *22],
-    table: [Circular: *14],
-    time: [Circular: *15],
-    timeEnd: [Circular: *17],
-    timeLog: [Circular: *16],
-    timeStamp: [Circular: *23],
-    trace: [Circular: *20],
-    warn: [Circular: *12]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/console.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="constants"></a>
 <details>
-			<summary><code>constants</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>constants</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    COPYFILE_EXCL: 1,
-    COPYFILE_FICLONE: 2,
-    COPYFILE_FICLONE_FORCE: 4,
-    DH_CHECK_P_NOT_PRIME: 1,
-    DH_CHECK_P_NOT_SAFE_PRIME: 2,
-    DH_NOT_SUITABLE_GENERATOR: 8,
-    DH_UNABLE_TO_CHECK_GENERATOR: 4,
-    E2BIG: 7,
-    EACCES: 13,
-    EADDRINUSE: 100,
-    EADDRNOTAVAIL: 101,
-    EAFNOSUPPORT: 102,
-    EAGAIN: 11,
-    EALREADY: 103,
-    EBADF: 9,
-    EBADMSG: 104,
-    EBUSY: 16,
-    ECANCELED: 105,
-    ECHILD: 10,
-    ECONNABORTED: 106,
-    ECONNREFUSED: 107,
-    ECONNRESET: 108,
-    EDEADLK: 36,
-    EDESTADDRREQ: 109,
-    EDOM: 33,
-    EEXIST: 17,
-    EFAULT: 14,
-    EFBIG: 27,
-    EHOSTUNREACH: 110,
-    EIDRM: 111,
-    EILSEQ: 42,
-    EINPROGRESS: 112,
-    EINTR: 4,
-    EINVAL: 22,
-    EIO: 5,
-    EISCONN: 113,
-    EISDIR: 21,
-    ELOOP: 114,
-    EMFILE: 24,
-    EMLINK: 31,
-    EMSGSIZE: 115,
-    ENAMETOOLONG: 38,
-    ENETDOWN: 116,
-    ENETRESET: 117,
-    ENETUNREACH: 118,
-    ENFILE: 23,
-    ENGINE_METHOD_ALL: 65535,
-    ENGINE_METHOD_CIPHERS: 64,
-    ENGINE_METHOD_DH: 4,
-    ENGINE_METHOD_DIGESTS: 128,
-    ENGINE_METHOD_DSA: 2,
-    ENGINE_METHOD_EC: 2048,
-    ENGINE_METHOD_NONE: 0,
-    ENGINE_METHOD_PKEY_ASN1_METHS: 1024,
-    ENGINE_METHOD_PKEY_METHS: 512,
-    ENGINE_METHOD_RAND: 8,
-    ENGINE_METHOD_RSA: 1,
-    ENOBUFS: 119,
-    ENODATA: 120,
-    ENODEV: 19,
-    ENOENT: 2,
-    ENOEXEC: 8,
-    ENOLCK: 39,
-    ENOLINK: 121,
-    ENOMEM: 12,
-    ENOMSG: 122,
-    ENOPROTOOPT: 123,
-    ENOSPC: 28,
-    ENOSR: 124,
-    ENOSTR: 125,
-    ENOSYS: 40,
-    ENOTCONN: 126,
-    ENOTDIR: 20,
-    ENOTEMPTY: 41,
-    ENOTSOCK: 128,
-    ENOTSUP: 129,
-    ENOTTY: 25,
-    ENXIO: 6,
-    EOPNOTSUPP: 130,
-    EOVERFLOW: 132,
-    EPERM: 1,
-    EPIPE: 32,
-    EPROTO: 134,
-    EPROTONOSUPPORT: 135,
-    EPROTOTYPE: 136,
-    ERANGE: 34,
-    EROFS: 30,
-    ESPIPE: 29,
-    ESRCH: 3,
-    ETIME: 137,
-    ETIMEDOUT: 138,
-    ETXTBSY: 139,
-    EWOULDBLOCK: 140,
-    EXDEV: 18,
-    EXTENSIONLESS_FORMAT_JAVASCRIPT: 0,
-    EXTENSIONLESS_FORMAT_WASM: 1,
-    F_OK: 0,
-    OPENSSL_VERSION_NUMBER: 805306608,
-    O_APPEND: 8,
-    O_CREAT: 256,
-    O_EXCL: 1024,
-    O_RDONLY: 0,
-    O_RDWR: 2,
-    O_TRUNC: 512,
-    O_WRONLY: 1,
-    POINT_CONVERSION_COMPRESSED: 2,
-    POINT_CONVERSION_HYBRID: 6,
-    POINT_CONVERSION_UNCOMPRESSED: 4,
-    PRIORITY_ABOVE_NORMAL: -7,
-    PRIORITY_BELOW_NORMAL: 10,
-    PRIORITY_HIGH: -14,
-    PRIORITY_HIGHEST: -20,
-    PRIORITY_LOW: 19,
-    PRIORITY_NORMAL: 0,
-    RSA_NO_PADDING: 3,
-    RSA_PKCS1_OAEP_PADDING: 4,
-    RSA_PKCS1_PADDING: 1,
-    RSA_PKCS1_PSS_PADDING: 6,
-    RSA_PSS_SALTLEN_AUTO: -2,
-    RSA_PSS_SALTLEN_DIGEST: -1,
-    RSA_PSS_SALTLEN_MAX_SIGN: -2,
-    RSA_X931_PADDING: 5,
-    R_OK: 4,
-    SIGABRT: 22,
-    SIGBREAK: 21,
-    SIGFPE: 8,
-    SIGHUP: 1,
-    SIGILL: 4,
-    SIGINT: 2,
-    SIGKILL: 9,
-    SIGQUIT: 3,
-    SIGSEGV: 11,
-    SIGTERM: 15,
-    SIGWINCH: 28,
-    SSL_OP_ALL: 2147485776,
-    SSL_OP_ALLOW_NO_DHE_KEX: 1024,
-    SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION: 262144,
-    SSL_OP_CIPHER_SERVER_PREFERENCE: 4194304,
-    SSL_OP_CISCO_ANYCONNECT: 32768,
-    SSL_OP_COOKIE_EXCHANGE: 8192,
-    SSL_OP_CRYPTOPRO_TLSEXT_BUG: 2147483648,
-    SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS: 2048,
-    SSL_OP_LEGACY_SERVER_CONNECT: 4,
-    SSL_OP_NO_COMPRESSION: 131072,
-    SSL_OP_NO_ENCRYPT_THEN_MAC: 524288,
-    SSL_OP_NO_QUERY_MTU: 4096,
-    SSL_OP_NO_RENEGOTIATION: 1073741824,
-    SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION: 65536,
-    SSL_OP_NO_SSLv2: 0,
-    SSL_OP_NO_SSLv3: 33554432,
-    SSL_OP_NO_TICKET: 16384,
-    SSL_OP_NO_TLSv1: 67108864,
-    SSL_OP_NO_TLSv1_1: 268435456,
-    SSL_OP_NO_TLSv1_2: 134217728,
-    SSL_OP_NO_TLSv1_3: 536870912,
-    SSL_OP_PRIORITIZE_CHACHA: 2097152,
-    SSL_OP_TLS_ROLLBACK_BUG: 8388608,
-    S_IFCHR: 8192,
-    S_IFDIR: 16384,
-    S_IFIFO: 4096,
-    S_IFLNK: 40960,
-    S_IFMT: 61440,
-    S_IFREG: 32768,
-    S_IRUSR: 256,
-    S_IWUSR: 128,
-    TLS1_1_VERSION: 770,
-    TLS1_2_VERSION: 771,
-    TLS1_3_VERSION: 772,
-    TLS1_VERSION: 769,
-    UV_DIRENT_BLOCK: 7,
-    UV_DIRENT_CHAR: 6,
-    UV_DIRENT_DIR: 2,
-    UV_DIRENT_FIFO: 4,
-    UV_DIRENT_FILE: 1,
-    UV_DIRENT_LINK: 3,
-    UV_DIRENT_SOCKET: 5,
-    UV_DIRENT_UNKNOWN: 0,
-    UV_FS_COPYFILE_EXCL: 1,
-    UV_FS_COPYFILE_FICLONE: 2,
-    UV_FS_COPYFILE_FICLONE_FORCE: 4,
-    UV_FS_O_FILEMAP: 536870912,
-    UV_FS_SYMLINK_DIR: 1,
-    UV_FS_SYMLINK_JUNCTION: 2,
-    WSAEACCES: 10013,
-    WSAEADDRINUSE: 10048,
-    WSAEADDRNOTAVAIL: 10049,
-    WSAEAFNOSUPPORT: 10047,
-    WSAEALREADY: 10037,
-    WSAEBADF: 10009,
-    WSAECANCELLED: 10103,
-    WSAECONNABORTED: 10053,
-    WSAECONNREFUSED: 10061,
-    WSAECONNRESET: 10054,
-    WSAEDESTADDRREQ: 10039,
-    WSAEDISCON: 10101,
-    WSAEDQUOT: 10069,
-    WSAEFAULT: 10014,
-    WSAEHOSTDOWN: 10064,
-    WSAEHOSTUNREACH: 10065,
-    WSAEINPROGRESS: 10036,
-    WSAEINTR: 10004,
-    WSAEINVAL: 10022,
-    WSAEINVALIDPROCTABLE: 10104,
-    WSAEINVALIDPROVIDER: 10105,
-    WSAEISCONN: 10056,
-    WSAELOOP: 10062,
-    WSAEMFILE: 10024,
-    WSAEMSGSIZE: 10040,
-    WSAENAMETOOLONG: 10063,
-    WSAENETDOWN: 10050,
-    WSAENETRESET: 10052,
-    WSAENETUNREACH: 10051,
-    WSAENOBUFS: 10055,
-    WSAENOMORE: 10102,
-    WSAENOPROTOOPT: 10042,
-    WSAENOTCONN: 10057,
-    WSAENOTEMPTY: 10066,
-    WSAENOTSOCK: 10038,
-    WSAEOPNOTSUPP: 10045,
-    WSAEPFNOSUPPORT: 10046,
-    WSAEPROCLIM: 10067,
-    WSAEPROTONOSUPPORT: 10043,
-    WSAEPROTOTYPE: 10041,
-    WSAEPROVIDERFAILEDINIT: 10106,
-    WSAEREFUSED: 10112,
-    WSAEREMOTE: 10071,
-    WSAESHUTDOWN: 10058,
-    WSAESOCKTNOSUPPORT: 10044,
-    WSAESTALE: 10070,
-    WSAETIMEDOUT: 10060,
-    WSAETOOMANYREFS: 10059,
-    WSAEUSERS: 10068,
-    WSAEWOULDBLOCK: 10035,
-    WSANOTINITIALISED: 10093,
-    WSASERVICE_NOT_FOUND: 10108,
-    WSASYSCALLFAILURE: 10107,
-    WSASYSNOTREADY: 10091,
-    WSATYPE_NOT_FOUND: 10109,
-    WSAVERNOTSUPPORTED: 10092,
-    WSA_E_CANCELLED: 10111,
-    WSA_E_NO_MORE: 10110,
-    W_OK: 2,
-    X_OK: 1,
-    default: {
-        E2BIG: 7,
-        EACCES: 13,
-        EADDRINUSE: 100,
-        EADDRNOTAVAIL: 101,
-        EAFNOSUPPORT: 102,
-        EAGAIN: 11,
-        EALREADY: 103,
-        EBADF: 9,
-        EBADMSG: 104,
-        EBUSY: 16,
-        ECANCELED: 105,
-        ECHILD: 10,
-        ECONNABORTED: 106,
-        ECONNREFUSED: 107,
-        ECONNRESET: 108,
-        EDEADLK: 36,
-        EDESTADDRREQ: 109,
-        EDOM: 33,
-        EEXIST: 17,
-        EFAULT: 14,
-        EFBIG: 27,
-        EHOSTUNREACH: 110,
-        EIDRM: 111,
-        EILSEQ: 42,
-        EINPROGRESS: 112,
-        EINTR: 4,
-        EINVAL: 22,
-        EIO: 5,
-        EISCONN: 113,
-        EISDIR: 21,
-        ELOOP: 114,
-        EMFILE: 24,
-        EMLINK: 31,
-        EMSGSIZE: 115,
-        ENAMETOOLONG: 38,
-        ENETDOWN: 116,
-        ENETRESET: 117,
-        ENETUNREACH: 118,
-        ENFILE: 23,
-        ENOBUFS: 119,
-        ENODATA: 120,
-        ENODEV: 19,
-        ENOENT: 2,
-        ENOEXEC: 8,
-        ENOLCK: 39,
-        ENOLINK: 121,
-        ENOMEM: 12,
-        ENOMSG: 122,
-        ENOPROTOOPT: 123,
-        ENOSPC: 28,
-        ENOSR: 124,
-        ENOSTR: 125,
-        ENOSYS: 40,
-        ENOTCONN: 126,
-        ENOTDIR: 20,
-        ENOTEMPTY: 41,
-        ENOTSOCK: 128,
-        ENOTSUP: 129,
-        ENOTTY: 25,
-        ENXIO: 6,
-        EOPNOTSUPP: 130,
-        EOVERFLOW: 132,
-        EPERM: 1,
-        EPIPE: 32,
-        EPROTO: 134,
-        EPROTONOSUPPORT: 135,
-        EPROTOTYPE: 136,
-        ERANGE: 34,
-        EROFS: 30,
-        ESPIPE: 29,
-        ESRCH: 3,
-        ETIME: 137,
-        ETIMEDOUT: 138,
-        ETXTBSY: 139,
-        EWOULDBLOCK: 140,
-        EXDEV: 18,
-        WSAEINTR: 10004,
-        WSAEBADF: 10009,
-        WSAEACCES: 10013,
-        WSAEFAULT: 10014,
-        WSAEINVAL: 10022,
-        WSAEMFILE: 10024,
-        WSAEWOULDBLOCK: 10035,
-        WSAEINPROGRESS: 10036,
-        WSAEALREADY: 10037,
-        WSAENOTSOCK: 10038,
-        WSAEDESTADDRREQ: 10039,
-        WSAEMSGSIZE: 10040,
-        WSAEPROTOTYPE: 10041,
-        WSAENOPROTOOPT: 10042,
-        WSAEPROTONOSUPPORT: 10043,
-        WSAESOCKTNOSUPPORT: 10044,
-        WSAEOPNOTSUPP: 10045,
-        WSAEPFNOSUPPORT: 10046,
-        WSAEAFNOSUPPORT: 10047,
-        WSAEADDRINUSE: 10048,
-        WSAEADDRNOTAVAIL: 10049,
-        WSAENETDOWN: 10050,
-        WSAENETUNREACH: 10051,
-        WSAENETRESET: 10052,
-        WSAECONNABORTED: 10053,
-        WSAECONNRESET: 10054,
-        WSAENOBUFS: 10055,
-        WSAEISCONN: 10056,
-        WSAENOTCONN: 10057,
-        WSAESHUTDOWN: 10058,
-        WSAETOOMANYREFS: 10059,
-        WSAETIMEDOUT: 10060,
-        WSAECONNREFUSED: 10061,
-        WSAELOOP: 10062,
-        WSAENAMETOOLONG: 10063,
-        WSAEHOSTDOWN: 10064,
-        WSAEHOSTUNREACH: 10065,
-        WSAENOTEMPTY: 10066,
-        WSAEPROCLIM: 10067,
-        WSAEUSERS: 10068,
-        WSAEDQUOT: 10069,
-        WSAESTALE: 10070,
-        WSAEREMOTE: 10071,
-        WSASYSNOTREADY: 10091,
-        WSAVERNOTSUPPORTED: 10092,
-        WSANOTINITIALISED: 10093,
-        WSAEDISCON: 10101,
-        WSAENOMORE: 10102,
-        WSAECANCELLED: 10103,
-        WSAEINVALIDPROCTABLE: 10104,
-        WSAEINVALIDPROVIDER: 10105,
-        WSAEPROVIDERFAILEDINIT: 10106,
-        WSASYSCALLFAILURE: 10107,
-        WSASERVICE_NOT_FOUND: 10108,
-        WSATYPE_NOT_FOUND: 10109,
-        WSA_E_NO_MORE: 10110,
-        WSA_E_CANCELLED: 10111,
-        WSAEREFUSED: 10112,
-        PRIORITY_LOW: 19,
-        PRIORITY_BELOW_NORMAL: 10,
-        PRIORITY_NORMAL: 0,
-        PRIORITY_ABOVE_NORMAL: -7,
-        PRIORITY_HIGH: -14,
-        PRIORITY_HIGHEST: -20,
-        SIGHUP: 1,
-        SIGINT: 2,
-        SIGQUIT: 3,
-        SIGILL: 4,
-        SIGABRT: 22,
-        SIGFPE: 8,
-        SIGKILL: 9,
-        SIGSEGV: 11,
-        SIGTERM: 15,
-        SIGBREAK: 21,
-        SIGWINCH: 28,
-        UV_FS_SYMLINK_DIR: 1,
-        UV_FS_SYMLINK_JUNCTION: 2,
-        O_RDONLY: 0,
-        O_WRONLY: 1,
-        O_RDWR: 2,
-        UV_DIRENT_UNKNOWN: 0,
-        UV_DIRENT_FILE: 1,
-        UV_DIRENT_DIR: 2,
-        UV_DIRENT_LINK: 3,
-        UV_DIRENT_FIFO: 4,
-        UV_DIRENT_SOCKET: 5,
-        UV_DIRENT_CHAR: 6,
-        UV_DIRENT_BLOCK: 7,
-        EXTENSIONLESS_FORMAT_JAVASCRIPT: 0,
-        EXTENSIONLESS_FORMAT_WASM: 1,
-        S_IFMT: 61440,
-        S_IFREG: 32768,
-        S_IFDIR: 16384,
-        S_IFCHR: 8192,
-        S_IFIFO: 4096,
-        S_IFLNK: 40960,
-        O_CREAT: 256,
-        O_EXCL: 1024,
-        UV_FS_O_FILEMAP: 536870912,
-        O_TRUNC: 512,
-        O_APPEND: 8,
-        S_IRUSR: 256,
-        S_IWUSR: 128,
-        F_OK: 0,
-        R_OK: 4,
-        W_OK: 2,
-        X_OK: 1,
-        UV_FS_COPYFILE_EXCL: 1,
-        COPYFILE_EXCL: 1,
-        UV_FS_COPYFILE_FICLONE: 2,
-        COPYFILE_FICLONE: 2,
-        UV_FS_COPYFILE_FICLONE_FORCE: 4,
-        COPYFILE_FICLONE_FORCE: 4,
-        OPENSSL_VERSION_NUMBER: 805306608,
-        SSL_OP_ALL: 2147485776,
-        SSL_OP_ALLOW_NO_DHE_KEX: 1024,
-        SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION: 262144,
-        SSL_OP_CIPHER_SERVER_PREFERENCE: 4194304,
-        SSL_OP_CISCO_ANYCONNECT: 32768,
-        SSL_OP_COOKIE_EXCHANGE: 8192,
-        SSL_OP_CRYPTOPRO_TLSEXT_BUG: 2147483648,
-        SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS: 2048,
-        SSL_OP_LEGACY_SERVER_CONNECT: 4,
-        SSL_OP_NO_COMPRESSION: 131072,
-        SSL_OP_NO_ENCRYPT_THEN_MAC: 524288,
-        SSL_OP_NO_QUERY_MTU: 4096,
-        SSL_OP_NO_RENEGOTIATION: 1073741824,
-        SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION: 65536,
-        SSL_OP_NO_SSLv2: 0,
-        SSL_OP_NO_SSLv3: 33554432,
-        SSL_OP_NO_TICKET: 16384,
-        SSL_OP_NO_TLSv1: 67108864,
-        SSL_OP_NO_TLSv1_1: 268435456,
-        SSL_OP_NO_TLSv1_2: 134217728,
-        SSL_OP_NO_TLSv1_3: 536870912,
-        SSL_OP_PRIORITIZE_CHACHA: 2097152,
-        SSL_OP_TLS_ROLLBACK_BUG: 8388608,
-        ENGINE_METHOD_RSA: 1,
-        ENGINE_METHOD_DSA: 2,
-        ENGINE_METHOD_DH: 4,
-        ENGINE_METHOD_RAND: 8,
-        ENGINE_METHOD_EC: 2048,
-        ENGINE_METHOD_CIPHERS: 64,
-        ENGINE_METHOD_DIGESTS: 128,
-        ENGINE_METHOD_PKEY_METHS: 512,
-        ENGINE_METHOD_PKEY_ASN1_METHS: 1024,
-        ENGINE_METHOD_ALL: 65535,
-        ENGINE_METHOD_NONE: 0,
-        DH_CHECK_P_NOT_SAFE_PRIME: 2,
-        DH_CHECK_P_NOT_PRIME: 1,
-        DH_UNABLE_TO_CHECK_GENERATOR: 4,
-        DH_NOT_SUITABLE_GENERATOR: 8,
-        RSA_PKCS1_PADDING: 1,
-        RSA_NO_PADDING: 3,
-        RSA_PKCS1_OAEP_PADDING: 4,
-        RSA_X931_PADDING: 5,
-        RSA_PKCS1_PSS_PADDING: 6,
-        RSA_PSS_SALTLEN_DIGEST: -1,
-        RSA_PSS_SALTLEN_MAX_SIGN: -2,
-        RSA_PSS_SALTLEN_AUTO: -2,
-        defaultCoreCipherList: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…",
-        TLS1_VERSION: 769,
-        TLS1_1_VERSION: 770,
-        TLS1_2_VERSION: 771,
-        TLS1_3_VERSION: 772,
-        POINT_CONVERSION_COMPRESSED: 2,
-        POINT_CONVERSION_UNCOMPRESSED: 4,
-        POINT_CONVERSION_HYBRID: 6
-    },
-    defaultCoreCipherList: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…"
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/constants.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ALPN_ENABLED: 1,
-    BROTLI_DECODE: 8,
-    BROTLI_DECODER_ERROR_ALLOC_BLOCK_TYPE_TREES: -30,
-    BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MAP: -25,
-    BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MODES: -21,
-    BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_1: -26,
-    BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_2: -27,
-    BROTLI_DECODER_ERROR_ALLOC_TREE_GROUPS: -22,
-    BROTLI_DECODER_ERROR_DICTIONARY_NOT_SET: -19,
-    BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_1: -9,
-    BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_2: -10,
-    BROTLI_DECODER_ERROR_FORMAT_CL_SPACE: -6,
-    BROTLI_DECODER_ERROR_FORMAT_CONTEXT_MAP_REPEAT: -8,
-    BROTLI_DECODER_ERROR_FORMAT_DICTIONARY: -12,
-    BROTLI_DECODER_ERROR_FORMAT_DISTANCE: -16,
-    BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_META_NIBBLE: -3,
-    BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_NIBBLE: -1,
-    BROTLI_DECODER_ERROR_FORMAT_HUFFMAN_SPACE: -7,
-    BROTLI_DECODER_ERROR_FORMAT_PADDING_1: -14,
-    BROTLI_DECODER_ERROR_FORMAT_PADDING_2: -15,
-    BROTLI_DECODER_ERROR_FORMAT_RESERVED: -2,
-    BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_ALPHABET: -4,
-    BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_SAME: -5,
-    BROTLI_DECODER_ERROR_FORMAT_TRANSFORM: -11,
-    BROTLI_DECODER_ERROR_FORMAT_WINDOW_BITS: -13,
-    BROTLI_DECODER_ERROR_INVALID_ARGUMENTS: -20,
-    BROTLI_DECODER_ERROR_UNREACHABLE: -31,
-    BROTLI_DECODER_NEEDS_MORE_INPUT: 2,
-    BROTLI_DECODER_NEEDS_MORE_OUTPUT: 3,
-    BROTLI_DECODER_NO_ERROR: 0,
-    BROTLI_DECODER_PARAM_DISABLE_RING_BUFFER_REALLOCATION: 0,
-    BROTLI_DECODER_PARAM_LARGE_WINDOW: 1,
-    BROTLI_DECODER_RESULT_ERROR: 0,
-    BROTLI_DECODER_RESULT_NEEDS_MORE_INPUT: 2,
-    BROTLI_DECODER_RESULT_NEEDS_MORE_OUTPUT: 3,
-    BROTLI_DECODER_RESULT_SUCCESS: 1,
-    BROTLI_DECODER_SUCCESS: 1,
-    BROTLI_DEFAULT_MODE: 0,
-    BROTLI_DEFAULT_QUALITY: 11,
-    BROTLI_DEFAULT_WINDOW: 22,
-    BROTLI_ENCODE: 9,
-    BROTLI_LARGE_MAX_WINDOW_BITS: 30,
-    BROTLI_MAX_INPUT_BLOCK_BITS: 24,
-    BROTLI_MAX_QUALITY: 11,
-    BROTLI_MAX_WINDOW_BITS: 24,
-    BROTLI_MIN_INPUT_BLOCK_BITS: 16,
-    BROTLI_MIN_QUALITY: 0,
-    BROTLI_MIN_WINDOW_BITS: 10,
-    BROTLI_MODE_FONT: 2,
-    BROTLI_MODE_GENERIC: 0,
-    BROTLI_MODE_TEXT: 1,
-    BROTLI_OPERATION_EMIT_METADATA: 3,
-    BROTLI_OPERATION_FINISH: 2,
-    BROTLI_OPERATION_FLUSH: 1,
-    BROTLI_OPERATION_PROCESS: 0,
-    BROTLI_PARAM_DISABLE_LITERAL_CONTEXT_MODELING: 4,
-    BROTLI_PARAM_LARGE_WINDOW: 6,
-    BROTLI_PARAM_LGBLOCK: 3,
-    BROTLI_PARAM_LGWIN: 2,
-    BROTLI_PARAM_MODE: 0,
-    BROTLI_PARAM_NDIRECT: 8,
-    BROTLI_PARAM_NPOSTFIX: 7,
-    BROTLI_PARAM_QUALITY: 1,
-    BROTLI_PARAM_SIZE_HINT: 5,
-    COPYFILE_EXCL: 1,
-    COPYFILE_FICLONE: 2,
-    COPYFILE_FICLONE_FORCE: 4,
-    DEFLATE: 1,
-    DEFLATERAW: 5,
-    DH_CHECK_P_NOT_PRIME: 1,
-    DH_CHECK_P_NOT_SAFE_PRIME: 2,
-    DH_NOT_SUITABLE_GENERATOR: 8,
-    DH_UNABLE_TO_CHECK_GENERATOR: 4,
-    E2BIG: 7,
-    EACCES: 13,
-    EADDRINUSE: 100,
-    EADDRNOTAVAIL: 101,
-    EAFNOSUPPORT: 102,
-    EAGAIN: 11,
-    EALREADY: 103,
-    EBADF: 9,
-    EBADMSG: 104,
-    EBUSY: 16,
-    ECANCELED: 105,
-    ECHILD: 10,
-    ECONNABORTED: 106,
-    ECONNREFUSED: 107,
-    ECONNRESET: 108,
-    EDEADLK: 36,
-    EDESTADDRREQ: 109,
-    EDOM: 33,
-    EDQUOT: undefined,
-    EEXIST: 17,
-    EFAULT: 14,
-    EFBIG: 27,
-    EHOSTUNREACH: 110,
-    EIDRM: 111,
-    EILSEQ: 42,
-    EINPROGRESS: 112,
-    EINTR: 4,
-    EINVAL: 22,
-    EIO: 5,
-    EISCONN: 113,
-    EISDIR: 21,
-    ELOOP: 114,
-    EMFILE: 24,
-    EMLINK: 31,
-    EMSGSIZE: 115,
-    EMULTIHOP: undefined,
-    ENAMETOOLONG: 38,
-    ENETDOWN: 116,
-    ENETRESET: 117,
-    ENETUNREACH: 118,
-    ENFILE: 23,
-    ENGINE_METHOD_ALL: 65535,
-    ENGINE_METHOD_CIPHERS: 64,
-    ENGINE_METHOD_DH: 4,
-    ENGINE_METHOD_DIGESTS: 128,
-    ENGINE_METHOD_DSA: 2,
-    ENGINE_METHOD_EC: 2048,
-    ENGINE_METHOD_NONE: 0,
-    ENGINE_METHOD_PKEY_ASN1_METHS: 1024,
-    ENGINE_METHOD_PKEY_METHS: 512,
-    ENGINE_METHOD_RAND: 8,
-    ENGINE_METHOD_RSA: 1,
-    ENOBUFS: 119,
-    ENODATA: 120,
-    ENODEV: 19,
-    ENOENT: 2,
-    ENOEXEC: 8,
-    ENOLCK: 39,
-    ENOLINK: 121,
-    ENOMEM: 12,
-    ENOMSG: 122,
-    ENOPROTOOPT: 123,
-    ENOSPC: 28,
-    ENOSR: 124,
-    ENOSTR: 125,
-    ENOSYS: 40,
-    ENOTCONN: 126,
-    ENOTDIR: 20,
-    ENOTEMPTY: 41,
-    ENOTSOCK: 128,
-    ENOTSUP: 129,
-    ENOTTY: 25,
-    ENXIO: 6,
-    EOPNOTSUPP: 130,
-    EOVERFLOW: 132,
-    EPERM: 1,
-    EPIPE: 32,
-    EPROTO: 134,
-    EPROTONOSUPPORT: 135,
-    EPROTOTYPE: 136,
-    ERANGE: 34,
-    EROFS: 30,
-    ESPIPE: 29,
-    ESRCH: 3,
-    ESTALE: undefined,
-    ETIME: 137,
-    ETIMEDOUT: 138,
-    ETXTBSY: 139,
-    EWOULDBLOCK: 140,
-    EXDEV: 18,
-    F_OK: 0,
-    GUNZIP: 4,
-    GZIP: 3,
-    INFLATE: 2,
-    INFLATERAW: 6,
-    OPENSSL_VERSION_NUMBER: 269488319,
-    O_APPEND: 8,
-    O_CREAT: 512,
-    O_DIRECTORY: 1048576,
-    O_DSYNC: 4194304,
-    O_EXCL: 2048,
-    O_NOCTTY: 131072,
-    O_NOFOLLOW: 256,
-    O_NONBLOCK: 4,
-    O_RDONLY: 0,
-    O_RDWR: 2,
-    O_SYMLINK: 2097152,
-    O_SYNC: 128,
-    O_TRUNC: 1024,
-    O_WRONLY: 1,
-    POINT_CONVERSION_COMPRESSED: 2,
-    POINT_CONVERSION_HYBRID: 6,
-    POINT_CONVERSION_UNCOMPRESSED: 4,
-    PRIORITY_ABOVE_NORMAL: -7,
-    PRIORITY_BELOW_NORMAL: 10,
-    PRIORITY_HIGH: -14,
-    PRIORITY_HIGHEST: -20,
-    PRIORITY_LOW: 19,
-    PRIORITY_NORMAL: 0,
-    RSA_NO_PADDING: 3,
-    RSA_PKCS1_OAEP_PADDING: 4,
-    RSA_PKCS1_PADDING: 1,
-    RSA_PKCS1_PSS_PADDING: 6,
-    RSA_PSS_SALTLEN_AUTO: -2,
-    RSA_PSS_SALTLEN_DIGEST: -1,
-    RSA_PSS_SALTLEN_MAX_SIGN: -2,
-    RSA_SSLV23_PADDING: 2,
-    RSA_X931_PADDING: 5,
-    RTLD_DEEPBIND: undefined,
-    RTLD_GLOBAL: undefined,
-    RTLD_LAZY: undefined,
-    RTLD_LOCAL: undefined,
-    RTLD_NOW: undefined,
-    R_OK: 4,
-    SIGABRT: 22,
-    SIGALRM: undefined,
-    SIGBUS: undefined,
-    SIGCHLD: undefined,
-    SIGCONT: undefined,
-    SIGFPE: 8,
-    SIGHUP: 1,
-    SIGILL: 4,
-    SIGINT: 2,
-    SIGIO: undefined,
-    SIGIOT: undefined,
-    SIGKILL: 9,
-    SIGPIPE: undefined,
-    SIGPOLL: undefined,
-    SIGPROF: undefined,
-    SIGPWR: undefined,
-    SIGQUIT: undefined,
-    SIGSEGV: 11,
-    SIGSTKFLT: undefined,
-    SIGSTOP: undefined,
-    SIGSYS: undefined,
-    SIGTERM: 15,
-    SIGTRAP: undefined,
-    SIGTSTP: undefined,
-    SIGTTIN: undefined,
-    SIGTTOU: undefined,
-    SIGUNUSED: undefined,
-    SIGURG: undefined,
-    SIGUSR1: undefined,
-    SIGUSR2: undefined,
-    SIGVTALRM: undefined,
-    SIGWINCH: 28,
-    SIGXCPU: undefined,
-    SIGXFSZ: undefined,
-    SSL_OP_ALL: 2147485780,
-    SSL_OP_ALLOW_NO_DHE_KEX: 1024,
-    SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION: 262144,
-    SSL_OP_CIPHER_SERVER_PREFERENCE: 4194304,
-    SSL_OP_CISCO_ANYCONNECT: 32768,
-    SSL_OP_COOKIE_EXCHANGE: 8192,
-    SSL_OP_CRYPTOPRO_TLSEXT_BUG: 2147483648,
-    SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS: 2048,
-    SSL_OP_EPHEMERAL_RSA: 0,
-    SSL_OP_LEGACY_SERVER_CONNECT: 4,
-    SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER: 0,
-    SSL_OP_MICROSOFT_SESS_ID_BUG: 0,
-    SSL_OP_MSIE_SSLV2_RSA_PADDING: 0,
-    SSL_OP_NETSCAPE_CA_DN_BUG: 0,
-    SSL_OP_NETSCAPE_CHALLENGE_BUG: 0,
-    SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG: 0,
-    SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG: 0,
-    SSL_OP_NO_COMPRESSION: 131072,
-    SSL_OP_NO_ENCRYPT_THEN_MAC: 524288,
-    SSL_OP_NO_QUERY_MTU: 4096,
-    SSL_OP_NO_RENEGOTIATION: 1073741824,
-    SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION: 65536,
-    SSL_OP_NO_SSLv2: 0,
-    SSL_OP_NO_SSLv3: 33554432,
-    SSL_OP_NO_TICKET: 16384,
-    SSL_OP_NO_TLSv1: 67108864,
-    SSL_OP_NO_TLSv1_1: 268435456,
-    SSL_OP_NO_TLSv1_2: 134217728,
-    SSL_OP_NO_TLSv1_3: 536870912,
-    SSL_OP_PKCS1_CHECK_1: 0,
-    SSL_OP_PKCS1_CHECK_2: 0,
-    SSL_OP_PRIORITIZE_CHACHA: 2097152,
-    SSL_OP_SINGLE_DH_USE: 0,
-    SSL_OP_SINGLE_ECDH_USE: 0,
-    SSL_OP_SSLEAY_080_CLIENT_DH_BUG: 0,
-    SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG: 0,
-    SSL_OP_TLS_BLOCK_PADDING_BUG: 0,
-    SSL_OP_TLS_D5_BUG: 0,
-    SSL_OP_TLS_ROLLBACK_BUG: 8388608,
-    S_IFBLK: 24576,
-    S_IFCHR: 8192,
-    S_IFDIR: 16384,
-    S_IFIFO: 4096,
-    S_IFLNK: 40960,
-    S_IFMT: 61440,
-    S_IFREG: 32768,
-    S_IFSOCK: 49152,
-    S_IRGRP: 32,
-    S_IROTH: 4,
-    S_IRUSR: 256,
-    S_IRWXG: 56,
-    S_IRWXO: 7,
-    S_IRWXU: 448,
-    S_IWGRP: 16,
-    S_IWOTH: 2,
-    S_IWUSR: 128,
-    S_IXGRP: 8,
-    S_IXOTH: 1,
-    S_IXUSR: 64,
-    TLS1_1_VERSION: 770,
-    TLS1_2_VERSION: 771,
-    TLS1_3_VERSION: 772,
-    TLS1_VERSION: 769,
-    UNZIP: 7,
-    UV_DIRENT_BLOCK: 7,
-    UV_DIRENT_CHAR: 6,
-    UV_DIRENT_DIR: 2,
-    UV_DIRENT_FIFO: 4,
-    UV_DIRENT_FILE: 1,
-    UV_DIRENT_LINK: 3,
-    UV_DIRENT_SOCKET: 5,
-    UV_DIRENT_UNKNOWN: 0,
-    UV_FS_COPYFILE_EXCL: 1,
-    UV_FS_COPYFILE_FICLONE: 2,
-    UV_FS_COPYFILE_FICLONE_FORCE: 4,
-    UV_FS_O_FILEMAP: 0,
-    UV_FS_SYMLINK_DIR: 1,
-    UV_FS_SYMLINK_JUNCTION: 2,
-    W_OK: 2,
-    X_OK: 1,
-    ZLIB_VERNUM: 4784,
-    Z_BEST_COMPRESSION: 9,
-    Z_BEST_SPEED: 1,
-    Z_BLOCK: 5,
-    Z_BUF_ERROR: -5,
-    Z_DATA_ERROR: -3,
-    Z_DEFAULT_CHUNK: 16384,
-    Z_DEFAULT_COMPRESSION: -1,
-    Z_DEFAULT_LEVEL: -1,
-    Z_DEFAULT_MEMLEVEL: 8,
-    Z_DEFAULT_STRATEGY: 0,
-    Z_DEFAULT_WINDOWBITS: 15,
-    Z_ERRNO: -1,
-    Z_FILTERED: 1,
-    Z_FINISH: 4,
-    Z_FIXED: 4,
-    Z_FULL_FLUSH: 3,
-    Z_HUFFMAN_ONLY: 2,
-    Z_MAX_CHUNK: Infinity,
-    Z_MAX_LEVEL: 9,
-    Z_MAX_MEMLEVEL: 9,
-    Z_MAX_WINDOWBITS: 15,
-    Z_MEM_ERROR: -4,
-    Z_MIN_CHUNK: 64,
-    Z_MIN_LEVEL: -1,
-    Z_MIN_MEMLEVEL: 1,
-    Z_MIN_WINDOWBITS: 8,
-    Z_NEED_DICT: 2,
-    Z_NO_COMPRESSION: 0,
-    Z_NO_FLUSH: 0,
-    Z_OK: 0,
-    Z_PARTIAL_FLUSH: 1,
-    Z_RLE: 3,
-    Z_STREAM_END: 1,
-    Z_STREAM_ERROR: -2,
-    Z_SYNC_FLUSH: 2,
-    Z_VERSION_ERROR: -6,
-    default: {
-        COPYFILE_EXCL: 1,
-        COPYFILE_FICLONE: 2,
-        COPYFILE_FICLONE_FORCE: 4,
-        F_OK: 0,
-        O_APPEND: 8,
-        O_CREAT: 512,
-        O_DIRECTORY: 1048576,
-        O_DSYNC: 4194304,
-        O_EXCL: 2048,
-        O_NOCTTY: 131072,
-        O_NOFOLLOW: 256,
-        O_NONBLOCK: 4,
-        O_RDONLY: 0,
-        O_RDWR: 2,
-        O_SYMLINK: 2097152,
-        O_SYNC: 128,
-        O_TRUNC: 1024,
-        O_WRONLY: 1,
-        R_OK: 4,
-        S_IFBLK: 24576,
-        S_IFCHR: 8192,
-        S_IFDIR: 16384,
-        S_IFIFO: 4096,
-        S_IFLNK: 40960,
-        S_IFMT: 61440,
-        S_IFREG: 32768,
-        S_IFSOCK: 49152,
-        S_IRGRP: 32,
-        S_IROTH: 4,
-        S_IRUSR: 256,
-        S_IRWXG: 56,
-        S_IRWXO: 7,
-        S_IRWXU: 448,
-        S_IWGRP: 16,
-        S_IWOTH: 2,
-        S_IWUSR: 128,
-        S_IXGRP: 8,
-        S_IXOTH: 1,
-        S_IXUSR: 64,
-        UV_DIRENT_BLOCK: 7,
-        UV_DIRENT_CHAR: 6,
-        UV_DIRENT_DIR: 2,
-        UV_DIRENT_FIFO: 4,
-        UV_DIRENT_FILE: 1,
-        UV_DIRENT_LINK: 3,
-        UV_DIRENT_SOCKET: 5,
-        UV_DIRENT_UNKNOWN: 0,
-        UV_FS_COPYFILE_EXCL: 1,
-        UV_FS_COPYFILE_FICLONE: 2,
-        UV_FS_COPYFILE_FICLONE_FORCE: 4,
-        UV_FS_O_FILEMAP: 0,
-        UV_FS_SYMLINK_DIR: 1,
-        UV_FS_SYMLINK_JUNCTION: 2,
-        W_OK: 2,
-        X_OK: 1,
-        E2BIG: 7,
-        EACCES: 13,
-        EADDRINUSE: 100,
-        EADDRNOTAVAIL: 101,
-        EAFNOSUPPORT: 102,
-        EAGAIN: 11,
-        EALREADY: 103,
-        EBADF: 9,
-        EBADMSG: 104,
-        EBUSY: 16,
-        ECANCELED: 105,
-        ECHILD: 10,
-        ECONNABORTED: 106,
-        ECONNREFUSED: 107,
-        ECONNRESET: 108,
-        EDEADLK: 36,
-        EDESTADDRREQ: 109,
-        EDOM: 33,
-        EEXIST: 17,
-        EFAULT: 14,
-        EFBIG: 27,
-        EHOSTUNREACH: 110,
-        EIDRM: 111,
-        EILSEQ: 42,
-        EINPROGRESS: 112,
-        EINTR: 4,
-        EINVAL: 22,
-        EIO: 5,
-        EISCONN: 113,
-        EISDIR: 21,
-        ELOOP: 114,
-        EMFILE: 24,
-        EMLINK: 31,
-        EMSGSIZE: 115,
-        ENAMETOOLONG: 38,
-        ENETDOWN: 116,
-        ENETRESET: 117,
-        ENETUNREACH: 118,
-        ENFILE: 23,
-        ENOBUFS: 119,
-        ENODATA: 120,
-        ENODEV: 19,
-        ENOENT: 2,
-        ENOEXEC: 8,
-        ENOLCK: 39,
-        ENOLINK: 121,
-        ENOMEM: 12,
-        ENOMSG: 122,
-        ENOPROTOOPT: 123,
-        ENOSPC: 28,
-        ENOSR: 124,
-        ENOSTR: 125,
-        ENOSYS: 40,
-        ENOTCONN: 126,
-        ENOTDIR: 20,
-        ENOTEMPTY: 41,
-        ENOTSOCK: 128,
-        ENOTSUP: 129,
-        ENOTTY: 25,
-        ENXIO: 6,
-        EOPNOTSUPP: 130,
-        EOVERFLOW: 132,
-        EPERM: 1,
-        EPIPE: 32,
-        EPROTO: 134,
-        EPROTONOSUPPORT: 135,
-        EPROTOTYPE: 136,
-        ERANGE: 34,
-        EROFS: 30,
-        ESPIPE: 29,
-        ESRCH: 3,
-        ETIME: 137,
-        ETIMEDOUT: 138,
-        ETXTBSY: 139,
-        EWOULDBLOCK: 140,
-        EXDEV: 18,
-        WSAEINTR: 10004,
-        WSAEBADF: 10009,
-        WSAEACCES: 10013,
-        WSAEFAULT: 10014,
-        WSAEINVAL: 10022,
-        WSAEMFILE: 10024,
-        WSAEWOULDBLOCK: 10035,
-        WSAEINPROGRESS: 10036,
-        WSAEALREADY: 10037,
-        WSAENOTSOCK: 10038,
-        WSAEDESTADDRREQ: 10039,
-        WSAEMSGSIZE: 10040,
-        WSAEPROTOTYPE: 10041,
-        WSAENOPROTOOPT: 10042,
-        WSAEPROTONOSUPPORT: 10043,
-        WSAESOCKTNOSUPPORT: 10044,
-        WSAEOPNOTSUPP: 10045,
-        WSAEPFNOSUPPORT: 10046,
-        WSAEAFNOSUPPORT: 10047,
-        WSAEADDRINUSE: 10048,
-        WSAEADDRNOTAVAIL: 10049,
-        WSAENETDOWN: 10050,
-        WSAENETUNREACH: 10051,
-        WSAENETRESET: 10052,
-        WSAECONNABORTED: 10053,
-        WSAECONNRESET: 10054,
-        WSAENOBUFS: 10055,
-        WSAEISCONN: 10056,
-        WSAENOTCONN: 10057,
-        WSAESHUTDOWN: 10058,
-        WSAETOOMANYREFS: 10059,
-        WSAETIMEDOUT: 10060,
-        WSAECONNREFUSED: 10061,
-        WSAELOOP: 10062,
-        WSAENAMETOOLONG: 10063,
-        WSAEHOSTDOWN: 10064,
-        WSAEHOSTUNREACH: 10065,
-        WSAENOTEMPTY: 10066,
-        WSAEPROCLIM: 10067,
-        WSAEUSERS: 10068,
-        WSAEDQUOT: 10069,
-        WSAESTALE: 10070,
-        WSAEREMOTE: 10071,
-        WSASYSNOTREADY: 10091,
-        WSAVERNOTSUPPORTED: 10092,
-        WSANOTINITIALISED: 10093,
-        WSAEDISCON: 10101,
-        WSAENOMORE: 10102,
-        WSAECANCELLED: 10103,
-        WSAEINVALIDPROCTABLE: 10104,
-        WSAEINVALIDPROVIDER: 10105,
-        WSAEPROVIDERFAILEDINIT: 10106,
-        WSASYSCALLFAILURE: 10107,
-        WSASERVICE_NOT_FOUND: 10108,
-        WSATYPE_NOT_FOUND: 10109,
-        WSA_E_NO_MORE: 10110,
-        WSA_E_CANCELLED: 10111,
-        WSAEREFUSED: 10112,
-        SIGHUP: 1,
-        SIGINT: 2,
-        SIGILL: 4,
-        SIGABRT: 22,
-        SIGFPE: 8,
-        SIGKILL: 9,
-        SIGSEGV: 11,
-        SIGTERM: 15,
-        SIGBREAK: 21,
-        SIGWINCH: 28,
-        PRIORITY_LOW: 19,
-        PRIORITY_BELOW_NORMAL: 10,
-        PRIORITY_NORMAL: 0,
-        PRIORITY_ABOVE_NORMAL: -7,
-        PRIORITY_HIGH: -14,
-        PRIORITY_HIGHEST: -20,
-        OPENSSL_VERSION_NUMBER: 269488319,
-        SSL_OP_ALL: 2147485780,
-        SSL_OP_ALLOW_NO_DHE_KEX: 1024,
-        SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION: 262144,
-        SSL_OP_CIPHER_SERVER_PREFERENCE: 4194304,
-        SSL_OP_CISCO_ANYCONNECT: 32768,
-        SSL_OP_COOKIE_EXCHANGE: 8192,
-        SSL_OP_CRYPTOPRO_TLSEXT_BUG: 2147483648,
-        SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS: 2048,
-        SSL_OP_EPHEMERAL_RSA: 0,
-        SSL_OP_LEGACY_SERVER_CONNECT: 4,
-        SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER: 0,
-        SSL_OP_MICROSOFT_SESS_ID_BUG: 0,
-        SSL_OP_MSIE_SSLV2_RSA_PADDING: 0,
-        SSL_OP_NETSCAPE_CA_DN_BUG: 0,
-        SSL_OP_NETSCAPE_CHALLENGE_BUG: 0,
-        SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG: 0,
-        SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG: 0,
-        SSL_OP_NO_COMPRESSION: 131072,
-        SSL_OP_NO_ENCRYPT_THEN_MAC: 524288,
-        SSL_OP_NO_QUERY_MTU: 4096,
-        SSL_OP_NO_RENEGOTIATION: 1073741824,
-        SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION: 65536,
-        SSL_OP_NO_SSLv2: 0,
-        SSL_OP_NO_SSLv3: 33554432,
-        SSL_OP_NO_TICKET: 16384,
-        SSL_OP_NO_TLSv1: 67108864,
-        SSL_OP_NO_TLSv1_1: 268435456,
-        SSL_OP_NO_TLSv1_2: 134217728,
-        SSL_OP_NO_TLSv1_3: 536870912,
-        SSL_OP_PKCS1_CHECK_1: 0,
-        SSL_OP_PKCS1_CHECK_2: 0,
-        SSL_OP_PRIORITIZE_CHACHA: 2097152,
-        SSL_OP_SINGLE_DH_USE: 0,
-        SSL_OP_SINGLE_ECDH_USE: 0,
-        SSL_OP_SSLEAY_080_CLIENT_DH_BUG: 0,
-        SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG: 0,
-        SSL_OP_TLS_BLOCK_PADDING_BUG: 0,
-        SSL_OP_TLS_D5_BUG: 0,
-        SSL_OP_TLS_ROLLBACK_BUG: 8388608,
-        ENGINE_METHOD_RSA: 1,
-        ENGINE_METHOD_DSA: 2,
-        ENGINE_METHOD_DH: 4,
-        ENGINE_METHOD_RAND: 8,
-        ENGINE_METHOD_EC: 2048,
-        ENGINE_METHOD_CIPHERS: 64,
-        ENGINE_METHOD_DIGESTS: 128,
-        ENGINE_METHOD_PKEY_METHS: 512,
-        ENGINE_METHOD_PKEY_ASN1_METHS: 1024,
-        ENGINE_METHOD_ALL: 65535,
-        ENGINE_METHOD_NONE: 0,
-        DH_CHECK_P_NOT_SAFE_PRIME: 2,
-        DH_CHECK_P_NOT_PRIME: 1,
-        DH_UNABLE_TO_CHECK_GENERATOR: 4,
-        DH_NOT_SUITABLE_GENERATOR: 8,
-        ALPN_ENABLED: 1,
-        RSA_PKCS1_PADDING: 1,
-        RSA_SSLV23_PADDING: 2,
-        RSA_NO_PADDING: 3,
-        RSA_PKCS1_OAEP_PADDING: 4,
-        RSA_X931_PADDING: 5,
-        RSA_PKCS1_PSS_PADDING: 6,
-        RSA_PSS_SALTLEN_DIGEST: -1,
-        RSA_PSS_SALTLEN_MAX_SIGN: -2,
-        RSA_PSS_SALTLEN_AUTO: -2,
-        defaultCoreCipherList: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…",
-        TLS1_VERSION: 769,
-        TLS1_1_VERSION: 770,
-        TLS1_2_VERSION: 771,
-        TLS1_3_VERSION: 772,
-        POINT_CONVERSION_COMPRESSED: 2,
-        POINT_CONVERSION_UNCOMPRESSED: 4,
-        POINT_CONVERSION_HYBRID: 6,
-        Z_NO_FLUSH: 0,
-        Z_PARTIAL_FLUSH: 1,
-        Z_SYNC_FLUSH: 2,
-        Z_FULL_FLUSH: 3,
-        Z_FINISH: 4,
-        Z_BLOCK: 5,
-        Z_OK: 0,
-        Z_STREAM_END: 1,
-        Z_NEED_DICT: 2,
-        Z_ERRNO: -1,
-        Z_STREAM_ERROR: -2,
-        Z_DATA_ERROR: -3,
-        Z_MEM_ERROR: -4,
-        Z_BUF_ERROR: -5,
-        Z_VERSION_ERROR: -6,
-        Z_NO_COMPRESSION: 0,
-        Z_BEST_SPEED: 1,
-        Z_BEST_COMPRESSION: 9,
-        Z_DEFAULT_COMPRESSION: -1,
-        Z_FILTERED: 1,
-        Z_HUFFMAN_ONLY: 2,
-        Z_RLE: 3,
-        Z_FIXED: 4,
-        Z_DEFAULT_STRATEGY: 0,
-        ZLIB_VERNUM: 4784,
-        DEFLATE: 1,
-        INFLATE: 2,
-        GZIP: 3,
-        GUNZIP: 4,
-        DEFLATERAW: 5,
-        INFLATERAW: 6,
-        UNZIP: 7,
-        BROTLI_DECODE: 8,
-        BROTLI_ENCODE: 9,
-        Z_MIN_WINDOWBITS: 8,
-        Z_MAX_WINDOWBITS: 15,
-        Z_DEFAULT_WINDOWBITS: 15,
-        Z_MIN_CHUNK: 64,
-        Z_MAX_CHUNK: Infinity,
-        Z_DEFAULT_CHUNK: 16384,
-        Z_MIN_MEMLEVEL: 1,
-        Z_MAX_MEMLEVEL: 9,
-        Z_DEFAULT_MEMLEVEL: 8,
-        Z_MIN_LEVEL: -1,
-        Z_MAX_LEVEL: 9,
-        Z_DEFAULT_LEVEL: -1,
-        BROTLI_OPERATION_PROCESS: 0,
-        BROTLI_OPERATION_FLUSH: 1,
-        BROTLI_OPERATION_FINISH: 2,
-        BROTLI_OPERATION_EMIT_METADATA: 3,
-        BROTLI_PARAM_MODE: 0,
-        BROTLI_MODE_GENERIC: 0,
-        BROTLI_MODE_TEXT: 1,
-        BROTLI_MODE_FONT: 2,
-        BROTLI_DEFAULT_MODE: 0,
-        BROTLI_PARAM_QUALITY: 1,
-        BROTLI_MIN_QUALITY: 0,
-        BROTLI_MAX_QUALITY: 11,
-        BROTLI_DEFAULT_QUALITY: 11,
-        BROTLI_PARAM_LGWIN: 2,
-        BROTLI_MIN_WINDOW_BITS: 10,
-        BROTLI_MAX_WINDOW_BITS: 24,
-        BROTLI_LARGE_MAX_WINDOW_BITS: 30,
-        BROTLI_DEFAULT_WINDOW: 22,
-        BROTLI_PARAM_LGBLOCK: 3,
-        BROTLI_MIN_INPUT_BLOCK_BITS: 16,
-        BROTLI_MAX_INPUT_BLOCK_BITS: 24,
-        BROTLI_PARAM_DISABLE_LITERAL_CONTEXT_MODELING: 4,
-        BROTLI_PARAM_SIZE_HINT: 5,
-        BROTLI_PARAM_LARGE_WINDOW: 6,
-        BROTLI_PARAM_NPOSTFIX: 7,
-        BROTLI_PARAM_NDIRECT: 8,
-        BROTLI_DECODER_RESULT_ERROR: 0,
-        BROTLI_DECODER_RESULT_SUCCESS: 1,
-        BROTLI_DECODER_RESULT_NEEDS_MORE_INPUT: 2,
-        BROTLI_DECODER_RESULT_NEEDS_MORE_OUTPUT: 3,
-        BROTLI_DECODER_PARAM_DISABLE_RING_BUFFER_REALLOCATION: 0,
-        BROTLI_DECODER_PARAM_LARGE_WINDOW: 1,
-        BROTLI_DECODER_NO_ERROR: 0,
-        BROTLI_DECODER_SUCCESS: 1,
-        BROTLI_DECODER_NEEDS_MORE_INPUT: 2,
-        BROTLI_DECODER_NEEDS_MORE_OUTPUT: 3,
-        BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_NIBBLE: -1,
-        BROTLI_DECODER_ERROR_FORMAT_RESERVED: -2,
-        BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_META_NIBBLE: -3,
-        BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_ALPHABET: -4,
-        BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_SAME: -5,
-        BROTLI_DECODER_ERROR_FORMAT_CL_SPACE: -6,
-        BROTLI_DECODER_ERROR_FORMAT_HUFFMAN_SPACE: -7,
-        BROTLI_DECODER_ERROR_FORMAT_CONTEXT_MAP_REPEAT: -8,
-        BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_1: -9,
-        BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_2: -10,
-        BROTLI_DECODER_ERROR_FORMAT_TRANSFORM: -11,
-        BROTLI_DECODER_ERROR_FORMAT_DICTIONARY: -12,
-        BROTLI_DECODER_ERROR_FORMAT_WINDOW_BITS: -13,
-        BROTLI_DECODER_ERROR_FORMAT_PADDING_1: -14,
-        BROTLI_DECODER_ERROR_FORMAT_PADDING_2: -15,
-        BROTLI_DECODER_ERROR_FORMAT_DISTANCE: -16,
-        BROTLI_DECODER_ERROR_DICTIONARY_NOT_SET: -19,
-        BROTLI_DECODER_ERROR_INVALID_ARGUMENTS: -20,
-        BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MODES: -21,
-        BROTLI_DECODER_ERROR_ALLOC_TREE_GROUPS: -22,
-        BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MAP: -25,
-        BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_1: -26,
-        BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_2: -27,
-        BROTLI_DECODER_ERROR_ALLOC_BLOCK_TYPE_TREES: -30,
-        BROTLI_DECODER_ERROR_UNREACHABLE: -31
-    },
-    defaultCoreCipherList: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…"
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/constants.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="crypto"></a>
 <details>
-			<summary><code>crypto</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>crypto</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Certificate: <ref *2> ƒ Certificate(length: 0) {
-        exportChallenge: ƒ exportChallenge(length: 2) {},
-        exportPublicKey: ƒ exportPublicKey(length: 2) {},
-        verifySpkac: ƒ verifySpkac(length: 2) {}
-    },
-    Cipher: undefined,
-    Cipheriv: <ref *6> ƒ Cipheriv(length: 4) {},
-    Decipher: undefined,
-    Decipheriv: <ref *7> ƒ Decipheriv(length: 4) {},
-    DiffieHellman: <ref *8> ƒ DiffieHellman(length: 4) {},
-    DiffieHellmanGroup: <ref *9> ƒ DiffieHellmanGroup(length: 1) {},
-    ECDH: <ref *10> ƒ ECDH(length: 1) {
-        convertKey: ƒ convertKey(length: 5) {}
-    },
-    Hash: <ref *12> ƒ deprecated(length: 0) {},
-    Hmac: <ref *13> ƒ deprecated(length: 0) {},
-    KeyObject: <ref *14> class KeyObject extends NativeKeyObject {},
-    Sign: <ref *15> ƒ Sign(length: 2) {},
-    Verify: <ref *16> ƒ Verify(length: 2) {},
-    X509Certificate: <ref *17> class X509Certificate {},
-    checkPrime: <ref *18> ƒ checkPrime(length: 1) {},
-    checkPrimeSync: <ref *19> ƒ checkPrimeSync(length: 1) {},
-    constants: <ref *20> [Object: null prototype] {
-        OPENSSL_VERSION_NUMBER: 805306608,
-        SSL_OP_ALL: 2147485776,
-        SSL_OP_ALLOW_NO_DHE_KEX: 1024,
-        SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION: 262144,
-        SSL_OP_CIPHER_SERVER_PREFERENCE: 4194304,
-        SSL_OP_CISCO_ANYCONNECT: 32768,
-        SSL_OP_COOKIE_EXCHANGE: 8192,
-        SSL_OP_CRYPTOPRO_TLSEXT_BUG: 2147483648,
-        SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS: 2048,
-        SSL_OP_LEGACY_SERVER_CONNECT: 4,
-        SSL_OP_NO_COMPRESSION: 131072,
-        SSL_OP_NO_ENCRYPT_THEN_MAC: 524288,
-        SSL_OP_NO_QUERY_MTU: 4096,
-        SSL_OP_NO_RENEGOTIATION: 1073741824,
-        SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION: 65536,
-        SSL_OP_NO_SSLv2: 0,
-        SSL_OP_NO_SSLv3: 33554432,
-        SSL_OP_NO_TICKET: 16384,
-        SSL_OP_NO_TLSv1: 67108864,
-        SSL_OP_NO_TLSv1_1: 268435456,
-        SSL_OP_NO_TLSv1_2: 134217728,
-        SSL_OP_NO_TLSv1_3: 536870912,
-        SSL_OP_PRIORITIZE_CHACHA: 2097152,
-        SSL_OP_TLS_ROLLBACK_BUG: 8388608,
-        ENGINE_METHOD_RSA: 1,
-        ENGINE_METHOD_DSA: 2,
-        ENGINE_METHOD_DH: 4,
-        ENGINE_METHOD_RAND: 8,
-        ENGINE_METHOD_EC: 2048,
-        ENGINE_METHOD_CIPHERS: 64,
-        ENGINE_METHOD_DIGESTS: 128,
-        ENGINE_METHOD_PKEY_METHS: 512,
-        ENGINE_METHOD_PKEY_ASN1_METHS: 1024,
-        ENGINE_METHOD_ALL: 65535,
-        ENGINE_METHOD_NONE: 0,
-        DH_CHECK_P_NOT_SAFE_PRIME: 2,
-        DH_CHECK_P_NOT_PRIME: 1,
-        DH_UNABLE_TO_CHECK_GENERATOR: 4,
-        DH_NOT_SUITABLE_GENERATOR: 8,
-        RSA_PKCS1_PADDING: 1,
-        RSA_NO_PADDING: 3,
-        RSA_PKCS1_OAEP_PADDING: 4,
-        RSA_X931_PADDING: 5,
-        RSA_PKCS1_PSS_PADDING: 6,
-        RSA_PSS_SALTLEN_DIGEST: -1,
-        RSA_PSS_SALTLEN_MAX_SIGN: -2,
-        RSA_PSS_SALTLEN_AUTO: -2,
-        defaultCoreCipherList: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…",
-        TLS1_VERSION: 769,
-        TLS1_1_VERSION: 770,
-        TLS1_2_VERSION: 771,
-        TLS1_3_VERSION: 772,
-        POINT_CONVERSION_COMPRESSED: 2,
-        POINT_CONVERSION_UNCOMPRESSED: 4,
-        POINT_CONVERSION_HYBRID: 6,
-        [get/set] defaultCipherList: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…"
-    },
-    createCipheriv: <ref *21> ƒ createCipheriv(length: 4) {},
-    createDecipheriv: <ref *22> ƒ createDecipheriv(length: 4) {},
-    createDiffieHellman: <ref *23> ƒ createDiffieHellman(length: 4) {},
-    createDiffieHellmanGroup: <ref *24> ƒ createDiffieHellmanGroup(length: 1) {},
-    createECDH: <ref *25> ƒ createECDH(length: 1) {},
-    createHash: <ref *26> ƒ createHash(length: 2) {},
-    createHmac: <ref *27> ƒ createHmac(length: 3) {},
-    createPrivateKey: <ref *28> ƒ createPrivateKey(length: 1) {},
-    createPublicKey: <ref *29> ƒ createPublicKey(length: 1) {},
-    createSecretKey: <ref *30> ƒ createSecretKey(length: 2) {},
-    createSign: <ref *31> ƒ createSign(length: 2) {},
-    createVerify: <ref *32> ƒ createVerify(length: 2) {},
-    default: {
-        checkPrime: [Circular: *18],
-        checkPrimeSync: [Circular: *19],
-        createCipheriv: [Circular: *21],
-        createDecipheriv: [Circular: *22],
-        createDiffieHellman: [Circular: *23],
-        createDiffieHellmanGroup: [Circular: *24],
-        createECDH: [Circular: *25],
-        createHash: [Circular: *26],
-        createHmac: [Circular: *27],
-        createPrivateKey: [Circular: *28],
-        createPublicKey: [Circular: *29],
-        createSecretKey: [Circular: *30],
-        createSign: [Circular: *31],
-        createVerify: [Circular: *32],
-        diffieHellman: <ref *34> ƒ diffieHellman(length: 1) {},
-        generatePrime: <ref *35> ƒ generatePrime(length: 3) {},
-        generatePrimeSync: <ref *36> ƒ generatePrimeSync(length: 1) {},
-        getCiphers: <ref *37> ƒ (length: 0) {},
-        getCipherInfo: <ref *38> ƒ getCipherInfo(length: 2) {},
-        getCurves: <ref *39> ƒ (length: 0) {},
-        getDiffieHellman: [Circular: *24],
-        getHashes: <ref *40> ƒ (length: 0) {},
-        hkdf: <ref *41> ƒ hkdf(length: 6) {},
-        hkdfSync: <ref *42> ƒ hkdfSync(length: 5) {},
-        pbkdf2: <ref *43> ƒ pbkdf2(length: 6) {},
-        pbkdf2Sync: <ref *44> ƒ pbkdf2Sync(length: 5) {},
-        generateKeyPair: <ref *45> ƒ generateKeyPair(length: 3) {},
-        generateKeyPairSync: <ref *46> ƒ generateKeyPairSync(length: 2) {},
-        generateKey: <ref *47> ƒ generateKey(length: 3) {},
-        generateKeySync: <ref *48> ƒ generateKeySync(length: 2) {},
-        privateDecrypt: <ref *49> ƒ (length: 2) {},
-        privateEncrypt: <ref *50> ƒ (length: 2) {},
-        publicDecrypt: <ref *51> ƒ (length: 2) {},
-        publicEncrypt: <ref *52> ƒ (length: 2) {},
-        randomBytes: <ref *53> ƒ randomBytes(length: 2) {},
-        randomFill: <ref *54> ƒ randomFill(length: 4) {},
-        randomFillSync: <ref *55> ƒ randomFillSync(length: 1) {},
-        randomInt: <ref *56> ƒ randomInt(length: 3) {},
-        randomUUID: <ref *57> ƒ randomUUID(length: 1) {},
-        scrypt: <ref *58> ƒ scrypt(length: 4) {},
-        scryptSync: <ref *59> ƒ scryptSync(length: 3) {},
-        sign: <ref *60> ƒ signOneShot(length: 4) {},
-        setEngine: <ref *61> ƒ setEngine(length: 2) {},
-        timingSafeEqual: <ref *62> ƒ (length: 0) {},
-        getFips: <ref *63> ƒ getFips(length: 0) {},
-        setFips: <ref *64> ƒ setFips(length: 1) {},
-        verify: <ref *65> ƒ verifyOneShot(length: 5) {},
-        hash: <ref *66> ƒ hash(length: 2) {},
-        Certificate: [Circular: *2],
-        Cipher: undefined,
-        Cipheriv: [Circular: *6],
-        Decipher: undefined,
-        Decipheriv: [Circular: *7],
-        DiffieHellman: [Circular: *8],
-        DiffieHellmanGroup: [Circular: *9],
-        ECDH: [Circular: *10],
-        Hash: [Circular: *12],
-        Hmac: [Circular: *13],
-        KeyObject: [Circular: *14],
-        Sign: [Circular: *15],
-        Verify: [Circular: *16],
-        X509Certificate: [Circular: *17],
-        secureHeapUsed: <ref *67> ƒ secureHeapUsed(length: 0) {},
-        constants: [Circular: *20],
-        [get/set] webcrypto: <ref *68> Crypto {},
-        [get/set] subtle: <ref *69> SubtleCrypto {},
-        [get/set] getRandomValues: <ref *70> ƒ getRandomValues(length: 1) {}
-    },
-    diffieHellman: [Circular: *34],
-    generateKey: [Circular: *47],
-    generateKeyPair: [Circular: *45],
-    generateKeyPairSync: [Circular: *46],
-    generateKeySync: [Circular: *48],
-    generatePrime: [Circular: *35],
-    generatePrimeSync: [Circular: *36],
-    getCipherInfo: [Circular: *38],
-    getCiphers: [Circular: *37],
-    getCurves: [Circular: *39],
-    getDiffieHellman: [Circular: *24],
-    getFips: [Circular: *63],
-    getHashes: [Circular: *40],
-    getRandomValues: [Circular: *70],
-    hash: [Circular: *66],
-    hkdf: [Circular: *41],
-    hkdfSync: [Circular: *42],
-    pbkdf2: [Circular: *43],
-    pbkdf2Sync: [Circular: *44],
-    privateDecrypt: [Circular: *49],
-    privateEncrypt: [Circular: *50],
-    publicDecrypt: [Circular: *51],
-    publicEncrypt: [Circular: *52],
-    randomBytes: [Circular: *53],
-    randomFill: [Circular: *54],
-    randomFillSync: [Circular: *55],
-    randomInt: [Circular: *56],
-    randomUUID: [Circular: *57],
-    scrypt: [Circular: *58],
-    scryptSync: [Circular: *59],
-    secureHeapUsed: [Circular: *67],
-    setEngine: [Circular: *61],
-    setFips: [Circular: *64],
-    sign: [Circular: *60],
-    subtle: [Circular: *69],
-    timingSafeEqual: [Circular: *62],
-    verify: [Circular: *65],
-    webcrypto: [Circular: *68]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/crypto.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Certificate: <ref *2> ƒ Certificate(length: 0) {
-        exportChallenge: ƒ exportChallenge(length: 2) {},
-        exportPublicKey: ƒ exportPublicKey(length: 2) {},
-        verifySpkac: ƒ verifySpkac(length: 2) {}
-    },
-    Cipheriv: <ref *6> class Cipheriv extends Transform {},
-    Decipheriv: <ref *7> class Decipheriv extends Transform {},
-    DiffieHellman: <ref *8> ƒ DiffieHellman(length: 4) {},
-    DiffieHellmanGroup: <ref *9> ƒ DiffieHellmanGroup(length: 1) {},
-    ECDH: <ref *10> ƒ ECDH(length: 1) {},
-    Hash: <ref *11> ƒ deprecated(length: 0) {},
-    Hmac: <ref *12> ƒ deprecated(length: 0) {},
-    KeyObject: <ref *13> class KeyObject {},
-    Sign: <ref *14> ƒ Sign(length: 2) {},
-    Verify: <ref *15> ƒ Verify(length: 2) {},
-    X509Certificate: <ref *16> class X509Certificate {},
-    checkPrime: <ref *17> ƒ checkPrime(length: 1) {},
-    checkPrimeSync: <ref *18> ƒ checkPrimeSync(length: 1) {},
-    constants: <ref *19> {
-        OPENSSL_VERSION_NUMBER: 269488319,
-        SSL_OP_ALL: 2147485780,
-        SSL_OP_ALLOW_NO_DHE_KEX: 1024,
-        SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION: 262144,
-        SSL_OP_CIPHER_SERVER_PREFERENCE: 4194304,
-        SSL_OP_CISCO_ANYCONNECT: 32768,
-        SSL_OP_COOKIE_EXCHANGE: 8192,
-        SSL_OP_CRYPTOPRO_TLSEXT_BUG: 2147483648,
-        SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS: 2048,
-        SSL_OP_EPHEMERAL_RSA: 0,
-        SSL_OP_LEGACY_SERVER_CONNECT: 4,
-        SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER: 0,
-        SSL_OP_MICROSOFT_SESS_ID_BUG: 0,
-        SSL_OP_MSIE_SSLV2_RSA_PADDING: 0,
-        SSL_OP_NETSCAPE_CA_DN_BUG: 0,
-        SSL_OP_NETSCAPE_CHALLENGE_BUG: 0,
-        SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG: 0,
-        SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG: 0,
-        SSL_OP_NO_COMPRESSION: 131072,
-        SSL_OP_NO_ENCRYPT_THEN_MAC: 524288,
-        SSL_OP_NO_QUERY_MTU: 4096,
-        SSL_OP_NO_RENEGOTIATION: 1073741824,
-        SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION: 65536,
-        SSL_OP_NO_SSLv2: 0,
-        SSL_OP_NO_SSLv3: 33554432,
-        SSL_OP_NO_TICKET: 16384,
-        SSL_OP_NO_TLSv1: 67108864,
-        SSL_OP_NO_TLSv1_1: 268435456,
-        SSL_OP_NO_TLSv1_2: 134217728,
-        SSL_OP_NO_TLSv1_3: 536870912,
-        SSL_OP_PKCS1_CHECK_1: 0,
-        SSL_OP_PKCS1_CHECK_2: 0,
-        SSL_OP_PRIORITIZE_CHACHA: 2097152,
-        SSL_OP_SINGLE_DH_USE: 0,
-        SSL_OP_SINGLE_ECDH_USE: 0,
-        SSL_OP_SSLEAY_080_CLIENT_DH_BUG: 0,
-        SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG: 0,
-        SSL_OP_TLS_BLOCK_PADDING_BUG: 0,
-        SSL_OP_TLS_D5_BUG: 0,
-        SSL_OP_TLS_ROLLBACK_BUG: 8388608,
-        ENGINE_METHOD_RSA: 1,
-        ENGINE_METHOD_DSA: 2,
-        ENGINE_METHOD_DH: 4,
-        ENGINE_METHOD_RAND: 8,
-        ENGINE_METHOD_EC: 2048,
-        ENGINE_METHOD_CIPHERS: 64,
-        ENGINE_METHOD_DIGESTS: 128,
-        ENGINE_METHOD_PKEY_METHS: 512,
-        ENGINE_METHOD_PKEY_ASN1_METHS: 1024,
-        ENGINE_METHOD_ALL: 65535,
-        ENGINE_METHOD_NONE: 0,
-        DH_CHECK_P_NOT_SAFE_PRIME: 2,
-        DH_CHECK_P_NOT_PRIME: 1,
-        DH_UNABLE_TO_CHECK_GENERATOR: 4,
-        DH_NOT_SUITABLE_GENERATOR: 8,
-        ALPN_ENABLED: 1,
-        RSA_PKCS1_PADDING: 1,
-        RSA_SSLV23_PADDING: 2,
-        RSA_NO_PADDING: 3,
-        RSA_PKCS1_OAEP_PADDING: 4,
-        RSA_X931_PADDING: 5,
-        RSA_PKCS1_PSS_PADDING: 6,
-        RSA_PSS_SALTLEN_DIGEST: -1,
-        RSA_PSS_SALTLEN_MAX_SIGN: -2,
-        RSA_PSS_SALTLEN_AUTO: -2,
-        defaultCoreCipherList: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…",
-        TLS1_VERSION: 769,
-        TLS1_1_VERSION: 770,
-        TLS1_2_VERSION: 771,
-        TLS1_3_VERSION: 772,
-        POINT_CONVERSION_COMPRESSED: 2,
-        POINT_CONVERSION_UNCOMPRESSED: 4,
-        POINT_CONVERSION_HYBRID: 6
-    },
-    createCipheriv: <ref *20> ƒ createCipheriv(length: 4) {},
-    createDecipheriv: <ref *21> ƒ createDecipheriv(length: 4) {},
-    createDiffieHellman: <ref *22> ƒ createDiffieHellman(length: 4) {},
-    createDiffieHellmanGroup: <ref *23> ƒ createDiffieHellmanGroup(length: 1) {},
-    createECDH: <ref *24> ƒ createECDH(length: 1) {},
-    createHash: <ref *25> ƒ createHash(length: 2) {},
-    createHmac: <ref *26> ƒ createHmac(length: 3) {},
-    createPrivateKey: <ref *27> ƒ createPrivateKey(length: 1) {},
-    createPublicKey: <ref *28> ƒ createPublicKey(length: 1) {},
-    createSecretKey: <ref *29> ƒ createSecretKey(length: 2) {},
-    createSign: <ref *30> ƒ createSign(length: 2) {},
-    createVerify: <ref *31> ƒ createVerify(length: 2) {},
-    default: {
-        Certificate: [Circular: *2],
-        checkPrime: [Circular: *17],
-        checkPrimeSync: [Circular: *18],
-        Cipheriv: [Circular: *6],
-        constants: [Circular: *19],
-        createCipheriv: [Circular: *20],
-        createDecipheriv: [Circular: *21],
-        createDiffieHellman: [Circular: *22],
-        createDiffieHellmanGroup: [Circular: *23],
-        createECDH: [Circular: *24],
-        createHash: [Circular: *25],
-        createHmac: [Circular: *26],
-        createPrivateKey: [Circular: *27],
-        createPublicKey: [Circular: *28],
-        createSecretKey: [Circular: *29],
-        createSign: [Circular: *30],
-        createVerify: [Circular: *31],
-        Decipheriv: [Circular: *7],
-        DiffieHellman: [Circular: *8],
-        diffieHellman: <ref *33> ƒ diffieHellman(length: 1) {},
-        DiffieHellmanGroup: [Circular: *9],
-        ECDH: [Circular: *10],
-        getRandomValues: <ref *34> ƒ getRandomValues(length: 1) {},
-        generateKey: <ref *35> ƒ generateKey(length: 3) {},
-        generateKeyPair: <ref *36> ƒ generateKeyPair(length: 3) {},
-        generateKeyPairSync: <ref *37> ƒ generateKeyPairSync(length: 2) {},
-        generateKeySync: <ref *38> ƒ generateKeySync(length: 2) {},
-        generatePrime: <ref *39> ƒ generatePrime(length: 1) {},
-        generatePrimeSync: <ref *40> ƒ generatePrimeSync(length: 1) {},
-        getCipherInfo: <ref *41> ƒ getCipherInfo(length: 2) {},
-        getCiphers: <ref *42> ƒ getCiphers(length: 0) {},
-        getCurves: <ref *43> ƒ getCurves(length: 0) {},
-        getDiffieHellman: [Circular: *23],
-        getFips: <ref *44> ƒ getFipsCrypto(length: 0) {},
-        getHashes: <ref *45> ƒ getHashes(length: 0) {},
-        hash: <ref *46> ƒ hash(length: 2) {},
-        Hash: [Circular: *11],
-        hkdf: <ref *47> ƒ hkdf(length: 6) {},
-        hkdfSync: <ref *48> ƒ hkdfSync(length: 5) {},
-        Hmac: [Circular: *12],
-        KeyObject: [Circular: *13],
-        pbkdf2: <ref *49> ƒ pbkdf2(length: 6) {},
-        pbkdf2Sync: <ref *50> ƒ pbkdf2Sync(length: 5) {},
-        privateDecrypt: <ref *51> ƒ privateDecrypt(length: 2) {},
-        privateEncrypt: <ref *52> ƒ privateEncrypt(length: 2) {},
-        publicDecrypt: <ref *53> ƒ publicDecrypt(length: 0) {},
-        publicEncrypt: <ref *54> ƒ publicEncrypt(length: 2) {},
-        randomBytes: <ref *55> ƒ randomBytes(length: 2) {},
-        pseudoRandomBytes: [Circular: *55],
-        randomFill: <ref *56> ƒ randomFill(length: 4) {},
-        randomFillSync: <ref *57> ƒ randomFillSync(length: 1) {},
-        randomInt: <ref *58> ƒ randomInt(length: 3) {},
-        randomUUID: <ref *59> ƒ randomUUID(length: 1) {},
-        scrypt: <ref *60> ƒ scrypt(length: 5) {},
-        scryptSync: <ref *61> ƒ scryptSync(length: 4) {},
-        secureHeapUsed: <ref *62> ƒ secureHeapUsed(length: 0) {},
-        setEngine: <ref *63> ƒ setEngine(length: 2) {},
-        setFips: <ref *64> ƒ setFipsCrypto(length: 1) {},
-        Sign: [Circular: *14],
-        sign: <ref *65> ƒ signOneShot(length: 4) {},
-        timingSafeEqual: <ref *66> ƒ timingSafeEqual(length: 2) {},
-        Verify: [Circular: *15],
-        verify: <ref *67> ƒ verifyOneShot(length: 5) {},
-        webcrypto: <ref *68> Crypto {
-            Symbol([[webidl.brand]]): Symbol([[webidl.brand]])
-        },
-        subtle: <ref *69> SubtleCrypto {
-            Symbol([[webidl.brand]]): Symbol([[webidl.brand]])
-        },
-        X509Certificate: [Circular: *16]
-    },
-    diffieHellman: [Circular: *33],
-    generateKey: [Circular: *35],
-    generateKeyPair: [Circular: *36],
-    generateKeyPairSync: [Circular: *37],
-    generateKeySync: [Circular: *38],
-    generatePrime: [Circular: *39],
-    generatePrimeSync: [Circular: *40],
-    getCipherInfo: [Circular: *41],
-    getCiphers: [Circular: *42],
-    getCurves: [Circular: *43],
-    getDiffieHellman: [Circular: *23],
-    getFips: [Circular: *44],
-    getHashes: [Circular: *45],
-    getRandomValues: [Circular: *34],
-    hash: [Circular: *46],
-    hkdf: [Circular: *47],
-    hkdfSync: [Circular: *48],
-    pbkdf2: [Circular: *49],
-    pbkdf2Sync: [Circular: *50],
-    privateDecrypt: [Circular: *51],
-    privateEncrypt: [Circular: *52],
-    pseudoRandomBytes: [Circular: *55],
-    publicDecrypt: [Circular: *53],
-    publicEncrypt: [Circular: *54],
-    randomBytes: [Circular: *55],
-    randomFill: [Circular: *56],
-    randomFillSync: [Circular: *57],
-    randomInt: [Circular: *58],
-    randomUUID: [Circular: *59],
-    scrypt: [Circular: *60],
-    scryptSync: [Circular: *61],
-    secureHeapUsed: [Circular: *62],
-    setEngine: [Circular: *63],
-    setFips: [Circular: *64],
-    sign: [Circular: *65],
-    subtle: [Circular: *69],
-    timingSafeEqual: [Circular: *66],
-    verify: [Circular: *67],
-    webcrypto: [Circular: *68]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/crypto.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="dgram"></a>
 <details>
-			<summary><code>dgram</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>dgram</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Socket: <ref *2> ƒ Socket(length: 2) {},
-    _createSocketHandle: <ref *3> ƒ deprecated(length: 0) {},
-    createSocket: <ref *4> ƒ createSocket(length: 2) {},
-    default: {
-        _createSocketHandle: [Circular: *3],
-        createSocket: [Circular: *4],
-        Socket: [Circular: *2]
-    }
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/dgram.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Socket: <ref *2> class Socket extends EventEmitter {},
-    createSocket: <ref *3> ƒ createSocket(length: 2) {},
-    default: {
-        createSocket: [Circular: *3],
-        Socket: [Circular: *2]
-    }
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/dgram.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="diagnostics_channel"></a>
 <details>
-			<summary><code>diagnostics_channel</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>diagnostics_channel</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Channel: <ref *2> class Channel {},
-    channel: <ref *3> ƒ channel(length: 1) {},
-    default: {
-        channel: [Circular: *3],
-        hasSubscribers: <ref *5> ƒ hasSubscribers(length: 1) {},
-        subscribe: <ref *6> ƒ subscribe(length: 2) {},
-        tracingChannel: <ref *7> ƒ tracingChannel(length: 1) {},
-        unsubscribe: <ref *8> ƒ unsubscribe(length: 2) {},
-        Channel: [Circular: *2]
-    },
-    hasSubscribers: [Circular: *5],
-    subscribe: [Circular: *6],
-    tracingChannel: [Circular: *7],
-    unsubscribe: [Circular: *8]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/diagnostics_channel.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    channel: <ref *2> ƒ channel(length: 1) {},
-    default: {
-        channel: [Circular: *2],
-        hasSubscribers: <ref *4> ƒ hasSubscribers(length: 1) {},
-        subscribe: <ref *5> ƒ subscribe(length: 2) {},
-        tracingChannel: <ref *6> ƒ tracingChannel(length: 1) {},
-        unsubscribe: <ref *7> ƒ unsubscribe(length: 2) {},
-        Channel: class Channel {}
-    },
-    hasSubscribers: [Circular: *4],
-    subscribe: [Circular: *5],
-    tracingChannel: [Circular: *6],
-    unsubscribe: [Circular: *7]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/diagnostics_channel.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="dns"></a>
 <details>
-			<summary><code>dns</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>dns</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ADDRCONFIG: 1024,
-    ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-    ALL: 256,
-    BADFAMILY: "EBADFAMILY",
-    BADFLAGS: "EBADFLAGS",
-    BADHINTS: "EBADHINTS",
-    BADNAME: "EBADNAME",
-    BADQUERY: "EBADQUERY",
-    BADRESP: "EBADRESP",
-    BADSTR: "EBADSTR",
-    CANCELLED: "ECANCELLED",
-    CONNREFUSED: "ECONNREFUSED",
-    DESTRUCTION: "EDESTRUCTION",
-    EOF: "EOF",
-    FILE: "EFILE",
-    FORMERR: "EFORMERR",
-    LOADIPHLPAPI: "ELOADIPHLPAPI",
-    NODATA: "ENODATA",
-    NOMEM: "ENOMEM",
-    NONAME: "ENONAME",
-    NOTFOUND: "ENOTFOUND",
-    NOTIMP: "ENOTIMP",
-    NOTINITIALIZED: "ENOTINITIALIZED",
-    REFUSED: "EREFUSED",
-    Resolver: <ref *2> class Resolver extends ResolverBase {},
-    SERVFAIL: "ESERVFAIL",
-    TIMEOUT: "ETIMEOUT",
-    V4MAPPED: 2048,
-    default: {
-        lookup: <ref *4> ƒ lookup(length: 3) {},
-        lookupService: <ref *5> ƒ lookupService(length: 3) {},
-        Resolver: [Circular: *2],
-        getDefaultResultOrder: <ref *6> ƒ getDefaultResultOrder(length: 0) {},
-        setDefaultResultOrder: <ref *7> ƒ setDefaultResultOrder(length: 1) {},
-        setServers: <ref *8> ƒ defaultResolverSetServers(length: 1) {},
-        ADDRCONFIG: 1024,
-        ALL: 256,
-        V4MAPPED: 2048,
-        NODATA: "ENODATA",
-        FORMERR: "EFORMERR",
-        SERVFAIL: "ESERVFAIL",
-        NOTFOUND: "ENOTFOUND",
-        NOTIMP: "ENOTIMP",
-        REFUSED: "EREFUSED",
-        BADQUERY: "EBADQUERY",
-        BADNAME: "EBADNAME",
-        BADFAMILY: "EBADFAMILY",
-        BADRESP: "EBADRESP",
-        CONNREFUSED: "ECONNREFUSED",
-        TIMEOUT: "ETIMEOUT",
-        EOF: "EOF",
-        FILE: "EFILE",
-        NOMEM: "ENOMEM",
-        DESTRUCTION: "EDESTRUCTION",
-        BADSTR: "EBADSTR",
-        BADFLAGS: "EBADFLAGS",
-        NONAME: "ENONAME",
-        BADHINTS: "EBADHINTS",
-        NOTINITIALIZED: "ENOTINITIALIZED",
-        LOADIPHLPAPI: "ELOADIPHLPAPI",
-        ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-        CANCELLED: "ECANCELLED",
-        getServers: <ref *9> ƒ bound getServers(length: 0) {},
-        resolve: <ref *10> ƒ bound resolve(length: 3) {},
-        resolve4: <ref *11> ƒ bound queryA(length: 2) {},
-        resolve6: <ref *12> ƒ bound queryAaaa(length: 2) {},
-        resolveAny: <ref *13> ƒ bound queryAny(length: 2) {},
-        resolveCaa: <ref *14> ƒ bound queryCaa(length: 2) {},
-        resolveCname: <ref *15> ƒ bound queryCname(length: 2) {},
-        resolveMx: <ref *16> ƒ bound queryMx(length: 2) {},
-        resolveNaptr: <ref *17> ƒ bound queryNaptr(length: 2) {},
-        resolveNs: <ref *18> ƒ bound queryNs(length: 2) {},
-        resolvePtr: <ref *19> ƒ bound queryPtr(length: 2) {},
-        resolveSoa: <ref *20> ƒ bound querySoa(length: 2) {},
-        resolveSrv: <ref *21> ƒ bound querySrv(length: 2) {},
-        resolveTxt: <ref *22> ƒ bound queryTxt(length: 2) {},
-        reverse: <ref *23> ƒ bound getHostByAddr(length: 2) {},
-        [get/set] promises: <ref *24> {
-            lookup: ƒ lookup(length: 2) {},
-            lookupService: ƒ lookupService(length: 2) {},
-            Resolver: class Resolver extends ResolverBase {},
-            getDefaultResultOrder: [Circular: *6],
-            setDefaultResultOrder: [Circular: *7],
-            setServers: ƒ defaultResolverSetServers(length: 1) {},
-            NODATA: "ENODATA",
-            FORMERR: "EFORMERR",
-            SERVFAIL: "ESERVFAIL",
-            NOTFOUND: "ENOTFOUND",
-            NOTIMP: "ENOTIMP",
-            REFUSED: "EREFUSED",
-            BADQUERY: "EBADQUERY",
-            BADNAME: "EBADNAME",
-            BADFAMILY: "EBADFAMILY",
-            BADRESP: "EBADRESP",
-            CONNREFUSED: "ECONNREFUSED",
-            TIMEOUT: "ETIMEOUT",
-            EOF: "EOF",
-            FILE: "EFILE",
-            NOMEM: "ENOMEM",
-            DESTRUCTION: "EDESTRUCTION",
-            BADSTR: "EBADSTR",
-            BADFLAGS: "EBADFLAGS",
-            NONAME: "ENONAME",
-            BADHINTS: "EBADHINTS",
-            NOTINITIALIZED: "ENOTINITIALIZED",
-            LOADIPHLPAPI: "ELOADIPHLPAPI",
-            ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-            CANCELLED: "ECANCELLED",
-            getServers: ƒ bound getServers(length: 0) {},
-            resolve: ƒ bound resolve(length: 2) {},
-            resolve4: ƒ bound queryA(length: 2) {},
-            resolve6: ƒ bound queryAaaa(length: 2) {},
-            resolveAny: ƒ bound queryAny(length: 2) {},
-            resolveCaa: ƒ bound queryCaa(length: 2) {},
-            resolveCname: ƒ bound queryCname(length: 2) {},
-            resolveMx: ƒ bound queryMx(length: 2) {},
-            resolveNaptr: ƒ bound queryNaptr(length: 2) {},
-            resolveNs: ƒ bound queryNs(length: 2) {},
-            resolvePtr: ƒ bound queryPtr(length: 2) {},
-            resolveSoa: ƒ bound querySoa(length: 2) {},
-            resolveSrv: ƒ bound querySrv(length: 2) {},
-            resolveTxt: ƒ bound queryTxt(length: 2) {},
-            reverse: ƒ bound getHostByAddr(length: 2) {}
-        }
-    },
-    getDefaultResultOrder: [Circular: *6],
-    getServers: [Circular: *9],
-    lookup: [Circular: *4],
-    lookupService: [Circular: *5],
-    promises: [Circular: *24],
-    resolve: [Circular: *10],
-    resolve4: [Circular: *11],
-    resolve6: [Circular: *12],
-    resolveAny: [Circular: *13],
-    resolveCaa: [Circular: *14],
-    resolveCname: [Circular: *15],
-    resolveMx: [Circular: *16],
-    resolveNaptr: [Circular: *17],
-    resolveNs: [Circular: *18],
-    resolvePtr: [Circular: *19],
-    resolveSoa: [Circular: *20],
-    resolveSrv: [Circular: *21],
-    resolveTxt: [Circular: *22],
-    reverse: [Circular: *23],
-    setDefaultResultOrder: [Circular: *7],
-    setServers: [Circular: *8]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/dns.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ADDRCONFIG: 64,
-    ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-    ALL: 32,
-    BADFAMILY: "EBADFAMILY",
-    BADFLAGS: "EBADFLAGS",
-    BADHINTS: "EBADHINTS",
-    BADNAME: "EBADNAME",
-    BADQUERY: "EBADQUERY",
-    BADRESP: "EBADRESP",
-    BADSTR: "EBADSTR",
-    CANCELLED: "ECANCELLED",
-    CONNREFUSED: "ECONNREFUSED",
-    DESTRUCTION: "EDESTRUCTION",
-    EOF: "EOF",
-    FILE: "EFILE",
-    FORMERR: "EFORMERR",
-    LOADIPHLPAPI: "ELOADIPHLPAPI",
-    NODATA: "ENODATA",
-    NOMEM: "ENOMEM",
-    NONAME: "ENONAME",
-    NOTFOUND: "ENOTFOUND",
-    NOTIMP: "ENOTIMP",
-    NOTINITIALIZED: "ENOTINITIALIZED",
-    REFUSED: "EREFUSED",
-    Resolver: <ref *2> class Resolver extends CallbackResolver {},
-    SERVFAIL: "ESERVFAIL",
-    TIMEOUT: "ETIMEOUT",
-    V4MAPPED: 16,
-    default: {
-        ADDRCONFIG: 64,
-        ALL: 32,
-        V4MAPPED: 16,
-        lookup: <ref *4> ƒ lookup(length: 3) {},
-        getServers: <ref *5> ƒ getServers(length: 0) {},
-        resolveAny: <ref *6> ƒ resolveAny(length: 0) {},
-        resolve4: <ref *7> ƒ resolve4(length: 3) {},
-        resolve6: <ref *8> ƒ resolve6(length: 3) {},
-        resolveCaa: <ref *9> ƒ resolveCaa(length: 0) {},
-        resolveCname: <ref *10> ƒ resolveCname(length: 0) {},
-        resolveMx: <ref *11> ƒ resolveMx(length: 0) {},
-        resolveNs: <ref *12> ƒ resolveNs(length: 0) {},
-        resolveTxt: <ref *13> ƒ resolveTxt(length: 0) {},
-        resolveSrv: <ref *14> ƒ resolveSrv(length: 0) {},
-        resolvePtr: <ref *15> ƒ resolvePtr(length: 0) {},
-        resolveNaptr: <ref *16> ƒ resolveNaptr(length: 0) {},
-        resolveSoa: <ref *17> ƒ resolveSoa(length: 0) {},
-        resolve: <ref *18> ƒ resolve(length: 3) {},
-        Resolver: [Circular: *2],
-        reverse: <ref *19> ƒ reverse(length: 0) {},
-        setServers: <ref *20> ƒ setServers(length: 1) {},
-        setDefaultResultOrder: <ref *21> ƒ setDefaultResultOrder(length: 1) {},
-        promises: <ref *22> {
-            lookup: ƒ lookup(length: 2) {},
-            Resolver: class Resolver extends CallbackResolver {},
-            getServers: ƒ getServers(length: 0) {},
-            resolveAny: ƒ resolveAny(length: 1) {},
-            resolve4: ƒ resolve4(length: 2) {},
-            resolve6: ƒ resolve6(length: 2) {},
-            resolveCaa: ƒ resolveCaa(length: 1) {},
-            resolveCname: ƒ resolveCname(length: 1) {},
-            resolveMx: ƒ resolveMx(length: 1) {},
-            resolveNs: ƒ resolveNs(length: 1) {},
-            resolveTxt: ƒ resolveTxt(length: 1) {},
-            resolveSrv: ƒ resolveSrv(length: 1) {},
-            resolvePtr: ƒ resolvePtr(length: 1) {},
-            resolveNaptr: ƒ resolveNaptr(length: 1) {},
-            resolveSoa: ƒ resolveSoa(length: 1) {},
-            resolve: ƒ resolve(length: 2) {},
-            reverse: ƒ reverse(length: 1) {},
-            setDefaultResultOrder: [Circular: *21],
-            setServers: [Circular: *20],
-            NODATA: "ENODATA",
-            FORMERR: "EFORMERR",
-            SERVFAIL: "ESERVFAIL",
-            NOTFOUND: "ENOTFOUND",
-            NOTIMP: "ENOTIMP",
-            REFUSED: "EREFUSED",
-            BADQUERY: "EBADQUERY",
-            BADNAME: "EBADNAME",
-            BADFAMILY: "EBADFAMILY",
-            BADRESP: "EBADRESP",
-            CONNREFUSED: "ECONNREFUSED",
-            TIMEOUT: "ETIMEOUT",
-            EOF: "EOF",
-            FILE: "EFILE",
-            NOMEM: "ENOMEM",
-            DESTRUCTION: "EDESTRUCTION",
-            BADSTR: "EBADSTR",
-            BADFLAGS: "EBADFLAGS",
-            NONAME: "ENONAME",
-            BADHINTS: "EBADHINTS",
-            NOTINITIALIZED: "ENOTINITIALIZED",
-            LOADIPHLPAPI: "ELOADIPHLPAPI",
-            ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-            CANCELLED: "ECANCELLED"
-        },
-        NODATA: "ENODATA",
-        FORMERR: "EFORMERR",
-        SERVFAIL: "ESERVFAIL",
-        NOTFOUND: "ENOTFOUND",
-        NOTIMP: "ENOTIMP",
-        REFUSED: "EREFUSED",
-        BADQUERY: "EBADQUERY",
-        BADNAME: "EBADNAME",
-        BADFAMILY: "EBADFAMILY",
-        BADRESP: "EBADRESP",
-        CONNREFUSED: "ECONNREFUSED",
-        TIMEOUT: "ETIMEOUT",
-        EOF: "EOF",
-        FILE: "EFILE",
-        NOMEM: "ENOMEM",
-        DESTRUCTION: "EDESTRUCTION",
-        BADSTR: "EBADSTR",
-        BADFLAGS: "EBADFLAGS",
-        NONAME: "ENONAME",
-        BADHINTS: "EBADHINTS",
-        NOTINITIALIZED: "ENOTINITIALIZED",
-        LOADIPHLPAPI: "ELOADIPHLPAPI",
-        ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-        CANCELLED: "ECANCELLED"
-    },
-    getServers: [Circular: *5],
-    lookup: [Circular: *4],
-    promises: [Circular: *22],
-    resolve: [Circular: *18],
-    resolve4: [Circular: *7],
-    resolve6: [Circular: *8],
-    resolveAny: [Circular: *6],
-    resolveCaa: [Circular: *9],
-    resolveCname: [Circular: *10],
-    resolveMx: [Circular: *11],
-    resolveNaptr: [Circular: *16],
-    resolveNs: [Circular: *12],
-    resolvePtr: [Circular: *15],
-    resolveSoa: [Circular: *17],
-    resolveSrv: [Circular: *14],
-    resolveTxt: [Circular: *13],
-    reverse: [Circular: *19],
-    setDefaultResultOrder: [Circular: *21],
-    setServers: [Circular: *20]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/dns.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="dns-promises"></a>
 <details>
-			<summary><code>dns/promises</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>dns/promises</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-    BADFAMILY: "EBADFAMILY",
-    BADFLAGS: "EBADFLAGS",
-    BADHINTS: "EBADHINTS",
-    BADNAME: "EBADNAME",
-    BADQUERY: "EBADQUERY",
-    BADRESP: "EBADRESP",
-    BADSTR: "EBADSTR",
-    CANCELLED: "ECANCELLED",
-    CONNREFUSED: "ECONNREFUSED",
-    DESTRUCTION: "EDESTRUCTION",
-    EOF: "EOF",
-    FILE: "EFILE",
-    FORMERR: "EFORMERR",
-    LOADIPHLPAPI: "ELOADIPHLPAPI",
-    NODATA: "ENODATA",
-    NOMEM: "ENOMEM",
-    NONAME: "ENONAME",
-    NOTFOUND: "ENOTFOUND",
-    NOTIMP: "ENOTIMP",
-    NOTINITIALIZED: "ENOTINITIALIZED",
-    REFUSED: "EREFUSED",
-    Resolver: <ref *2> class Resolver extends ResolverBase {},
-    SERVFAIL: "ESERVFAIL",
-    TIMEOUT: "ETIMEOUT",
-    default: {
-        lookup: <ref *4> ƒ lookup(length: 2) {},
-        lookupService: <ref *5> ƒ lookupService(length: 2) {},
-        Resolver: [Circular: *2],
-        getDefaultResultOrder: <ref *6> ƒ getDefaultResultOrder(length: 0) {},
-        setDefaultResultOrder: <ref *7> ƒ setDefaultResultOrder(length: 1) {},
-        setServers: <ref *8> ƒ defaultResolverSetServers(length: 1) {},
-        NODATA: "ENODATA",
-        FORMERR: "EFORMERR",
-        SERVFAIL: "ESERVFAIL",
-        NOTFOUND: "ENOTFOUND",
-        NOTIMP: "ENOTIMP",
-        REFUSED: "EREFUSED",
-        BADQUERY: "EBADQUERY",
-        BADNAME: "EBADNAME",
-        BADFAMILY: "EBADFAMILY",
-        BADRESP: "EBADRESP",
-        CONNREFUSED: "ECONNREFUSED",
-        TIMEOUT: "ETIMEOUT",
-        EOF: "EOF",
-        FILE: "EFILE",
-        NOMEM: "ENOMEM",
-        DESTRUCTION: "EDESTRUCTION",
-        BADSTR: "EBADSTR",
-        BADFLAGS: "EBADFLAGS",
-        NONAME: "ENONAME",
-        BADHINTS: "EBADHINTS",
-        NOTINITIALIZED: "ENOTINITIALIZED",
-        LOADIPHLPAPI: "ELOADIPHLPAPI",
-        ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-        CANCELLED: "ECANCELLED",
-        getServers: <ref *9> ƒ bound getServers(length: 0) {},
-        resolve: <ref *10> ƒ bound resolve(length: 2) {},
-        resolve4: <ref *11> ƒ bound queryA(length: 2) {},
-        resolve6: <ref *12> ƒ bound queryAaaa(length: 2) {},
-        resolveAny: <ref *13> ƒ bound queryAny(length: 2) {},
-        resolveCaa: <ref *14> ƒ bound queryCaa(length: 2) {},
-        resolveCname: <ref *15> ƒ bound queryCname(length: 2) {},
-        resolveMx: <ref *16> ƒ bound queryMx(length: 2) {},
-        resolveNaptr: <ref *17> ƒ bound queryNaptr(length: 2) {},
-        resolveNs: <ref *18> ƒ bound queryNs(length: 2) {},
-        resolvePtr: <ref *19> ƒ bound queryPtr(length: 2) {},
-        resolveSoa: <ref *20> ƒ bound querySoa(length: 2) {},
-        resolveSrv: <ref *21> ƒ bound querySrv(length: 2) {},
-        resolveTxt: <ref *22> ƒ bound queryTxt(length: 2) {},
-        reverse: <ref *23> ƒ bound getHostByAddr(length: 2) {}
-    },
-    getDefaultResultOrder: [Circular: *6],
-    getServers: [Circular: *9],
-    lookup: [Circular: *4],
-    lookupService: [Circular: *5],
-    resolve: [Circular: *10],
-    resolve4: [Circular: *11],
-    resolve6: [Circular: *12],
-    resolveAny: [Circular: *13],
-    resolveCaa: [Circular: *14],
-    resolveCname: [Circular: *15],
-    resolveMx: [Circular: *16],
-    resolveNaptr: [Circular: *17],
-    resolveNs: [Circular: *18],
-    resolvePtr: [Circular: *19],
-    resolveSoa: [Circular: *20],
-    resolveSrv: [Circular: *21],
-    resolveTxt: [Circular: *22],
-    reverse: [Circular: *23],
-    setDefaultResultOrder: [Circular: *7],
-    setServers: [Circular: *8]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/dns_promises.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-    BADFAMILY: "EBADFAMILY",
-    BADFLAGS: "EBADFLAGS",
-    BADHINTS: "EBADHINTS",
-    BADNAME: "EBADNAME",
-    BADQUERY: "EBADQUERY",
-    BADRESP: "EBADRESP",
-    BADSTR: "EBADSTR",
-    CANCELLED: "ECANCELLED",
-    CONNREFUSED: "ECONNREFUSED",
-    DESTRUCTION: "EDESTRUCTION",
-    EOF: "EOF",
-    FILE: "EFILE",
-    FORMERR: "EFORMERR",
-    LOADIPHLPAPI: "ELOADIPHLPAPI",
-    NODATA: "ENODATA",
-    NOMEM: "ENOMEM",
-    NONAME: "ENONAME",
-    NOTFOUND: "ENOTFOUND",
-    NOTIMP: "ENOTIMP",
-    NOTINITIALIZED: "ENOTINITIALIZED",
-    REFUSED: "EREFUSED",
-    Resolver: <ref *2> class Resolver extends CallbackResolver {},
-    SERVFAIL: "ESERVFAIL",
-    TIMEOUT: "ETIMEOUT",
-    default: {
-        lookup: <ref *4> ƒ lookup(length: 2) {},
-        Resolver: [Circular: *2],
-        getServers: <ref *5> ƒ getServers(length: 0) {},
-        resolveAny: <ref *6> ƒ resolveAny(length: 1) {},
-        resolve4: <ref *7> ƒ resolve4(length: 2) {},
-        resolve6: <ref *8> ƒ resolve6(length: 2) {},
-        resolveCaa: <ref *9> ƒ resolveCaa(length: 1) {},
-        resolveCname: <ref *10> ƒ resolveCname(length: 1) {},
-        resolveMx: <ref *11> ƒ resolveMx(length: 1) {},
-        resolveNs: <ref *12> ƒ resolveNs(length: 1) {},
-        resolveTxt: <ref *13> ƒ resolveTxt(length: 1) {},
-        resolveSrv: <ref *14> ƒ resolveSrv(length: 1) {},
-        resolvePtr: <ref *15> ƒ resolvePtr(length: 1) {},
-        resolveNaptr: <ref *16> ƒ resolveNaptr(length: 1) {},
-        resolveSoa: <ref *17> ƒ resolveSoa(length: 1) {},
-        resolve: <ref *18> ƒ resolve(length: 2) {},
-        reverse: <ref *19> ƒ reverse(length: 1) {},
-        setDefaultResultOrder: <ref *20> ƒ setDefaultResultOrder(length: 1) {},
-        setServers: <ref *21> ƒ setServers(length: 1) {},
-        NODATA: "ENODATA",
-        FORMERR: "EFORMERR",
-        SERVFAIL: "ESERVFAIL",
-        NOTFOUND: "ENOTFOUND",
-        NOTIMP: "ENOTIMP",
-        REFUSED: "EREFUSED",
-        BADQUERY: "EBADQUERY",
-        BADNAME: "EBADNAME",
-        BADFAMILY: "EBADFAMILY",
-        BADRESP: "EBADRESP",
-        CONNREFUSED: "ECONNREFUSED",
-        TIMEOUT: "ETIMEOUT",
-        EOF: "EOF",
-        FILE: "EFILE",
-        NOMEM: "ENOMEM",
-        DESTRUCTION: "EDESTRUCTION",
-        BADSTR: "EBADSTR",
-        BADFLAGS: "EBADFLAGS",
-        NONAME: "ENONAME",
-        BADHINTS: "EBADHINTS",
-        NOTINITIALIZED: "ENOTINITIALIZED",
-        LOADIPHLPAPI: "ELOADIPHLPAPI",
-        ADDRGETNETWORKPARAMS: "EADDRGETNETWORKPARAMS",
-        CANCELLED: "ECANCELLED"
-    },
-    getServers: [Circular: *5],
-    lookup: [Circular: *4],
-    resolve: [Circular: *18],
-    resolve4: [Circular: *7],
-    resolve6: [Circular: *8],
-    resolveAny: [Circular: *6],
-    resolveCaa: [Circular: *9],
-    resolveCname: [Circular: *10],
-    resolveMx: [Circular: *11],
-    resolveNaptr: [Circular: *16],
-    resolveNs: [Circular: *12],
-    resolvePtr: [Circular: *15],
-    resolveSoa: [Circular: *17],
-    resolveSrv: [Circular: *14],
-    resolveTxt: [Circular: *13],
-    reverse: [Circular: *19],
-    setDefaultResultOrder: [Circular: *20],
-    setServers: [Circular: *21]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/dns_promises.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="domain"></a>
 <details>
-			<summary><code>domain</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>domain</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Domain: <ref *2> class Domain extends EventEmitter {},
-    _stack: <ref *3> [],
-    active: null,
-    create: <ref *4> ƒ createDomain(length: 0) {},
-    createDomain: [Circular: *4],
-    default: {
-        _stack: [Circular: *3],
-        Domain: [Circular: *2],
-        createDomain: [Circular: *4],
-        create: [Circular: *4],
-        active: null
-    }
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/domain.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Domain: <ref *2> class Domain extends EventEmitter {},
-    _stack: <ref *3> [],
-    active: null,
-    create: <ref *4> ƒ create(length: 0) {},
-    createDomain: <ref *5> ƒ createDomain(length: 0) {},
-    default: {
-        _stack: [Circular: *3],
-        create: [Circular: *4],
-        active: null,
-        createDomain: [Circular: *5],
-        Domain: [Circular: *2]
-    }
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/domain.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="events"></a>
 <details>
-			<summary><code>events</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>events</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    EventEmitter: <ref *2> ƒ EventEmitter(length: 1) {
-        addAbortListener: <ref *3> ƒ addAbortListener(length: 2) {},
-        once: <ref *4> async ƒ once(length: 2) {},
-        on: <ref *5> ƒ on(length: 2) {},
-        getEventListeners: <ref *6> ƒ getEventListeners(length: 2) {},
-        getMaxListeners: <ref *7> ƒ getMaxListeners(length: 1) {},
-        EventEmitter: [Circular: *2],
-        usingDomains: false,
-        captureRejectionSymbol: Symbol(nodejs.rejection),
-        [get/set] captureRejections: false,
-        [get/set] EventEmitterAsyncResource: <ref *8> class EventEmitterAsyncResource extends EventEmitter {},
-        errorMonitor: Symbol(events.errorMonitor),
-        [get/set] defaultMaxListeners: 10,
-        setMaxListeners: <ref *9> ƒ (length: 0) {},
-        init: <ref *10> ƒ (length: 1) {},
-        listenerCount: <ref *11> ƒ (length: 2) {}
-    },
-    EventEmitterAsyncResource: [Circular: *8],
-    addAbortListener: [Circular: *3],
-    captureRejectionSymbol: Symbol(nodejs.rejection),
-    captureRejections: false,
-    default: [Circular: *2],
-    defaultMaxListeners: 10,
-    errorMonitor: Symbol(events.errorMonitor),
-    getEventListeners: [Circular: *6],
-    getMaxListeners: [Circular: *7],
-    init: [Circular: *10],
-    listenerCount: [Circular: *11],
-    on: [Circular: *5],
-    once: [Circular: *4],
-    setMaxListeners: [Circular: *9],
-    usingDomains: false
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/events.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    EventEmitter: <ref *2> ƒ EventEmitter(length: 1) {
-        on: <ref *3> ƒ on(length: 2) {},
-        once: <ref *4> async ƒ once(length: 2) {},
-        getEventListeners: <ref *5> ƒ getEventListeners(length: 2) {},
-        setMaxListeners: <ref *6> ƒ setMaxListeners(length: 0) {},
-        getMaxListeners: <ref *7> ƒ getMaxListeners(length: 1) {},
-        listenerCount: <ref *8> ƒ listenerCount(length: 2) {},
-        EventEmitter: [Circular: *2],
-        usingDomains: false,
-        captureRejectionSymbol: Symbol(nodejs.rejection),
-        [get/set] captureRejections: false,
-        errorMonitor: Symbol(events.errorMonitor),
-        [get/set] defaultMaxListeners: 10,
-        init: ƒ (length: 1) {},
-        EventEmitterAsyncResource: <ref *10> class EventEmitterAsyncResource extends EventEmitter {}
-    },
-    EventEmitterAsyncResource: [Circular: *10],
-    addAbortListener: ƒ addAbortListener(length: 2) {},
-    captureRejectionSymbol: Symbol(nodejs.rejection),
-    default: [Circular: *2],
-    defaultMaxListeners: 10,
-    errorMonitor: undefined,
-    getEventListeners: [Circular: *5],
-    getMaxListeners: [Circular: *7],
-    listenerCount: [Circular: *8],
-    on: [Circular: *3],
-    once: [Circular: *4],
-    setMaxListeners: [Circular: *6]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/events.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="fs"></a>
 <details>
-			<summary><code>fs</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>fs</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Dir: <ref *2> class Dir {},
-    Dirent: <ref *3> class Dirent {},
-    F_OK: 0,
-    FileReadStream: <ref *4> ƒ ReadStream(length: 2) {},
-    FileWriteStream: <ref *5> ƒ WriteStream(length: 2) {},
-    R_OK: 4,
-    ReadStream: [Circular: *4],
-    Stats: <ref *6> ƒ deprecated(length: 0) {},
-    W_OK: 2,
-    WriteStream: [Circular: *5],
-    X_OK: 1,
-    _toUnixTimestamp: <ref *7> ƒ toUnixTimestamp(length: 1) {},
-    access: <ref *8> ƒ access(length: 3) {},
-    accessSync: <ref *9> ƒ accessSync(length: 2) {},
-    appendFile: <ref *10> ƒ appendFile(length: 4) {},
-    appendFileSync: <ref *11> ƒ appendFileSync(length: 3) {},
-    chmod: <ref *12> ƒ chmod(length: 3) {},
-    chmodSync: <ref *13> ƒ chmodSync(length: 2) {},
-    chown: <ref *14> ƒ chown(length: 4) {},
-    chownSync: <ref *15> ƒ chownSync(length: 3) {},
-    close: <ref *16> ƒ close(length: 1) {},
-    closeSync: <ref *17> ƒ closeSync(length: 1) {},
-    constants: <ref *18> [Object: null prototype] {
-        UV_FS_SYMLINK_DIR: 1,
-        UV_FS_SYMLINK_JUNCTION: 2,
-        O_RDONLY: 0,
-        O_WRONLY: 1,
-        O_RDWR: 2,
-        UV_DIRENT_UNKNOWN: 0,
-        UV_DIRENT_FILE: 1,
-        UV_DIRENT_DIR: 2,
-        UV_DIRENT_LINK: 3,
-        UV_DIRENT_FIFO: 4,
-        UV_DIRENT_SOCKET: 5,
-        UV_DIRENT_CHAR: 6,
-        UV_DIRENT_BLOCK: 7,
-        EXTENSIONLESS_FORMAT_JAVASCRIPT: 0,
-        EXTENSIONLESS_FORMAT_WASM: 1,
-        S_IFMT: 61440,
-        S_IFREG: 32768,
-        S_IFDIR: 16384,
-        S_IFCHR: 8192,
-        S_IFIFO: 4096,
-        S_IFLNK: 40960,
-        O_CREAT: 256,
-        O_EXCL: 1024,
-        UV_FS_O_FILEMAP: 536870912,
-        O_TRUNC: 512,
-        O_APPEND: 8,
-        S_IRUSR: 256,
-        S_IWUSR: 128,
-        F_OK: 0,
-        R_OK: 4,
-        W_OK: 2,
-        X_OK: 1,
-        UV_FS_COPYFILE_EXCL: 1,
-        COPYFILE_EXCL: 1,
-        UV_FS_COPYFILE_FICLONE: 2,
-        COPYFILE_FICLONE: 2,
-        UV_FS_COPYFILE_FICLONE_FORCE: 4,
-        COPYFILE_FICLONE_FORCE: 4
-    },
-    copyFile: <ref *19> ƒ copyFile(length: 4) {},
-    copyFileSync: <ref *20> ƒ copyFileSync(length: 3) {},
-    cp: <ref *21> ƒ cp(length: 4) {},
-    cpSync: <ref *22> ƒ cpSync(length: 3) {},
-    createReadStream: <ref *23> ƒ createReadStream(length: 2) {},
-    createWriteStream: <ref *24> ƒ createWriteStream(length: 2) {},
-    default: {
-        appendFile: [Circular: *10],
-        appendFileSync: [Circular: *11],
-        access: [Circular: *8],
-        accessSync: [Circular: *9],
-        chown: [Circular: *14],
-        chownSync: [Circular: *15],
-        chmod: [Circular: *12],
-        chmodSync: [Circular: *13],
-        close: [Circular: *16],
-        closeSync: [Circular: *17],
-        copyFile: [Circular: *19],
-        copyFileSync: [Circular: *20],
-        cp: [Circular: *21],
-        cpSync: [Circular: *22],
-        createReadStream: [Circular: *23],
-        createWriteStream: [Circular: *24],
-        exists: <ref *26> ƒ exists(length: 2) {},
-        existsSync: <ref *27> ƒ existsSync(length: 1) {},
-        fchown: <ref *28> ƒ fchown(length: 4) {},
-        fchownSync: <ref *29> ƒ fchownSync(length: 3) {},
-        fchmod: <ref *30> ƒ fchmod(length: 3) {},
-        fchmodSync: <ref *31> ƒ fchmodSync(length: 2) {},
-        fdatasync: <ref *32> ƒ fdatasync(length: 2) {},
-        fdatasyncSync: <ref *33> ƒ fdatasyncSync(length: 1) {},
-        fstat: <ref *34> ƒ fstat(length: 1) {},
-        fstatSync: <ref *35> ƒ fstatSync(length: 1) {},
-        fsync: <ref *36> ƒ fsync(length: 2) {},
-        fsyncSync: <ref *37> ƒ fsyncSync(length: 1) {},
-        ftruncate: <ref *38> ƒ ftruncate(length: 1) {},
-        ftruncateSync: <ref *39> ƒ ftruncateSync(length: 1) {},
-        futimes: <ref *40> ƒ futimes(length: 4) {},
-        futimesSync: <ref *41> ƒ futimesSync(length: 3) {},
-        glob: <ref *42> ƒ glob(length: 3) {},
-        globSync: <ref *43> ƒ globSync(length: 2) {},
-        lchown: <ref *44> ƒ lchown(length: 4) {},
-        lchownSync: <ref *45> ƒ lchownSync(length: 3) {},
-        lchmod: undefined,
-        lchmodSync: undefined,
-        link: <ref *46> ƒ link(length: 3) {},
-        linkSync: <ref *47> ƒ linkSync(length: 2) {},
-        lstat: <ref *48> ƒ lstat(length: 1) {},
-        lstatSync: <ref *49> ƒ lstatSync(length: 1) {},
-        lutimes: <ref *50> ƒ lutimes(length: 4) {},
-        lutimesSync: <ref *51> ƒ lutimesSync(length: 3) {},
-        mkdir: <ref *52> ƒ mkdir(length: 3) {},
-        mkdirSync: <ref *53> ƒ mkdirSync(length: 2) {},
-        mkdtemp: <ref *54> ƒ mkdtemp(length: 3) {},
-        mkdtempSync: <ref *55> ƒ mkdtempSync(length: 2) {},
-        open: <ref *56> ƒ open(length: 4) {},
-        openSync: <ref *57> ƒ openSync(length: 3) {},
-        openAsBlob: <ref *58> ƒ openAsBlob(length: 1) {},
-        readdir: <ref *59> ƒ readdir(length: 3) {},
-        readdirSync: <ref *60> ƒ readdirSync(length: 2) {},
-        read: <ref *61> ƒ read(length: 6) {},
-        readSync: <ref *62> ƒ readSync(length: 5) {},
-        readv: <ref *63> ƒ readv(length: 4) {},
-        readvSync: <ref *64> ƒ readvSync(length: 3) {},
-        readFile: <ref *65> ƒ readFile(length: 3) {},
-        readFileSync: <ref *66> ƒ readFileSync(length: 2) {},
-        readlink: <ref *67> ƒ readlink(length: 3) {},
-        readlinkSync: <ref *68> ƒ readlinkSync(length: 2) {},
-        realpath: <ref *69> ƒ realpath(length: 3) {
-            native: ƒ (length: 3) {}
-        },
-        realpathSync: <ref *71> ƒ realpathSync(length: 2) {
-            native: ƒ (length: 2) {}
-        },
-        rename: <ref *73> ƒ rename(length: 3) {},
-        renameSync: <ref *74> ƒ renameSync(length: 2) {},
-        rm: <ref *75> ƒ rm(length: 3) {},
-        rmSync: <ref *76> ƒ rmSync(length: 2) {},
-        rmdir: <ref *77> ƒ rmdir(length: 3) {},
-        rmdirSync: <ref *78> ƒ rmdirSync(length: 2) {},
-        stat: <ref *79> ƒ stat(length: 1) {},
-        statfs: <ref *80> ƒ statfs(length: 1) {},
-        statSync: <ref *81> ƒ statSync(length: 1) {},
-        statfsSync: <ref *82> ƒ statfsSync(length: 1) {},
-        symlink: <ref *83> ƒ symlink(length: 4) {},
-        symlinkSync: <ref *84> ƒ symlinkSync(length: 3) {},
-        truncate: <ref *85> ƒ truncate(length: 3) {},
-        truncateSync: <ref *86> ƒ truncateSync(length: 2) {},
-        unwatchFile: <ref *87> ƒ unwatchFile(length: 2) {},
-        unlink: <ref *88> ƒ unlink(length: 2) {},
-        unlinkSync: <ref *89> ƒ unlinkSync(length: 1) {},
-        utimes: <ref *90> ƒ utimes(length: 4) {},
-        utimesSync: <ref *91> ƒ utimesSync(length: 3) {},
-        watch: <ref *92> ƒ watch(length: 3) {},
-        watchFile: <ref *93> ƒ watchFile(length: 3) {},
-        writeFile: <ref *94> ƒ writeFile(length: 4) {},
-        writeFileSync: <ref *95> ƒ writeFileSync(length: 3) {},
-        write: <ref *96> ƒ write(length: 6) {},
-        writeSync: <ref *97> ƒ writeSync(length: 5) {},
-        writev: <ref *98> ƒ writev(length: 4) {},
-        writevSync: <ref *99> ƒ writevSync(length: 3) {},
-        Dirent: [Circular: *3],
-        Stats: [Circular: *6],
-        [get/set] ReadStream: [Circular: *4],
-        [get/set] WriteStream: [Circular: *5],
-        [get/set] FileReadStream: [Circular: *4],
-        [get/set] FileWriteStream: [Circular: *5],
-        _toUnixTimestamp: [Circular: *7],
-        Dir: [Circular: *2],
-        opendir: <ref *100> ƒ opendir(length: 3) {},
-        opendirSync: <ref *101> ƒ opendirSync(length: 2) {},
-        F_OK: 0,
-        R_OK: 4,
-        W_OK: 2,
-        X_OK: 1,
-        constants: [Circular: *18],
-        [get/set] promises: <ref *102> {
-            access: async ƒ access(length: 1) {},
-            copyFile: async ƒ copyFile(length: 3) {},
-            cp: async ƒ cp(length: 3) {},
-            glob: async ƒ glob(length: 2) {},
-            open: async ƒ open(length: 3) {},
-            opendir: ƒ opendir(length: 3) {},
-            rename: async ƒ rename(length: 2) {},
-            truncate: async ƒ truncate(length: 1) {},
-            rm: async ƒ rm(length: 2) {},
-            rmdir: async ƒ rmdir(length: 2) {},
-            mkdir: async ƒ mkdir(length: 2) {},
-            readdir: async ƒ readdir(length: 2) {},
-            readlink: async ƒ readlink(length: 2) {},
-            symlink: async ƒ symlink(length: 3) {},
-            lstat: async ƒ lstat(length: 1) {},
-            stat: async ƒ stat(length: 1) {},
-            statfs: async ƒ statfs(length: 1) {},
-            link: async ƒ link(length: 2) {},
-            unlink: async ƒ unlink(length: 1) {},
-            chmod: async ƒ chmod(length: 2) {},
-            lchmod: async ƒ lchmod(length: 2) {},
-            lchown: async ƒ lchown(length: 3) {},
-            chown: async ƒ chown(length: 3) {},
-            utimes: async ƒ utimes(length: 3) {},
-            lutimes: async ƒ lutimes(length: 3) {},
-            realpath: async ƒ realpath(length: 2) {},
-            mkdtemp: async ƒ mkdtemp(length: 2) {},
-            writeFile: async ƒ writeFile(length: 3) {},
-            appendFile: async ƒ appendFile(length: 3) {},
-            readFile: async ƒ readFile(length: 2) {},
-            watch: async ƒ watch(length: 1) {},
-            constants: [Circular: *18]
-        }
-    },
-    exists: [Circular: *26],
-    existsSync: [Circular: *27],
-    fchmod: [Circular: *30],
-    fchmodSync: [Circular: *31],
-    fchown: [Circular: *28],
-    fchownSync: [Circular: *29],
-    fdatasync: [Circular: *32],
-    fdatasyncSync: [Circular: *33],
-    fstat: [Circular: *34],
-    fstatSync: [Circular: *35],
-    fsync: [Circular: *36],
-    fsyncSync: [Circular: *37],
-    ftruncate: [Circular: *38],
-    ftruncateSync: [Circular: *39],
-    futimes: [Circular: *40],
-    futimesSync: [Circular: *41],
-    glob: [Circular: *42],
-    globSync: [Circular: *43],
-    lchmod: undefined,
-    lchmodSync: undefined,
-    lchown: [Circular: *44],
-    lchownSync: [Circular: *45],
-    link: [Circular: *46],
-    linkSync: [Circular: *47],
-    lstat: [Circular: *48],
-    lstatSync: [Circular: *49],
-    lutimes: [Circular: *50],
-    lutimesSync: [Circular: *51],
-    mkdir: [Circular: *52],
-    mkdirSync: [Circular: *53],
-    mkdtemp: [Circular: *54],
-    mkdtempSync: [Circular: *55],
-    open: [Circular: *56],
-    openAsBlob: [Circular: *58],
-    openSync: [Circular: *57],
-    opendir: [Circular: *100],
-    opendirSync: [Circular: *101],
-    promises: [Circular: *102],
-    read: [Circular: *61],
-    readFile: [Circular: *65],
-    readFileSync: [Circular: *66],
-    readSync: [Circular: *62],
-    readdir: [Circular: *59],
-    readdirSync: [Circular: *60],
-    readlink: [Circular: *67],
-    readlinkSync: [Circular: *68],
-    readv: [Circular: *63],
-    readvSync: [Circular: *64],
-    realpath: [Circular: *69],
-    realpathSync: [Circular: *71],
-    rename: [Circular: *73],
-    renameSync: [Circular: *74],
-    rm: [Circular: *75],
-    rmSync: [Circular: *76],
-    rmdir: [Circular: *77],
-    rmdirSync: [Circular: *78],
-    stat: [Circular: *79],
-    statSync: [Circular: *81],
-    statfs: [Circular: *80],
-    statfsSync: [Circular: *82],
-    symlink: [Circular: *83],
-    symlinkSync: [Circular: *84],
-    truncate: [Circular: *85],
-    truncateSync: [Circular: *86],
-    unlink: [Circular: *88],
-    unlinkSync: [Circular: *89],
-    unwatchFile: [Circular: *87],
-    utimes: [Circular: *90],
-    utimesSync: [Circular: *91],
-    watch: [Circular: *92],
-    watchFile: [Circular: *93],
-    write: [Circular: *96],
-    writeFile: [Circular: *94],
-    writeFileSync: [Circular: *95],
-    writeSync: [Circular: *97],
-    writev: [Circular: *98],
-    writevSync: [Circular: *99]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/fs.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Dir: <ref *2> class Dir {},
-    Dirent: <ref *3> class Dirent {},
-    F_OK: 0,
-    O_APPEND: 8,
-    O_CREAT: 512,
-    O_DIRECTORY: 1048576,
-    O_DSYNC: 4194304,
-    O_EXCL: 2048,
-    O_NOCTTY: 131072,
-    O_NOFOLLOW: 256,
-    O_NONBLOCK: 4,
-    O_RDONLY: 0,
-    O_RDWR: 2,
-    O_SYMLINK: 2097152,
-    O_SYNC: 128,
-    O_TRUNC: 1024,
-    O_WRONLY: 1,
-    R_OK: 4,
-    ReadStream: <ref *4> ƒ ReadStream(length: 2) {},
-    Stats: <ref *5> class Stats extends StatsBase {},
-    W_OK: 2,
-    WriteStream: <ref *6> ƒ WriteStream(length: 2) {},
-    X_OK: 1,
-    _toUnixTimestamp: <ref *7> ƒ toUnixTimestamp(length: 1) {},
-    access: <ref *8> ƒ access(length: 3) {},
-    accessSync: <ref *9> ƒ accessSync(length: 2) {},
-    appendFile: <ref *10> ƒ appendFile(length: 4) {},
-    appendFileSync: <ref *11> ƒ appendFileSync(length: 3) {},
-    chmod: <ref *12> ƒ chmod(length: 3) {},
-    chmodSync: <ref *13> ƒ chmodSync(length: 2) {},
-    chown: <ref *14> ƒ chown(length: 4) {},
-    chownSync: <ref *15> ƒ chownSync(length: 3) {},
-    close: <ref *16> ƒ close(length: 2) {},
-    closeSync: <ref *17> ƒ closeSync(length: 1) {},
-    constants: <ref *18> [Object: null prototype] {
-        COPYFILE_EXCL: 1,
-        COPYFILE_FICLONE: 2,
-        COPYFILE_FICLONE_FORCE: 4,
-        F_OK: 0,
-        O_APPEND: 8,
-        O_CREAT: 512,
-        O_DIRECTORY: 1048576,
-        O_DSYNC: 4194304,
-        O_EXCL: 2048,
-        O_NOCTTY: 131072,
-        O_NOFOLLOW: 256,
-        O_NONBLOCK: 4,
-        O_RDONLY: 0,
-        O_RDWR: 2,
-        O_SYMLINK: 2097152,
-        O_SYNC: 128,
-        O_TRUNC: 1024,
-        O_WRONLY: 1,
-        R_OK: 4,
-        S_IFBLK: 24576,
-        S_IFCHR: 8192,
-        S_IFDIR: 16384,
-        S_IFIFO: 4096,
-        S_IFLNK: 40960,
-        S_IFMT: 61440,
-        S_IFREG: 32768,
-        S_IFSOCK: 49152,
-        S_IRGRP: 32,
-        S_IROTH: 4,
-        S_IRUSR: 256,
-        S_IRWXG: 56,
-        S_IRWXO: 7,
-        S_IRWXU: 448,
-        S_IWGRP: 16,
-        S_IWOTH: 2,
-        S_IWUSR: 128,
-        S_IXGRP: 8,
-        S_IXOTH: 1,
-        S_IXUSR: 64,
-        UV_DIRENT_BLOCK: 7,
-        UV_DIRENT_CHAR: 6,
-        UV_DIRENT_DIR: 2,
-        UV_DIRENT_FIFO: 4,
-        UV_DIRENT_FILE: 1,
-        UV_DIRENT_LINK: 3,
-        UV_DIRENT_SOCKET: 5,
-        UV_DIRENT_UNKNOWN: 0,
-        UV_FS_COPYFILE_EXCL: 1,
-        UV_FS_COPYFILE_FICLONE: 2,
-        UV_FS_COPYFILE_FICLONE_FORCE: 4,
-        UV_FS_O_FILEMAP: 0,
-        UV_FS_SYMLINK_DIR: 1,
-        UV_FS_SYMLINK_JUNCTION: 2,
-        W_OK: 2,
-        X_OK: 1
-    },
-    copyFile: <ref *19> ƒ copyFile(length: 4) {},
-    copyFileSync: <ref *20> ƒ copyFileSync(length: 3) {},
-    cp: <ref *21> ƒ cp(length: 4) {},
-    cpSync: <ref *22> ƒ cpSync(length: 3) {},
-    createReadStream: <ref *23> ƒ createReadStream(length: 2) {},
-    createWriteStream: <ref *24> ƒ createWriteStream(length: 2) {},
-    default: {
-        access: [Circular: *8],
-        accessSync: [Circular: *9],
-        appendFile: [Circular: *10],
-        appendFileSync: [Circular: *11],
-        chmod: [Circular: *12],
-        chmodSync: [Circular: *13],
-        chown: [Circular: *14],
-        chownSync: [Circular: *15],
-        close: [Circular: *16],
-        closeSync: [Circular: *17],
-        constants: [Circular: *18],
-        copyFile: [Circular: *19],
-        copyFileSync: [Circular: *20],
-        cp: [Circular: *21],
-        cpSync: [Circular: *22],
-        createReadStream: [Circular: *23],
-        createWriteStream: [Circular: *24],
-        Dir: [Circular: *2],
-        Dirent: [Circular: *3],
-        exists: <ref *26> ƒ exists(length: 2) {},
-        existsSync: <ref *27> ƒ existsSync(length: 1) {},
-        F_OK: 0,
-        fchmod: <ref *28> ƒ fchmod(length: 3) {},
-        fchmodSync: <ref *29> ƒ fchmodSync(length: 2) {},
-        fchown: <ref *30> ƒ fchown(length: 4) {},
-        fchownSync: <ref *31> ƒ fchownSync(length: 3) {},
-        fdatasync: <ref *32> ƒ fdatasync(length: 2) {},
-        fdatasyncSync: <ref *33> ƒ fdatasyncSync(length: 1) {},
-        fstat: <ref *34> ƒ fstat(length: 3) {},
-        fstatSync: <ref *35> ƒ fstatSync(length: 2) {},
-        fsync: <ref *36> ƒ fsync(length: 2) {},
-        fsyncSync: <ref *37> ƒ fsyncSync(length: 1) {},
-        ftruncate: <ref *38> ƒ ftruncate(length: 3) {},
-        ftruncateSync: <ref *39> ƒ ftruncateSync(length: 2) {},
-        futimes: <ref *40> ƒ futimes(length: 4) {},
-        futimesSync: <ref *41> ƒ futimesSync(length: 3) {},
-        glob: <ref *42> ƒ glob(length: 2) {},
-        globSync: <ref *43> ƒ globSync(length: 1) {},
-        lchmod: undefined,
-        lchmodSync: undefined,
-        lchown: ƒ lchown(length: 4) {},
-        lchownSync: ƒ lchownSync(length: 3) {},
-        link: <ref *46> ƒ link(length: 3) {},
-        linkSync: <ref *47> ƒ linkSync(length: 2) {},
-        lstat: <ref *48> ƒ lstat(length: 3) {},
-        lstatSync: <ref *49> ƒ lstatSync(length: 2) {},
-        lutimes: <ref *50> ƒ lutimes(length: 4) {},
-        lutimesSync: <ref *51> ƒ lutimesSync(length: 3) {},
-        mkdir: <ref *52> ƒ mkdir(length: 3) {},
-        mkdirSync: <ref *53> ƒ mkdirSync(length: 2) {},
-        mkdtemp: <ref *54> ƒ mkdtemp(length: 3) {},
-        mkdtempSync: <ref *55> ƒ mkdtempSync(length: 2) {},
-        O_APPEND: 8,
-        O_CREAT: 512,
-        O_DIRECTORY: 1048576,
-        O_DSYNC: 4194304,
-        O_EXCL: 2048,
-        O_NOCTTY: 131072,
-        O_NOFOLLOW: 256,
-        O_NONBLOCK: 4,
-        O_RDONLY: 0,
-        O_RDWR: 2,
-        O_SYMLINK: 2097152,
-        O_SYNC: 128,
-        O_TRUNC: 1024,
-        O_WRONLY: 1,
-        open: <ref *56> ƒ open(length: 4) {},
-        openSync: <ref *57> ƒ openSync(length: 3) {},
-        opendir: <ref *58> ƒ opendir(length: 3) {},
-        opendirSync: <ref *59> ƒ opendirSync(length: 2) {},
-        read: <ref *60> ƒ read(length: 6) {},
-        readSync: <ref *61> ƒ readSync(length: 5) {},
-        promises: <ref *62> {
-            access: ƒ access(length: 3) {},
-            constants: [Circular: *18],
-            copyFile: ƒ copyFile(length: 4) {},
-            cp: ƒ cp(length: 4) {},
-            glob: ƒ globPromise(length: 2) {},
-            open: ƒ openPromise(length: 1) {},
-            opendir: ƒ opendir(length: 3) {},
-            rename: ƒ rename(length: 3) {},
-            truncate: ƒ truncate(length: 3) {},
-            rm: ƒ rm(length: 3) {},
-            rmdir: ƒ rmdir(length: 3) {},
-            mkdir: ƒ mkdir(length: 3) {},
-            readdir: ƒ readdir(length: 3) {},
-            readlink: ƒ readlink(length: 3) {},
-            symlink: ƒ symlink(length: 4) {},
-            lstat: ƒ lstat(length: 3) {},
-            stat: ƒ stat(length: 3) {},
-            statfs: ƒ statfs(length: 3) {},
-            fstat: ƒ fstatPromise(length: 2) {},
-            link: ƒ link(length: 3) {},
-            unlink: ƒ unlink(length: 2) {},
-            chmod: ƒ chmod(length: 3) {},
-            lchmod: ƒ (length: 0) {},
-            lchown: ƒ lchown(length: 4) {},
-            chown: ƒ chown(length: 4) {},
-            utimes: ƒ utimes(length: 4) {},
-            lutimes: ƒ lutimes(length: 4) {},
-            realpath: ƒ realpath(length: 3) {
-                native: <ref *90> ƒ realpath(length: 3) {
-                    native: [Circular: *90]
-                }
-            },
-            mkdtemp: ƒ mkdtemp(length: 3) {},
-            writeFile: ƒ writeFile(length: 4) {},
-            appendFile: ƒ appendFile(length: 4) {},
-            readFile: ƒ readFilePromise(length: 2) {},
-            watch: ƒ watchPromise(length: 2) {}
-        },
-        R_OK: 4,
-        readdir: <ref *96> ƒ readdir(length: 3) {},
-        readdirSync: <ref *97> ƒ readdirSync(length: 2) {},
-        readFile: <ref *98> ƒ readFile(length: 3) {},
-        readFileSync: <ref *99> ƒ readFileSync(length: 2) {},
-        readlink: <ref *100> ƒ readlink(length: 3) {},
-        readlinkSync: <ref *101> ƒ readlinkSync(length: 2) {},
-        ReadStream: [Circular: *4],
-        realpath: [Circular: *90],
-        realpathSync: <ref *102> ƒ realpathSync(length: 1) {
-            native: [Circular: *102]
-        },
-        readv: <ref *103> ƒ readv(length: 4) {},
-        readvSync: <ref *104> ƒ readvSync(length: 2) {},
-        rename: <ref *105> ƒ rename(length: 3) {},
-        renameSync: <ref *106> ƒ renameSync(length: 2) {},
-        rmdir: <ref *107> ƒ rmdir(length: 3) {},
-        rmdirSync: <ref *108> ƒ rmdirSync(length: 2) {},
-        rm: <ref *109> ƒ rm(length: 3) {},
-        rmSync: <ref *110> ƒ rmSync(length: 2) {},
-        stat: <ref *111> ƒ stat(length: 3) {},
-        Stats: [Circular: *5],
-        statSync: <ref *112> ƒ statSync(length: 1) {},
-        statfs: <ref *113> ƒ statfs(length: 3) {},
-        statfsSync: <ref *114> ƒ statfsSync(length: 2) {},
-        symlink: <ref *115> ƒ symlink(length: 4) {},
-        symlinkSync: <ref *116> ƒ symlinkSync(length: 3) {},
-        truncate: <ref *117> ƒ truncate(length: 3) {},
-        truncateSync: <ref *118> ƒ truncateSync(length: 2) {},
-        unlink: <ref *119> ƒ unlink(length: 2) {},
-        unlinkSync: <ref *120> ƒ unlinkSync(length: 1) {},
-        unwatchFile: <ref *121> ƒ unwatchFile(length: 2) {},
-        utimes: <ref *122> ƒ utimes(length: 4) {},
-        utimesSync: <ref *123> ƒ utimesSync(length: 3) {},
-        W_OK: 2,
-        watch: <ref *124> ƒ watch(length: 3) {},
-        watchFile: <ref *125> ƒ watchFile(length: 3) {},
-        write: <ref *126> ƒ write(length: 6) {},
-        writeFile: <ref *127> ƒ writeFile(length: 4) {},
-        writev: <ref *128> ƒ writev(length: 4) {},
-        writevSync: <ref *129> ƒ writevSync(length: 3) {},
-        writeFileSync: <ref *130> ƒ writeFileSync(length: 3) {},
-        WriteStream: [Circular: *6],
-        writeSync: <ref *131> ƒ writeSync(length: 5) {},
-        X_OK: 1,
-        _toUnixTimestamp: [Circular: *7]
-    },
-    exists: [Circular: *26],
-    existsSync: [Circular: *27],
-    fchmod: [Circular: *28],
-    fchmodSync: [Circular: *29],
-    fchown: [Circular: *30],
-    fchownSync: [Circular: *31],
-    fdatasync: [Circular: *32],
-    fdatasyncSync: [Circular: *33],
-    fstat: [Circular: *34],
-    fstatSync: [Circular: *35],
-    fsync: [Circular: *36],
-    fsyncSync: [Circular: *37],
-    ftruncate: [Circular: *38],
-    ftruncateSync: [Circular: *39],
-    futimes: [Circular: *40],
-    futimesSync: [Circular: *41],
-    glob: [Circular: *42],
-    globSync: [Circular: *43],
-    lchmod: undefined,
-    lchmodSync: undefined,
-    link: [Circular: *46],
-    linkSync: [Circular: *47],
-    lstat: [Circular: *48],
-    lstatSync: [Circular: *49],
-    lutimes: [Circular: *50],
-    lutimesSync: [Circular: *51],
-    mkdir: [Circular: *52],
-    mkdirSync: [Circular: *53],
-    mkdtemp: [Circular: *54],
-    mkdtempSync: [Circular: *55],
-    open: [Circular: *56],
-    openSync: [Circular: *57],
-    opendir: [Circular: *58],
-    opendirSync: [Circular: *59],
-    promises: [Circular: *62],
-    read: [Circular: *60],
-    readFile: [Circular: *98],
-    readFileSync: [Circular: *99],
-    readSync: [Circular: *61],
-    readdir: [Circular: *96],
-    readdirSync: [Circular: *97],
-    readlink: [Circular: *100],
-    readlinkSync: [Circular: *101],
-    readv: [Circular: *103],
-    readvSync: [Circular: *104],
-    realpath: [Circular: *90],
-    realpathSync: [Circular: *102],
-    rename: [Circular: *105],
-    renameSync: [Circular: *106],
-    rm: [Circular: *109],
-    rmSync: [Circular: *110],
-    rmdir: [Circular: *107],
-    rmdirSync: [Circular: *108],
-    stat: [Circular: *111],
-    statSync: [Circular: *112],
-    statfs: [Circular: *113],
-    statfsSync: [Circular: *114],
-    symlink: [Circular: *115],
-    symlinkSync: [Circular: *116],
-    truncate: [Circular: *117],
-    truncateSync: [Circular: *118],
-    unlink: [Circular: *119],
-    unlinkSync: [Circular: *120],
-    unwatchFile: [Circular: *121],
-    utimes: [Circular: *122],
-    utimesSync: [Circular: *123],
-    watch: [Circular: *124],
-    watchFile: [Circular: *125],
-    write: [Circular: *126],
-    writeFile: [Circular: *127],
-    writeFileSync: [Circular: *130],
-    writeSync: [Circular: *131],
-    writev: [Circular: *128],
-    writevSync: [Circular: *129]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/fs.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="fs-promises"></a>
 <details>
-			<summary><code>fs/promises</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>fs/promises</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    access: <ref *2> async ƒ access(length: 1) {},
-    appendFile: <ref *3> async ƒ appendFile(length: 3) {},
-    chmod: <ref *4> async ƒ chmod(length: 2) {},
-    chown: <ref *5> async ƒ chown(length: 3) {},
-    constants: <ref *6> [Object: null prototype] {
-        UV_FS_SYMLINK_DIR: 1,
-        UV_FS_SYMLINK_JUNCTION: 2,
-        O_RDONLY: 0,
-        O_WRONLY: 1,
-        O_RDWR: 2,
-        UV_DIRENT_UNKNOWN: 0,
-        UV_DIRENT_FILE: 1,
-        UV_DIRENT_DIR: 2,
-        UV_DIRENT_LINK: 3,
-        UV_DIRENT_FIFO: 4,
-        UV_DIRENT_SOCKET: 5,
-        UV_DIRENT_CHAR: 6,
-        UV_DIRENT_BLOCK: 7,
-        EXTENSIONLESS_FORMAT_JAVASCRIPT: 0,
-        EXTENSIONLESS_FORMAT_WASM: 1,
-        S_IFMT: 61440,
-        S_IFREG: 32768,
-        S_IFDIR: 16384,
-        S_IFCHR: 8192,
-        S_IFIFO: 4096,
-        S_IFLNK: 40960,
-        O_CREAT: 256,
-        O_EXCL: 1024,
-        UV_FS_O_FILEMAP: 536870912,
-        O_TRUNC: 512,
-        O_APPEND: 8,
-        S_IRUSR: 256,
-        S_IWUSR: 128,
-        F_OK: 0,
-        R_OK: 4,
-        W_OK: 2,
-        X_OK: 1,
-        UV_FS_COPYFILE_EXCL: 1,
-        COPYFILE_EXCL: 1,
-        UV_FS_COPYFILE_FICLONE: 2,
-        COPYFILE_FICLONE: 2,
-        UV_FS_COPYFILE_FICLONE_FORCE: 4,
-        COPYFILE_FICLONE_FORCE: 4
-    },
-    copyFile: <ref *7> async ƒ copyFile(length: 3) {},
-    cp: <ref *8> async ƒ cp(length: 3) {},
-    default: {
-        access: [Circular: *2],
-        copyFile: [Circular: *7],
-        cp: [Circular: *8],
-        glob: <ref *10> async ƒ glob(length: 2) {},
-        open: <ref *11> async ƒ open(length: 3) {},
-        opendir: <ref *12> ƒ opendir(length: 3) {},
-        rename: <ref *13> async ƒ rename(length: 2) {},
-        truncate: <ref *14> async ƒ truncate(length: 1) {},
-        rm: <ref *15> async ƒ rm(length: 2) {},
-        rmdir: <ref *16> async ƒ rmdir(length: 2) {},
-        mkdir: <ref *17> async ƒ mkdir(length: 2) {},
-        readdir: <ref *18> async ƒ readdir(length: 2) {},
-        readlink: <ref *19> async ƒ readlink(length: 2) {},
-        symlink: <ref *20> async ƒ symlink(length: 3) {},
-        lstat: <ref *21> async ƒ lstat(length: 1) {},
-        stat: <ref *22> async ƒ stat(length: 1) {},
-        statfs: <ref *23> async ƒ statfs(length: 1) {},
-        link: <ref *24> async ƒ link(length: 2) {},
-        unlink: <ref *25> async ƒ unlink(length: 1) {},
-        chmod: [Circular: *4],
-        lchmod: <ref *26> async ƒ lchmod(length: 2) {},
-        lchown: <ref *27> async ƒ lchown(length: 3) {},
-        chown: [Circular: *5],
-        utimes: <ref *28> async ƒ utimes(length: 3) {},
-        lutimes: <ref *29> async ƒ lutimes(length: 3) {},
-        realpath: <ref *30> async ƒ realpath(length: 2) {},
-        mkdtemp: <ref *31> async ƒ mkdtemp(length: 2) {},
-        writeFile: <ref *32> async ƒ writeFile(length: 3) {},
-        appendFile: [Circular: *3],
-        readFile: <ref *33> async ƒ readFile(length: 2) {},
-        watch: <ref *34> async ƒ watch(length: 1) {},
-        constants: [Circular: *6]
-    },
-    glob: [Circular: *10],
-    lchmod: [Circular: *26],
-    lchown: [Circular: *27],
-    link: [Circular: *24],
-    lstat: [Circular: *21],
-    lutimes: [Circular: *29],
-    mkdir: [Circular: *17],
-    mkdtemp: [Circular: *31],
-    open: [Circular: *11],
-    opendir: [Circular: *12],
-    readFile: [Circular: *33],
-    readdir: [Circular: *18],
-    readlink: [Circular: *19],
-    realpath: [Circular: *30],
-    rename: [Circular: *13],
-    rm: [Circular: *15],
-    rmdir: [Circular: *16],
-    stat: [Circular: *22],
-    statfs: [Circular: *23],
-    symlink: [Circular: *20],
-    truncate: [Circular: *14],
-    unlink: [Circular: *25],
-    utimes: [Circular: *28],
-    watch: [Circular: *34],
-    writeFile: [Circular: *32]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/fs_promises.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    access: <ref *2> ƒ access(length: 3) {},
-    appendFile: <ref *3> ƒ appendFile(length: 4) {},
-    chmod: <ref *4> ƒ chmod(length: 3) {},
-    chown: <ref *5> ƒ chown(length: 4) {},
-    constants: <ref *6> [Object: null prototype] {
-        COPYFILE_EXCL: 1,
-        COPYFILE_FICLONE: 2,
-        COPYFILE_FICLONE_FORCE: 4,
-        F_OK: 0,
-        O_APPEND: 8,
-        O_CREAT: 512,
-        O_DIRECTORY: 1048576,
-        O_DSYNC: 4194304,
-        O_EXCL: 2048,
-        O_NOCTTY: 131072,
-        O_NOFOLLOW: 256,
-        O_NONBLOCK: 4,
-        O_RDONLY: 0,
-        O_RDWR: 2,
-        O_SYMLINK: 2097152,
-        O_SYNC: 128,
-        O_TRUNC: 1024,
-        O_WRONLY: 1,
-        R_OK: 4,
-        S_IFBLK: 24576,
-        S_IFCHR: 8192,
-        S_IFDIR: 16384,
-        S_IFIFO: 4096,
-        S_IFLNK: 40960,
-        S_IFMT: 61440,
-        S_IFREG: 32768,
-        S_IFSOCK: 49152,
-        S_IRGRP: 32,
-        S_IROTH: 4,
-        S_IRUSR: 256,
-        S_IRWXG: 56,
-        S_IRWXO: 7,
-        S_IRWXU: 448,
-        S_IWGRP: 16,
-        S_IWOTH: 2,
-        S_IWUSR: 128,
-        S_IXGRP: 8,
-        S_IXOTH: 1,
-        S_IXUSR: 64,
-        UV_DIRENT_BLOCK: 7,
-        UV_DIRENT_CHAR: 6,
-        UV_DIRENT_DIR: 2,
-        UV_DIRENT_FIFO: 4,
-        UV_DIRENT_FILE: 1,
-        UV_DIRENT_LINK: 3,
-        UV_DIRENT_SOCKET: 5,
-        UV_DIRENT_UNKNOWN: 0,
-        UV_FS_COPYFILE_EXCL: 1,
-        UV_FS_COPYFILE_FICLONE: 2,
-        UV_FS_COPYFILE_FICLONE_FORCE: 4,
-        UV_FS_O_FILEMAP: 0,
-        UV_FS_SYMLINK_DIR: 1,
-        UV_FS_SYMLINK_JUNCTION: 2,
-        W_OK: 2,
-        X_OK: 1
-    },
-    copyFile: <ref *7> ƒ copyFile(length: 4) {},
-    cp: <ref *8> ƒ cp(length: 4) {},
-    default: {
-        access: [Circular: *2],
-        constants: [Circular: *6],
-        copyFile: [Circular: *7],
-        cp: [Circular: *8],
-        glob: <ref *10> ƒ globPromise(length: 2) {},
-        open: <ref *11> ƒ openPromise(length: 1) {},
-        opendir: <ref *12> ƒ opendir(length: 3) {},
-        rename: <ref *13> ƒ rename(length: 3) {},
-        truncate: <ref *14> ƒ truncate(length: 3) {},
-        rm: <ref *15> ƒ rm(length: 3) {},
-        rmdir: <ref *16> ƒ rmdir(length: 3) {},
-        mkdir: <ref *17> ƒ mkdir(length: 3) {},
-        readdir: <ref *18> ƒ readdir(length: 3) {},
-        readlink: <ref *19> ƒ readlink(length: 3) {},
-        symlink: <ref *20> ƒ symlink(length: 4) {},
-        lstat: <ref *21> ƒ lstat(length: 3) {},
-        stat: <ref *22> ƒ stat(length: 3) {},
-        statfs: ƒ statfs(length: 3) {},
-        fstat: <ref *24> ƒ fstatPromise(length: 2) {},
-        link: <ref *25> ƒ link(length: 3) {},
-        unlink: <ref *26> ƒ unlink(length: 2) {},
-        chmod: [Circular: *4],
-        lchmod: <ref *27> ƒ (length: 0) {},
-        lchown: <ref *28> ƒ lchown(length: 4) {},
-        chown: [Circular: *5],
-        utimes: <ref *29> ƒ utimes(length: 4) {},
-        lutimes: <ref *30> ƒ lutimes(length: 4) {},
-        realpath: <ref *31> ƒ realpath(length: 3) {
-            native: <ref *32> ƒ realpath(length: 3) {
-                native: [Circular: *32]
-            }
-        },
-        mkdtemp: <ref *33> ƒ mkdtemp(length: 3) {},
-        writeFile: <ref *34> ƒ writeFile(length: 4) {},
-        appendFile: [Circular: *3],
-        readFile: <ref *35> ƒ readFilePromise(length: 2) {},
-        watch: <ref *36> ƒ watchPromise(length: 2) {}
-    },
-    fstat: [Circular: *24],
-    glob: [Circular: *10],
-    lchmod: [Circular: *27],
-    lchown: [Circular: *28],
-    link: [Circular: *25],
-    lstat: [Circular: *21],
-    lutimes: [Circular: *30],
-    mkdir: [Circular: *17],
-    mkdtemp: [Circular: *33],
-    open: [Circular: *11],
-    opendir: [Circular: *12],
-    readFile: [Circular: *35],
-    readdir: [Circular: *18],
-    readlink: [Circular: *19],
-    realpath: [Circular: *31],
-    rename: [Circular: *13],
-    rm: [Circular: *15],
-    rmdir: [Circular: *16],
-    stat: [Circular: *22],
-    symlink: [Circular: *20],
-    truncate: [Circular: *14],
-    unlink: [Circular: *26],
-    utimes: [Circular: *29],
-    watch: [Circular: *36],
-    writeFile: [Circular: *34]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/fs_promises.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="http"></a>
 <details>
-			<summary><code>http</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>http</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Agent: <ref *2> ƒ Agent(length: 1) {
-        defaultMaxSockets: Infinity
-    },
-    ClientRequest: <ref *3> ƒ ClientRequest(length: 3) {},
-    CloseEvent: <ref *4> class _CloseEvent extends Event {},
-    IncomingMessage: <ref *5> ƒ IncomingMessage(length: 1) {},
-    METHODS: <ref *6> [
-        "ACL",
-        "BIND",
-        "CHECKOUT",
-        "CONNECT",
-        "COPY",
-        "DELETE",
-        "GET",
-        "HEAD",
-        "LINK",
-        "LOCK",
-        "M-SEARCH",
-        "MERGE",
-        "MKACTIVITY",
-        "MKCALENDAR",
-        "MKCOL",
-        "MOVE",
-        "NOTIFY",
-        "OPTIONS",
-        "PATCH",
-        "POST",
-        "PROPFIND",
-        "PROPPATCH",
-        "PURGE",
-        "PUT",
-        "QUERY",
-        "REBIND",
-        "REPORT",
-        "SEARCH",
-        "SOURCE",
-        "SUBSCRIBE",
-        "TRACE",
-        "UNBIND",
-        "UNLINK",
-        "UNLOCK",
-        "UNSUBSCRIBE"
-    ],
-    MessageEvent: <ref *7> class _MessageEvent extends Event {},
-    OutgoingMessage: <ref *8> ƒ OutgoingMessage(length: 1) {},
-    STATUS_CODES: <ref *9> {
-        100: "Continue",
-        101: "Switching Protocols",
-        102: "Processing",
-        103: "Early Hints",
-        200: "OK",
-        201: "Created",
-        202: "Accepted",
-        203: "Non-Authoritative Information",
-        204: "No Content",
-        205: "Reset Content",
-        206: "Partial Content",
-        207: "Multi-Status",
-        208: "Already Reported",
-        226: "IM Used",
-        300: "Multiple Choices",
-        301: "Moved Permanently",
-        302: "Found",
-        303: "See Other",
-        304: "Not Modified",
-        305: "Use Proxy",
-        307: "Temporary Redirect",
-        308: "Permanent Redirect",
-        400: "Bad Request",
-        401: "Unauthorized",
-        402: "Payment Required",
-        403: "Forbidden",
-        404: "Not Found",
-        405: "Method Not Allowed",
-        406: "Not Acceptable",
-        407: "Proxy Authentication Required",
-        408: "Request Timeout",
-        409: "Conflict",
-        410: "Gone",
-        411: "Length Required",
-        412: "Precondition Failed",
-        413: "Payload Too Large",
-        414: "URI Too Long",
-        415: "Unsupported Media Type",
-        416: "Range Not Satisfiable",
-        417: "Expectation Failed",
-        418: "I'm a Teapot",
-        421: "Misdirected Request",
-        422: "Unprocessable Entity",
-        423: "Locked",
-        424: "Failed Dependency",
-        425: "Too Early",
-        426: "Upgrade Required",
-        428: "Precondition Required",
-        429: "Too Many Requests",
-        431: "Request Header Fields Too Large",
-        451: "Unavailable For Legal Reasons",
-        500: "Internal Server Error",
-        501: "Not Implemented",
-        502: "Bad Gateway",
-        503: "Service Unavailable",
-        504: "Gateway Timeout",
-        505: "HTTP Version Not Supported",
-        506: "Variant Also Negotiates",
-        507: "Insufficient Storage",
-        508: "Loop Detected",
-        509: "Bandwidth Limit Exceeded",
-        510: "Not Extended",
-        511: "Network Authentication Required"
-    },
-    Server: <ref *10> ƒ Server(length: 2) {},
-    ServerResponse: <ref *11> ƒ ServerResponse(length: 2) {},
-    WebSocket: <ref *12> class _WebSocket extends EventTarget {
-        CONNECTING: 0,
-        OPEN: 1,
-        CLOSING: 2,
-        CLOSED: 3
-    },
-    _connectionListener: <ref *13> ƒ connectionListener(length: 1) {},
-    createServer: <ref *14> ƒ createServer(length: 2) {},
-    default: {
-        _connectionListener: [Circular: *13],
-        METHODS: [Circular: *6],
-        STATUS_CODES: [Circular: *9],
-        Agent: [Circular: *2],
-        ClientRequest: [Circular: *3],
-        IncomingMessage: [Circular: *5],
-        OutgoingMessage: [Circular: *8],
-        Server: [Circular: *10],
-        ServerResponse: [Circular: *11],
-        createServer: [Circular: *14],
-        validateHeaderName: <ref *16> ƒ wrappedFn(length: 0) {
-            withoutStackTrace: ƒ (length: 2) {}
-        },
-        validateHeaderValue: <ref *18> ƒ wrappedFn(length: 0) {
-            withoutStackTrace: ƒ (length: 2) {}
-        },
-        get: <ref *20> ƒ get(length: 3) {},
-        request: <ref *21> ƒ request(length: 3) {},
-        setMaxIdleHTTPParsers: <ref *22> ƒ setMaxIdleHTTPParsers(length: 1) {},
-        [get/set] maxHeaderSize: 16384,
-        [get/set] globalAgent: <ref *23> Agent {
-            _events: [Object: null prototype] {
-                free: ƒ (length: 2) {},
-                newListener: ƒ maybeEnableKeylog(length: 1) {}
-            },
-            _eventsCount: 2,
-            _maxListeners: undefined,
-            defaultPort: 80,
-            protocol: "http:",
-            options: [Object: null prototype] {
-                keepAlive: true,
-                scheduling: "lifo",
-                timeout: 5000,
-                noDelay: true,
-                path: null
-            },
-            requests: [Object: null prototype] {},
-            sockets: [Object: null prototype] {},
-            freeSockets: [Object: null prototype] {},
-            keepAliveMsecs: 1000,
-            keepAlive: true,
-            maxSockets: Infinity,
-            maxFreeSockets: 256,
-            scheduling: "lifo",
-            maxTotalSockets: Infinity,
-            totalSocketCount: 0,
-            Symbol(shapeMode): false,
-            Symbol(kCapture): false
-        },
-        [get/set] WebSocket: [Circular: *12],
-        [get/set] CloseEvent: [Circular: *4],
-        [get/set] MessageEvent: [Circular: *7]
-    },
-    get: [Circular: *20],
-    globalAgent: [Circular: *23],
-    maxHeaderSize: 16384,
-    request: [Circular: *21],
-    setMaxIdleHTTPParsers: [Circular: *22],
-    validateHeaderName: [Circular: *16],
-    validateHeaderValue: [Circular: *18]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/http.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Agent: <ref *2> ƒ Agent(length: 1) {
-        defaultMaxSockets: Infinity
-    },
-    ClientRequest: <ref *3> class ClientRequest extends OutgoingMessage {},
-    IncomingMessage: <ref *4> class IncomingMessageForServer extends NodeReadable {},
-    IncomingMessageForClient: <ref *5> class IncomingMessageForClient extends NodeReadable {},
-    IncomingMessageForServer: [Circular: *4],
-    METHODS: <ref *6> [
-        "ACL",
-        "BIND",
-        "CHECKOUT",
-        "CONNECT",
-        "COPY",
-        "DELETE",
-        "GET",
-        "HEAD",
-        "LINK",
-        "LOCK",
-        "M-SEARCH",
-        "MERGE",
-        "MKACTIVITY",
-        "MKCALENDAR",
-        "MKCOL",
-        "MOVE",
-        "NOTIFY",
-        "OPTIONS",
-        "PATCH",
-        "POST",
-        "PROPFIND",
-        "PROPPATCH",
-        "PURGE",
-        "PUT",
-        "REBIND",
-        "REPORT",
-        "SEARCH",
-        "SOURCE",
-        "SUBSCRIBE",
-        "TRACE",
-        "UNBIND",
-        "UNLINK",
-        "UNLOCK",
-        "UNSUBSCRIBE"
-    ],
-    OutgoingMessage: <ref *7> ƒ OutgoingMessage(length: 0) {},
-    STATUS_CODES: <ref *8> {
-        100: "Continue",
-        101: "Switching Protocols",
-        102: "Processing",
-        103: "Early Hints",
-        200: "OK",
-        201: "Created",
-        202: "Accepted",
-        203: "Non-Authoritative Information",
-        204: "No Content",
-        205: "Reset Content",
-        206: "Partial Content",
-        207: "Multi-Status",
-        208: "Already Reported",
-        226: "IM Used",
-        300: "Multiple Choices",
-        301: "Moved Permanently",
-        302: "Found",
-        303: "See Other",
-        304: "Not Modified",
-        305: "Use Proxy",
-        307: "Temporary Redirect",
-        308: "Permanent Redirect",
-        400: "Bad Request",
-        401: "Unauthorized",
-        402: "Payment Required",
-        403: "Forbidden",
-        404: "Not Found",
-        405: "Method Not Allowed",
-        406: "Not Acceptable",
-        407: "Proxy Authentication Required",
-        408: "Request Timeout",
-        409: "Conflict",
-        410: "Gone",
-        411: "Length Required",
-        412: "Precondition Failed",
-        413: "Payload Too Large",
-        414: "URI Too Long",
-        415: "Unsupported Media Type",
-        416: "Range Not Satisfiable",
-        417: "Expectation Failed",
-        418: "I'm a Teapot",
-        421: "Misdirected Request",
-        422: "Unprocessable Entity",
-        423: "Locked",
-        424: "Failed Dependency",
-        425: "Too Early",
-        426: "Upgrade Required",
-        428: "Precondition Required",
-        429: "Too Many Requests",
-        431: "Request Header Fields Too Large",
-        451: "Unavailable For Legal Reasons",
-        500: "Internal Server Error",
-        501: "Not Implemented",
-        502: "Bad Gateway",
-        503: "Service Unavailable",
-        504: "Gateway Timeout",
-        505: "HTTP Version Not Supported",
-        506: "Variant Also Negotiates",
-        507: "Insufficient Storage",
-        508: "Loop Detected",
-        510: "Not Extended",
-        511: "Network Authentication Required"
-    },
-    Server: <ref *9> ƒ Server(length: 2) {},
-    ServerImpl: class ServerImpl extends EventEmitter {},
-    ServerResponse: <ref *11> ƒ ServerResponse(length: 3) {
-        _enqueue: ƒ (length: 2) {},
-        _bodyShouldBeNull: ƒ (length: 1) {}
-    },
-    createServer: <ref *14> ƒ createServer(length: 2) {},
-    default: {
-        Agent: [Circular: *2],
-        globalAgent: <ref *16> Agent {
-            _events: [Object: null prototype] {
-                free: ƒ (length: 2) {},
-                newListener: ƒ maybeEnableKeylog(length: 1) {}
-            },
-            _eventsCount: 2,
-            _maxListeners: undefined,
-            defaultPort: 80,
-            protocol: "http:",
-            options: [Object: null prototype] {
-                path: null
-            },
-            requests: [Object: null prototype] {},
-            sockets: [Object: null prototype] {},
-            freeSockets: [Object: null prototype] {},
-            keepAliveMsecs: 1000,
-            keepAlive: false,
-            maxSockets: Infinity,
-            maxFreeSockets: 256,
-            scheduling: "lifo",
-            maxTotalSockets: Infinity,
-            totalSocketCount: 0,
-            Symbol(kCapture): false
-        },
-        ClientRequest: [Circular: *3],
-        STATUS_CODES: [Circular: *8],
-        METHODS: [Circular: *6],
-        createServer: [Circular: *14],
-        Server: [Circular: *9],
-        IncomingMessage: [Circular: *4],
-        IncomingMessageForClient: [Circular: *5],
-        IncomingMessageForServer: [Circular: *4],
-        OutgoingMessage: [Circular: *7],
-        ServerResponse: [Circular: *11],
-        request: <ref *24> ƒ request(length: 0) {},
-        get: <ref *25> ƒ get(length: 0) {},
-        validateHeaderName: <ref *26> ƒ __node_internal_(length: 2) {},
-        validateHeaderValue: <ref *27> ƒ __node_internal_(length: 2) {},
-        maxHeaderSize: 16384
-    },
-    get: [Circular: *25],
-    globalAgent: [Circular: *16],
-    maxHeaderSize: 16384,
-    request: [Circular: *24],
-    validateHeaderName: [Circular: *26],
-    validateHeaderValue: [Circular: *27]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/http.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="http2"></a>
 <details>
-			<summary><code>http2</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>http2</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Http2ServerRequest: <ref *2> class Http2ServerRequest extends Readable {},
-    Http2ServerResponse: <ref *3> class Http2ServerResponse extends Stream {},
-    connect: <ref *4> ƒ connect(length: 3) {},
-    constants: <ref *5> {
-        NGHTTP2_ERR_FRAME_SIZE_ERROR: -522,
-        NGHTTP2_SESSION_SERVER: 0,
-        NGHTTP2_SESSION_CLIENT: 1,
-        NGHTTP2_STREAM_STATE_IDLE: 1,
-        NGHTTP2_STREAM_STATE_OPEN: 2,
-        NGHTTP2_STREAM_STATE_RESERVED_LOCAL: 3,
-        NGHTTP2_STREAM_STATE_RESERVED_REMOTE: 4,
-        NGHTTP2_STREAM_STATE_HALF_CLOSED_LOCAL: 5,
-        NGHTTP2_STREAM_STATE_HALF_CLOSED_REMOTE: 6,
-        NGHTTP2_STREAM_STATE_CLOSED: 7,
-        NGHTTP2_FLAG_NONE: 0,
-        NGHTTP2_FLAG_END_STREAM: 1,
-        NGHTTP2_FLAG_END_HEADERS: 4,
-        NGHTTP2_FLAG_ACK: 1,
-        NGHTTP2_FLAG_PADDED: 8,
-        NGHTTP2_FLAG_PRIORITY: 32,
-        DEFAULT_SETTINGS_HEADER_TABLE_SIZE: 4096,
-        DEFAULT_SETTINGS_ENABLE_PUSH: 1,
-        DEFAULT_SETTINGS_MAX_CONCURRENT_STREAMS: 4294967295,
-        DEFAULT_SETTINGS_INITIAL_WINDOW_SIZE: 65535,
-        DEFAULT_SETTINGS_MAX_FRAME_SIZE: 16384,
-        DEFAULT_SETTINGS_MAX_HEADER_LIST_SIZE: 65535,
-        DEFAULT_SETTINGS_ENABLE_CONNECT_PROTOCOL: 0,
-        MAX_MAX_FRAME_SIZE: 16777215,
-        MIN_MAX_FRAME_SIZE: 16384,
-        MAX_INITIAL_WINDOW_SIZE: 2147483647,
-        NGHTTP2_SETTINGS_HEADER_TABLE_SIZE: 1,
-        NGHTTP2_SETTINGS_ENABLE_PUSH: 2,
-        NGHTTP2_SETTINGS_MAX_CONCURRENT_STREAMS: 3,
-        NGHTTP2_SETTINGS_INITIAL_WINDOW_SIZE: 4,
-        NGHTTP2_SETTINGS_MAX_FRAME_SIZE: 5,
-        NGHTTP2_SETTINGS_MAX_HEADER_LIST_SIZE: 6,
-        NGHTTP2_SETTINGS_ENABLE_CONNECT_PROTOCOL: 8,
-        PADDING_STRATEGY_NONE: 0,
-        PADDING_STRATEGY_ALIGNED: 1,
-        PADDING_STRATEGY_MAX: 2,
-        PADDING_STRATEGY_CALLBACK: 1,
-        NGHTTP2_NO_ERROR: 0,
-        NGHTTP2_PROTOCOL_ERROR: 1,
-        NGHTTP2_INTERNAL_ERROR: 2,
-        NGHTTP2_FLOW_CONTROL_ERROR: 3,
-        NGHTTP2_SETTINGS_TIMEOUT: 4,
-        NGHTTP2_STREAM_CLOSED: 5,
-        NGHTTP2_FRAME_SIZE_ERROR: 6,
-        NGHTTP2_REFUSED_STREAM: 7,
-        NGHTTP2_CANCEL: 8,
-        NGHTTP2_COMPRESSION_ERROR: 9,
-        NGHTTP2_CONNECT_ERROR: 10,
-        NGHTTP2_ENHANCE_YOUR_CALM: 11,
-        NGHTTP2_INADEQUATE_SECURITY: 12,
-        NGHTTP2_HTTP_1_1_REQUIRED: 13,
-        NGHTTP2_DEFAULT_WEIGHT: 16,
-        HTTP2_HEADER_STATUS: ":status",
-        HTTP2_HEADER_METHOD: ":method",
-        HTTP2_HEADER_AUTHORITY: ":authority",
-        HTTP2_HEADER_SCHEME: ":scheme",
-        HTTP2_HEADER_PATH: ":path",
-        HTTP2_HEADER_PROTOCOL: ":protocol",
-        HTTP2_HEADER_ACCEPT_ENCODING: "accept-encoding",
-        HTTP2_HEADER_ACCEPT_LANGUAGE: "accept-language",
-        HTTP2_HEADER_ACCEPT_RANGES: "accept-ranges",
-        HTTP2_HEADER_ACCEPT: "accept",
-        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_CREDENTIALS: "access-control-allow-credentials",
-        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_HEADERS: "access-control-allow-headers",
-        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_METHODS: "access-control-allow-methods",
-        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_ORIGIN: "access-control-allow-origin",
-        HTTP2_HEADER_ACCESS_CONTROL_EXPOSE_HEADERS: "access-control-expose-headers",
-        HTTP2_HEADER_ACCESS_CONTROL_REQUEST_HEADERS: "access-control-request-headers",
-        HTTP2_HEADER_ACCESS_CONTROL_REQUEST_METHOD: "access-control-request-method",
-        HTTP2_HEADER_AGE: "age",
-        HTTP2_HEADER_AUTHORIZATION: "authorization",
-        HTTP2_HEADER_CACHE_CONTROL: "cache-control",
-        HTTP2_HEADER_CONNECTION: "connection",
-        HTTP2_HEADER_CONTENT_DISPOSITION: "content-disposition",
-        HTTP2_HEADER_CONTENT_ENCODING: "content-encoding",
-        HTTP2_HEADER_CONTENT_LENGTH: "content-length",
-        HTTP2_HEADER_CONTENT_TYPE: "content-type",
-        HTTP2_HEADER_COOKIE: "cookie",
-        HTTP2_HEADER_DATE: "date",
-        HTTP2_HEADER_ETAG: "etag",
-        HTTP2_HEADER_FORWARDED: "forwarded",
-        HTTP2_HEADER_HOST: "host",
-        HTTP2_HEADER_IF_MODIFIED_SINCE: "if-modified-since",
-        HTTP2_HEADER_IF_NONE_MATCH: "if-none-match",
-        HTTP2_HEADER_IF_RANGE: "if-range",
-        HTTP2_HEADER_LAST_MODIFIED: "last-modified",
-        HTTP2_HEADER_LINK: "link",
-        HTTP2_HEADER_LOCATION: "location",
-        HTTP2_HEADER_RANGE: "range",
-        HTTP2_HEADER_REFERER: "referer",
-        HTTP2_HEADER_SERVER: "server",
-        HTTP2_HEADER_SET_COOKIE: "set-cookie",
-        HTTP2_HEADER_STRICT_TRANSPORT_SECURITY: "strict-transport-security",
-        HTTP2_HEADER_TRANSFER_ENCODING: "transfer-encoding",
-        HTTP2_HEADER_TE: "te",
-        HTTP2_HEADER_UPGRADE_INSECURE_REQUESTS: "upgrade-insecure-requests",
-        HTTP2_HEADER_UPGRADE: "upgrade",
-        HTTP2_HEADER_USER_AGENT: "user-agent",
-        HTTP2_HEADER_VARY: "vary",
-        HTTP2_HEADER_X_CONTENT_TYPE_OPTIONS: "x-content-type-options",
-        HTTP2_HEADER_X_FRAME_OPTIONS: "x-frame-options",
-        HTTP2_HEADER_KEEP_ALIVE: "keep-alive",
-        HTTP2_HEADER_PROXY_CONNECTION: "proxy-connection",
-        HTTP2_HEADER_X_XSS_PROTECTION: "x-xss-protection",
-        HTTP2_HEADER_ALT_SVC: "alt-svc",
-        HTTP2_HEADER_CONTENT_SECURITY_POLICY: "content-security-policy",
-        HTTP2_HEADER_EARLY_DATA: "early-data",
-        HTTP2_HEADER_EXPECT_CT: "expect-ct",
-        HTTP2_HEADER_ORIGIN: "origin",
-        HTTP2_HEADER_PURPOSE: "purpose",
-        HTTP2_HEADER_TIMING_ALLOW_ORIGIN: "timing-allow-origin",
-        HTTP2_HEADER_X_FORWARDED_FOR: "x-forwarded-for",
-        HTTP2_HEADER_PRIORITY: "priority",
-        HTTP2_HEADER_ACCEPT_CHARSET: "accept-charset",
-        HTTP2_HEADER_ACCESS_CONTROL_MAX_AGE: "access-control-max-age",
-        HTTP2_HEADER_ALLOW: "allow",
-        HTTP2_HEADER_CONTENT_LANGUAGE: "content-language",
-        HTTP2_HEADER_CONTENT_LOCATION: "content-location",
-        HTTP2_HEADER_CONTENT_MD5: "content-md5",
-        HTTP2_HEADER_CONTENT_RANGE: "content-range",
-        HTTP2_HEADER_DNT: "dnt",
-        HTTP2_HEADER_EXPECT: "expect",
-        HTTP2_HEADER_EXPIRES: "expires",
-        HTTP2_HEADER_FROM: "from",
-        HTTP2_HEADER_IF_MATCH: "if-match",
-        HTTP2_HEADER_IF_UNMODIFIED_SINCE: "if-unmodified-since",
-        HTTP2_HEADER_MAX_FORWARDS: "max-forwards",
-        HTTP2_HEADER_PREFER: "prefer",
-        HTTP2_HEADER_PROXY_AUTHENTICATE: "proxy-authenticate",
-        HTTP2_HEADER_PROXY_AUTHORIZATION: "proxy-authorization",
-        HTTP2_HEADER_REFRESH: "refresh",
-        HTTP2_HEADER_RETRY_AFTER: "retry-after",
-        HTTP2_HEADER_TRAILER: "trailer",
-        HTTP2_HEADER_TK: "tk",
-        HTTP2_HEADER_VIA: "via",
-        HTTP2_HEADER_WARNING: "warning",
-        HTTP2_HEADER_WWW_AUTHENTICATE: "www-authenticate",
-        HTTP2_HEADER_HTTP2_SETTINGS: "http2-settings",
-        HTTP2_METHOD_ACL: "ACL",
-        HTTP2_METHOD_BASELINE_CONTROL: "BASELINE-CONTROL",
-        HTTP2_METHOD_BIND: "BIND",
-        HTTP2_METHOD_CHECKIN: "CHECKIN",
-        HTTP2_METHOD_CHECKOUT: "CHECKOUT",
-        HTTP2_METHOD_CONNECT: "CONNECT",
-        HTTP2_METHOD_COPY: "COPY",
-        HTTP2_METHOD_DELETE: "DELETE",
-        HTTP2_METHOD_GET: "GET",
-        HTTP2_METHOD_HEAD: "HEAD",
-        HTTP2_METHOD_LABEL: "LABEL",
-        HTTP2_METHOD_LINK: "LINK",
-        HTTP2_METHOD_LOCK: "LOCK",
-        HTTP2_METHOD_MERGE: "MERGE",
-        HTTP2_METHOD_MKACTIVITY: "MKACTIVITY",
-        HTTP2_METHOD_MKCALENDAR: "MKCALENDAR",
-        HTTP2_METHOD_MKCOL: "MKCOL",
-        HTTP2_METHOD_MKREDIRECTREF: "MKREDIRECTREF",
-        HTTP2_METHOD_MKWORKSPACE: "MKWORKSPACE",
-        HTTP2_METHOD_MOVE: "MOVE",
-        HTTP2_METHOD_OPTIONS: "OPTIONS",
-        HTTP2_METHOD_ORDERPATCH: "ORDERPATCH",
-        HTTP2_METHOD_PATCH: "PATCH",
-        HTTP2_METHOD_POST: "POST",
-        HTTP2_METHOD_PRI: "PRI",
-        HTTP2_METHOD_PROPFIND: "PROPFIND",
-        HTTP2_METHOD_PROPPATCH: "PROPPATCH",
-        HTTP2_METHOD_PUT: "PUT",
-        HTTP2_METHOD_REBIND: "REBIND",
-        HTTP2_METHOD_REPORT: "REPORT",
-        HTTP2_METHOD_SEARCH: "SEARCH",
-        HTTP2_METHOD_TRACE: "TRACE",
-        HTTP2_METHOD_UNBIND: "UNBIND",
-        HTTP2_METHOD_UNCHECKOUT: "UNCHECKOUT",
-        HTTP2_METHOD_UNLINK: "UNLINK",
-        HTTP2_METHOD_UNLOCK: "UNLOCK",
-        HTTP2_METHOD_UPDATE: "UPDATE",
-        HTTP2_METHOD_UPDATEREDIRECTREF: "UPDATEREDIRECTREF",
-        HTTP2_METHOD_VERSION_CONTROL: "VERSION-CONTROL",
-        HTTP_STATUS_CONTINUE: 100,
-        HTTP_STATUS_SWITCHING_PROTOCOLS: 101,
-        HTTP_STATUS_PROCESSING: 102,
-        HTTP_STATUS_EARLY_HINTS: 103,
-        HTTP_STATUS_OK: 200,
-        HTTP_STATUS_CREATED: 201,
-        HTTP_STATUS_ACCEPTED: 202,
-        HTTP_STATUS_NON_AUTHORITATIVE_INFORMATION: 203,
-        HTTP_STATUS_NO_CONTENT: 204,
-        HTTP_STATUS_RESET_CONTENT: 205,
-        HTTP_STATUS_PARTIAL_CONTENT: 206,
-        HTTP_STATUS_MULTI_STATUS: 207,
-        HTTP_STATUS_ALREADY_REPORTED: 208,
-        HTTP_STATUS_IM_USED: 226,
-        HTTP_STATUS_MULTIPLE_CHOICES: 300,
-        HTTP_STATUS_MOVED_PERMANENTLY: 301,
-        HTTP_STATUS_FOUND: 302,
-        HTTP_STATUS_SEE_OTHER: 303,
-        HTTP_STATUS_NOT_MODIFIED: 304,
-        HTTP_STATUS_USE_PROXY: 305,
-        HTTP_STATUS_TEMPORARY_REDIRECT: 307,
-        HTTP_STATUS_PERMANENT_REDIRECT: 308,
-        HTTP_STATUS_BAD_REQUEST: 400,
-        HTTP_STATUS_UNAUTHORIZED: 401,
-        HTTP_STATUS_PAYMENT_REQUIRED: 402,
-        HTTP_STATUS_FORBIDDEN: 403,
-        HTTP_STATUS_NOT_FOUND: 404,
-        HTTP_STATUS_METHOD_NOT_ALLOWED: 405,
-        HTTP_STATUS_NOT_ACCEPTABLE: 406,
-        HTTP_STATUS_PROXY_AUTHENTICATION_REQUIRED: 407,
-        HTTP_STATUS_REQUEST_TIMEOUT: 408,
-        HTTP_STATUS_CONFLICT: 409,
-        HTTP_STATUS_GONE: 410,
-        HTTP_STATUS_LENGTH_REQUIRED: 411,
-        HTTP_STATUS_PRECONDITION_FAILED: 412,
-        HTTP_STATUS_PAYLOAD_TOO_LARGE: 413,
-        HTTP_STATUS_URI_TOO_LONG: 414,
-        HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE: 415,
-        HTTP_STATUS_RANGE_NOT_SATISFIABLE: 416,
-        HTTP_STATUS_EXPECTATION_FAILED: 417,
-        HTTP_STATUS_TEAPOT: 418,
-        HTTP_STATUS_MISDIRECTED_REQUEST: 421,
-        HTTP_STATUS_UNPROCESSABLE_ENTITY: 422,
-        HTTP_STATUS_LOCKED: 423,
-        HTTP_STATUS_FAILED_DEPENDENCY: 424,
-        HTTP_STATUS_TOO_EARLY: 425,
-        HTTP_STATUS_UPGRADE_REQUIRED: 426,
-        HTTP_STATUS_PRECONDITION_REQUIRED: 428,
-        HTTP_STATUS_TOO_MANY_REQUESTS: 429,
-        HTTP_STATUS_REQUEST_HEADER_FIELDS_TOO_LARGE: 431,
-        HTTP_STATUS_UNAVAILABLE_FOR_LEGAL_REASONS: 451,
-        HTTP_STATUS_INTERNAL_SERVER_ERROR: 500,
-        HTTP_STATUS_NOT_IMPLEMENTED: 501,
-        HTTP_STATUS_BAD_GATEWAY: 502,
-        HTTP_STATUS_SERVICE_UNAVAILABLE: 503,
-        HTTP_STATUS_GATEWAY_TIMEOUT: 504,
-        HTTP_STATUS_HTTP_VERSION_NOT_SUPPORTED: 505,
-        HTTP_STATUS_VARIANT_ALSO_NEGOTIATES: 506,
-        HTTP_STATUS_INSUFFICIENT_STORAGE: 507,
-        HTTP_STATUS_LOOP_DETECTED: 508,
-        HTTP_STATUS_BANDWIDTH_LIMIT_EXCEEDED: 509,
-        HTTP_STATUS_NOT_EXTENDED: 510,
-        HTTP_STATUS_NETWORK_AUTHENTICATION_REQUIRED: 511
-    },
-    createSecureServer: <ref *6> ƒ createSecureServer(length: 2) {},
-    createServer: <ref *7> ƒ createServer(length: 2) {},
-    default: {
-        connect: [Circular: *4],
-        constants: [Circular: *5],
-        createServer: [Circular: *7],
-        createSecureServer: [Circular: *6],
-        getDefaultSettings: <ref *9> ƒ getDefaultSettings(length: 0) {},
-        getPackedSettings: <ref *10> ƒ getPackedSettings(length: 1) {},
-        getUnpackedSettings: <ref *11> ƒ getUnpackedSettings(length: 1) {},
-        performServerHandshake: <ref *12> ƒ performServerHandshake(length: 1) {},
-        sensitiveHeaders: Symbol(sensitiveHeaders),
-        Http2ServerRequest: [Circular: *2],
-        Http2ServerResponse: [Circular: *3]
-    },
-    getDefaultSettings: [Circular: *9],
-    getPackedSettings: [Circular: *10],
-    getUnpackedSettings: [Circular: *11],
-    performServerHandshake: [Circular: *12],
-    sensitiveHeaders: Symbol(sensitiveHeaders)
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/http2.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ClientHttp2Session: class ClientHttp2Session extends Http2Session {},
-    ClientHttp2Stream: class ClientHttp2Stream extends Duplex {},
-    Http2SecureServer: class Http2SecureServer extends Server {},
-    Http2Server: class Http2Server extends Server {},
-    Http2ServerRequest: <ref *6> class Http2ServerRequest extends Readable {},
-    Http2ServerResponse: <ref *7> class Http2ServerResponse extends Stream {},
-    Http2Session: class Http2Session extends EventEmitter {},
-    Http2Stream: class Http2Stream extends EventEmitter {},
-    ServerHttp2Session: class ServerHttp2Session extends Http2Session {},
-    ServerHttp2Stream: class ServerHttp2Stream extends Http2Stream {},
-    connect: <ref *12> ƒ connect(length: 3) {},
-    constants: <ref *13> {
-        NGHTTP2_ERR_FRAME_SIZE_ERROR: -522,
-        NGHTTP2_NV_FLAG_NONE: 0,
-        NGHTTP2_NV_FLAG_NO_INDEX: 1,
-        NGHTTP2_SESSION_SERVER: 0,
-        NGHTTP2_SESSION_CLIENT: 1,
-        NGHTTP2_STREAM_STATE_IDLE: 1,
-        NGHTTP2_STREAM_STATE_OPEN: 2,
-        NGHTTP2_STREAM_STATE_RESERVED_LOCAL: 3,
-        NGHTTP2_STREAM_STATE_RESERVED_REMOTE: 4,
-        NGHTTP2_STREAM_STATE_HALF_CLOSED_LOCAL: 5,
-        NGHTTP2_STREAM_STATE_HALF_CLOSED_REMOTE: 6,
-        NGHTTP2_STREAM_STATE_CLOSED: 7,
-        NGHTTP2_FLAG_NONE: 0,
-        NGHTTP2_FLAG_END_STREAM: 1,
-        NGHTTP2_FLAG_END_HEADERS: 4,
-        NGHTTP2_FLAG_ACK: 1,
-        NGHTTP2_FLAG_PADDED: 8,
-        NGHTTP2_FLAG_PRIORITY: 32,
-        DEFAULT_SETTINGS_HEADER_TABLE_SIZE: 4096,
-        DEFAULT_SETTINGS_ENABLE_PUSH: 1,
-        DEFAULT_SETTINGS_MAX_CONCURRENT_STREAMS: 4294967295,
-        DEFAULT_SETTINGS_INITIAL_WINDOW_SIZE: 65535,
-        DEFAULT_SETTINGS_MAX_FRAME_SIZE: 16384,
-        DEFAULT_SETTINGS_MAX_HEADER_LIST_SIZE: 65535,
-        DEFAULT_SETTINGS_ENABLE_CONNECT_PROTOCOL: 0,
-        MAX_MAX_FRAME_SIZE: 16777215,
-        MIN_MAX_FRAME_SIZE: 16384,
-        MAX_INITIAL_WINDOW_SIZE: 2147483647,
-        NGHTTP2_SETTINGS_HEADER_TABLE_SIZE: 1,
-        NGHTTP2_SETTINGS_ENABLE_PUSH: 2,
-        NGHTTP2_SETTINGS_MAX_CONCURRENT_STREAMS: 3,
-        NGHTTP2_SETTINGS_INITIAL_WINDOW_SIZE: 4,
-        NGHTTP2_SETTINGS_MAX_FRAME_SIZE: 5,
-        NGHTTP2_SETTINGS_MAX_HEADER_LIST_SIZE: 6,
-        NGHTTP2_SETTINGS_ENABLE_CONNECT_PROTOCOL: 8,
-        PADDING_STRATEGY_NONE: 0,
-        PADDING_STRATEGY_ALIGNED: 1,
-        PADDING_STRATEGY_MAX: 2,
-        PADDING_STRATEGY_CALLBACK: 1,
-        NGHTTP2_NO_ERROR: 0,
-        NGHTTP2_PROTOCOL_ERROR: 1,
-        NGHTTP2_INTERNAL_ERROR: 2,
-        NGHTTP2_FLOW_CONTROL_ERROR: 3,
-        NGHTTP2_SETTINGS_TIMEOUT: 4,
-        NGHTTP2_STREAM_CLOSED: 5,
-        NGHTTP2_FRAME_SIZE_ERROR: 6,
-        NGHTTP2_REFUSED_STREAM: 7,
-        NGHTTP2_CANCEL: 8,
-        NGHTTP2_COMPRESSION_ERROR: 9,
-        NGHTTP2_CONNECT_ERROR: 10,
-        NGHTTP2_ENHANCE_YOUR_CALM: 11,
-        NGHTTP2_INADEQUATE_SECURITY: 12,
-        NGHTTP2_HTTP_1_1_REQUIRED: 13,
-        NGHTTP2_DEFAULT_WEIGHT: 16,
-        HTTP2_HEADER_STATUS: ":status",
-        HTTP2_HEADER_METHOD: ":method",
-        HTTP2_HEADER_AUTHORITY: ":authority",
-        HTTP2_HEADER_SCHEME: ":scheme",
-        HTTP2_HEADER_PATH: ":path",
-        HTTP2_HEADER_PROTOCOL: ":protocol",
-        HTTP2_HEADER_ACCEPT_ENCODING: "accept-encoding",
-        HTTP2_HEADER_ACCEPT_LANGUAGE: "accept-language",
-        HTTP2_HEADER_ACCEPT_RANGES: "accept-ranges",
-        HTTP2_HEADER_ACCEPT: "accept",
-        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_CREDENTIALS: "access-control-allow-credentials",
-        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_HEADERS: "access-control-allow-headers",
-        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_METHODS: "access-control-allow-methods",
-        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_ORIGIN: "access-control-allow-origin",
-        HTTP2_HEADER_ACCESS_CONTROL_EXPOSE_HEADERS: "access-control-expose-headers",
-        HTTP2_HEADER_ACCESS_CONTROL_REQUEST_HEADERS: "access-control-request-headers",
-        HTTP2_HEADER_ACCESS_CONTROL_REQUEST_METHOD: "access-control-request-method",
-        HTTP2_HEADER_AGE: "age",
-        HTTP2_HEADER_AUTHORIZATION: "authorization",
-        HTTP2_HEADER_CACHE_CONTROL: "cache-control",
-        HTTP2_HEADER_CONNECTION: "connection",
-        HTTP2_HEADER_CONTENT_DISPOSITION: "content-disposition",
-        HTTP2_HEADER_CONTENT_ENCODING: "content-encoding",
-        HTTP2_HEADER_CONTENT_LENGTH: "content-length",
-        HTTP2_HEADER_CONTENT_TYPE: "content-type",
-        HTTP2_HEADER_COOKIE: "cookie",
-        HTTP2_HEADER_DATE: "date",
-        HTTP2_HEADER_ETAG: "etag",
-        HTTP2_HEADER_FORWARDED: "forwarded",
-        HTTP2_HEADER_HOST: "host",
-        HTTP2_HEADER_IF_MODIFIED_SINCE: "if-modified-since",
-        HTTP2_HEADER_IF_NONE_MATCH: "if-none-match",
-        HTTP2_HEADER_IF_RANGE: "if-range",
-        HTTP2_HEADER_LAST_MODIFIED: "last-modified",
-        HTTP2_HEADER_LINK: "link",
-        HTTP2_HEADER_LOCATION: "location",
-        HTTP2_HEADER_RANGE: "range",
-        HTTP2_HEADER_REFERER: "referer",
-        HTTP2_HEADER_SERVER: "server",
-        HTTP2_HEADER_SET_COOKIE: "set-cookie",
-        HTTP2_HEADER_STRICT_TRANSPORT_SECURITY: "strict-transport-security",
-        HTTP2_HEADER_TRANSFER_ENCODING: "transfer-encoding",
-        HTTP2_HEADER_TE: "te",
-        HTTP2_HEADER_UPGRADE_INSECURE_REQUESTS: "upgrade-insecure-requests",
-        HTTP2_HEADER_UPGRADE: "upgrade",
-        HTTP2_HEADER_USER_AGENT: "user-agent",
-        HTTP2_HEADER_VARY: "vary",
-        HTTP2_HEADER_X_CONTENT_TYPE_OPTIONS: "x-content-type-options",
-        HTTP2_HEADER_X_FRAME_OPTIONS: "x-frame-options",
-        HTTP2_HEADER_KEEP_ALIVE: "keep-alive",
-        HTTP2_HEADER_PROXY_CONNECTION: "proxy-connection",
-        HTTP2_HEADER_X_XSS_PROTECTION: "x-xss-protection",
-        HTTP2_HEADER_ALT_SVC: "alt-svc",
-        HTTP2_HEADER_CONTENT_SECURITY_POLICY: "content-security-policy",
-        HTTP2_HEADER_EARLY_DATA: "early-data",
-        HTTP2_HEADER_EXPECT_CT: "expect-ct",
-        HTTP2_HEADER_ORIGIN: "origin",
-        HTTP2_HEADER_PURPOSE: "purpose",
-        HTTP2_HEADER_TIMING_ALLOW_ORIGIN: "timing-allow-origin",
-        HTTP2_HEADER_X_FORWARDED_FOR: "x-forwarded-for",
-        HTTP2_HEADER_PRIORITY: "priority",
-        HTTP2_HEADER_ACCEPT_CHARSET: "accept-charset",
-        HTTP2_HEADER_ACCESS_CONTROL_MAX_AGE: "access-control-max-age",
-        HTTP2_HEADER_ALLOW: "allow",
-        HTTP2_HEADER_CONTENT_LANGUAGE: "content-language",
-        HTTP2_HEADER_CONTENT_LOCATION: "content-location",
-        HTTP2_HEADER_CONTENT_MD5: "content-md5",
-        HTTP2_HEADER_CONTENT_RANGE: "content-range",
-        HTTP2_HEADER_DNT: "dnt",
-        HTTP2_HEADER_EXPECT: "expect",
-        HTTP2_HEADER_EXPIRES: "expires",
-        HTTP2_HEADER_FROM: "from",
-        HTTP2_HEADER_IF_MATCH: "if-match",
-        HTTP2_HEADER_IF_UNMODIFIED_SINCE: "if-unmodified-since",
-        HTTP2_HEADER_MAX_FORWARDS: "max-forwards",
-        HTTP2_HEADER_PREFER: "prefer",
-        HTTP2_HEADER_PROXY_AUTHENTICATE: "proxy-authenticate",
-        HTTP2_HEADER_PROXY_AUTHORIZATION: "proxy-authorization",
-        HTTP2_HEADER_REFRESH: "refresh",
-        HTTP2_HEADER_RETRY_AFTER: "retry-after",
-        HTTP2_HEADER_TRAILER: "trailer",
-        HTTP2_HEADER_TK: "tk",
-        HTTP2_HEADER_VIA: "via",
-        HTTP2_HEADER_WARNING: "warning",
-        HTTP2_HEADER_WWW_AUTHENTICATE: "www-authenticate",
-        HTTP2_HEADER_HTTP2_SETTINGS: "http2-settings",
-        HTTP2_METHOD_ACL: "ACL",
-        HTTP2_METHOD_BASELINE_CONTROL: "BASELINE-CONTROL",
-        HTTP2_METHOD_BIND: "BIND",
-        HTTP2_METHOD_CHECKIN: "CHECKIN",
-        HTTP2_METHOD_CHECKOUT: "CHECKOUT",
-        HTTP2_METHOD_CONNECT: "CONNECT",
-        HTTP2_METHOD_COPY: "COPY",
-        HTTP2_METHOD_DELETE: "DELETE",
-        HTTP2_METHOD_GET: "GET",
-        HTTP2_METHOD_HEAD: "HEAD",
-        HTTP2_METHOD_LABEL: "LABEL",
-        HTTP2_METHOD_LINK: "LINK",
-        HTTP2_METHOD_LOCK: "LOCK",
-        HTTP2_METHOD_MERGE: "MERGE",
-        HTTP2_METHOD_MKACTIVITY: "MKACTIVITY",
-        HTTP2_METHOD_MKCALENDAR: "MKCALENDAR",
-        HTTP2_METHOD_MKCOL: "MKCOL",
-        HTTP2_METHOD_MKREDIRECTREF: "MKREDIRECTREF",
-        HTTP2_METHOD_MKWORKSPACE: "MKWORKSPACE",
-        HTTP2_METHOD_MOVE: "MOVE",
-        HTTP2_METHOD_OPTIONS: "OPTIONS",
-        HTTP2_METHOD_ORDERPATCH: "ORDERPATCH",
-        HTTP2_METHOD_PATCH: "PATCH",
-        HTTP2_METHOD_POST: "POST",
-        HTTP2_METHOD_PRI: "PRI",
-        HTTP2_METHOD_PROPFIND: "PROPFIND",
-        HTTP2_METHOD_PROPPATCH: "PROPPATCH",
-        HTTP2_METHOD_PUT: "PUT",
-        HTTP2_METHOD_REBIND: "REBIND",
-        HTTP2_METHOD_REPORT: "REPORT",
-        HTTP2_METHOD_SEARCH: "SEARCH",
-        HTTP2_METHOD_TRACE: "TRACE",
-        HTTP2_METHOD_UNBIND: "UNBIND",
-        HTTP2_METHOD_UNCHECKOUT: "UNCHECKOUT",
-        HTTP2_METHOD_UNLINK: "UNLINK",
-        HTTP2_METHOD_UNLOCK: "UNLOCK",
-        HTTP2_METHOD_UPDATE: "UPDATE",
-        HTTP2_METHOD_UPDATEREDIRECTREF: "UPDATEREDIRECTREF",
-        HTTP2_METHOD_VERSION_CONTROL: "VERSION-CONTROL",
-        HTTP_STATUS_CONTINUE: 100,
-        HTTP_STATUS_SWITCHING_PROTOCOLS: 101,
-        HTTP_STATUS_PROCESSING: 102,
-        HTTP_STATUS_EARLY_HINTS: 103,
-        HTTP_STATUS_OK: 200,
-        HTTP_STATUS_CREATED: 201,
-        HTTP_STATUS_ACCEPTED: 202,
-        HTTP_STATUS_NON_AUTHORITATIVE_INFORMATION: 203,
-        HTTP_STATUS_NO_CONTENT: 204,
-        HTTP_STATUS_RESET_CONTENT: 205,
-        HTTP_STATUS_PARTIAL_CONTENT: 206,
-        HTTP_STATUS_MULTI_STATUS: 207,
-        HTTP_STATUS_ALREADY_REPORTED: 208,
-        HTTP_STATUS_IM_USED: 226,
-        HTTP_STATUS_MULTIPLE_CHOICES: 300,
-        HTTP_STATUS_MOVED_PERMANENTLY: 301,
-        HTTP_STATUS_FOUND: 302,
-        HTTP_STATUS_SEE_OTHER: 303,
-        HTTP_STATUS_NOT_MODIFIED: 304,
-        HTTP_STATUS_USE_PROXY: 305,
-        HTTP_STATUS_TEMPORARY_REDIRECT: 307,
-        HTTP_STATUS_PERMANENT_REDIRECT: 308,
-        HTTP_STATUS_BAD_REQUEST: 400,
-        HTTP_STATUS_UNAUTHORIZED: 401,
-        HTTP_STATUS_PAYMENT_REQUIRED: 402,
-        HTTP_STATUS_FORBIDDEN: 403,
-        HTTP_STATUS_NOT_FOUND: 404,
-        HTTP_STATUS_METHOD_NOT_ALLOWED: 405,
-        HTTP_STATUS_NOT_ACCEPTABLE: 406,
-        HTTP_STATUS_PROXY_AUTHENTICATION_REQUIRED: 407,
-        HTTP_STATUS_REQUEST_TIMEOUT: 408,
-        HTTP_STATUS_CONFLICT: 409,
-        HTTP_STATUS_GONE: 410,
-        HTTP_STATUS_LENGTH_REQUIRED: 411,
-        HTTP_STATUS_PRECONDITION_FAILED: 412,
-        HTTP_STATUS_PAYLOAD_TOO_LARGE: 413,
-        HTTP_STATUS_URI_TOO_LONG: 414,
-        HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE: 415,
-        HTTP_STATUS_RANGE_NOT_SATISFIABLE: 416,
-        HTTP_STATUS_EXPECTATION_FAILED: 417,
-        HTTP_STATUS_TEAPOT: 418,
-        HTTP_STATUS_MISDIRECTED_REQUEST: 421,
-        HTTP_STATUS_UNPROCESSABLE_ENTITY: 422,
-        HTTP_STATUS_LOCKED: 423,
-        HTTP_STATUS_FAILED_DEPENDENCY: 424,
-        HTTP_STATUS_TOO_EARLY: 425,
-        HTTP_STATUS_UPGRADE_REQUIRED: 426,
-        HTTP_STATUS_PRECONDITION_REQUIRED: 428,
-        HTTP_STATUS_TOO_MANY_REQUESTS: 429,
-        HTTP_STATUS_REQUEST_HEADER_FIELDS_TOO_LARGE: 431,
-        HTTP_STATUS_UNAVAILABLE_FOR_LEGAL_REASONS: 451,
-        HTTP_STATUS_INTERNAL_SERVER_ERROR: 500,
-        HTTP_STATUS_NOT_IMPLEMENTED: 501,
-        HTTP_STATUS_BAD_GATEWAY: 502,
-        HTTP_STATUS_SERVICE_UNAVAILABLE: 503,
-        HTTP_STATUS_GATEWAY_TIMEOUT: 504,
-        HTTP_STATUS_HTTP_VERSION_NOT_SUPPORTED: 505,
-        HTTP_STATUS_VARIANT_ALSO_NEGOTIATES: 506,
-        HTTP_STATUS_INSUFFICIENT_STORAGE: 507,
-        HTTP_STATUS_LOOP_DETECTED: 508,
-        HTTP_STATUS_BANDWIDTH_LIMIT_EXCEEDED: 509,
-        HTTP_STATUS_NOT_EXTENDED: 510,
-        HTTP_STATUS_NETWORK_AUTHENTICATION_REQUIRED: 511
-    },
-    createSecureServer: <ref *14> ƒ createSecureServer(length: 2) {},
-    createServer: <ref *15> ƒ createServer(length: 2) {},
-    default: {
-        createServer: [Circular: *15],
-        createSecureServer: [Circular: *14],
-        connect: [Circular: *12],
-        constants: [Circular: *13],
-        getDefaultSettings: <ref *17> ƒ getDefaultSettings(length: 0) {},
-        getPackedSettings: <ref *18> ƒ getPackedSettings(length: 1) {},
-        getUnpackedSettings: <ref *19> ƒ getUnpackedSettings(length: 1) {},
-        sensitiveHeaders: Symbol(nodejs.http2.sensitiveHeaders),
-        Http2ServerRequest: [Circular: *6],
-        Http2ServerResponse: [Circular: *7]
-    },
-    getDefaultSettings: [Circular: *17],
-    getPackedSettings: [Circular: *18],
-    getUnpackedSettings: [Circular: *19],
-    sensitiveHeaders: Symbol(nodejs.http2.sensitiveHeaders)
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/http2.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="https"></a>
 <details>
-			<summary><code>https</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>https</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Agent: <ref *2> ƒ Agent(length: 1) {},
-    Server: <ref *3> ƒ Server(length: 2) {},
-    createServer: <ref *4> ƒ createServer(length: 2) {},
-    default: {
-        Agent: [Circular: *2],
-        globalAgent: <ref *6> Agent {
-            _events: [Object: null prototype] {
-                free: ƒ (length: 2) {},
-                newListener: ƒ maybeEnableKeylog(length: 1) {}
-            },
-            _eventsCount: 2,
-            _maxListeners: undefined,
-            defaultPort: 443,
-            protocol: "https:",
-            options: [Object: null prototype] {
-                keepAlive: true,
-                scheduling: "lifo",
-                timeout: 5000,
-                noDelay: true,
-                path: null
-            },
-            requests: [Object: null prototype] {},
-            sockets: [Object: null prototype] {},
-            freeSockets: [Object: null prototype] {},
-            keepAliveMsecs: 1000,
-            keepAlive: true,
-            maxSockets: Infinity,
-            maxFreeSockets: 256,
-            scheduling: "lifo",
-            maxTotalSockets: Infinity,
-            totalSocketCount: 0,
-            maxCachedSessions: 100,
-            _sessionCache: {
-                map: {},
-                list: []
-            },
-            Symbol(shapeMode): false,
-            Symbol(kCapture): false
-        },
-        Server: [Circular: *3],
-        createServer: [Circular: *4],
-        get: <ref *17> ƒ get(length: 3) {},
-        request: <ref *18> ƒ request(length: 0) {}
-    },
-    get: [Circular: *17],
-    globalAgent: [Circular: *6],
-    request: [Circular: *18]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/https.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Agent: <ref *2> class Agent extends HttpAgent {},
-    Server: <ref *3> class Server extends HttpServer {},
-    createServer: <ref *4> ƒ createServer(length: 2) {},
-    default: {
-        Agent: [Circular: *2],
-        Server: [Circular: *3],
-        createServer: [Circular: *4],
-        get: <ref *6> ƒ get(length: 0) {},
-        globalAgent: <ref *7> Agent {
-            _events: [Object: null prototype] {
-                free: ƒ (length: 2) {},
-                newListener: ƒ maybeEnableKeylog(length: 1) {}
-            },
-            _eventsCount: 2,
-            _maxListeners: undefined,
-            defaultPort: 443,
-            protocol: "https:",
-            options: [Object: null prototype] {
-                keepAlive: true,
-                scheduling: "lifo",
-                timeout: 5000,
-                path: null
-            },
-            requests: [Object: null prototype] {},
-            sockets: [Object: null prototype] {},
-            freeSockets: [Object: null prototype] {},
-            keepAliveMsecs: 1000,
-            keepAlive: true,
-            maxSockets: Infinity,
-            maxFreeSockets: 256,
-            scheduling: "lifo",
-            maxTotalSockets: Infinity,
-            totalSocketCount: 0,
-            maxCachedSessions: 100,
-            _sessionCache: {
-                map: {},
-                list: []
-            },
-            Symbol(kCapture): false
-        },
-        request: <ref *18> ƒ request(length: 0) {}
-    },
-    get: [Circular: *6],
-    globalAgent: [Circular: *7],
-    request: [Circular: *18]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/https.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="inspector"></a>
 <details>
-			<summary><code>inspector</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>inspector</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Network: <ref *2> {
-        requestWillBeSent: ƒ requestWillBeSent(length: 1) {},
-        responseReceived: ƒ responseReceived(length: 1) {},
-        loadingFinished: ƒ loadingFinished(length: 1) {},
-        loadingFailed: ƒ loadingFailed(length: 1) {}
-    },
-    Session: <ref *7> class Session extends EventEmitter {},
-    close: <ref *8> ƒ _debugEnd(length: 0) {},
-    console: <ref *9> {
-        debug: ƒ debug(length: 0) {},
-        error: ƒ error(length: 0) {},
-        info: ƒ info(length: 0) {},
-        log: ƒ log(length: 0) {},
-        warn: ƒ warn(length: 0) {},
-        dir: ƒ dir(length: 0) {},
-        dirxml: ƒ dirxml(length: 0) {},
-        table: ƒ table(length: 0) {},
-        trace: ƒ trace(length: 0) {},
-        group: ƒ group(length: 0) {},
-        groupCollapsed: ƒ groupCollapsed(length: 0) {},
-        groupEnd: ƒ groupEnd(length: 0) {},
-        clear: ƒ clear(length: 0) {},
-        count: ƒ count(length: 0) {},
-        countReset: ƒ countReset(length: 0) {},
-        assert: ƒ assert(length: 0) {},
-        profile: ƒ profile(length: 0) {},
-        profileEnd: ƒ profileEnd(length: 0) {},
-        time: ƒ time(length: 0) {},
-        timeLog: ƒ timeLog(length: 0) {},
-        timeEnd: ƒ timeEnd(length: 0) {},
-        timeStamp: ƒ timeStamp(length: 0) {},
-        context: ƒ context(length: 1) {}
-    },
-    default: {
-        open: <ref *34> ƒ inspectorOpen(length: 3) {},
-        close: [Circular: *8],
-        url: <ref *35> ƒ url(length: 0) {},
-        waitForDebugger: <ref *36> ƒ inspectorWaitForDebugger(length: 0) {},
-        console: [Circular: *9],
-        Session: [Circular: *7],
-        Network: [Circular: *2]
-    },
-    open: [Circular: *34],
-    url: [Circular: *35],
-    waitForDebugger: [Circular: *36]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/inspector.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Network: <ref *2> {
-        requestWillBeSent: ƒ requestWillBeSent(length: 1) {},
-        responseReceived: ƒ responseReceived(length: 1) {},
-        loadingFinished: ƒ loadingFinished(length: 1) {},
-        loadingFailed: ƒ loadingFailed(length: 1) {}
-    },
-    Session: <ref *7> class Session extends EventEmitter {},
-    close: <ref *8> ƒ close(length: 0) {},
-    console: <ref *9> {
-        debug: ƒ debug(length: 0) {},
-        error: ƒ error(length: 0) {},
-        info: ƒ info(length: 0) {},
-        log: ƒ log(length: 0) {},
-        warn: ƒ warn(length: 0) {},
-        dir: ƒ dir(length: 0) {},
-        dirxml: ƒ dirxml(length: 0) {},
-        table: ƒ table(length: 0) {},
-        trace: ƒ trace(length: 0) {},
-        group: ƒ group(length: 0) {},
-        groupCollapsed: ƒ groupCollapsed(length: 0) {},
-        groupEnd: ƒ groupEnd(length: 0) {},
-        clear: ƒ clear(length: 0) {},
-        count: ƒ count(length: 0) {},
-        countReset: ƒ countReset(length: 0) {},
-        assert: ƒ assert(length: 0) {},
-        profile: ƒ profile(length: 0) {},
-        profileEnd: ƒ profileEnd(length: 0) {},
-        time: ƒ time(length: 0) {},
-        timeLog: ƒ timeLog(length: 0) {},
-        timeEnd: ƒ timeEnd(length: 0) {},
-        timeStamp: ƒ timeStamp(length: 0) {},
-        context: ƒ context(length: 1) {}
-    },
-    default: {
-        open: <ref *34> ƒ open(length: 3) {},
-        close: [Circular: *8],
-        url: <ref *35> ƒ url(length: 0) {},
-        waitForDebugger: <ref *36> ƒ waitForDebugger(length: 0) {},
-        console: [Circular: *9],
-        Session: [Circular: *7],
-        Network: [Circular: *2]
-    },
-    open: [Circular: *34],
-    url: [Circular: *35],
-    waitForDebugger: [Circular: *36]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/inspector.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="inspector-promises"></a>
 <details>
-			<summary><code>inspector/promises</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>inspector/promises</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Network: <ref *2> {
-        requestWillBeSent: ƒ requestWillBeSent(length: 1) {},
-        responseReceived: ƒ responseReceived(length: 1) {},
-        loadingFinished: ƒ loadingFinished(length: 1) {},
-        loadingFailed: ƒ loadingFailed(length: 1) {}
-    },
-    Session: <ref *7> class Session extends inspector.Session {},
-    close: <ref *8> ƒ _debugEnd(length: 0) {},
-    console: <ref *9> {
-        debug: ƒ debug(length: 0) {},
-        error: ƒ error(length: 0) {},
-        info: ƒ info(length: 0) {},
-        log: ƒ log(length: 0) {},
-        warn: ƒ warn(length: 0) {},
-        dir: ƒ dir(length: 0) {},
-        dirxml: ƒ dirxml(length: 0) {},
-        table: ƒ table(length: 0) {},
-        trace: ƒ trace(length: 0) {},
-        group: ƒ group(length: 0) {},
-        groupCollapsed: ƒ groupCollapsed(length: 0) {},
-        groupEnd: ƒ groupEnd(length: 0) {},
-        clear: ƒ clear(length: 0) {},
-        count: ƒ count(length: 0) {},
-        countReset: ƒ countReset(length: 0) {},
-        assert: ƒ assert(length: 0) {},
-        profile: ƒ profile(length: 0) {},
-        profileEnd: ƒ profileEnd(length: 0) {},
-        time: ƒ time(length: 0) {},
-        timeLog: ƒ timeLog(length: 0) {},
-        timeEnd: ƒ timeEnd(length: 0) {},
-        timeStamp: ƒ timeStamp(length: 0) {},
-        context: ƒ context(length: 1) {}
-    },
-    default: {
-        open: <ref *34> ƒ inspectorOpen(length: 3) {},
-        close: [Circular: *8],
-        url: <ref *35> ƒ url(length: 0) {},
-        waitForDebugger: <ref *36> ƒ inspectorWaitForDebugger(length: 0) {},
-        console: [Circular: *9],
-        Session: [Circular: *7],
-        Network: [Circular: *2]
-    },
-    open: [Circular: *34],
-    url: [Circular: *35],
-    waitForDebugger: [Circular: *36]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/inspector_promises.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Network: <ref *2> {
-        requestWillBeSent: ƒ requestWillBeSent(length: 1) {},
-        responseReceived: ƒ responseReceived(length: 1) {},
-        loadingFinished: ƒ loadingFinished(length: 1) {},
-        loadingFailed: ƒ loadingFailed(length: 1) {}
-    },
-    Session: <ref *7> class Session extends inspector.Session {},
-    close: <ref *8> ƒ close(length: 0) {},
-    console: <ref *9> {
-        debug: ƒ debug(length: 0) {},
-        error: ƒ error(length: 0) {},
-        info: ƒ info(length: 0) {},
-        log: ƒ log(length: 0) {},
-        warn: ƒ warn(length: 0) {},
-        dir: ƒ dir(length: 0) {},
-        dirxml: ƒ dirxml(length: 0) {},
-        table: ƒ table(length: 0) {},
-        trace: ƒ trace(length: 0) {},
-        group: ƒ group(length: 0) {},
-        groupCollapsed: ƒ groupCollapsed(length: 0) {},
-        groupEnd: ƒ groupEnd(length: 0) {},
-        clear: ƒ clear(length: 0) {},
-        count: ƒ count(length: 0) {},
-        countReset: ƒ countReset(length: 0) {},
-        assert: ƒ assert(length: 0) {},
-        profile: ƒ profile(length: 0) {},
-        profileEnd: ƒ profileEnd(length: 0) {},
-        time: ƒ time(length: 0) {},
-        timeLog: ƒ timeLog(length: 0) {},
-        timeEnd: ƒ timeEnd(length: 0) {},
-        timeStamp: ƒ timeStamp(length: 0) {},
-        context: ƒ context(length: 1) {}
-    },
-    default: {
-        open: <ref *34> ƒ open(length: 3) {},
-        close: [Circular: *8],
-        url: <ref *35> ƒ url(length: 0) {},
-        waitForDebugger: <ref *36> ƒ waitForDebugger(length: 0) {},
-        console: [Circular: *9],
-        Session: [Circular: *7],
-        Network: [Circular: *2]
-    },
-    open: [Circular: *34],
-    url: [Circular: *35],
-    waitForDebugger: [Circular: *36]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/inspector_promises.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="module"></a>
 <details>
-			<summary><code>module</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>module</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Module: <ref *2> ƒ Module(length: 0) {
-        _cache: <ref *3> [Object: null prototype] {},
-        _pathCache: <ref *4> [Object: null prototype] {
-            C:\Users\Eugene\AppData\Local\Temp\fs-fixture-1754642932099-12508-1\module.mjs: "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1754642932099-12508-1\\module.mjs"
-        },
-        _extensions: <ref *5> [Object: null prototype] {
-            .js: ƒ (length: 2) {},
-            .json: ƒ (length: 2) {},
-            .node: ƒ (length: 2) {}
-        },
-        globalPaths: <ref *9> [
-            "E:\\deno-compare-node\\node_modules\\.pnpm\\tsx@4.20.3\\node_modules\\tsx\\dist\\node_modules",
-            "E:\\deno-compare-node\\node_modules\\.pnpm\\tsx@4.20.3\\node_modules\\tsx\\node_modules",
-            "E:\\deno-compare-node\\node_modules\\.pnpm\\tsx@4.20.3\\node_modules",
-            "E:\\deno-compare-node\\node_modules\\.pnpm\\node_modules",
-            "C:\\Users\\Eugene\\.node_modules",
-            "C:\\Users\\Eugene\\.node_libraries",
-            "E:\\Tools\\nodejs\\lib\\node"
-        ],
-        _debug: <ref *10> ƒ deprecated(length: 0) {},
-        isBuiltin: <ref *11> ƒ isBuiltin(length: 1) {},
-        _findPath: <ref *12> ƒ (length: 3) {},
-        _nodeModulePaths: <ref *13> ƒ (length: 1) {},
-        _resolveLookupPaths: <ref *14> ƒ (length: 2) {},
-        _load: <ref *15> ƒ (length: 3) {},
-        _resolveFilename: <ref *16> ƒ (length: 4) {},
-        createRequire: <ref *17> ƒ createRequire(length: 1) {},
-        _initPaths: <ref *18> ƒ (length: 0) {},
-        _preloadModules: <ref *19> ƒ (length: 1) {},
-        syncBuiltinESMExports: <ref *20> ƒ syncBuiltinESMExports(length: 0) {},
-        Module: [Circular: *2],
-        registerHooks: <ref *21> ƒ registerHooks(length: 1) {},
-        builtinModules: <ref *22> [
-            "_http_agent",
-            "_http_client",
-            "_http_common",
-            "_http_incoming",
-            "_http_outgoing",
-            "_http_server",
-            "_stream_duplex",
-            "_stream_passthrough",
-            "_stream_readable",
-            "_stream_transform",
-            "_stream_wrap",
-            "_stream_writable",
-            "_tls_common",
-            "_tls_wrap",
-            "assert",
-            "assert/strict",
-            "async_hooks",
-            "buffer",
-            "child_process",
-            "cluster",
-            "console",
-            "constants",
-            "crypto",
-            "dgram",
-            "diagnostics_channel",
-            "dns",
-            "dns/promises",
-            "domain",
-            "events",
-            "fs",
-            "fs/promises",
-            "http",
-            "http2",
-            "https",
-            "inspector",
-            "inspector/promises",
-            "module",
-            "net",
-            "os",
-            "path",
-            "path/posix",
-            "path/win32",
-            "perf_hooks",
-            "process",
-            "punycode",
-            "querystring",
-            "readline",
-            "readline/promises",
-            "repl",
-            "stream",
-            "stream/consumers",
-            "stream/promises",
-            "stream/web",
-            "string_decoder",
-            "sys",
-            "timers",
-            "timers/promises",
-            "tls",
-            "trace_events",
-            "tty",
-            "url",
-            "util",
-            "util/types",
-            "v8",
-            "vm",
-            "wasi",
-            "worker_threads",
-            "zlib",
-            "node:sea",
-            "node:sqlite",
-            "node:test",
-            "node:test/reporters"
-        ],
-        runMain: <ref *23> ƒ executeUserEntryPoint(length: 0) {},
-        findSourceMap: <ref *24> ƒ findSourceMap(length: 1) {},
-        register: <ref *25> ƒ register(length: 1) {},
-        SourceMap: <ref *26> class SourceMap {},
-        constants: <ref *27> [Object: null prototype] {
-            compileCacheStatus: [Object: null prototype] {
-                FAILED: 0,
-                ENABLED: 1,
-                ALREADY_ENABLED: 2,
-                DISABLED: 3
-            }
-        },
-        enableCompileCache: <ref *29> ƒ enableCompileCache(length: 1) {},
-        findPackageJSON: <ref *30> ƒ findPackageJSON(length: 1) {},
-        flushCompileCache: <ref *31> ƒ flushCompileCache(length: 0) {},
-        getCompileCacheDir: <ref *32> ƒ getCompileCacheDir(length: 0) {},
-        stripTypeScriptTypes: <ref *33> ƒ stripTypeScriptTypes(length: 1) {}
-    },
-    SourceMap: [Circular: *26],
-    _cache: [Circular: *3],
-    _debug: [Circular: *10],
-    _extensions: [Circular: *5],
-    _findPath: [Circular: *12],
-    _initPaths: [Circular: *18],
-    _load: [Circular: *15],
-    _nodeModulePaths: [Circular: *13],
-    _pathCache: [Circular: *4],
-    _preloadModules: [Circular: *19],
-    _resolveFilename: [Circular: *16],
-    _resolveLookupPaths: [Circular: *14],
-    builtinModules: [Circular: *22],
-    constants: [Circular: *27],
-    createRequire: [Circular: *17],
-    default: [Circular: *2],
-    enableCompileCache: [Circular: *29],
-    findPackageJSON: [Circular: *30],
-    findSourceMap: [Circular: *24],
-    flushCompileCache: [Circular: *31],
-    getCompileCacheDir: [Circular: *32],
-    globalPaths: [Circular: *9],
-    isBuiltin: [Circular: *11],
-    register: [Circular: *25],
-    registerHooks: [Circular: *21],
-    runMain: [Circular: *23],
-    stripTypeScriptTypes: [Circular: *33],
-    syncBuiltinESMExports: [Circular: *20]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/module.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Module: <ref *2> ƒ Module(length: 0) {
-        builtinModules: <ref *3> [
-            "_http_agent",
-            "_http_common",
-            "_http_outgoing",
-            "_http_server",
-            "_stream_duplex",
-            "_stream_passthrough",
-            "_stream_readable",
-            "_stream_transform",
-            "_stream_writable",
-            "_tls_common",
-            "_tls_wrap",
-            "assert",
-            "assert/strict",
-            "async_hooks",
-            "buffer",
-            "crypto",
-            "console",
-            "constants",
-            "child_process",
-            "cluster",
-            "dgram",
-            "diagnostics_channel",
-            "dns",
-            "dns/promises",
-            "domain",
-            "events",
-            "fs",
-            "fs/promises",
-            "http",
-            "http2",
-            "https",
-            "inspector",
-            "inspector/promises",
-            "internal/console/constructor",
-            "internal/child_process",
-            "internal/crypto/certificate",
-            "internal/crypto/cipher",
-            "internal/crypto/diffiehellman",
-            "internal/crypto/hash",
-            "internal/crypto/hkdf",
-            "internal/crypto/keygen",
-            "internal/crypto/keys",
-            "internal/crypto/pbkdf2",
-            "internal/crypto/random",
-            "internal/crypto/scrypt",
-            "internal/crypto/sig",
-            "internal/crypto/util",
-            "internal/crypto/x509",
-            "internal/dgram",
-            "internal/dns/promises",
-            "internal/errors",
-            "internal/event_target",
-            "internal/fs/utils",
-            "internal/http",
-            "internal/http2/util",
-            "internal/readline/utils",
-            "internal/streams/add-abort-signal",
-            "internal/streams/lazy_transform",
-            "internal/streams/state",
-            "internal/test/binding",
-            "internal/timers",
-            "internal/util/inspect",
-            "internal/util",
-            "net",
-            "module",
-            "os",
-            "path/posix",
-            "path/win32",
-            "path",
-            "perf_hooks",
-            "process",
-            "punycode",
-            "querystring",
-            "readline",
-            "readline/promises",
-            "repl",
-            "sqlite",
-            "stream",
-            "stream/consumers",
-            "stream/promises",
-            "stream/web",
-            "string_decoder",
-            "sys",
-            "test",
-            "timers",
-            "timers/promises",
-            "tls",
-            "traceEvents",
-            "tty",
-            "url",
-            "util",
-            "util/types",
-            "v8",
-            "vm",
-            "wasi",
-            "worker_threads",
-            "zlib"
-        ],
-        _extensions: <ref *4> [Object: null prototype] {
-            .js: ƒ (length: 2) {},
-            .cjs: ƒ loadCjs(length: 2) {},
-            .mjs: <ref *7> ƒ loadESMFromCJS(length: 3) {},
-            .wasm: [Circular: *7],
-            .json: ƒ (length: 2) {},
-            .node: ƒ (length: 2) {}
-        },
-        _cache: <ref *10> [Object: null prototype] {},
-        _pathCache: <ref *11> [Object: null prototype] {},
-        globalPaths: <ref *12> [],
-        _findPath: <ref *13> ƒ (length: 4) {},
-        _nodeModulePaths: <ref *14> ƒ (length: 1) {},
-        _resolveLookupPaths: <ref *15> ƒ (length: 2) {},
-        _load: <ref *16> ƒ (length: 3) {},
-        _resolveFilename: <ref *17> ƒ (length: 4) {},
-        _preloadModules: <ref *18> ƒ (length: 1) {},
-        wrapper: [
-            "(function (exports, require, module, __filename, __dirname) { var { Buffer, clearImmediate, clearInt…",
-            "\n})(); })"
-        ],
-        wrap: <ref *20> ƒ (length: 1) {},
-        isBuiltin: <ref *21> ƒ isBuiltin(length: 1) {},
-        createRequire: <ref *22> ƒ createRequire(length: 1) {},
-        _initPaths: <ref *23> ƒ (length: 0) {},
-        syncBuiltinESMExports: ƒ syncBuiltinESMExports(length: 0) {},
-        runMain: ƒ (length: 0) {},
-        Module: [Circular: *2],
-        findSourceMap: <ref *26> ƒ findSourceMap(length: 1) {}
-    },
-    _cache: [Circular: *10],
-    _extensions: [Circular: *4],
-    _findPath: [Circular: *13],
-    _initPaths: [Circular: *23],
-    _load: [Circular: *16],
-    _nodeModulePaths: [Circular: *14],
-    _pathCache: [Circular: *11],
-    _preloadModules: [Circular: *18],
-    _resolveFilename: [Circular: *17],
-    _resolveLookupPaths: [Circular: *15],
-    builtinModules: [Circular: *3],
-    createRequire: [Circular: *22],
-    default: [Circular: *2],
-    findSourceMap: [Circular: *26],
-    getBuiltinModule: ƒ getBuiltinModule(length: 1) {},
-    globalPaths: [Circular: *12],
-    isBuiltin: [Circular: *21],
-    register: ƒ register(length: 3) {},
-    wrap: [Circular: *20]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/module.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="net"></a>
 <details>
-			<summary><code>net</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>net</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    BlockList: <ref *2> class BlockList {},
-    Server: <ref *3> ƒ Server(length: 2) {},
-    Socket: <ref *4> ƒ Socket(length: 1) {},
-    SocketAddress: <ref *5> class SocketAddress {},
-    Stream: [Circular: *4],
-    _createServerHandle: <ref *6> ƒ createServerHandle(length: 5) {},
-    _normalizeArgs: <ref *7> ƒ normalizeArgs(length: 1) {},
-    _setSimultaneousAccepts: <ref *8> ƒ _setSimultaneousAccepts(length: 1) {},
-    connect: <ref *9> ƒ connect(length: 0) {},
-    createConnection: [Circular: *9],
-    createServer: <ref *10> ƒ createServer(length: 2) {},
-    default: {
-        _createServerHandle: [Circular: *6],
-        _normalizeArgs: [Circular: *7],
-        _setSimultaneousAccepts: [Circular: *8],
-        [get/set] BlockList: [Circular: *2],
-        [get/set] SocketAddress: [Circular: *5],
-        connect: [Circular: *9],
-        createConnection: [Circular: *9],
-        createServer: [Circular: *10],
-        isIP: <ref *12> ƒ isIP(length: 1) {},
-        isIPv4: <ref *13> ƒ isIPv4(length: 1) {},
-        isIPv6: <ref *14> ƒ isIPv6(length: 1) {},
-        Server: [Circular: *3],
-        Socket: [Circular: *4],
-        Stream: [Circular: *4],
-        getDefaultAutoSelectFamily: <ref *15> ƒ getDefaultAutoSelectFamily(length: 0) {},
-        setDefaultAutoSelectFamily: <ref *16> ƒ setDefaultAutoSelectFamily(length: 1) {},
-        getDefaultAutoSelectFamilyAttemptTimeout: <ref *17> ƒ getDefaultAutoSelectFamilyAttemptTimeout(length: 0) {},
-        setDefaultAutoSelectFamilyAttemptTimeout: <ref *18> ƒ setDefaultAutoSelectFamilyAttemptTimeout(length: 1) {}
-    },
-    getDefaultAutoSelectFamily: [Circular: *15],
-    getDefaultAutoSelectFamilyAttemptTimeout: [Circular: *17],
-    isIP: [Circular: *12],
-    isIPv4: [Circular: *13],
-    isIPv6: [Circular: *14],
-    setDefaultAutoSelectFamily: [Circular: *16],
-    setDefaultAutoSelectFamilyAttemptTimeout: [Circular: *18]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/net.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    BlockList: <ref *2> class BlockList {},
-    Server: <ref *3> class Server extends EventEmitter {},
-    Socket: <ref *4> class Socket extends Duplex {},
-    SocketAddress: <ref *5> class SocketAddress {},
-    Stream: [Circular: *4],
-    _createServerHandle: <ref *6> ƒ _createServerHandle(length: 5) {},
-    _normalizeArgs: <ref *7> ƒ _normalizeArgs(length: 1) {},
-    connect: <ref *8> ƒ connect(length: 0) {},
-    createConnection: [Circular: *8],
-    createServer: <ref *9> ƒ createServer(length: 2) {},
-    default: {
-        _createServerHandle: [Circular: *6],
-        _normalizeArgs: [Circular: *7],
-        BlockList: [Circular: *2],
-        connect: [Circular: *8],
-        createConnection: [Circular: *8],
-        createServer: [Circular: *9],
-        getDefaultAutoSelectFamily: <ref *11> ƒ getDefaultAutoSelectFamily(length: 0) {},
-        getDefaultAutoSelectFamilyAttemptTimeout: <ref *12> ƒ getDefaultAutoSelectFamilyAttemptTimeout(length: 0) {},
-        isIP: <ref *13> ƒ isIP(length: 1) {},
-        isIPv4: <ref *14> ƒ isIPv4(length: 1) {},
-        isIPv6: <ref *15> ƒ isIPv6(length: 1) {},
-        Server: [Circular: *3],
-        setDefaultAutoSelectFamily: <ref *16> ƒ setDefaultAutoSelectFamily(length: 1) {},
-        setDefaultAutoSelectFamilyAttemptTimeout: <ref *17> ƒ setDefaultAutoSelectFamilyAttemptTimeout(length: 1) {},
-        Socket: [Circular: *4],
-        SocketAddress: [Circular: *5],
-        Stream: [Circular: *4]
-    },
-    getDefaultAutoSelectFamily: [Circular: *11],
-    getDefaultAutoSelectFamilyAttemptTimeout: [Circular: *12],
-    isIP: [Circular: *13],
-    isIPv4: [Circular: *14],
-    isIPv6: [Circular: *15],
-    setDefaultAutoSelectFamily: [Circular: *16],
-    setDefaultAutoSelectFamilyAttemptTimeout: [Circular: *17]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/net.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="sea"></a>
 <details>
-			<summary><code>os</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>node:sea</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    EOL: "\r\n",
-    arch: <ref *2> ƒ arch(length: 0) {
-        Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-    },
-    availableParallelism: <ref *4> ƒ getAvailableParallelism(length: 0) {
-        Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-    },
-    constants: <ref *6> [Object: null prototype] {
-        UV_UDP_REUSEADDR: 4,
-        dlopen: [Object: null prototype] {},
-        errno: [Object: null prototype] {
-            E2BIG: 7,
-            EACCES: 13,
-            EADDRINUSE: 100,
-            EADDRNOTAVAIL: 101,
-            EAFNOSUPPORT: 102,
-            EAGAIN: 11,
-            EALREADY: 103,
-            EBADF: 9,
-            EBADMSG: 104,
-            EBUSY: 16,
-            ECANCELED: 105,
-            ECHILD: 10,
-            ECONNABORTED: 106,
-            ECONNREFUSED: 107,
-            ECONNRESET: 108,
-            EDEADLK: 36,
-            EDESTADDRREQ: 109,
-            EDOM: 33,
-            EEXIST: 17,
-            EFAULT: 14,
-            EFBIG: 27,
-            EHOSTUNREACH: 110,
-            EIDRM: 111,
-            EILSEQ: 42,
-            EINPROGRESS: 112,
-            EINTR: 4,
-            EINVAL: 22,
-            EIO: 5,
-            EISCONN: 113,
-            EISDIR: 21,
-            ELOOP: 114,
-            EMFILE: 24,
-            EMLINK: 31,
-            EMSGSIZE: 115,
-            ENAMETOOLONG: 38,
-            ENETDOWN: 116,
-            ENETRESET: 117,
-            ENETUNREACH: 118,
-            ENFILE: 23,
-            ENOBUFS: 119,
-            ENODATA: 120,
-            ENODEV: 19,
-            ENOENT: 2,
-            ENOEXEC: 8,
-            ENOLCK: 39,
-            ENOLINK: 121,
-            ENOMEM: 12,
-            ENOMSG: 122,
-            ENOPROTOOPT: 123,
-            ENOSPC: 28,
-            ENOSR: 124,
-            ENOSTR: 125,
-            ENOSYS: 40,
-            ENOTCONN: 126,
-            ENOTDIR: 20,
-            ENOTEMPTY: 41,
-            ENOTSOCK: 128,
-            ENOTSUP: 129,
-            ENOTTY: 25,
-            ENXIO: 6,
-            EOPNOTSUPP: 130,
-            EOVERFLOW: 132,
-            EPERM: 1,
-            EPIPE: 32,
-            EPROTO: 134,
-            EPROTONOSUPPORT: 135,
-            EPROTOTYPE: 136,
-            ERANGE: 34,
-            EROFS: 30,
-            ESPIPE: 29,
-            ESRCH: 3,
-            ETIME: 137,
-            ETIMEDOUT: 138,
-            ETXTBSY: 139,
-            EWOULDBLOCK: 140,
-            EXDEV: 18,
-            WSAEINTR: 10004,
-            WSAEBADF: 10009,
-            WSAEACCES: 10013,
-            WSAEFAULT: 10014,
-            WSAEINVAL: 10022,
-            WSAEMFILE: 10024,
-            WSAEWOULDBLOCK: 10035,
-            WSAEINPROGRESS: 10036,
-            WSAEALREADY: 10037,
-            WSAENOTSOCK: 10038,
-            WSAEDESTADDRREQ: 10039,
-            WSAEMSGSIZE: 10040,
-            WSAEPROTOTYPE: 10041,
-            WSAENOPROTOOPT: 10042,
-            WSAEPROTONOSUPPORT: 10043,
-            WSAESOCKTNOSUPPORT: 10044,
-            WSAEOPNOTSUPP: 10045,
-            WSAEPFNOSUPPORT: 10046,
-            WSAEAFNOSUPPORT: 10047,
-            WSAEADDRINUSE: 10048,
-            WSAEADDRNOTAVAIL: 10049,
-            WSAENETDOWN: 10050,
-            WSAENETUNREACH: 10051,
-            WSAENETRESET: 10052,
-            WSAECONNABORTED: 10053,
-            WSAECONNRESET: 10054,
-            WSAENOBUFS: 10055,
-            WSAEISCONN: 10056,
-            WSAENOTCONN: 10057,
-            WSAESHUTDOWN: 10058,
-            WSAETOOMANYREFS: 10059,
-            WSAETIMEDOUT: 10060,
-            WSAECONNREFUSED: 10061,
-            WSAELOOP: 10062,
-            WSAENAMETOOLONG: 10063,
-            WSAEHOSTDOWN: 10064,
-            WSAEHOSTUNREACH: 10065,
-            WSAENOTEMPTY: 10066,
-            WSAEPROCLIM: 10067,
-            WSAEUSERS: 10068,
-            WSAEDQUOT: 10069,
-            WSAESTALE: 10070,
-            WSAEREMOTE: 10071,
-            WSASYSNOTREADY: 10091,
-            WSAVERNOTSUPPORTED: 10092,
-            WSANOTINITIALISED: 10093,
-            WSAEDISCON: 10101,
-            WSAENOMORE: 10102,
-            WSAECANCELLED: 10103,
-            WSAEINVALIDPROCTABLE: 10104,
-            WSAEINVALIDPROVIDER: 10105,
-            WSAEPROVIDERFAILEDINIT: 10106,
-            WSASYSCALLFAILURE: 10107,
-            WSASERVICE_NOT_FOUND: 10108,
-            WSATYPE_NOT_FOUND: 10109,
-            WSA_E_NO_MORE: 10110,
-            WSA_E_CANCELLED: 10111,
-            WSAEREFUSED: 10112
-        },
-        signals: [Object: null prototype] {
-            SIGHUP: 1,
-            SIGINT: 2,
-            SIGQUIT: 3,
-            SIGILL: 4,
-            SIGABRT: 22,
-            SIGFPE: 8,
-            SIGKILL: 9,
-            SIGSEGV: 11,
-            SIGTERM: 15,
-            SIGBREAK: 21,
-            SIGWINCH: 28
-        },
-        priority: [Object: null prototype] {
-            PRIORITY_LOW: 19,
-            PRIORITY_BELOW_NORMAL: 10,
-            PRIORITY_NORMAL: 0,
-            PRIORITY_ABOVE_NORMAL: -7,
-            PRIORITY_HIGH: -14,
-            PRIORITY_HIGHEST: -20
-        }
-    },
-    cpus: <ref *11> ƒ cpus(length: 0) {},
-    default: {
-        arch: [Circular: *2],
-        availableParallelism: [Circular: *4],
-        cpus: [Circular: *11],
-        endianness: <ref *13> ƒ endianness(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        freemem: <ref *15> ƒ getFreeMem(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        getPriority: <ref *17> ƒ getPriority(length: 1) {},
-        homedir: <ref *18> ƒ wrappedFn(length: 0) {
-            withoutStackTrace: ƒ checkError(length: 0) {},
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        hostname: <ref *21> ƒ wrappedFn(length: 0) {
-            withoutStackTrace: ƒ checkError(length: 0) {},
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        loadavg: <ref *24> ƒ loadavg(length: 0) {},
-        networkInterfaces: <ref *25> ƒ networkInterfaces(length: 0) {},
-        platform: <ref *26> ƒ platform(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        release: <ref *28> ƒ getOSRelease(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        setPriority: <ref *30> ƒ setPriority(length: 2) {},
-        tmpdir: <ref *31> ƒ tmpdir(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        totalmem: <ref *33> ƒ getTotalMem(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        type: <ref *35> ƒ getOSType(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        userInfo: <ref *37> ƒ userInfo(length: 1) {},
-        uptime: <ref *38> ƒ wrappedFn(length: 0) {
-            withoutStackTrace: ƒ checkError(length: 0) {},
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        version: <ref *41> ƒ getOSVersion(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        machine: <ref *43> ƒ getMachine(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        constants: [Circular: *6],
-        EOL: "\r\n",
-        devNull: "\\\\.\\nul"
-    },
-    devNull: "\\\\.\\nul",
-    endianness: [Circular: *13],
-    freemem: [Circular: *15],
-    getPriority: [Circular: *17],
-    homedir: [Circular: *18],
-    hostname: [Circular: *21],
-    loadavg: [Circular: *24],
-    machine: [Circular: *43],
-    networkInterfaces: [Circular: *25],
-    platform: [Circular: *26],
-    release: [Circular: *28],
-    setPriority: [Circular: *30],
-    tmpdir: [Circular: *31],
-    totalmem: [Circular: *33],
-    type: [Circular: *35],
-    uptime: [Circular: *38],
-    userInfo: [Circular: *37],
-    version: [Circular: *41]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/sea.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    EOL: "\r\n",
-    arch: <ref *2> ƒ arch(length: 0) {
-        Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-    },
-    availableParallelism: <ref *4> ƒ availableParallelism(length: 0) {
-        Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-    },
-    constants: <ref *6> {
-        UV_UDP_REUSEADDR: 4,
-        dlopen: {},
-        errno: {
-            E2BIG: 7,
-            EACCES: 13,
-            EADDRINUSE: 100,
-            EADDRNOTAVAIL: 101,
-            EAFNOSUPPORT: 102,
-            EAGAIN: 11,
-            EALREADY: 103,
-            EBADF: 9,
-            EBADMSG: 104,
-            EBUSY: 16,
-            ECANCELED: 105,
-            ECHILD: 10,
-            ECONNABORTED: 106,
-            ECONNREFUSED: 107,
-            ECONNRESET: 108,
-            EDEADLK: 36,
-            EDESTADDRREQ: 109,
-            EDOM: 33,
-            EEXIST: 17,
-            EFAULT: 14,
-            EFBIG: 27,
-            EHOSTUNREACH: 110,
-            EIDRM: 111,
-            EILSEQ: 42,
-            EINPROGRESS: 112,
-            EINTR: 4,
-            EINVAL: 22,
-            EIO: 5,
-            EISCONN: 113,
-            EISDIR: 21,
-            ELOOP: 114,
-            EMFILE: 24,
-            EMLINK: 31,
-            EMSGSIZE: 115,
-            ENAMETOOLONG: 38,
-            ENETDOWN: 116,
-            ENETRESET: 117,
-            ENETUNREACH: 118,
-            ENFILE: 23,
-            ENOBUFS: 119,
-            ENODATA: 120,
-            ENODEV: 19,
-            ENOENT: 2,
-            ENOEXEC: 8,
-            ENOLCK: 39,
-            ENOLINK: 121,
-            ENOMEM: 12,
-            ENOMSG: 122,
-            ENOPROTOOPT: 123,
-            ENOSPC: 28,
-            ENOSR: 124,
-            ENOSTR: 125,
-            ENOSYS: 40,
-            ENOTCONN: 126,
-            ENOTDIR: 20,
-            ENOTEMPTY: 41,
-            ENOTSOCK: 128,
-            ENOTSUP: 129,
-            ENOTTY: 25,
-            ENXIO: 6,
-            EOPNOTSUPP: 130,
-            EOVERFLOW: 132,
-            EPERM: 1,
-            EPIPE: 32,
-            EPROTO: 134,
-            EPROTONOSUPPORT: 135,
-            EPROTOTYPE: 136,
-            ERANGE: 34,
-            EROFS: 30,
-            ESPIPE: 29,
-            ESRCH: 3,
-            ETIME: 137,
-            ETIMEDOUT: 138,
-            ETXTBSY: 139,
-            EWOULDBLOCK: 140,
-            EXDEV: 18,
-            WSAEINTR: 10004,
-            WSAEBADF: 10009,
-            WSAEACCES: 10013,
-            WSAEFAULT: 10014,
-            WSAEINVAL: 10022,
-            WSAEMFILE: 10024,
-            WSAEWOULDBLOCK: 10035,
-            WSAEINPROGRESS: 10036,
-            WSAEALREADY: 10037,
-            WSAENOTSOCK: 10038,
-            WSAEDESTADDRREQ: 10039,
-            WSAEMSGSIZE: 10040,
-            WSAEPROTOTYPE: 10041,
-            WSAENOPROTOOPT: 10042,
-            WSAEPROTONOSUPPORT: 10043,
-            WSAESOCKTNOSUPPORT: 10044,
-            WSAEOPNOTSUPP: 10045,
-            WSAEPFNOSUPPORT: 10046,
-            WSAEAFNOSUPPORT: 10047,
-            WSAEADDRINUSE: 10048,
-            WSAEADDRNOTAVAIL: 10049,
-            WSAENETDOWN: 10050,
-            WSAENETUNREACH: 10051,
-            WSAENETRESET: 10052,
-            WSAECONNABORTED: 10053,
-            WSAECONNRESET: 10054,
-            WSAENOBUFS: 10055,
-            WSAEISCONN: 10056,
-            WSAENOTCONN: 10057,
-            WSAESHUTDOWN: 10058,
-            WSAETOOMANYREFS: 10059,
-            WSAETIMEDOUT: 10060,
-            WSAECONNREFUSED: 10061,
-            WSAELOOP: 10062,
-            WSAENAMETOOLONG: 10063,
-            WSAEHOSTDOWN: 10064,
-            WSAEHOSTUNREACH: 10065,
-            WSAENOTEMPTY: 10066,
-            WSAEPROCLIM: 10067,
-            WSAEUSERS: 10068,
-            WSAEDQUOT: 10069,
-            WSAESTALE: 10070,
-            WSAEREMOTE: 10071,
-            WSASYSNOTREADY: 10091,
-            WSAVERNOTSUPPORTED: 10092,
-            WSANOTINITIALISED: 10093,
-            WSAEDISCON: 10101,
-            WSAENOMORE: 10102,
-            WSAECANCELLED: 10103,
-            WSAEINVALIDPROCTABLE: 10104,
-            WSAEINVALIDPROVIDER: 10105,
-            WSAEPROVIDERFAILEDINIT: 10106,
-            WSASYSCALLFAILURE: 10107,
-            WSASERVICE_NOT_FOUND: 10108,
-            WSATYPE_NOT_FOUND: 10109,
-            WSA_E_NO_MORE: 10110,
-            WSA_E_CANCELLED: 10111,
-            WSAEREFUSED: 10112
-        },
-        signals: {
-            SIGHUP: 1,
-            SIGINT: 2,
-            SIGILL: 4,
-            SIGABRT: 22,
-            SIGFPE: 8,
-            SIGKILL: 9,
-            SIGSEGV: 11,
-            SIGTERM: 15,
-            SIGBREAK: 21,
-            SIGWINCH: 28
-        },
-        priority: {
-            PRIORITY_LOW: 19,
-            PRIORITY_BELOW_NORMAL: 10,
-            PRIORITY_NORMAL: 0,
-            PRIORITY_ABOVE_NORMAL: -7,
-            PRIORITY_HIGH: -14,
-            PRIORITY_HIGHEST: -20
-        }
-    },
-    cpus: <ref *11> ƒ cpus(length: 0) {},
-    default: {
-        availableParallelism: [Circular: *4],
-        arch: [Circular: *2],
-        cpus: [Circular: *11],
-        endianness: <ref *13> ƒ endianness(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        freemem: <ref *15> ƒ freemem(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        getPriority: <ref *17> ƒ getPriority(length: 0) {},
-        homedir: <ref *18> ƒ homedir(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        hostname: <ref *20> ƒ hostname(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        loadavg: <ref *22> ƒ loadavg(length: 0) {},
-        networkInterfaces: <ref *23> ƒ networkInterfaces(length: 0) {},
-        machine: <ref *24> ƒ machine(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        platform: <ref *26> ƒ platform(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        release: <ref *28> ƒ release(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        setPriority: <ref *30> ƒ setPriority(length: 2) {},
-        tmpdir: <ref *31> ƒ tmpdir(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        totalmem: <ref *33> ƒ totalmem(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        type: <ref *35> ƒ type(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        uptime: <ref *37> ƒ uptime(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        userInfo: <ref *39> ƒ userInfo(length: 0) {},
-        version: <ref *40> ƒ version(length: 0) {
-            Symbol(Symbol.toPrimitive): ƒ (length: 0) {}
-        },
-        constants: [Circular: *6],
-        EOL: "\r\n",
-        devNull: "\\\\.\\nul"
-    },
-    devNull: "\\\\.\\nul",
-    endianness: [Circular: *13],
-    freemem: [Circular: *15],
-    getPriority: [Circular: *17],
-    homedir: [Circular: *18],
-    hostname: [Circular: *20],
-    loadavg: [Circular: *22],
-    machine: [Circular: *24],
-    networkInterfaces: [Circular: *23],
-    platform: [Circular: *26],
-    release: [Circular: *28],
-    setPriority: [Circular: *30],
-    tmpdir: [Circular: *31],
-    totalmem: [Circular: *33],
-    type: [Circular: *35],
-    uptime: [Circular: *37],
-    userInfo: [Circular: *39],
-    version: [Circular: *40]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/sea.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="sqlite"></a>
 <details>
-			<summary><code>path</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>node:sqlite</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    _makeLong: <ref *2> ƒ toNamespacedPath(length: 1) {},
-    basename: <ref *3> ƒ basename(length: 2) {},
-    default: <ref *4> {
-        resolve: <ref *5> ƒ resolve(length: 0) {},
-        normalize: <ref *6> ƒ normalize(length: 1) {},
-        isAbsolute: <ref *7> ƒ isAbsolute(length: 1) {},
-        join: <ref *8> ƒ join(length: 0) {},
-        relative: <ref *9> ƒ relative(length: 2) {},
-        toNamespacedPath: [Circular: *2],
-        dirname: <ref *10> ƒ dirname(length: 1) {},
-        basename: [Circular: *3],
-        extname: <ref *11> ƒ extname(length: 1) {},
-        format: <ref *12> ƒ bound _format(length: 1) {},
-        parse: <ref *13> ƒ parse(length: 1) {},
-        matchesGlob: <ref *14> ƒ matchesGlob(length: 2) {},
-        sep: "\\",
-        delimiter: ";",
-        win32: [Circular: *4],
-        posix: <ref *15> {
-            resolve: ƒ resolve(length: 0) {},
-            normalize: ƒ normalize(length: 1) {},
-            isAbsolute: ƒ isAbsolute(length: 1) {},
-            join: ƒ join(length: 0) {},
-            relative: ƒ relative(length: 2) {},
-            toNamespacedPath: <ref *21> ƒ toNamespacedPath(length: 1) {},
-            dirname: ƒ dirname(length: 1) {},
-            basename: ƒ basename(length: 2) {},
-            extname: ƒ extname(length: 1) {},
-            format: ƒ bound _format(length: 1) {},
-            parse: ƒ parse(length: 1) {},
-            matchesGlob: ƒ matchesGlob(length: 2) {},
-            sep: "/",
-            delimiter: ":",
-            win32: [Circular: *4],
-            posix: [Circular: *15],
-            _makeLong: [Circular: *21]
-        },
-        _makeLong: [Circular: *2]
-    },
-    delimiter: ";",
-    dirname: [Circular: *10],
-    extname: [Circular: *11],
-    format: [Circular: *12],
-    isAbsolute: [Circular: *7],
-    join: [Circular: *8],
-    matchesGlob: [Circular: *14],
-    normalize: [Circular: *6],
-    parse: [Circular: *13],
-    posix: [Circular: *15],
-    relative: [Circular: *9],
-    resolve: [Circular: *5],
-    sep: "\\",
-    toNamespacedPath: [Circular: *2],
-    win32: [Circular: *4]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/sqlite.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    _makeLong: <ref *2> ƒ toNamespacedPath(length: 1) {},
-    basename: <ref *3> ƒ basename(length: 1) {},
-    common: ƒ common(length: 1) {},
-    default: <ref *5> {
-        basename: [Circular: *3],
-        delimiter: ";",
-        dirname: <ref *6> ƒ dirname(length: 1) {},
-        extname: <ref *7> ƒ extname(length: 1) {},
-        format: <ref *8> ƒ format(length: 1) {},
-        isAbsolute: <ref *9> ƒ isAbsolute(length: 1) {},
-        join: <ref *10> ƒ join(length: 0) {},
-        normalize: <ref *11> ƒ normalize(length: 1) {},
-        parse: <ref *12> ƒ parse(length: 1) {},
-        relative: <ref *13> ƒ relative(length: 2) {},
-        resolve: <ref *14> ƒ resolve(length: 0) {},
-        sep: "\\",
-        toNamespacedPath: [Circular: *2],
-        _makeLong: [Circular: *2],
-        win32: [Circular: *5],
-        posix: <ref *15> {
-            basename: ƒ basename(length: 1) {},
-            delimiter: ":",
-            dirname: ƒ dirname(length: 1) {},
-            extname: ƒ extname(length: 1) {},
-            format: ƒ format(length: 1) {},
-            isAbsolute: ƒ isAbsolute(length: 1) {},
-            join: ƒ join(length: 0) {},
-            normalize: ƒ normalize(length: 1) {},
-            parse: ƒ parse(length: 1) {},
-            relative: ƒ relative(length: 2) {},
-            resolve: ƒ resolve(length: 0) {},
-            sep: "/",
-            toNamespacedPath: <ref *26> ƒ toNamespacedPath(length: 1) {},
-            _makeLong: [Circular: *26],
-            win32: [Circular: *5],
-            posix: [Circular: *15]
-        }
-    },
-    delimiter: ";",
-    dirname: [Circular: *6],
-    extname: [Circular: *7],
-    format: [Circular: *8],
-    isAbsolute: [Circular: *9],
-    join: [Circular: *10],
-    normalize: [Circular: *11],
-    parse: [Circular: *12],
-    posix: [Circular: *15],
-    relative: [Circular: *13],
-    resolve: [Circular: *14],
-    sep: "\\",
-    toNamespacedPath: [Circular: *2],
-    win32: [Circular: *5]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/sqlite.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="test"></a>
 <details>
-			<summary><code>path/posix</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>node:test</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    _makeLong: <ref *2> ƒ toNamespacedPath(length: 1) {},
-    basename: <ref *3> ƒ basename(length: 2) {},
-    default: <ref *4> {
-        resolve: <ref *5> ƒ resolve(length: 0) {},
-        normalize: <ref *6> ƒ normalize(length: 1) {},
-        isAbsolute: <ref *7> ƒ isAbsolute(length: 1) {},
-        join: <ref *8> ƒ join(length: 0) {},
-        relative: <ref *9> ƒ relative(length: 2) {},
-        toNamespacedPath: [Circular: *2],
-        dirname: <ref *10> ƒ dirname(length: 1) {},
-        basename: [Circular: *3],
-        extname: <ref *11> ƒ extname(length: 1) {},
-        format: <ref *12> ƒ bound _format(length: 1) {},
-        parse: <ref *13> ƒ parse(length: 1) {},
-        matchesGlob: <ref *14> ƒ matchesGlob(length: 2) {},
-        sep: "/",
-        delimiter: ":",
-        win32: <ref *15> {
-            resolve: ƒ resolve(length: 0) {},
-            normalize: ƒ normalize(length: 1) {},
-            isAbsolute: ƒ isAbsolute(length: 1) {},
-            join: ƒ join(length: 0) {},
-            relative: ƒ relative(length: 2) {},
-            toNamespacedPath: <ref *21> ƒ toNamespacedPath(length: 1) {},
-            dirname: ƒ dirname(length: 1) {},
-            basename: ƒ basename(length: 2) {},
-            extname: ƒ extname(length: 1) {},
-            format: ƒ bound _format(length: 1) {},
-            parse: ƒ parse(length: 1) {},
-            matchesGlob: ƒ matchesGlob(length: 2) {},
-            sep: "\\",
-            delimiter: ";",
-            win32: [Circular: *15],
-            posix: [Circular: *4],
-            _makeLong: [Circular: *21]
-        },
-        posix: [Circular: *4],
-        _makeLong: [Circular: *2]
-    },
-    delimiter: ":",
-    dirname: [Circular: *10],
-    extname: [Circular: *11],
-    format: [Circular: *12],
-    isAbsolute: [Circular: *7],
-    join: [Circular: *8],
-    matchesGlob: [Circular: *14],
-    normalize: [Circular: *6],
-    parse: [Circular: *13],
-    posix: [Circular: *4],
-    relative: [Circular: *9],
-    resolve: [Circular: *5],
-    sep: "/",
-    toNamespacedPath: [Circular: *2],
-    win32: [Circular: *15]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/test.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    _makeLong: <ref *2> ƒ toNamespacedPath(length: 1) {},
-    basename: <ref *3> ƒ basename(length: 1) {},
-    default: <ref *4> {
-        basename: [Circular: *3],
-        delimiter: ":",
-        dirname: <ref *5> ƒ dirname(length: 1) {},
-        extname: <ref *6> ƒ extname(length: 1) {},
-        format: <ref *7> ƒ format(length: 1) {},
-        isAbsolute: <ref *8> ƒ isAbsolute(length: 1) {},
-        join: <ref *9> ƒ join(length: 0) {},
-        normalize: <ref *10> ƒ normalize(length: 1) {},
-        parse: <ref *11> ƒ parse(length: 1) {},
-        relative: <ref *12> ƒ relative(length: 2) {},
-        resolve: <ref *13> ƒ resolve(length: 0) {},
-        sep: "/",
-        toNamespacedPath: [Circular: *2],
-        _makeLong: [Circular: *2],
-        win32: <ref *14> {
-            basename: ƒ basename(length: 1) {},
-            delimiter: ";",
-            dirname: ƒ dirname(length: 1) {},
-            extname: ƒ extname(length: 1) {},
-            format: ƒ format(length: 1) {},
-            isAbsolute: ƒ isAbsolute(length: 1) {},
-            join: ƒ join(length: 0) {},
-            normalize: ƒ normalize(length: 1) {},
-            parse: ƒ parse(length: 1) {},
-            relative: ƒ relative(length: 2) {},
-            resolve: ƒ resolve(length: 0) {},
-            sep: "\\",
-            toNamespacedPath: <ref *25> ƒ toNamespacedPath(length: 1) {},
-            _makeLong: [Circular: *25],
-            win32: [Circular: *14],
-            posix: [Circular: *4]
-        },
-        posix: [Circular: *4]
-    },
-    delimiter: ":",
-    dirname: [Circular: *5],
-    extname: [Circular: *6],
-    format: [Circular: *7],
-    isAbsolute: [Circular: *8],
-    join: [Circular: *9],
-    normalize: [Circular: *10],
-    parse: [Circular: *11],
-    posix: [Circular: *4],
-    relative: [Circular: *12],
-    resolve: [Circular: *13],
-    sep: "/",
-    toNamespacedPath: [Circular: *2],
-    win32: [Circular: *14]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/test.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="test-reporters"></a>
 <details>
-			<summary><code>path/win32</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>node:test/reporters</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    _makeLong: <ref *2> ƒ toNamespacedPath(length: 1) {},
-    basename: <ref *3> ƒ basename(length: 2) {},
-    default: <ref *4> {
-        resolve: <ref *5> ƒ resolve(length: 0) {},
-        normalize: <ref *6> ƒ normalize(length: 1) {},
-        isAbsolute: <ref *7> ƒ isAbsolute(length: 1) {},
-        join: <ref *8> ƒ join(length: 0) {},
-        relative: <ref *9> ƒ relative(length: 2) {},
-        toNamespacedPath: [Circular: *2],
-        dirname: <ref *10> ƒ dirname(length: 1) {},
-        basename: [Circular: *3],
-        extname: <ref *11> ƒ extname(length: 1) {},
-        format: <ref *12> ƒ bound _format(length: 1) {},
-        parse: <ref *13> ƒ parse(length: 1) {},
-        matchesGlob: <ref *14> ƒ matchesGlob(length: 2) {},
-        sep: "\\",
-        delimiter: ";",
-        win32: [Circular: *4],
-        posix: <ref *15> {
-            resolve: ƒ resolve(length: 0) {},
-            normalize: ƒ normalize(length: 1) {},
-            isAbsolute: ƒ isAbsolute(length: 1) {},
-            join: ƒ join(length: 0) {},
-            relative: ƒ relative(length: 2) {},
-            toNamespacedPath: <ref *21> ƒ toNamespacedPath(length: 1) {},
-            dirname: ƒ dirname(length: 1) {},
-            basename: ƒ basename(length: 2) {},
-            extname: ƒ extname(length: 1) {},
-            format: ƒ bound _format(length: 1) {},
-            parse: ƒ parse(length: 1) {},
-            matchesGlob: ƒ matchesGlob(length: 2) {},
-            sep: "/",
-            delimiter: ":",
-            win32: [Circular: *4],
-            posix: [Circular: *15],
-            _makeLong: [Circular: *21]
-        },
-        _makeLong: [Circular: *2]
-    },
-    delimiter: ";",
-    dirname: [Circular: *10],
-    extname: [Circular: *11],
-    format: [Circular: *12],
-    isAbsolute: [Circular: *7],
-    join: [Circular: *8],
-    matchesGlob: [Circular: *14],
-    normalize: [Circular: *6],
-    parse: [Circular: *13],
-    posix: [Circular: *15],
-    relative: [Circular: *9],
-    resolve: [Circular: *5],
-    sep: "\\",
-    toNamespacedPath: [Circular: *2],
-    win32: [Circular: *4]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/test_reporters.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    _makeLong: <ref *2> ƒ toNamespacedPath(length: 1) {},
-    basename: <ref *3> ƒ basename(length: 1) {},
-    default: <ref *4> {
-        basename: [Circular: *3],
-        delimiter: ";",
-        dirname: <ref *5> ƒ dirname(length: 1) {},
-        extname: <ref *6> ƒ extname(length: 1) {},
-        format: <ref *7> ƒ format(length: 1) {},
-        isAbsolute: <ref *8> ƒ isAbsolute(length: 1) {},
-        join: <ref *9> ƒ join(length: 0) {},
-        normalize: <ref *10> ƒ normalize(length: 1) {},
-        parse: <ref *11> ƒ parse(length: 1) {},
-        relative: <ref *12> ƒ relative(length: 2) {},
-        resolve: <ref *13> ƒ resolve(length: 0) {},
-        sep: "\\",
-        toNamespacedPath: [Circular: *2],
-        _makeLong: [Circular: *2],
-        win32: [Circular: *4],
-        posix: <ref *14> {
-            basename: ƒ basename(length: 1) {},
-            delimiter: ":",
-            dirname: ƒ dirname(length: 1) {},
-            extname: ƒ extname(length: 1) {},
-            format: ƒ format(length: 1) {},
-            isAbsolute: ƒ isAbsolute(length: 1) {},
-            join: ƒ join(length: 0) {},
-            normalize: ƒ normalize(length: 1) {},
-            parse: ƒ parse(length: 1) {},
-            relative: ƒ relative(length: 2) {},
-            resolve: ƒ resolve(length: 0) {},
-            sep: "/",
-            toNamespacedPath: <ref *25> ƒ toNamespacedPath(length: 1) {},
-            _makeLong: [Circular: *25],
-            win32: [Circular: *4],
-            posix: [Circular: *14]
-        }
-    },
-    delimiter: ";",
-    dirname: [Circular: *5],
-    extname: [Circular: *6],
-    format: [Circular: *7],
-    isAbsolute: [Circular: *8],
-    join: [Circular: *9],
-    normalize: [Circular: *10],
-    parse: [Circular: *11],
-    posix: [Circular: *14],
-    relative: [Circular: *12],
-    resolve: [Circular: *13],
-    sep: "\\",
-    toNamespacedPath: [Circular: *2],
-    win32: [Circular: *4]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/test_reporters.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="os"></a>
 <details>
-			<summary><code>perf_hooks</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>os</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Performance: <ref *2> class Performance extends EventTarget {},
-    PerformanceEntry: <ref *3> class PerformanceEntry {},
-    PerformanceMark: <ref *4> class PerformanceMark extends PerformanceEntry {},
-    PerformanceMeasure: <ref *5> class PerformanceMeasure extends PerformanceEntry {},
-    PerformanceObserver: <ref *6> class PerformanceObserver {},
-    PerformanceObserverEntryList: <ref *7> class PerformanceObserverEntryList {},
-    PerformanceResourceTiming: <ref *8> class PerformanceResourceTiming extends PerformanceEntry {},
-    constants: <ref *9> {
-        NODE_PERFORMANCE_GC_MAJOR: 4,
-        NODE_PERFORMANCE_GC_MINOR: 1,
-        NODE_PERFORMANCE_GC_INCREMENTAL: 8,
-        NODE_PERFORMANCE_GC_WEAKCB: 16,
-        NODE_PERFORMANCE_GC_FLAGS_NO: 0,
-        NODE_PERFORMANCE_GC_FLAGS_CONSTRUCT_RETAINED: 2,
-        NODE_PERFORMANCE_GC_FLAGS_FORCED: 4,
-        NODE_PERFORMANCE_GC_FLAGS_SYNCHRONOUS_PHANTOM_PROCESSING: 8,
-        NODE_PERFORMANCE_GC_FLAGS_ALL_AVAILABLE_GARBAGE: 16,
-        NODE_PERFORMANCE_GC_FLAGS_ALL_EXTERNAL_MEMORY: 32,
-        NODE_PERFORMANCE_GC_FLAGS_SCHEDULE_IDLE: 64
-    },
-    createHistogram: <ref *10> ƒ createHistogram(length: 0) {},
-    default: {
-        Performance: [Circular: *2],
-        PerformanceEntry: [Circular: *3],
-        PerformanceMark: [Circular: *4],
-        PerformanceMeasure: [Circular: *5],
-        PerformanceObserver: [Circular: *6],
-        PerformanceObserverEntryList: [Circular: *7],
-        PerformanceResourceTiming: [Circular: *8],
-        monitorEventLoopDelay: <ref *12> ƒ monitorEventLoopDelay(length: 0) {},
-        createHistogram: [Circular: *10],
-        performance: <ref *13> Performance {
-            Symbol(kEvents): SafeMap {},
-            Symbol(events.maxEventTargetListeners): 10,
-            Symbol(events.maxEventTargetListenersWarned): false,
-            Symbol(kHandlers): SafeMap {},
-            Symbol(performance): true
-        },
-        constants: [Circular: *9]
-    },
-    monitorEventLoopDelay: [Circular: *12],
-    performance: [Circular: *13]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/os.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    PerformanceEntry: <ref *2> class PerformanceEntry {},
-    PerformanceObserver: <ref *3> class PerformanceObserver {
-        supportedEntryTypes: []
-    },
-    constants: <ref *5> {},
-    default: {
-        performance: <ref *7> Performance {
-            eventLoopUtilization: ƒ (length: 0) {},
-            nodeTiming: {},
-            timerify: ƒ (length: 0) {},
-            markResourceTiming: ƒ (length: 0) {},
-            Symbol(): {
-                assignedSlot: false,
-                hasActivationBehavior: false,
-                host: null,
-                listeners: [Object: null prototype] {},
-                mode: ""
-            },
-            Symbol([[webidl.brand]]): Symbol([[webidl.brand]])
-        },
-        PerformanceObserver: [Circular: *3],
-        PerformanceEntry: [Circular: *2],
-        monitorEventLoopDelay: <ref *14> ƒ monitorEventLoopDelay(length: 0) {},
-        constants: [Circular: *5]
-    },
-    monitorEventLoopDelay: [Circular: *14],
-    performance: [Circular: *7]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/os.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="path"></a>
 <details>
-			<summary><code>process</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>path</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    _debugEnd: <ref *2> ƒ _debugEnd(length: 0) {},
-    _debugProcess: <ref *3> ƒ _debugProcess(length: 0) {},
-    _events: <ref *4> [Object: null prototype] {
-        newListener: [
-            ƒ (length: 1) {},
-            ƒ startListeningIfSignal(length: 1) {}
-        ],
-        removeListener: [
-            ƒ (length: 1) {},
-            ƒ stopListeningIfSignal(length: 1) {}
-        ],
-        warning: ƒ onWarning(length: 1) {}
-    },
-    _eventsCount: 3,
-    _exiting: false,
-    _fatalException: <ref *12> ƒ (length: 2) {},
-    _getActiveHandles: <ref *13> ƒ _getActiveHandles(length: 0) {},
-    _getActiveRequests: <ref *14> ƒ _getActiveRequests(length: 0) {},
-    _kill: <ref *15> ƒ _kill(length: 0) {},
-    _linkedBinding: <ref *16> ƒ _linkedBinding(length: 1) {},
-    _maxListeners: undefined,
-    _preload_modules: <ref *17> [],
-    _rawDebug: <ref *18> ƒ _rawDebug(length: 0) {},
-    _startProfilerIdleNotifier: <ref *19> ƒ (length: 0) {},
-    _stopProfilerIdleNotifier: <ref *20> ƒ (length: 0) {},
-    _tickCallback: <ref *21> ƒ runNextTicks(length: 0) {},
-    abort: <ref *22> ƒ abort(length: 0) {},
-    allowedNodeEnvironmentFlags: <ref *23> NodeEnvironmentFlagsSet {
-        Symbol(internal properties): {
-            array: [
-                "--icu-data-dir",
-                "--title",
-                "--use-largepages",
-                "--trace-tls",
-                "--no-trace-tls",
-                "--trace-event-categories",
-                "--trace-event-file-pattern",
-                "--v8-pool-size",
-                "--force-context-aware",
-                "--no-force-context-aware",
-                "--disallow-code-generation-from-strings",
-                "--report-dir",
-                "--trace-sync-io",
-                "--no-trace-sync-io",
-                "--zero-fill-buffers",
-                "--no-zero-fill-buffers",
-                "--diagnostic-dir",
-                "--experimental-worker",
-                "--disable-proto",
-                "--node-snapshot",
-                "--no-node-snapshot",
-                "--experimental-async-context-frame",
-                "--no-experimental-async-context-frame",
-                "--debug-arraybuffer-allocations",
-                "--no-debug-arraybuffer-allocations",
-                "--abort-on-uncaught-exception",
-                "--snapshot-blob",
-                "--pending-deprecation",
-                "--no-pending-deprecation",
-                "--use-bundled-ca",
-                "--no-use-bundled-ca",
-                "--report-compact",
-                "--no-report-compact",
-                "--experimental-print-required-tla",
-                "--no-experimental-print-required-tla",
-                "--report-filename",
-                "--report-on-fatalerror",
-                "--no-report-on-fatalerror",
-                "--perf-prof",
-                "--report-signal",
-                "--openssl-config",
-                "--tls-cipher-list",
-                "--use-openssl-ca",
-                "--no-use-openssl-ca",
-                "--node-memory-debug",
-                "--enable-fips",
-                "--no-enable-fips",
-                "--experimental-eventsource",
-                "--no-experimental-eventsource",
-                "--force-fips",
-                "--no-force-fips",
-                "--secure-heap",
-                "--secure-heap-min",
-                "--openssl-legacy-provider",
-                "--no-openssl-legacy-provider",
-                "--openssl-shared-config",
-                "--no-openssl-shared-config",
-                "--trace-sigint",
-                "--no-trace-sigint",
-                "--track-heap-objects",
-                "--no-track-heap-objects",
-                "--experimental-detect-module",
-                "--no-experimental-detect-module",
-                "--warnings",
-                "--no-warnings",
-                "--experimental-repl-await",
-                "--no-experimental-repl-await",
-                "--experimental-json-modules",
-                "--interpreted-frames-native-stack",
-                "--perf-basic-prof-only-functions",
-                "--allow-fs-write",
-                "--max-old-space-size",
-                "--max-semi-space-size",
-                "--experimental-websocket",
-                "--no-experimental-websocket",
-                "--perf-basic-prof",
-                "--perf-prof-unwinding-info",
-                "--stack-trace-limit",
-                "--jitless",
-                "--experimental-top-level-await",
-                "--report-uncaught-exception",
-                "--no-report-uncaught-exception",
-                "--report-on-signal",
-                "--no-report-on-signal",
-                "--enable-etw-stack-walking",
-                "--experimental-shadow-realm",
-                "--no-experimental-shadow-realm",
-                "--conditions",
-                "--network-family-autoselection-attempt-timeout",
-                "--experimental-require-module",
-                "--no-experimental-require-module",
-                "--experimental-abortcontroller",
-                "--experimental-vm-modules",
-                "--no-experimental-vm-modules",
-                "--dns-result-order",
-                "--network-family-autoselection",
-                "--no-network-family-autoselection",
-                "--permission",
-                "--no-permission",
-                "--insecure-http-parser",
-                "--no-insecure-http-parser",
-                "--trace-uncaught",
-                "--no-trace-uncaught",
-                "--enable-source-maps",
-                "--no-enable-source-maps",
-                "--entry-url",
-                "--no-entry-url",
-                "--experimental-wasi-unstable-preview1",
-                "--experimental-specifier-resolution",
-                "--experimental-fetch",
-                "--deprecation",
-                "--no-deprecation",
-                "--experimental-global-customevent",
-                "--experimental-sqlite",
-                "--no-experimental-sqlite",
-                "--experimental-webstorage",
-                "--no-experimental-webstorage",
-                "--localstorage-file",
-                "--test-only",
-                "--no-test-only",
-                "--allow-child-process",
-                "--no-allow-child-process",
-                "--experimental-global-navigator",
-                "--no-experimental-global-navigator",
-                "--experimental-global-webcrypto",
-                "--experimental-loader",
-                "--experimental-modules",
-                "--allow-worker",
-                "--no-allow-worker",
-                "--experimental-wasm-modules",
-                "--no-experimental-wasm-modules",
-                "--experimental-import-meta-resolve",
-                "--no-experimental-import-meta-resolve",
-                "--allow-fs-read",
-                "--frozen-intrinsics",
-                "--no-frozen-intrinsics",
-                "--force-async-hooks-checks",
-                "--no-force-async-hooks-checks",
-                "--allow-addons",
-                "--no-allow-addons",
-                "--allow-wasi",
-                "--no-allow-wasi",
-                "--experimental-report",
-                "--expose-gc",
-                "--disable-warning",
-                "--heapsnapshot-signal",
-                "--input-type",
-                "--heapsnapshot-near-heap-limit",
-                "--http-parser",
-                "--force-node-api-uncaught-exceptions-policy",
-                "--no-force-node-api-uncaught-exceptions-policy",
-                "--preserve-symlinks-main",
-                "--no-preserve-symlinks-main",
-                "--addons",
-                "--no-addons",
-                "--global-search-paths",
-                "--no-global-search-paths",
-                "--preserve-symlinks",
-                "--no-preserve-symlinks",
-                "--heap-prof",
-                "--no-heap-prof",
-                "--heap-prof-name",
-                "--heap-prof-dir",
-                "--heap-prof-interval",
-                "--test-reporter-destination",
-                "--max-http-header-size",
-                "--redirect-warnings",
-                "--verify-base-objects",
-                "--no-verify-base-objects",
-                "--test-coverage-branches",
-                "--test-coverage-functions",
-                "--test-coverage-lines",
-                "--test-name-pattern",
-                "--test-reporter",
-                "--test-shard",
-                "--test-skip-pattern",
-                "--test-coverage-include",
-                "--test-coverage-exclude",
-                "--throw-deprecation",
-                "--no-throw-deprecation",
-                "--trace-deprecation",
-                "--no-trace-deprecation",
-                "--trace-exit",
-                "--no-trace-exit",
-                "--trace-warnings",
-                "--no-trace-warnings",
-                "--trace-promises",
-                "--no-trace-promises",
-                "--trace-env",
-                "--no-trace-env",
-                "--trace-env-js-stack",
-                "--no-trace-env-js-stack",
-                "--trace-env-native-stack",
-                "--no-trace-env-native-stack",
-                "--trace-require-module",
-                "--extra-info-on-fatal-exception",
-                "--no-extra-info-on-fatal-exception",
-                "--unhandled-rejections",
-                "--watch",
-                "--no-watch",
-                "--watch-path",
-                "--watch-preserve-output",
-                "--no-watch-preserve-output",
-                "--require",
-                "--import",
-                "--experimental-strip-types",
-                "--no-experimental-strip-types",
-                "--experimental-transform-types",
-                "--no-experimental-transform-types",
-                "--inspect",
-                "--no-inspect",
-                "--napi-modules",
-                "--tls-keylog",
-                "--tls-min-v1.0",
-                "--no-tls-min-v1.0",
-                "--tls-min-v1.1",
-                "--no-tls-min-v1.1",
-                "--tls-min-v1.2",
-                "--no-tls-min-v1.2",
-                "--tls-min-v1.3",
-                "--no-tls-min-v1.3",
-                "--tls-max-v1.2",
-                "--no-tls-max-v1.2",
-                "--tls-max-v1.3",
-                "--no-tls-max-v1.3",
-                "--report-exclude-env",
-                "--no-report-exclude-env",
-                "--report-exclude-network",
-                "--no-report-exclude-network",
-                "--inspect-port",
-                "--inspect-brk",
-                "--no-inspect-brk",
-                "--inspect-wait",
-                "--no-inspect-wait",
-                "--inspect-publish-uid",
-                "--disable-wasm-trap-handler",
-                "--no-disable-wasm-trap-handler",
-                "--debug-port",
-                "--trace-events-enabled",
-                "--inspect-wait",
-                "--report-directory",
-                "-C",
-                "--enable-network-family-autoselection",
-                "--loader",
-                "--inspect",
-                "--es-module-specifier-resolution",
-                "--prof-process",
-                "--experimental-permission",
-                "-r",
-                "--inspect-brk"
-            ]
-        }
-    },
-    arch: "x64",
-    argv: <ref *26> [
-        "E:\\Tools\\nodejs\\node.exe",
-        "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1754642932099-12508-1\\process.mjs"
-    ],
-    argv0: "node",
-    availableMemory: <ref *27> ƒ availableMemory(length: 0) {},
-    binding: <ref *28> ƒ binding(length: 1) {},
-    chdir: <ref *29> ƒ wrappedChdir(length: 1) {},
-    config: <ref *30> {
-        target_defaults: {
-            cflags: [],
-            configurations: {
-                Debug: {
-                    v8_enable_v8_checks: 0,
-                    variables: {}
-                },
-                Release: {
-                    v8_enable_v8_checks: 1,
-                    variables: {}
-                }
-            },
-            default_configuration: "Release",
-            defines: [
-                "NODE_OPENSSL_CONF_NAME=nodejs_conf",
-                "NODE_OPENSSL_HAS_QUIC",
-                "ICU_NO_USER_DATA_OVERRIDE"
-            ],
-            include_dirs: [],
-            libraries: []
-        },
-        variables: {
-            asan: 0,
-            clang: 0,
-            coverage: false,
-            dcheck_always_on: 0,
-            debug_nghttp2: false,
-            debug_node: false,
-            enable_lto: false,
-            enable_pgo_generate: false,
-            enable_pgo_use: false,
-            error_on_warn: false,
-            force_dynamic_crt: 0,
-            host_arch: "x64",
-            icu_data_in: "..\\..\\deps\\icu-tmp\\icudt76l.dat",
-            icu_endianness: "l",
-            icu_gyp_path: "tools/icu/icu-generic.gyp",
-            icu_path: "deps/icu-small",
-            icu_small: false,
-            icu_ver_major: "76",
-            libdir: "lib",
-            llvm_version: "0.0",
-            napi_build_version: "9",
-            nasm_version: "2.16",
-            node_builtin_shareable_builtins: [
-                "deps/cjs-module-lexer/lexer.js",
-                "deps/cjs-module-lexer/dist/lexer.js",
-                "deps/undici/undici.js",
-                "deps/amaro/dist/index.js"
-            ],
-            node_byteorder: "little",
-            node_debug_lib: false,
-            node_enable_d8: false,
-            node_enable_v8_vtunejit: false,
-            node_fipsinstall: false,
-            node_install_corepack: true,
-            node_install_npm: true,
-            node_library_files: [
-                "lib/_http_agent.js",
-                "lib/_http_client.js",
-                "lib/_http_common.js",
-                "lib/_http_incoming.js",
-                "lib/_http_outgoing.js",
-                "lib/_http_server.js",
-                "lib/_stream_duplex.js",
-                "lib/_stream_passthrough.js",
-                "lib/_stream_readable.js",
-                "lib/_stream_transform.js",
-                "lib/_stream_wrap.js",
-                "lib/_stream_writable.js",
-                "lib/_tls_common.js",
-                "lib/_tls_wrap.js",
-                "lib/assert.js",
-                "lib/assert/strict.js",
-                "lib/async_hooks.js",
-                "lib/buffer.js",
-                "lib/child_process.js",
-                "lib/cluster.js",
-                "lib/console.js",
-                "lib/constants.js",
-                "lib/crypto.js",
-                "lib/dgram.js",
-                "lib/diagnostics_channel.js",
-                "lib/dns.js",
-                "lib/dns/promises.js",
-                "lib/domain.js",
-                "lib/events.js",
-                "lib/fs.js",
-                "lib/fs/promises.js",
-                "lib/http.js",
-                "lib/http2.js",
-                "lib/https.js",
-                "lib/inspector.js",
-                "lib/inspector/promises.js",
-                "lib/internal/abort_controller.js",
-                "lib/internal/assert.js",
-                "lib/internal/assert/assertion_error.js",
-                "lib/internal/assert/calltracker.js",
-                "lib/internal/assert/myers_diff.js",
-                "lib/internal/assert/utils.js",
-                "lib/internal/async_context_frame.js",
-                "lib/internal/async_hooks.js",
-                "lib/internal/async_local_storage/async_context_frame.js",
-                "lib/internal/async_local_storage/async_hooks.js",
-                "lib/internal/blob.js",
-                "lib/internal/blocklist.js",
-                "lib/internal/bootstrap/node.js",
-                "lib/internal/bootstrap/realm.js",
-                "lib/internal/bootstrap/shadow_realm.js",
-                "lib/internal/bootstrap/switches/does_not_own_process_state.js",
-                "lib/internal/bootstrap/switches/does_own_process_state.js",
-                "lib/internal/bootstrap/switches/is_main_thread.js",
-                "lib/internal/bootstrap/switches/is_not_main_thread.js",
-                "lib/internal/bootstrap/web/exposed-wildcard.js",
-                "lib/internal/bootstrap/web/exposed-window-or-worker.js",
-                "lib/internal/buffer.js",
-                "lib/internal/child_process.js",
-                "lib/internal/child_process/serialization.js",
-                "lib/internal/cli_table.js",
-                "lib/internal/cluster/child.js",
-                "lib/internal/cluster/primary.js",
-                "lib/internal/cluster/round_robin_handle.js",
-                "lib/internal/cluster/shared_handle.js",
-                "lib/internal/cluster/utils.js",
-                "lib/internal/cluster/worker.js",
-                "lib/internal/console/constructor.js",
-                "lib/internal/console/global.js",
-                "lib/internal/constants.js",
-                "lib/internal/crypto/aes.js",
-                "lib/internal/crypto/certificate.js",
-                "lib/internal/crypto/cfrg.js",
-                "lib/internal/crypto/cipher.js",
-                "lib/internal/crypto/diffiehellman.js",
-                "lib/internal/crypto/ec.js",
-                "lib/internal/crypto/hash.js",
-                "lib/internal/crypto/hashnames.js",
-                "lib/internal/crypto/hkdf.js",
-                "lib/internal/crypto/keygen.js",
-                "lib/internal/crypto/keys.js",
-                "lib/internal/crypto/mac.js",
-                "lib/internal/crypto/pbkdf2.js",
-                "lib/internal/crypto/random.js",
-                "lib/internal/crypto/rsa.js",
-                "lib/internal/crypto/scrypt.js",
-                "lib/internal/crypto/sig.js",
-                "lib/internal/crypto/util.js",
-                "lib/internal/crypto/webcrypto.js",
-                "lib/internal/crypto/webidl.js",
-                "lib/internal/crypto/x509.js",
-                "lib/internal/data_url.js",
-                "lib/internal/debugger/inspect.js",
-                "lib/internal/debugger/inspect_client.js",
-                "lib/internal/debugger/inspect_repl.js",
-                "lib/internal/dgram.js",
-                "lib/internal/dns/callback_resolver.js",
-                "lib/internal/dns/promises.js",
-                "lib/internal/dns/utils.js",
-                "lib/internal/encoding.js",
-                "lib/internal/error_serdes.js",
-                "lib/internal/errors.js",
-                "lib/internal/event_target.js",
-                "lib/internal/events/abort_listener.js",
-                "lib/internal/events/symbols.js",
-                "lib/internal/file.js",
-                "lib/internal/fixed_queue.js",
-                "lib/internal/freelist.js",
-                "lib/internal/freeze_intrinsics.js",
-                "lib/internal/fs/cp/cp-sync.js",
-                "lib/internal/fs/cp/cp.js",
-                "lib/internal/fs/dir.js",
-                "lib/internal/fs/glob.js",
-                "lib/internal/fs/promises.js",
-                "lib/internal/fs/read/context.js",
-                "lib/internal/fs/recursive_watch.js",
-                "lib/internal/fs/rimraf.js",
-                "lib/internal/fs/streams.js",
-                "lib/internal/fs/sync_write_stream.js",
-                "lib/internal/fs/utils.js",
-                "lib/internal/fs/watchers.js",
-                "lib/internal/heap_utils.js",
-                "lib/internal/histogram.js",
-                "lib/internal/http.js",
-                "lib/internal/http2/compat.js",
-                "lib/internal/http2/core.js",
-                "lib/internal/http2/util.js",
-                "lib/internal/inspector_async_hook.js",
-                "lib/internal/inspector_network_tracking.js",
-                "lib/internal/js_stream_socket.js",
-                "lib/internal/legacy/processbinding.js",
-                "lib/internal/linkedlist.js",
-                "lib/internal/main/check_syntax.js",
-                "lib/internal/main/embedding.js",
-                "lib/internal/main/eval_stdin.js",
-                "lib/internal/main/eval_string.js",
-                "lib/internal/main/inspect.js",
-                "lib/internal/main/mksnapshot.js",
-                "lib/internal/main/print_help.js",
-                "lib/internal/main/prof_process.js",
-                "lib/internal/main/repl.js",
-                "lib/internal/main/run_main_module.js",
-                "lib/internal/main/test_runner.js",
-                "lib/internal/main/watch_mode.js",
-                "lib/internal/main/worker_thread.js",
-                "lib/internal/mime.js",
-                "lib/internal/modules/cjs/loader.js",
-                "lib/internal/modules/customization_hooks.js",
-                "lib/internal/modules/esm/assert.js",
-                "lib/internal/modules/esm/create_dynamic_module.js",
-                "lib/internal/modules/esm/formats.js",
-                "lib/internal/modules/esm/get_format.js",
-                "lib/internal/modules/esm/hooks.js",
-                "lib/internal/modules/esm/initialize_import_meta.js",
-                "lib/internal/modules/esm/load.js",
-                "lib/internal/modules/esm/loader.js",
-                "lib/internal/modules/esm/module_job.js",
-                "lib/internal/modules/esm/module_map.js",
-                "lib/internal/modules/esm/resolve.js",
-                "lib/internal/modules/esm/shared_constants.js",
-                "lib/internal/modules/esm/translators.js",
-                "lib/internal/modules/esm/utils.js",
-                "lib/internal/modules/esm/worker.js",
-                "lib/internal/modules/helpers.js",
-                "lib/internal/modules/package_json_reader.js",
-                "lib/internal/modules/run_main.js",
-                "lib/internal/modules/typescript.js",
-                "lib/internal/navigator.js",
-                "lib/internal/net.js",
-                "lib/internal/options.js",
-                "lib/internal/per_context/domexception.js",
-                "lib/internal/per_context/messageport.js",
-                "lib/internal/per_context/primordials.js",
-                "lib/internal/perf/event_loop_delay.js",
-                "lib/internal/perf/event_loop_utilization.js",
-                "lib/internal/perf/nodetiming.js",
-                "lib/internal/perf/observe.js",
-                "lib/internal/perf/performance.js",
-                "lib/internal/perf/performance_entry.js",
-                "lib/internal/perf/resource_timing.js",
-                "lib/internal/perf/timerify.js",
-                "lib/internal/perf/usertiming.js",
-                "lib/internal/perf/utils.js",
-                "lib/internal/priority_queue.js",
-                "lib/internal/process/execution.js",
-                "lib/internal/process/finalization.js",
-                "lib/internal/process/per_thread.js",
-                "lib/internal/process/permission.js",
-                "lib/internal/process/pre_execution.js",
-                "lib/internal/process/promises.js",
-                "lib/internal/process/report.js",
-                "lib/internal/process/signal.js",
-                "lib/internal/process/task_queues.js",
-                "lib/internal/process/warning.js",
-                "lib/internal/process/worker_thread_only.js",
-                "lib/internal/promise_hooks.js",
-                "lib/internal/querystring.js",
-                "lib/internal/quic/quic.js",
-                "lib/internal/quic/state.js",
-                "lib/internal/quic/stats.js",
-                "lib/internal/quic/symbols.js",
-                "lib/internal/readline/callbacks.js",
-                "lib/internal/readline/emitKeypressEvents.js",
-                "lib/internal/readline/interface.js",
-                "lib/internal/readline/promises.js",
-                "lib/internal/readline/utils.js",
-                "lib/internal/repl.js",
-                "lib/internal/repl/await.js",
-                "lib/internal/repl/history.js",
-                "lib/internal/repl/utils.js",
-                "lib/internal/socket_list.js",
-                "lib/internal/socketaddress.js",
-                "lib/internal/source_map/prepare_stack_trace.js",
-                "lib/internal/source_map/source_map.js",
-                "lib/internal/source_map/source_map_cache.js",
-                "lib/internal/source_map/source_map_cache_map.js",
-                "lib/internal/stream_base_commons.js",
-                "lib/internal/streams/add-abort-signal.js",
-                "lib/internal/streams/compose.js",
-                "lib/internal/streams/destroy.js",
-                "lib/internal/streams/duplex.js",
-                "lib/internal/streams/duplexify.js",
-                "lib/internal/streams/duplexpair.js",
-                "lib/internal/streams/end-of-stream.js",
-                "lib/internal/streams/from.js",
-                "lib/internal/streams/lazy_transform.js",
-                "lib/internal/streams/legacy.js",
-                "lib/internal/streams/operators.js",
-                "lib/internal/streams/passthrough.js",
-                "lib/internal/streams/pipeline.js",
-                "lib/internal/streams/readable.js",
-                "lib/internal/streams/state.js",
-                "lib/internal/streams/transform.js",
-                "lib/internal/streams/utils.js",
-                "lib/internal/streams/writable.js",
-                "lib/internal/test/binding.js",
-                "lib/internal/test/transfer.js",
-                "lib/internal/test_runner/coverage.js",
-                "lib/internal/test_runner/harness.js",
-                "lib/internal/test_runner/mock/loader.js",
-                "lib/internal/test_runner/mock/mock.js",
-                "lib/internal/test_runner/mock/mock_timers.js",
-                "lib/internal/test_runner/reporter/dot.js",
-                "lib/internal/test_runner/reporter/junit.js",
-                "lib/internal/test_runner/reporter/lcov.js",
-                "lib/internal/test_runner/reporter/spec.js",
-                "lib/internal/test_runner/reporter/tap.js",
-                "lib/internal/test_runner/reporter/utils.js",
-                "lib/internal/test_runner/reporter/v8-serializer.js",
-                "lib/internal/test_runner/runner.js",
-                "lib/internal/test_runner/snapshot.js",
-                "lib/internal/test_runner/test.js",
-                "lib/internal/test_runner/tests_stream.js",
-                "lib/internal/test_runner/utils.js",
-                "lib/internal/timers.js",
-                "lib/internal/tls/secure-context.js",
-                "lib/internal/tls/secure-pair.js",
-                "lib/internal/trace_events_async_hooks.js",
-                "lib/internal/tty.js",
-                "lib/internal/url.js",
-                "lib/internal/util.js",
-                "lib/internal/util/colors.js",
-                "lib/internal/util/comparisons.js",
-                "lib/internal/util/debuglog.js",
-                "lib/internal/util/inspect.js",
-                "lib/internal/util/inspector.js",
-                "lib/internal/util/parse_args/parse_args.js",
-                "lib/internal/util/parse_args/utils.js",
-                "lib/internal/util/types.js",
-                "lib/internal/v8/startup_snapshot.js",
-                "lib/internal/v8_prof_polyfill.js",
-                "lib/internal/v8_prof_processor.js",
-                "lib/internal/validators.js",
-                "lib/internal/vm.js",
-                "lib/internal/vm/module.js",
-                "lib/internal/wasm_web_api.js",
-                "lib/internal/watch_mode/files_watcher.js",
-                "lib/internal/watchdog.js",
-                "lib/internal/webidl.js",
-                "lib/internal/webstorage.js",
-                "lib/internal/webstreams/adapters.js",
-                "lib/internal/webstreams/compression.js",
-                "lib/internal/webstreams/encoding.js",
-                "lib/internal/webstreams/queuingstrategies.js",
-                "lib/internal/webstreams/readablestream.js",
-                "lib/internal/webstreams/transfer.js",
-                "lib/internal/webstreams/transformstream.js",
-                "lib/internal/webstreams/util.js",
-                "lib/internal/webstreams/writablestream.js",
-                "lib/internal/worker.js",
-                "lib/internal/worker/io.js",
-                "lib/internal/worker/js_transferable.js",
-                "lib/internal/worker/messaging.js",
-                "lib/module.js",
-                "lib/net.js",
-                "lib/os.js",
-                "lib/path.js",
-                "lib/path/posix.js",
-                "lib/path/win32.js",
-                "lib/perf_hooks.js",
-                "lib/process.js",
-                "lib/punycode.js",
-                "lib/querystring.js",
-                "lib/readline.js",
-                "lib/readline/promises.js",
-                "lib/repl.js",
-                "lib/sea.js",
-                "lib/sqlite.js",
-                "lib/stream.js",
-                "lib/stream/consumers.js",
-                "lib/stream/promises.js",
-                "lib/stream/web.js",
-                "lib/string_decoder.js",
-                "lib/sys.js",
-                "lib/test.js",
-                "lib/test/reporters.js",
-                "lib/timers.js",
-                "lib/timers/promises.js",
-                "lib/tls.js",
-                "lib/trace_events.js",
-                "lib/tty.js",
-                "lib/url.js",
-                "lib/util.js",
-                "lib/util/types.js",
-                "lib/v8.js",
-                "lib/vm.js",
-                "lib/wasi.js",
-                "lib/worker_threads.js",
-                "lib/zlib.js"
-            ],
-            node_module_version: 131,
-            node_no_browser_globals: false,
-            node_prefix: "\\usr\\local",
-            node_release_urlbase: "https://nodejs.org/download/release/",
-            node_shared: false,
-            node_shared_ada: false,
-            node_shared_brotli: false,
-            node_shared_cares: false,
-            node_shared_http_parser: false,
-            node_shared_libuv: false,
-            node_shared_nghttp2: false,
-            node_shared_nghttp3: false,
-            node_shared_ngtcp2: false,
-            node_shared_openssl: false,
-            node_shared_simdjson: false,
-            node_shared_simdutf: false,
-            node_shared_sqlite: false,
-            node_shared_uvwasi: false,
-            node_shared_zlib: false,
-            node_tag: "",
-            node_target_type: "executable",
-            node_use_amaro: true,
-            node_use_bundled_v8: true,
-            node_use_node_code_cache: true,
-            node_use_node_snapshot: true,
-            node_use_openssl: true,
-            node_use_v8_platform: true,
-            node_with_ltcg: true,
-            node_without_node_options: false,
-            node_write_snapshot_as_array_literals: true,
-            openssl_is_fips: false,
-            openssl_quic: true,
-            ossfuzz: false,
-            shlib_suffix: "so.131",
-            single_executable_application: true,
-            target_arch: "x64",
-            ubsan: 0,
-            use_prefix_to_find_headers: false,
-            v8_enable_31bit_smis_on_64bit_arch: 0,
-            v8_enable_extensible_ro_snapshot: 0,
-            v8_enable_gdbjit: 0,
-            v8_enable_hugepage: 0,
-            v8_enable_i18n_support: 1,
-            v8_enable_inspector: 1,
-            v8_enable_javascript_promise_hooks: 1,
-            v8_enable_lite_mode: 0,
-            v8_enable_maglev: 1,
-            v8_enable_object_print: 1,
-            v8_enable_pointer_compression: 0,
-            v8_enable_sandbox: 0,
-            v8_enable_shared_ro_heap: 1,
-            v8_enable_short_builtin_calls: 1,
-            v8_enable_wasm_simd256_revec: 1,
-            v8_enable_webassembly: 1,
-            v8_optimized_debug: 1,
-            v8_promise_internal_field_count: 1,
-            v8_random_seed: 0,
-            v8_trace_maps: 0,
-            v8_use_siphash: 1,
-            want_separate_host_toolset: 0
-        }
-    },
-    constrainedMemory: <ref *44> ƒ constrainedMemory(length: 0) {},
-    cpuUsage: <ref *45> ƒ cpuUsage(length: 1) {},
-    cwd: <ref *46> ƒ wrappedCwd(length: 0) {},
-    debugPort: 9229,
-    default: process {
-        version: "v23.5.0",
-        versions: <ref *48> {
-            node: "23.5.0",
-            acorn: "8.14.0",
-            ada: "2.9.2",
-            amaro: "0.2.0",
-            ares: "1.34.4",
-            brotli: "1.1.0",
-            cjs_module_lexer: "1.4.1",
-            cldr: "46.0",
-            icu: "76.1",
-            llhttp: "9.2.1",
-            modules: "131",
-            napi: "9",
-            nbytes: "0.1.1",
-            ncrypto: "0.0.1",
-            nghttp2: "1.64.0",
-            nghttp3: "1.6.0",
-            ngtcp2: "1.9.1",
-            openssl: "3.0.15+quic",
-            simdjson: "3.10.1",
-            simdutf: "5.6.4",
-            sqlite: "3.47.2",
-            tz: "2024b",
-            undici: "6.21.0",
-            unicode: "16.0",
-            uv: "1.49.2",
-            uvwasi: "0.0.21",
-            v8: "12.9.202.28-node.12",
-            zlib: "1.3.0.1-motley-82a5fec"
-        },
-        arch: "x64",
-        platform: "win32",
-        release: <ref *49> {
-            name: "node",
-            sourceUrl: "https://nodejs.org/download/release/v23.5.0/node-v23.5.0.tar.gz",
-            headersUrl: "https://nodejs.org/download/release/v23.5.0/node-v23.5.0-headers.tar.gz",
-            libUrl: "https://nodejs.org/download/release/v23.5.0/win-x64/node.lib"
-        },
-        _rawDebug: [Circular: *18],
-        moduleLoadList: <ref *50> [
-            "Internal Binding builtins",
-            "Internal Binding module_wrap",
-            "Internal Binding errors",
-            "NativeModule internal/assert",
-            "Internal Binding util",
-            "NativeModule internal/errors",
-            "Internal Binding config",
-            "Internal Binding timers",
-            "Internal Binding async_wrap",
-            "Internal Binding task_queue",
-            "Internal Binding symbols",
-            "NativeModule internal/async_hooks",
-            "Internal Binding constants",
-            "Internal Binding types",
-            "Internal Binding options",
-            "NativeModule internal/options",
-            "Internal Binding string_decoder",
-            "NativeModule internal/util",
-            "NativeModule internal/util/types",
-            "NativeModule internal/validators",
-            "NativeModule internal/linkedlist",
-            "NativeModule internal/priority_queue",
-            "Internal Binding icu",
-            "NativeModule internal/util/inspect",
-            "NativeModule internal/constants",
-            "Internal Binding trace_events",
-            "NativeModule internal/util/debuglog",
-            "Internal Binding async_context_frame",
-            "NativeModule internal/async_context_frame",
-            "NativeModule internal/timers",
-            "NativeModule internal/events/abort_listener",
-            "NativeModule events",
-            "Internal Binding buffer",
-            "NativeModule internal/buffer",
-            "NativeModule buffer",
-            "NativeModule internal/webidl",
-            "Internal Binding messaging",
-            "NativeModule internal/worker/js_transferable",
-            "Internal Binding process_methods",
-            "NativeModule internal/process/per_thread",
-            "Internal Binding credentials",
-            "NativeModule internal/process/promises",
-            "NativeModule internal/fixed_queue",
-            "NativeModule async_hooks",
-            "NativeModule internal/process/task_queues",
-            "NativeModule timers",
-            "NativeModule path",
-            "NativeModule internal/querystring",
-            "NativeModule querystring",
-            "Internal Binding url",
-            "NativeModule internal/url",
-            "Internal Binding contextify",
-            "NativeModule internal/vm",
-            "NativeModule internal/process/execution",
-            "NativeModule internal/process/warning",
-            "NativeModule internal/source_map/source_map_cache",
-            "Internal Binding fs",
-            "Internal Binding blob",
-            "Internal Binding encoding_binding",
-            "NativeModule internal/encoding",
-            "NativeModule internal/streams/utils",
-            "NativeModule util",
-            "NativeModule internal/webstreams/util",
-            "NativeModule internal/webstreams/queuingstrategies",
-            "NativeModule internal/blob",
-            "NativeModule internal/fs/utils",
-            "Internal Binding permission",
-            "NativeModule internal/process/permission",
-            "NativeModule fs",
-            "Internal Binding modules",
-            "NativeModule internal/modules/helpers",
-            "NativeModule internal/console/constructor",
-            "NativeModule internal/console/global",
-            "NativeModule internal/util/inspector",
-            "Internal Binding inspector",
-            "Internal Binding performance",
-            "NativeModule internal/perf/utils",
-            "NativeModule internal/event_target",
-            "Internal Binding wasm_web_api",
-            "Internal Binding mksnapshot",
-            "NativeModule internal/v8/startup_snapshot",
-            "NativeModule internal/process/signal",
-            "NativeModule url",
-            "NativeModule internal/modules/customization_hooks",
-            "NativeModule internal/modules/typescript",
-            "NativeModule internal/modules/package_json_reader",
-            "NativeModule diagnostics_channel",
-            "NativeModule internal/modules/cjs/loader",
-            "NativeModule internal/process/pre_execution",
-            "NativeModule internal/modules/esm/utils",
-            "NativeModule internal/inspector_async_hook",
-            "Internal Binding worker",
-            "NativeModule internal/modules/run_main",
-            "NativeModule internal/net",
-            "NativeModule internal/dns/utils",
-            "NativeModule vm",
-            "NativeModule internal/modules/esm/assert",
-            "NativeModule internal/modules/esm/loader",
-            "NativeModule internal/modules/esm/module_map",
-            "NativeModule internal/modules/esm/translators",
-            "NativeModule internal/modules/esm/formats",
-            "NativeModule internal/modules/esm/get_format",
-            "NativeModule internal/modules/esm/resolve",
-            "NativeModule internal/mime",
-            "NativeModule internal/data_url",
-            "NativeModule internal/modules/esm/load",
-            "Internal Binding fs_dir",
-            "NativeModule internal/fs/dir",
-            "NativeModule string_decoder",
-            "Internal Binding fs_event_wrap",
-            "Internal Binding uv",
-            "NativeModule internal/fs/watchers",
-            "NativeModule internal/fs/recursive_watch",
-            "NativeModule internal/readline/utils",
-            "NativeModule internal/readline/callbacks",
-            "NativeModule internal/readline/interface",
-            "NativeModule internal/fs/promises",
-            "NativeModule internal/modules/esm/module_job",
-            "NativeModule process",
-            "NativeModule internal/process/finalization",
-            "NativeModule internal/abort_controller",
-            "NativeModule internal/streams/end-of-stream",
-            "NativeModule internal/streams/destroy",
-            "NativeModule internal/streams/legacy",
-            "NativeModule internal/streams/add-abort-signal",
-            "NativeModule internal/streams/state",
-            "NativeModule internal/streams/from",
-            "NativeModule internal/streams/readable",
-            "NativeModule internal/streams/writable",
-            "NativeModule internal/streams/duplex",
-            "NativeModule internal/streams/pipeline",
-            "NativeModule internal/streams/compose",
-            "NativeModule internal/streams/operators",
-            "NativeModule stream/promises",
-            "NativeModule internal/streams/transform",
-            "NativeModule internal/streams/passthrough",
-            "NativeModule internal/streams/duplexpair",
-            "NativeModule stream",
-            "Internal Binding cares_wrap",
-            "Internal Binding stream_wrap",
-            "Internal Binding tcp_wrap",
-            "Internal Binding pipe_wrap",
-            "NativeModule internal/stream_base_commons",
-            "NativeModule internal/perf/performance_entry",
-            "NativeModule internal/perf/observe",
-            "NativeModule net",
-            "Internal Binding report",
-            "NativeModule internal/process/report"
-        ],
-        binding: [Circular: *28],
-        _linkedBinding: [Circular: *16],
-        _events: [Circular: *4],
-        _eventsCount: 3,
-        _maxListeners: undefined,
-        domain: null,
-        [get/set] _exiting: false,
-        [get/set] exitCode: undefined,
-        config: [Circular: *30],
-        dlopen: <ref *51> ƒ dlopen(length: 0) {},
-        uptime: <ref *52> ƒ uptime(length: 0) {},
-        _getActiveRequests: [Circular: *14],
-        _getActiveHandles: [Circular: *13],
-        getActiveResourcesInfo: <ref *53> ƒ getActiveResourcesInfo(length: 0) {},
-        reallyExit: <ref *54> ƒ reallyExit(length: 0) {},
-        _kill: [Circular: *15],
-        loadEnvFile: <ref *55> ƒ loadEnvFile(length: 0) {},
-        cpuUsage: [Circular: *45],
-        resourceUsage: <ref *56> ƒ resourceUsage(length: 0) {},
-        memoryUsage: <ref *57> ƒ memoryUsage(length: 0) {
-            rss: ƒ rss(length: 0) {}
-        },
-        constrainedMemory: [Circular: *44],
-        availableMemory: [Circular: *27],
-        kill: <ref *59> ƒ kill(length: 2) {},
-        exit: <ref *60> ƒ exit(length: 1) {},
-        [get/set] finalization: <ref *61> {
-            register: ƒ register(length: 2) {},
-            registerBeforeExit: ƒ registerBeforeExit(length: 2) {},
-            unregister: ƒ unregister(length: 1) {}
-        },
-        hrtime: <ref *65> ƒ hrtime(length: 1) {
-            bigint: ƒ hrtimeBigInt(length: 0) {}
-        },
-        openStdin: <ref *67> ƒ (length: 0) {},
-        allowedNodeEnvironmentFlags: [Circular: *23],
-        features: <ref *68> {
-            inspector: true,
-            debug: false,
-            uv: true,
-            ipv6: true,
-            tls_alpn: true,
-            tls_sni: true,
-            tls_ocsp: true,
-            tls: true,
-            [get/set] cached_builtins: true,
-            [get/set] require_module: true,
-            [get/set] typescript: false
-        },
-        _fatalException: [Circular: *12],
-        setUncaughtExceptionCaptureCallback: <ref *69> ƒ setUncaughtExceptionCaptureCallback(length: 1) {},
-        hasUncaughtExceptionCaptureCallback: <ref *70> ƒ hasUncaughtExceptionCaptureCallback(length: 0) {},
-        emitWarning: <ref *71> ƒ emitWarning(length: 4) {},
-        nextTick: <ref *72> ƒ nextTick(length: 1) {},
-        _tickCallback: [Circular: *21],
-        [get/set] sourceMapsEnabled: false,
-        setSourceMapsEnabled: <ref *73> ƒ setSourceMapsEnabled(length: 1) {},
-        getBuiltinModule: <ref *74> ƒ getBuiltinModule(length: 1) {},
-        _debugProcess: [Circular: *3],
-        _debugEnd: [Circular: *2],
-        _startProfilerIdleNotifier: [Circular: *19],
-        _stopProfilerIdleNotifier: [Circular: *20],
-        [get/set] stdout: <ref *75> Socket {
-            connecting: false,
-            _hadError: false,
-            _parent: null,
-            _host: null,
-            _closeAfterHandlingError: false,
-            _events: {
-                close: undefined,
-                error: undefined,
-                prefinish: undefined,
-                finish: undefined,
-                drain: undefined,
-                data: undefined,
-                end: <ref *77> ƒ onReadableStreamEnd(length: 0) {},
-                readable: undefined
-            },
-            _readableState: ReadableState {
-                highWaterMark: 16384,
-                buffer: [],
-                bufferIndex: 0,
-                length: 0,
-                pipes: [],
-                awaitDrainWriters: null,
-                readable: false,
-                Symbol(kState): 1054468
-            },
-            _writableState: WritableState {
-                highWaterMark: 16384,
-                length: 0,
-                corked: 0,
-                onwrite: ƒ bound onwrite(length: 1) {},
-                writelen: 0,
-                bufferedIndex: 0,
-                pendingcb: 0,
-                Symbol(kState): 17564420,
-                Symbol(kBufferedValue): null
-            },
-            allowHalfOpen: false,
-            _maxListeners: undefined,
-            _writev: null,
-            _write: ƒ (length: 3) {},
-            _eventsCount: 1,
-            _sockname: null,
-            _pendingData: null,
-            _pendingEncoding: "",
-            server: null,
-            _server: null,
-            _type: "pipe",
-            fd: 1,
-            _isStdio: true,
-            destroySoon: <ref *84> ƒ (length: 2) {},
-            _destroy: <ref *85> ƒ dummyDestroy(length: 2) {},
-            Symbol(async_id_symbol): 7,
-            Symbol(kHandle): Pipe {
-                Symbol(owner_symbol): [Circular: *75]
-            },
-            Symbol(lastWriteQueueSize): 0,
-            Symbol(timeout): null,
-            Symbol(kBuffer): null,
-            Symbol(kBufferCb): null,
-            Symbol(kBufferGen): null,
-            Symbol(shapeMode): true,
-            Symbol(kCapture): false,
-            Symbol(kSetNoDelay): false,
-            Symbol(kSetKeepAlive): false,
-            Symbol(kSetKeepAliveInitialDelay): 0,
-            Symbol(kBytesRead): 0,
-            Symbol(kBytesWritten): 0
-        },
-        [get/set] stdin: <ref *87> Socket {
-            connecting: false,
-            _hadError: false,
-            _parent: null,
-            _host: null,
-            _closeAfterHandlingError: false,
-            _events: {
-                close: undefined,
-                error: undefined,
-                prefinish: undefined,
-                finish: undefined,
-                drain: undefined,
-                data: undefined,
-                end: [Circular: *77],
-                readable: undefined,
-                pause: ƒ (length: 0) {}
-            },
-            _readableState: ReadableState {
-                highWaterMark: 16384,
-                buffer: [],
-                bufferIndex: 0,
-                length: 0,
-                pipes: [],
-                awaitDrainWriters: null,
-                Symbol(kState): 1052932
-            },
-            _writableState: WritableState {
-                highWaterMark: 16384,
-                length: 0,
-                corked: 0,
-                onwrite: ƒ bound onwrite(length: 1) {},
-                writelen: 0,
-                bufferedIndex: 0,
-                pendingcb: 0,
-                Symbol(kState): 1093415684,
-                Symbol(kBufferedValue): null
-            },
-            allowHalfOpen: false,
-            _maxListeners: undefined,
-            _eventsCount: 2,
-            _sockname: null,
-            _pendingData: null,
-            _pendingEncoding: "",
-            server: null,
-            _server: null,
-            fd: 0,
-            Symbol(async_id_symbol): 8,
-            Symbol(kHandle): Pipe {
-                reading: false,
-                Symbol(owner_symbol): [Circular: *87]
-            },
-            Symbol(lastWriteQueueSize): 0,
-            Symbol(timeout): null,
-            Symbol(kBuffer): null,
-            Symbol(kBufferCb): null,
-            Symbol(kBufferGen): null,
-            Symbol(shapeMode): true,
-            Symbol(kCapture): false,
-            Symbol(kSetNoDelay): false,
-            Symbol(kSetKeepAlive): false,
-            Symbol(kSetKeepAliveInitialDelay): 0,
-            Symbol(kBytesRead): 0,
-            Symbol(kBytesWritten): 0
-        },
-        [get/set] stderr: <ref *96> Socket {
-            connecting: false,
-            _hadError: false,
-            _parent: null,
-            _host: null,
-            _closeAfterHandlingError: false,
-            _events: {
-                close: undefined,
-                error: undefined,
-                prefinish: undefined,
-                finish: undefined,
-                drain: undefined,
-                data: undefined,
-                end: [Circular: *77],
-                readable: undefined
-            },
-            _readableState: ReadableState {
-                highWaterMark: 16384,
-                buffer: [],
-                bufferIndex: 0,
-                length: 0,
-                pipes: [],
-                awaitDrainWriters: null,
-                readable: false,
-                Symbol(kState): 1054468
-            },
-            _writableState: WritableState {
-                highWaterMark: 16384,
-                length: 0,
-                corked: 0,
-                onwrite: ƒ bound onwrite(length: 1) {},
-                writelen: 0,
-                bufferedIndex: 0,
-                pendingcb: 0,
-                Symbol(kState): 17564420,
-                Symbol(kBufferedValue): null
-            },
-            allowHalfOpen: false,
-            _maxListeners: undefined,
-            _writev: null,
-            _write: ƒ (length: 3) {},
-            _eventsCount: 1,
-            _sockname: null,
-            _pendingData: null,
-            _pendingEncoding: "",
-            server: null,
-            _server: null,
-            _type: "pipe",
-            fd: 2,
-            _isStdio: true,
-            destroySoon: [Circular: *84],
-            _destroy: [Circular: *85],
-            Symbol(async_id_symbol): 9,
-            Symbol(kHandle): Pipe {
-                Symbol(owner_symbol): [Circular: *96]
-            },
-            Symbol(lastWriteQueueSize): 0,
-            Symbol(timeout): null,
-            Symbol(kBuffer): null,
-            Symbol(kBufferCb): null,
-            Symbol(kBufferGen): null,
-            Symbol(shapeMode): true,
-            Symbol(kCapture): false,
-            Symbol(kSetNoDelay): false,
-            Symbol(kSetKeepAlive): false,
-            Symbol(kSetKeepAliveInitialDelay): 0,
-            Symbol(kBytesRead): 0,
-            Symbol(kBytesWritten): 0
-        },
-        abort: [Circular: *22],
-        umask: <ref *105> ƒ wrappedUmask(length: 1) {},
-        chdir: [Circular: *29],
-        cwd: [Circular: *46],
-        env: <ref *106>  {
-            ALLUSERSPROFILE: "C:\\ProgramData",
-            APPDATA: "C:\\Users\\Eugene\\AppData\\Roaming",
-            BAT_CONFIG_DIR: "E:\\Tools\\Scoop\\apps\\bat\\current",
-            BUN_INSTALL: "E:\\.devtools\\bun",
-            CARGO_HOME: "E:\\Apps\\Scoop\\persist\\rustup-msvc\\.cargo",
-            ChocolateyInstall: "E:\\.devtools\\chocolatey",
-            ChocolateyLastPathUpdate: "133700901409702401",
-            COLORTERM: "truecolor",
-            CommonProgramFiles: "C:\\Program Files\\Common Files",
-            CommonProgramFiles(x86): "C:\\Program Files (x86)\\Common Files",
-            CommonProgramW6432: "C:\\Program Files\\Common Files",
-            COMPUTERNAME: "OUTSLEPT",
-            ComSpec: "C:\\Windows\\system32\\cmd.exe",
-            CONDA_PROMPT_MODIFIER: "False",
-            DENO_INSTALL_ROOT: "E:\\.devtools\\deno",
-            DriverData: "C:\\Windows\\System32\\Drivers\\DriverData",
-            ERLANG_HOME: "E:\\Apps\\Scoop\\apps\\erlang\\current",
-            FZF_DEFAULT_OPTS: "--height 40% --layout=reverse --border --color=dark",
-            GIT_ASKPASS: "e:\\VSCode\\resources\\app\\extensions\\git\\dist\\askpass.sh",
-            GOPATH: "C:\\Users\\Eugene\\go",
-            HOME: "C:\\Users\\Eugene",
-            HOMEDRIVE: "C:",
-            HOMEPATH: "\\Users\\Eugene",
-            INIT_CWD: "E:\\deno-compare-node",
-            LANG: "en_US.UTF-8",
-            LOCALAPPDATA: "C:\\Users\\Eugene\\AppData\\Local",
-            LOGONSERVER: "\\\\OUTSLEPT",
-            LUA_CPATH: "E:\\Apps\\Scoop\\apps\\lua\\current\\bin",
-            LUA_DEV: "E:\\Tools\\lua",
-            LUA_EXE_PATH: "E:\\Apps\\Scoop\\apps\\lua\\current\\bin",
-            LUA_PATH: "E:\\Tools\\lua\\lua\\?.luac",
-            MAGICK_CODER_MODULE_PATH: "C:\\Users\\Eugene\\scoop\\apps\\imagemagick\\current\\modules\\coders",
-            MAGICK_CONFIGURE_PATH: "C:\\Users\\Eugene\\scoop\\apps\\imagemagick\\current",
-            MAGICK_HOME: "C:\\Users\\Eugene\\scoop\\apps\\imagemagick\\current",
-            NODE: "E:\\Tools\\nodejs\\node.exe",
-            NODE_COMPILE_CACHE: "C:\\Users\\Eugene\\.cache\\nodejs-compile-cache",
-            NODE_PATH: "E:\\deno-compare-node\\node_modules\\.pnpm\\tsx@4.20.3\\node_modules\\tsx\\dist\\node_modules;E:\\deno-compar…",
-            npm_command: "run-script",
-            npm_config_cache: "E:\\.devtools\\npm\\cache",
-            npm_config_frozen_lockfile: "",
-            npm_config_ignore_scripts: "",
-            npm_config_node_gyp: "E:\\.devtools\\npm\\global\\node_modules\\pnpm\\dist\\node_modules\\node-gyp\\bin\\node-gyp.js",
-            npm_config_prefix: "E:\\.devtools\\npm\\global",
-            npm_config_registry: "https://registry.npmjs.org/",
-            npm_config_user_agent: "pnpm/10.10.0 npm/? node/v23.5.0 win32 x64",
-            npm_config_verify_deps_before_run: "false",
-            npm_config__jsr_registry: "https://npm.jsr.io/",
-            npm_execpath: "E:\\.devtools\\npm\\global\\node_modules\\pnpm\\bin\\pnpm.cjs",
-            npm_lifecycle_event: "start",
-            npm_lifecycle_script: "tsx index.ts",
-            npm_node_execpath: "E:\\Tools\\nodejs\\node.exe",
-            npm_package_engines_node: ">=20.0.0",
-            npm_package_json: "E:\\deno-compare-node\\package.json",
-            npm_package_name: "deno-compare-node",
-            npm_package_version: "0.0.1",
-            NUMBER_OF_PROCESSORS: "4",
-            NVM_HOME: "C:\\Users\\Eugene\\scoop\\apps\\nvm\\current",
-            NVM_SYMLINK: "C:\\Users\\Eugene\\scoop\\persist\\nvm\\nodejs\\nodejs",
-            OneDrive: "C:\\Users\\Eugene\\OneDrive",
-            ORIGINAL_XDG_CURRENT_DESKTOP: "undefined",
-            OS: "Windows_NT",
-            Path: "E:\\deno-compare-node\\node_modules\\.bin;E:\\.devtools\\npm\\global\\node_modules\\pnpm\\dist\\node-gyp-bin;C…",
-            PATHEXT: ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe;.PY;.PYW;.CPL",
-            PLAYWRIGHT_BROWSERS_PATH: "E:\\.devtools\\ms-playwright",
-            PNPM_HOME: "E:\\.devtools\\pnpm\\global",
-            PNPM_SCRIPT_SRC_DIR: "E:\\deno-compare-node",
-            POSH_CURSOR_COLUMN: "1",
-            POSH_CURSOR_LINE: "18",
-            POSH_INSTALLER: "winget",
-            POSH_SESSION_ID: "97353e08-4c34-4657-8ac4-50ea2f7ad49d",
-            POSH_SHELL: "pwsh",
-            POSH_SHELL_VERSION: "7.5.2",
-            POSH_THEME: "C:\\Users\\Eugene\\.devtools\\pwsh\\outslept.omp.json",
-            POSH_THEMES_PATH: "E:\\Tools\\Scoop\\apps\\oh-my-posh\\current\\themes",
-            POWERLINE_COMMAND: "oh-my-posh",
-            PROCESSOR_ARCHITECTURE: "AMD64",
-            PROCESSOR_IDENTIFIER: "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
-            PROCESSOR_LEVEL: "6",
-            PROCESSOR_REVISION: "8c01",
-            ProgramData: "C:\\ProgramData",
-            ProgramFiles: "C:\\Program Files",
-            ProgramFiles(x86): "C:\\Program Files (x86)",
-            ProgramW6432: "C:\\Program Files",
-            PROMPT: "$P$G",
-            PSModulePath: "C:\\Users\\Eugene\\.devtools\\pwsh\\Modules;C:\\Users\\Eugene\\Documents\\PowerShell\\Modules;C:\\Program Files…",
-            PUBLIC: "C:\\Users\\Public",
-            PYENV: "C:\\Users\\Eugene\\.pyenv\\pyenv-win\\",
-            PYENV_HOME: "C:\\Users\\Eugene\\.pyenv\\pyenv-win\\",
-            PYENV_ROOT: "C:\\Users\\Eugene\\.pyenv\\pyenv-win\\",
-            PYENV_VIRTUALENV_DISABLE_PROMPT: "1",
-            RUSTUP_HOME: "E:\\Apps\\Scoop\\persist\\rustup-msvc\\.rustup",
-            SCOOP: "E:\\Tools\\Scoop",
-            SCOOP_GLOBAL: "E:\\Tools\\Scoop\\globalapps",
-            SESSIONNAME: "Console",
-            SystemDrive: "C:",
-            SystemRoot: "C:\\Windows",
-            TEMP: "C:\\Users\\Eugene\\AppData\\Local\\Temp",
-            TERM_PROGRAM: "vscode",
-            TERM_PROGRAM_VERSION: "1.102.0",
-            TMP: "C:\\Users\\Eugene\\AppData\\Local\\Temp",
-            USERDOMAIN: "OUTSLEPT",
-            USERDOMAIN_ROAMINGPROFILE: "OUTSLEPT",
-            USERNAME: "Eugene",
-            USERPROFILE: "C:\\Users\\Eugene",
-            VIRTUAL_ENV_DISABLE_PROMPT: "1",
-            VSCODE_GIT_ASKPASS_EXTRA_ARGS: "",
-            VSCODE_GIT_ASKPASS_MAIN: "e:\\VSCode\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
-            VSCODE_GIT_ASKPASS_NODE: "E:\\VSCode\\Code.exe",
-            VSCODE_GIT_IPC_HANDLE: "\\\\.\\pipe\\vscode-git-e332aaeace-sock",
-            VSCODE_INJECTION: "1",
-            windir: "C:\\Windows",
-            YARN_CACHE_FOLDER: "E:\\.devtools\\yarn\\cache",
-            YARN_GLOBAL_FOLDER: "E:\\.devtools\\yarn\\global",
-            ZES_ENABLE_SYSMAN: "1"
-        },
-        title: "E:\\Tools\\nodejs\\node.exe",
-        argv: [Circular: *26],
-        execArgv: <ref *107> [],
-        pid: 16120,
-        ppid: 12508,
-        execPath: "E:\\Tools\\nodejs\\node.exe",
-        debugPort: 9229,
-        argv0: "node",
-        _preload_modules: [Circular: *17],
-        [get/set] report: <ref *108> {
-            writeReport: ƒ writeReport(length: 2) {},
-            getReport: ƒ getReport(length: 1) {},
-            [get/set] directory: "",
-            [get/set] filename: "",
-            [get/set] compact: false,
-            [get/set] excludeNetwork: false,
-            [get/set] signal: "SIGUSR2",
-            [get/set] reportOnFatalError: false,
-            [get/set] reportOnSignal: false,
-            [get/set] reportOnUncaughtException: false,
-            [get/set] excludeEnv: false
-        },
-        Symbol(shapeMode): false,
-        Symbol(kCapture): false
-    },
-    dlopen: [Circular: *51],
-    domain: null,
-    emitWarning: [Circular: *71],
-    env: [Circular: *106],
-    execArgv: [Circular: *107],
-    execPath: "E:\\Tools\\nodejs\\node.exe",
-    exit: [Circular: *60],
-    exitCode: undefined,
-    features: [Circular: *68],
-    finalization: [Circular: *61],
-    getActiveResourcesInfo: [Circular: *53],
-    getBuiltinModule: [Circular: *74],
-    hasUncaughtExceptionCaptureCallback: [Circular: *70],
-    hrtime: [Circular: *65],
-    kill: [Circular: *59],
-    loadEnvFile: [Circular: *55],
-    memoryUsage: [Circular: *57],
-    moduleLoadList: [Circular: *50],
-    nextTick: [Circular: *72],
-    openStdin: [Circular: *67],
-    pid: 16120,
-    platform: "win32",
-    ppid: 12508,
-    reallyExit: [Circular: *54],
-    release: [Circular: *49],
-    report: [Circular: *108],
-    resourceUsage: [Circular: *56],
-    setSourceMapsEnabled: [Circular: *73],
-    setUncaughtExceptionCaptureCallback: [Circular: *69],
-    sourceMapsEnabled: false,
-    stderr: [Circular: *96],
-    stdin: [Circular: *87],
-    stdout: [Circular: *75],
-    title: "E:\\Tools\\nodejs\\node.exe",
-    umask: [Circular: *105],
-    uptime: [Circular: *52],
-    version: "v23.5.0",
-    versions: [Circular: *48]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/path.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    abort: <ref *2> ƒ abort(length: 0) {},
-    allowedNodeEnvironmentFlags: NodeEnvironmentFlagsSet {
-        Symbol(internal properties): {
-            array: [
-                "--track-heap-objects",
-                "--no-track-heap-objects",
-                "--node-snapshot",
-                "--no-node-snapshot",
-                "--require",
-                "--max-old-space-size",
-                "--trace-exit",
-                "--no-trace-exit",
-                "--disallow-code-generation-from-strings",
-                "--experimental-json-modules",
-                "--no-experimental-json-modules",
-                "--interpreted-frames-native-stack",
-                "--inspect-brk",
-                "--no-inspect-brk",
-                "--trace-tls",
-                "--no-trace-tls",
-                "--stack-trace-limit",
-                "--experimental-repl-await",
-                "--no-experimental-repl-await",
-                "--preserve-symlinks",
-                "--no-preserve-symlinks",
-                "--report-uncaught-exception",
-                "--no-report-uncaught-exception",
-                "--experimental-modules",
-                "--no-experimental-modules",
-                "--report-signal",
-                "--jitless",
-                "--inspect-port",
-                "--heapsnapshot-near-heap-limit",
-                "--tls-keylog",
-                "--force-context-aware",
-                "--no-force-context-aware",
-                "--napi-modules",
-                "--abort-on-uncaught-exception",
-                "--diagnostic-dir",
-                "--verify-base-objects",
-                "--no-verify-base-objects",
-                "--unhandled-rejections",
-                "--perf-basic-prof",
-                "--trace-atomics-wait",
-                "--no-trace-atomics-wait",
-                "--deprecation",
-                "--no-deprecation",
-                "--perf-basic-prof-only-functions",
-                "--perf-prof",
-                "--max-http-header-size",
-                "--report-on-signal",
-                "--no-report-on-signal",
-                "--throw-deprecation",
-                "--no-throw-deprecation",
-                "--warnings",
-                "--no-warnings",
-                "--force-fips",
-                "--no-force-fips",
-                "--pending-deprecation",
-                "--no-pending-deprecation",
-                "--input-type",
-                "--tls-max-v1.3",
-                "--no-tls-max-v1.3",
-                "--tls-min-v1.2",
-                "--no-tls-min-v1.2",
-                "--inspect",
-                "--no-inspect",
-                "--heapsnapshot-signal",
-                "--trace-warnings",
-                "--no-trace-warnings",
-                "--trace-event-categories",
-                "--experimental-worker",
-                "--tls-max-v1.2",
-                "--no-tls-max-v1.2",
-                "--perf-prof-unwinding-info",
-                "--preserve-symlinks-main",
-                "--no-preserve-symlinks-main",
-                "--policy-integrity",
-                "--experimental-wasm-modules",
-                "--no-experimental-wasm-modules",
-                "--node-memory-debug",
-                "--inspect-publish-uid",
-                "--tls-min-v1.3",
-                "--no-tls-min-v1.3",
-                "--experimental-specifier-resolution",
-                "--secure-heap",
-                "--tls-min-v1.0",
-                "--no-tls-min-v1.0",
-                "--redirect-warnings",
-                "--experimental-report",
-                "--trace-event-file-pattern",
-                "--trace-uncaught",
-                "--no-trace-uncaught",
-                "--experimental-loader",
-                "--http-parser",
-                "--dns-result-order",
-                "--trace-sigint",
-                "--no-trace-sigint",
-                "--secure-heap-min",
-                "--enable-fips",
-                "--no-enable-fips",
-                "--enable-source-maps",
-                "--no-enable-source-maps",
-                "--insecure-http-parser",
-                "--no-insecure-http-parser",
-                "--use-openssl-ca",
-                "--no-use-openssl-ca",
-                "--tls-cipher-list",
-                "--experimental-top-level-await",
-                "--no-experimental-top-level-await",
-                "--openssl-config",
-                "--icu-data-dir",
-                "--v8-pool-size",
-                "--report-on-fatalerror",
-                "--no-report-on-fatalerror",
-                "--title",
-                "--tls-min-v1.1",
-                "--no-tls-min-v1.1",
-                "--report-filename",
-                "--trace-deprecation",
-                "--no-trace-deprecation",
-                "--report-compact",
-                "--no-report-compact",
-                "--experimental-policy",
-                "--experimental-import-meta-resolve",
-                "--no-experimental-import-meta-resolve",
-                "--zero-fill-buffers",
-                "--no-zero-fill-buffers",
-                "--report-dir",
-                "--use-bundled-ca",
-                "--no-use-bundled-ca",
-                "--experimental-vm-modules",
-                "--no-experimental-vm-modules",
-                "--force-async-hooks-checks",
-                "--no-force-async-hooks-checks",
-                "--frozen-intrinsics",
-                "--no-frozen-intrinsics",
-                "--huge-max-old-generation-size",
-                "--disable-proto",
-                "--debug-arraybuffer-allocations",
-                "--no-debug-arraybuffer-allocations",
-                "--conditions",
-                "--experimental-wasi-unstable-preview1",
-                "--no-experimental-wasi-unstable-preview1",
-                "--trace-sync-io",
-                "--no-trace-sync-io",
-                "--use-largepages",
-                "--experimental-abortcontroller",
-                "--debug-port",
-                "--es-module-specifier-resolution",
-                "--prof-process",
-                "-C",
-                "--loader",
-                "--report-directory",
-                "-r",
-                "--trace-events-enabled"
-            ]
-        }
-    },
-    arch: "x64",
-    argv: <ref *6> [
-        "E:\\.devtools\\npm\\global\\node_modules\\deno\\deno.exe",
-        "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1754642932099-12508-1\\process.mjs"
-    ],
-    argv0: "E:\\.devtools\\npm\\global\\node_modules\\deno\\deno.exe",
-    chdir: <ref *7> ƒ chdir(length: 1) {},
-    cpuUsage: <ref *8> ƒ cpuUsage(length: 1) {},
-    cwd: <ref *9> ƒ cwd(length: 0) {},
-    default: EventEmitter {
-        _events: [Object: null prototype] {
-            newListener: ƒ (length: 1) {},
-            removeListener: ƒ (length: 1) {},
-            warning: ƒ onWarning(length: 1) {}
-        },
-        _eventsCount: 3,
-        _maxListeners: undefined,
-        argv: [Circular: *6],
-        chdir: [Circular: *7],
-        config: {
-            target_defaults: {
-                default_configuration: "Release"
-            },
-            variables: {
-                llvm_version: "0.0",
-                enable_lto: "false"
-            }
-        },
-        cpuUsage: [Circular: *8],
-        cwd: [Circular: *9],
-        env: [Error accessing: Cannot read properties of undefined (reading 'enumerable')],
-        execArgv: <ref *19> [],
-        exit: <ref *20> ƒ exit(length: 1) {},
-        abort: [Circular: *2],
-        reallyExit: ƒ (length: 1) {},
-        _exiting: false,
-        mainModule: undefined,
-        nextTick: <ref *22> ƒ nextTick(length: 1) {},
-        dlopen: <ref *23> ƒ dlopen(length: 3) {},
-        setSourceMapsEnabled: ƒ (length: 1) {},
-        hrtime: <ref *25> ƒ hrtime(length: 1) {
-            bigint: ƒ (length: 0) {}
-        },
-        _kill: ƒ _kill(length: 2) {},
-        kill: <ref *28> ƒ kill(length: 1) {},
-        memoryUsage: <ref *29> ƒ memoryUsage(length: 0) {
-            rss: ƒ (length: 0) {}
-        },
-        stderr: <ref *31> Writable {
-            _events: {
-                close: undefined,
-                error: undefined,
-                prefinish: undefined,
-                finish: undefined,
-                drain: undefined
-            },
-            _writableState: WritableState {
-                highWaterMark: 16384,
-                length: 0,
-                corked: 0,
-                onwrite: ƒ bound onwrite(length: 1) {},
-                writelen: 0,
-                bufferedIndex: 0,
-                pendingcb: 0,
-                Symbol(kState): 17580804,
-                Symbol(kBufferedValue): null
-            },
-            _write: ƒ write(length: 3) {},
-            _destroy: ƒ destroy(length: 2) {},
-            _maxListeners: undefined,
-            fd: 2,
-            destroySoon: <ref *37> ƒ (length: 2) {},
-            _isStdio: true,
-            [get/set] columns: undefined,
-            [get/set] rows: undefined,
-            [get/set] isTTY: false,
-            getWindowSize: ƒ value(length: 0) {},
-            getColorDepth: ƒ value(length: 0) {},
-            Symbol(kCapture): false
-        },
-        stdin: <ref *40> Duplex {
-            _events: {
-                close: ƒ (length: 0) {},
-                error: undefined,
-                prefinish: undefined,
-                finish: undefined,
-                drain: undefined,
-                data: undefined,
-                end: undefined,
-                readable: undefined,
-                pause: ƒ (length: 0) {}
-            },
-            _readableState: ReadableState {
-                highWaterMark: 16384,
-                buffer: [],
-                bufferIndex: 0,
-                length: 0,
-                pipes: [],
-                awaitDrainWriters: null,
-                Symbol(kState): 1052932
-            },
-            _writableState: WritableState {
-                highWaterMark: 16384,
-                length: 0,
-                corked: 0,
-                onwrite: ƒ bound onwrite(length: 1) {},
-                writelen: 0,
-                bufferedIndex: 0,
-                pendingcb: 0,
-                Symbol(kState): 1093415684,
-                Symbol(kBufferedValue): null
-            },
-            allowHalfOpen: false,
-            _read: ƒ _read(length: 1) {},
-            _maxListeners: undefined,
-            _eventsCount: 2,
-            fd: 0,
-            [get/set] isTTY: false,
-            _isRawMode: false,
-            setRawMode: ƒ (length: 1) {},
-            [get/set] isRaw: false,
-            Symbol(kCapture): false
-        },
-        stdout: <ref *51> Writable {
-            _events: {
-                close: undefined,
-                error: undefined,
-                prefinish: undefined,
-                finish: undefined,
-                drain: undefined
-            },
-            _writableState: WritableState {
-                highWaterMark: 16384,
-                length: 0,
-                corked: 0,
-                onwrite: ƒ bound onwrite(length: 1) {},
-                writelen: 0,
-                bufferedIndex: 0,
-                pendingcb: 0,
-                Symbol(kState): 17580804,
-                Symbol(kBufferedValue): null
-            },
-            _write: ƒ write(length: 3) {},
-            _destroy: ƒ destroy(length: 2) {},
-            _maxListeners: undefined,
-            fd: 1,
-            destroySoon: [Circular: *37],
-            _isStdio: true,
-            [get/set] columns: undefined,
-            [get/set] rows: undefined,
-            [get/set] isTTY: false,
-            getWindowSize: ƒ value(length: 0) {},
-            getColorDepth: ƒ value(length: 0) {},
-            Symbol(kCapture): false
-        },
-        version: "v22.14.0",
-        versions: <ref *59> {
-            node: "22.14.0",
-            uv: "1.43.0",
-            zlib: "1.2.11",
-            brotli: "1.0.9",
-            ares: "1.18.1",
-            modules: "108",
-            nghttp2: "1.47.0",
-            napi: "8",
-            llhttp: "6.0.10",
-            openssl: "3.0.7+quic",
-            cldr: "41.0",
-            icu: "71.1",
-            tz: "2022b",
-            unicode: "14.0",
-            ngtcp2: "0.8.1",
-            nghttp3: "0.7.0",
-            deno: "2.4.2",
-            v8: "13.7.152.14-rusty",
-            typescript: "5.8.3"
-        },
-        emitWarning: <ref *60> ƒ emitWarning(length: 4) {},
-        binding: ƒ (length: 1) {},
-        umask: ƒ (length: 0) {},
-        getBuiltinModule: <ref *63> ƒ getBuiltinModule(length: 1) {},
-        _eval: undefined,
-        loadEnvFile: <ref *64> ƒ loadEnvFile(length: 0) {},
-        uptime: ƒ (length: 0) {},
-        features: {
-            inspector: false
-        },
-        noDeprecation: false,
-        Symbol(kCapture): false
-    },
-    dlopen: [Circular: *23],
-    emitWarning: [Circular: *60],
-    env: [Circular: *18],
-    execArgv: [Circular: *19],
-    execPath: String {
-        toString: ƒ toString(length: 0) {},
-        [get/set] length: 50,
-        Symbol(Deno.customInspect): ƒ [Deno.customInspect](length: 2) {}
-    },
-    exit: [Circular: *20],
-    getBuiltinModule: [Circular: *63],
-    getegid: undefined,
-    geteuid: undefined,
-    getgid: undefined,
-    getuid: undefined,
-    hrtime: [Circular: *25],
-    kill: [Circular: *28],
-    loadEnvFile: [Circular: *64],
-    memoryUsage: [Circular: *29],
-    nextTick: [Circular: *22],
-    pid: 15888,
-    platform: "win32",
-    removeAllListeners: ƒ removeAllListeners(length: 1) {},
-    removeListener: ƒ (length: 2) {},
-    stderr: [Circular: *31],
-    stdin: [Circular: *40],
-    stdout: [Circular: *51],
-    umask: ƒ umask(length: 0) {},
-    version: "v22.14.0",
-    versions: [Circular: *59]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/path.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="path-posix"></a>
 <details>
-			<summary><code>punycode</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>path/posix</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-(node:16268) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
-[Object: null prototype] {
-    decode: <ref *2> ƒ decode(length: 1) {},
-    default: {
-        version: "2.1.0",
-        ucs2: <ref *4> {
-            decode: ƒ ucs2decode(length: 1) {},
-            encode: ƒ ucs2encode(length: 1) {}
-        },
-        decode: [Circular: *2],
-        encode: <ref *7> ƒ encode(length: 1) {},
-        toASCII: <ref *8> ƒ toASCII(length: 1) {},
-        toUnicode: <ref *9> ƒ toUnicode(length: 1) {}
-    },
-    encode: [Circular: *7],
-    toASCII: [Circular: *8],
-    toUnicode: [Circular: *9],
-    ucs2: [Circular: *4],
-    version: "2.1.0"
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/path_posix.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    decode: <ref *2> ƒ decode(length: 1) {},
-    default: {
-        decode: [Circular: *2],
-        encode: <ref *4> ƒ encode(length: 1) {},
-        toASCII: <ref *5> ƒ toASCII(length: 1) {},
-        toUnicode: <ref *6> ƒ toUnicode(length: 1) {},
-        ucs2: <ref *7> {
-            decode: ƒ ucs2decode(length: 1) {},
-            encode: ƒ ucs2encode(length: 1) {}
-        },
-        version: "2.1.0"
-    },
-    encode: [Circular: *4],
-    toASCII: [Circular: *5],
-    toUnicode: [Circular: *6],
-    ucs2: [Circular: *7],
-    version: "2.1.0"
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/path_posix.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="path-win32"></a>
 <details>
-			<summary><code>querystring</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>path/win32</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    decode: <ref *2> ƒ parse(length: 4) {},
-    default: {
-        unescapeBuffer: <ref *4> ƒ unescapeBuffer(length: 2) {},
-        unescape: <ref *5> ƒ qsUnescape(length: 2) {},
-        escape: <ref *6> ƒ qsEscape(length: 1) {},
-        stringify: <ref *7> ƒ stringify(length: 4) {},
-        encode: [Circular: *7],
-        parse: [Circular: *2],
-        decode: [Circular: *2]
-    },
-    encode: [Circular: *7],
-    escape: [Circular: *6],
-    parse: [Circular: *2],
-    stringify: [Circular: *7],
-    unescape: [Circular: *5],
-    unescapeBuffer: [Circular: *4]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/path_win32.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    decode: <ref *2> ƒ parse(length: 1) {},
-    default: {
-        parse: [Circular: *2],
-        stringify: <ref *4> ƒ stringify(length: 4) {},
-        decode: [Circular: *2],
-        encode: [Circular: *4],
-        unescape: <ref *5> ƒ qsUnescape(length: 1) {},
-        escape: <ref *6> ƒ qsEscape(length: 1) {},
-        unescapeBuffer: <ref *7> ƒ unescapeBuffer(length: 1) {}
-    },
-    encode: [Circular: *4],
-    escape: [Circular: *6],
-    parse: [Circular: *2],
-    stringify: [Circular: *4],
-    unescape: [Circular: *5],
-    unescapeBuffer: [Circular: *7]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/path_win32.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="perf_hooks"></a>
 <details>
-			<summary><code>readline</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>perf_hooks</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Interface: <ref *2> ƒ Interface(length: 4) {},
-    clearLine: <ref *3> ƒ clearLine(length: 3) {},
-    clearScreenDown: <ref *4> ƒ clearScreenDown(length: 2) {},
-    createInterface: <ref *5> ƒ createInterface(length: 4) {},
-    cursorTo: <ref *6> ƒ cursorTo(length: 4) {},
-    default: {
-        Interface: [Circular: *2],
-        clearLine: [Circular: *3],
-        clearScreenDown: [Circular: *4],
-        createInterface: [Circular: *5],
-        cursorTo: [Circular: *6],
-        emitKeypressEvents: <ref *8> ƒ emitKeypressEvents(length: 1) {},
-        moveCursor: <ref *9> ƒ moveCursor(length: 4) {},
-        promises: <ref *10> {
-            Interface: class Interface extends _Interface {},
-            Readline: class Readline {},
-            createInterface: ƒ createInterface(length: 4) {}
-        }
-    },
-    emitKeypressEvents: [Circular: *8],
-    moveCursor: [Circular: *9],
-    promises: [Circular: *10]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/perf_hooks.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Interface: <ref *2> ƒ Interface(length: 4) {},
-    clearLine: <ref *3> ƒ clearLine(length: 3) {},
-    clearScreenDown: <ref *4> ƒ clearScreenDown(length: 2) {},
-    createInterface: <ref *5> ƒ createInterface(length: 4) {},
-    cursorTo: <ref *6> ƒ cursorTo(length: 4) {},
-    default: {
-        Interface: [Circular: *2],
-        clearLine: [Circular: *3],
-        clearScreenDown: [Circular: *4],
-        createInterface: [Circular: *5],
-        cursorTo: [Circular: *6],
-        emitKeypressEvents: <ref *8> ƒ emitKeypressEvents(length: 1) {},
-        moveCursor: <ref *9> ƒ moveCursor(length: 4) {},
-        promises: <ref *10> {
-            Interface: class Interface extends _Interface {},
-            Readline: class Readline {},
-            createInterface: ƒ createInterface(length: 4) {}
-        }
-    },
-    emitKeypressEvents: [Circular: *8],
-    moveCursor: [Circular: *9],
-    promises: [Circular: *10]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/perf_hooks.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="process"></a>
 <details>
-			<summary><code>readline/promises</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>process</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Interface: <ref *2> class Interface extends _Interface {},
-    Readline: <ref *3> class Readline {},
-    createInterface: <ref *4> ƒ createInterface(length: 4) {},
-    default: {
-        Interface: [Circular: *2],
-        Readline: [Circular: *3],
-        createInterface: [Circular: *4]
-    }
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/process.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Interface: <ref *2> class Interface extends _Interface {},
-    Readline: <ref *3> class Readline {},
-    createInterface: <ref *4> ƒ createInterface(length: 4) {},
-    default: {
-        Interface: [Circular: *2],
-        Readline: [Circular: *3],
-        createInterface: [Circular: *4]
-    }
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/process.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="punycode"></a>
 <details>
-			<summary><code>repl</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>punycode</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    REPLServer: <ref *2> ƒ REPLServer(length: 6) {},
-    REPL_MODE_SLOPPY: Symbol(repl-sloppy),
-    REPL_MODE_STRICT: Symbol(repl-strict),
-    Recoverable: <ref *3> ƒ Recoverable(length: 1) {},
-    builtinModules: <ref *4> [
-        "assert",
-        "assert/strict",
-        "async_hooks",
-        "buffer",
-        "child_process",
-        "cluster",
-        "console",
-        "constants",
-        "crypto",
-        "dgram",
-        "diagnostics_channel",
-        "dns",
-        "dns/promises",
-        "domain",
-        "events",
-        "fs",
-        "fs/promises",
-        "http",
-        "http2",
-        "https",
-        "inspector",
-        "inspector/promises",
-        "module",
-        "net",
-        "os",
-        "path",
-        "path/posix",
-        "path/win32",
-        "perf_hooks",
-        "process",
-        "punycode",
-        "querystring",
-        "readline",
-        "readline/promises",
-        "repl",
-        "stream",
-        "stream/consumers",
-        "stream/promises",
-        "stream/web",
-        "string_decoder",
-        "sys",
-        "timers",
-        "timers/promises",
-        "tls",
-        "trace_events",
-        "tty",
-        "url",
-        "util",
-        "util/types",
-        "v8",
-        "vm",
-        "wasi",
-        "worker_threads",
-        "zlib"
-    ],
-    default: {
-        start: <ref *6> ƒ start(length: 6) {},
-        writer: <ref *7> ƒ writer(length: 1) {
-            options: {
-                showHidden: false,
-                depth: 2,
-                colors: false,
-                customInspect: true,
-                showProxy: true,
-                maxArrayLength: 100,
-                maxStringLength: 10000,
-                breakLength: 80,
-                compact: 3,
-                sorted: false,
-                getters: false,
-                numericSeparator: false
-            }
-        },
-        REPLServer: [Circular: *2],
-        REPL_MODE_SLOPPY: Symbol(repl-sloppy),
-        REPL_MODE_STRICT: Symbol(repl-strict),
-        Recoverable: [Circular: *3],
-        [get/set] builtinModules: [Circular: *4]
-    },
-    start: [Circular: *6],
-    writer: [Circular: *7]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/punycode.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    REPLServer: <ref *2> class REPLServer {},
-    REPL_MODE_SLOPPY: Symbol(repl-sloppy),
-    REPL_MODE_STRICT: Symbol(repl-strict),
-    _builtinLibs: <ref *3> [
-        "assert",
-        "async_hooks",
-        "buffer",
-        "child_process",
-        "cluster",
-        "console",
-        "constants",
-        "crypto",
-        "dgram",
-        "diagnostics_channel",
-        "dns",
-        "domain",
-        "events",
-        "fs",
-        "http",
-        "http2",
-        "https",
-        "inspector",
-        "module",
-        "net",
-        "os",
-        "path",
-        "perf_hooks",
-        "process",
-        "punycode",
-        "querystring",
-        "readline",
-        "repl",
-        "stream",
-        "string_decoder",
-        "sys",
-        "timers",
-        "tls",
-        "trace_events",
-        "tty",
-        "url",
-        "util",
-        "v8",
-        "vm",
-        "wasi",
-        "worker_threads",
-        "zlib"
-    ],
-    builtinModules: [Circular: *3],
-    default: {
-        REPLServer: [Circular: *2],
-        builtinModules: [Circular: *3],
-        _builtinLibs: [Circular: *3],
-        start: <ref *5> ƒ start(length: 0) {},
-        REPL_MODE_SLOPPY: Symbol(repl-sloppy),
-        REPL_MODE_STRICT: Symbol(repl-strict)
-    },
-    start: [Circular: *5]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/punycode.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="querystring"></a>
 <details>
-			<summary><code>stream</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>querystring</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Duplex: <ref *2> ƒ Duplex(length: 1) {
-        fromWeb: ƒ (length: 2) {},
-        toWeb: ƒ (length: 1) {},
-        from: ƒ (length: 1) {}
-    },
-    PassThrough: <ref *6> ƒ PassThrough(length: 1) {},
-    Readable: <ref *7> ƒ Readable(length: 1) {
-        ReadableState: ƒ ReadableState(length: 3) {},
-        _fromList: ƒ fromList(length: 2) {},
-        from: ƒ (length: 2) {},
-        fromWeb: ƒ (length: 2) {},
-        toWeb: ƒ (length: 2) {},
-        wrap: ƒ (length: 2) {}
-    },
-    Stream: <ref *14> ƒ Stream(length: 1) {
-        isDestroyed: <ref *15> ƒ isDestroyed(length: 1) {},
-        isDisturbed: <ref *16> ƒ isDisturbed(length: 1) {},
-        isErrored: <ref *17> ƒ isErrored(length: 1) {},
-        isReadable: <ref *18> ƒ isReadable(length: 1) {},
-        isWritable: <ref *19> ƒ isWritable(length: 1) {},
-        Readable: [Circular: *7],
-        Writable: <ref *20> ƒ Writable(length: 1) {
-            WritableState: ƒ WritableState(length: 3) {},
-            fromWeb: ƒ (length: 2) {},
-            toWeb: ƒ (length: 1) {}
-        },
-        Duplex: [Circular: *2],
-        Transform: <ref *24> ƒ Transform(length: 1) {},
-        PassThrough: [Circular: *6],
-        duplexPair: <ref *25> ƒ duplexPair(length: 1) {},
-        pipeline: <ref *26> ƒ pipeline(length: 0) {
-            [get/set] Symbol(nodejs.util.promisify.custom): <ref *27> ƒ pipeline(length: 0) {}
-        },
-        addAbortSignal: <ref *28> ƒ addAbortSignal(length: 2) {},
-        finished: <ref *29> ƒ eos(length: 3) {
-            finished: <ref *30> ƒ finished(length: 2) {},
-            [get/set] Symbol(nodejs.util.promisify.custom): [Circular: *30]
-        },
-        destroy: <ref *31> ƒ destroyer(length: 2) {},
-        compose: <ref *32> ƒ compose(length: 0) {},
-        setDefaultHighWaterMark: <ref *33> ƒ setDefaultHighWaterMark(length: 2) {},
-        getDefaultHighWaterMark: <ref *34> ƒ getDefaultHighWaterMark(length: 1) {},
-        [get/set] promises: <ref *35> {
-            finished: [Circular: *30],
-            pipeline: [Circular: *27]
-        },
-        Stream: [Circular: *14],
-        _isArrayBufferView: <ref *36> ƒ isView(length: 1) {},
-        _isUint8Array: <ref *37> ƒ isUint8Array(length: 1) {},
-        _uint8ArrayToBuffer: <ref *38> ƒ _uint8ArrayToBuffer(length: 1) {}
-    },
-    Transform: [Circular: *24],
-    Writable: [Circular: *20],
-    _isArrayBufferView: [Circular: *36],
-    _isUint8Array: [Circular: *37],
-    _uint8ArrayToBuffer: [Circular: *38],
-    addAbortSignal: [Circular: *28],
-    compose: [Circular: *32],
-    default: [Circular: *14],
-    destroy: [Circular: *31],
-    duplexPair: [Circular: *25],
-    finished: [Circular: *29],
-    getDefaultHighWaterMark: [Circular: *34],
-    isDestroyed: [Circular: *15],
-    isDisturbed: [Circular: *16],
-    isErrored: [Circular: *17],
-    isReadable: [Circular: *18],
-    isWritable: [Circular: *19],
-    pipeline: [Circular: *26],
-    promises: [Circular: *35],
-    setDefaultHighWaterMark: [Circular: *33]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/querystring.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Duplex: <ref *2> ƒ Duplex(length: 1) {
-        fromWeb: ƒ (length: 2) {},
-        toWeb: ƒ (length: 1) {},
-        from: ƒ (length: 1) {}
-    },
-    PassThrough: <ref *6> ƒ PassThrough(length: 1) {},
-    Readable: <ref *7> ƒ Readable(length: 1) {
-        ReadableState: ƒ ReadableState(length: 3) {},
-        _fromList: ƒ fromList(length: 2) {},
-        from: ƒ (length: 2) {},
-        fromWeb: ƒ (length: 2) {},
-        toWeb: ƒ (length: 2) {},
-        wrap: ƒ (length: 2) {}
-    },
-    Stream: <ref *14> ƒ Stream(length: 1) {
-        isDestroyed: <ref *15> ƒ isDestroyed(length: 1) {},
-        isDisturbed: <ref *16> ƒ isDisturbed(length: 1) {},
-        isErrored: <ref *17> ƒ isErrored(length: 1) {},
-        isReadable: <ref *18> ƒ isReadable(length: 1) {},
-        isWritable: <ref *19> ƒ isWritable(length: 1) {},
-        Readable: [Circular: *7],
-        Writable: <ref *20> ƒ Writable(length: 1) {
-            WritableState: ƒ WritableState(length: 3) {},
-            fromWeb: ƒ (length: 2) {},
-            toWeb: ƒ (length: 1) {}
-        },
-        Duplex: [Circular: *2],
-        Transform: <ref *24> ƒ Transform(length: 1) {},
-        PassThrough: [Circular: *6],
-        duplexPair: <ref *25> ƒ duplexPair(length: 1) {},
-        pipeline: <ref *26> ƒ pipeline(length: 0) {
-            [get/set] Symbol(nodejs.util.promisify.custom): <ref *27> ƒ pipeline(length: 0) {}
-        },
-        addAbortSignal: <ref *28> ƒ addAbortSignal(length: 2) {},
-        finished: <ref *29> ƒ eos(length: 3) {
-            [get/set] Symbol(nodejs.util.promisify.custom): <ref *30> ƒ finished(length: 2) {}
-        },
-        destroy: <ref *31> ƒ destroyer(length: 2) {},
-        compose: <ref *32> ƒ compose(length: 0) {},
-        setDefaultHighWaterMark: <ref *33> ƒ setDefaultHighWaterMark(length: 2) {},
-        getDefaultHighWaterMark: <ref *34> ƒ getDefaultHighWaterMark(length: 1) {},
-        [get/set] promises: [Object: null prototype] {
-            default: {
-                finished: [Circular: *30],
-                pipeline: [Circular: *27]
-            },
-            finished: [Circular: *30],
-            pipeline: [Circular: *27]
-        },
-        Stream: [Circular: *14],
-        _isArrayBufferView: <ref *37> ƒ isArrayBufferView(length: 1) {},
-        _isUint8Array: <ref *38> ƒ isUint8Array(length: 1) {},
-        _uint8ArrayToBuffer: <ref *39> ƒ _uint8ArrayToBuffer(length: 1) {}
-    },
-    Transform: [Circular: *24],
-    Writable: [Circular: *20],
-    _isArrayBufferView: [Circular: *37],
-    _isUint8Array: [Circular: *38],
-    _uint8ArrayToBuffer: [Circular: *39],
-    addAbortSignal: [Circular: *28],
-    compose: [Circular: *32],
-    default: [Circular: *14],
-    destroyer: [Circular: *31],
-    duplexPair: [Circular: *25],
-    finished: [Circular: *29],
-    getDefaultHighWaterMark: [Circular: *34],
-    isDestroyed: [Circular: *15],
-    isDisturbed: [Circular: *16],
-    isErrored: [Circular: *17],
-    isReadable: [Circular: *18],
-    isWritable: [Circular: *19],
-    pipeline: [Circular: *26],
-    setDefaultHighWaterMark: [Circular: *33]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/querystring.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="readline"></a>
 <details>
-			<summary><code>stream/consumers</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>readline</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    arrayBuffer: <ref *2> async ƒ arrayBuffer(length: 1) {},
-    blob: <ref *3> async ƒ blob(length: 1) {},
-    buffer: <ref *4> async ƒ buffer(length: 1) {},
-    default: {
-        arrayBuffer: [Circular: *2],
-        blob: [Circular: *3],
-        buffer: [Circular: *4],
-        text: <ref *6> async ƒ text(length: 1) {},
-        json: <ref *7> async ƒ json(length: 1) {}
-    },
-    json: [Circular: *7],
-    text: [Circular: *6]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/readline.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    arrayBuffer: <ref *2> async ƒ arrayBuffer(length: 1) {},
-    blob: <ref *3> async ƒ blob(length: 1) {},
-    buffer: <ref *4> async ƒ buffer(length: 1) {},
-    default: {
-        arrayBuffer: [Circular: *2],
-        blob: [Circular: *3],
-        buffer: [Circular: *4],
-        text: <ref *6> async ƒ text(length: 1) {},
-        json: <ref *7> async ƒ json(length: 1) {}
-    },
-    json: [Circular: *7],
-    text: [Circular: *6]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/readline.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="readline-promises"></a>
 <details>
-			<summary><code>stream/promises</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>readline/promises</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    default: {
-        finished: <ref *3> ƒ finished(length: 2) {},
-        pipeline: <ref *4> ƒ pipeline(length: 0) {}
-    },
-    finished: [Circular: *3],
-    pipeline: [Circular: *4]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/readline_promises.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    default: {
-        finished: <ref *3> ƒ finished(length: 2) {},
-        pipeline: <ref *4> ƒ pipeline(length: 0) {}
-    },
-    finished: [Circular: *3],
-    pipeline: [Circular: *4]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/readline_promises.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="repl"></a>
 <details>
-			<summary><code>stream/web</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>repl</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ByteLengthQueuingStrategy: <ref *2> class ByteLengthQueuingStrategy {},
-    CompressionStream: <ref *3> class CompressionStream {},
-    CountQueuingStrategy: <ref *4> class CountQueuingStrategy {},
-    DecompressionStream: <ref *5> class DecompressionStream {},
-    ReadableByteStreamController: <ref *6> class ReadableByteStreamController {},
-    ReadableStream: <ref *7> class ReadableStream {
-        from: ƒ from(length: 1) {}
-    },
-    ReadableStreamBYOBReader: <ref *9> class ReadableStreamBYOBReader {},
-    ReadableStreamBYOBRequest: <ref *10> class ReadableStreamBYOBRequest {},
-    ReadableStreamDefaultController: <ref *11> class ReadableStreamDefaultController {},
-    ReadableStreamDefaultReader: <ref *12> class ReadableStreamDefaultReader {},
-    TextDecoderStream: <ref *13> class TextDecoderStream {},
-    TextEncoderStream: <ref *14> class TextEncoderStream {},
-    TransformStream: <ref *15> class TransformStream {},
-    TransformStreamDefaultController: <ref *16> class TransformStreamDefaultController {},
-    WritableStream: <ref *17> class WritableStream {},
-    WritableStreamDefaultController: <ref *18> class WritableStreamDefaultController {},
-    WritableStreamDefaultWriter: <ref *19> class WritableStreamDefaultWriter {},
-    default: {
-        ReadableStream: [Circular: *7],
-        ReadableStreamDefaultReader: [Circular: *12],
-        ReadableStreamBYOBReader: [Circular: *9],
-        ReadableStreamBYOBRequest: [Circular: *10],
-        ReadableByteStreamController: [Circular: *6],
-        ReadableStreamDefaultController: [Circular: *11],
-        TransformStream: [Circular: *15],
-        TransformStreamDefaultController: [Circular: *16],
-        WritableStream: [Circular: *17],
-        WritableStreamDefaultWriter: [Circular: *19],
-        WritableStreamDefaultController: [Circular: *18],
-        ByteLengthQueuingStrategy: [Circular: *2],
-        CountQueuingStrategy: [Circular: *4],
-        TextEncoderStream: [Circular: *14],
-        TextDecoderStream: [Circular: *13],
-        CompressionStream: [Circular: *3],
-        DecompressionStream: [Circular: *5]
-    }
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/repl.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ByteLengthQueuingStrategy: <ref *2> class ByteLengthQueuingStrategy {},
-    CompressionStream: <ref *3> class CompressionStream {},
-    CountQueuingStrategy: <ref *4> class CountQueuingStrategy {},
-    DecompressionStream: <ref *5> class DecompressionStream {},
-    ReadableByteStreamController: <ref *6> class ReadableByteStreamController {},
-    ReadableStream: <ref *7> class ReadableStream {
-        from: ƒ from(length: 1) {}
-    },
-    ReadableStreamBYOBReader: <ref *9> class ReadableStreamBYOBReader {},
-    ReadableStreamBYOBRequest: <ref *10> class ReadableStreamBYOBRequest {},
-    ReadableStreamDefaultController: <ref *11> class ReadableStreamDefaultController {},
-    ReadableStreamDefaultReader: <ref *12> class ReadableStreamDefaultReader {},
-    TextDecoderStream: <ref *13> class TextDecoderStream {},
-    TextEncoderStream: <ref *14> class TextEncoderStream {},
-    TransformStream: <ref *15> class TransformStream {},
-    TransformStreamDefaultController: <ref *16> class TransformStreamDefaultController {},
-    WritableStream: <ref *17> class WritableStream {},
-    WritableStreamDefaultController: <ref *18> class WritableStreamDefaultController {},
-    WritableStreamDefaultWriter: <ref *19> class WritableStreamDefaultWriter {},
-    default: {
-        ReadableStream: [Circular: *7],
-        ReadableStreamDefaultReader: [Circular: *12],
-        ReadableStreamBYOBReader: [Circular: *9],
-        ReadableStreamBYOBRequest: [Circular: *10],
-        ReadableByteStreamController: [Circular: *6],
-        ReadableStreamDefaultController: [Circular: *11],
-        TransformStream: [Circular: *15],
-        TransformStreamDefaultController: [Circular: *16],
-        WritableStream: [Circular: *17],
-        WritableStreamDefaultWriter: [Circular: *19],
-        WritableStreamDefaultController: [Circular: *18],
-        ByteLengthQueuingStrategy: [Circular: *2],
-        CountQueuingStrategy: [Circular: *4],
-        TextEncoderStream: [Circular: *14],
-        TextDecoderStream: [Circular: *13],
-        CompressionStream: [Circular: *3],
-        DecompressionStream: [Circular: *5]
-    }
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/repl.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="stream"></a>
 <details>
-			<summary><code>string_decoder</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>stream</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    StringDecoder: <ref *2> ƒ StringDecoder(length: 1) {},
-    default: {
-        StringDecoder: [Circular: *2]
-    }
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/stream.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    StringDecoder: <ref *2> ƒ StringDecoder(length: 1) {},
-    default: {
-        StringDecoder: [Circular: *2]
-    }
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/stream.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="stream-consumers"></a>
 <details>
-			<summary><code>sys</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>stream/consumers</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-(node:5076) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
-[Object: null prototype] {
-    MIMEParams: <ref *2> class MIMEParams {},
-    MIMEType: <ref *3> class MIMEType {},
-    TextDecoder: <ref *4> class TextDecoder {},
-    TextEncoder: <ref *5> class TextEncoder {},
-    _errnoException: <ref *6> ƒ _errnoException(length: 0) {},
-    _exceptionWithHostPort: <ref *7> ƒ _exceptionWithHostPort(length: 0) {},
-    _extend: <ref *8> ƒ deprecated(length: 0) {},
-    aborted: <ref *9> async ƒ aborted(length: 2) {},
-    callbackify: <ref *10> ƒ callbackify(length: 1) {},
-    debug: <ref *11> ƒ debuglog(length: 2) {},
-    debuglog: [Circular: *11],
-    default: {
-        _errnoException: [Circular: *6],
-        _exceptionWithHostPort: [Circular: *7],
-        _extend: [Circular: *8],
-        callbackify: [Circular: *10],
-        debug: [Circular: *11],
-        debuglog: [Circular: *11],
-        deprecate: <ref *13> ƒ deprecate(length: 4) {},
-        format: <ref *14> ƒ format(length: 0) {},
-        styleText: <ref *15> ƒ styleText(length: 2) {},
-        formatWithOptions: <ref *16> ƒ formatWithOptions(length: 1) {},
-        getCallSite: <ref *17> ƒ deprecated(length: 0) {},
-        getCallSites: <ref *18> ƒ getCallSites(length: 0) {},
-        getSystemErrorMap: <ref *19> ƒ getSystemErrorMap(length: 0) {},
-        getSystemErrorName: <ref *20> ƒ getSystemErrorName(length: 1) {},
-        getSystemErrorMessage: <ref *21> ƒ getSystemErrorMessage(length: 1) {},
-        inherits: <ref *22> ƒ inherits(length: 2) {},
-        inspect: <ref *23> ƒ inspect(length: 2) {
-            custom: Symbol(nodejs.util.inspect.custom),
-            colors: [Object: null prototype] {
-                reset: [
-                    0,
-                    0
-                ],
-                bold: [
-                    1,
-                    22
-                ],
-                dim: [
-                    2,
-                    22
-                ],
-                italic: [
-                    3,
-                    23
-                ],
-                underline: [
-                    4,
-                    24
-                ],
-                blink: [
-                    5,
-                    25
-                ],
-                inverse: [
-                    7,
-                    27
-                ],
-                hidden: [
-                    8,
-                    28
-                ],
-                strikethrough: [
-                    9,
-                    29
-                ],
-                doubleunderline: [
-                    21,
-                    24
-                ],
-                black: [
-                    30,
-                    39
-                ],
-                red: [
-                    31,
-                    39
-                ],
-                green: [
-                    32,
-                    39
-                ],
-                yellow: [
-                    33,
-                    39
-                ],
-                blue: [
-                    34,
-                    39
-                ],
-                magenta: [
-                    35,
-                    39
-                ],
-                cyan: [
-                    36,
-                    39
-                ],
-                white: [
-                    37,
-                    39
-                ],
-                bgBlack: [
-                    40,
-                    49
-                ],
-                bgRed: [
-                    41,
-                    49
-                ],
-                bgGreen: [
-                    42,
-                    49
-                ],
-                bgYellow: [
-                    43,
-                    49
-                ],
-                bgBlue: [
-                    44,
-                    49
-                ],
-                bgMagenta: [
-                    45,
-                    49
-                ],
-                bgCyan: [
-                    46,
-                    49
-                ],
-                bgWhite: [
-                    47,
-                    49
-                ],
-                framed: [
-                    51,
-                    54
-                ],
-                overlined: [
-                    53,
-                    55
-                ],
-                gray: [
-                    90,
-                    39
-                ],
-                redBright: [
-                    91,
-                    39
-                ],
-                greenBright: [
-                    92,
-                    39
-                ],
-                yellowBright: [
-                    93,
-                    39
-                ],
-                blueBright: [
-                    94,
-                    39
-                ],
-                magentaBright: [
-                    95,
-                    39
-                ],
-                cyanBright: [
-                    96,
-                    39
-                ],
-                whiteBright: [
-                    97,
-                    39
-                ],
-                bgGray: [
-                    100,
-                    49
-                ],
-                bgRedBright: [
-                    101,
-                    49
-                ],
-                bgGreenBright: [
-                    102,
-                    49
-                ],
-                bgYellowBright: [
-                    103,
-                    49
-                ],
-                bgBlueBright: [
-                    104,
-                    49
-                ],
-                bgMagentaBright: [
-                    105,
-                    49
-                ],
-                bgCyanBright: [
-                    106,
-                    49
-                ],
-                bgWhiteBright: [
-                    107,
-                    49
-                ]
-            },
-            styles: [Object: null prototype] {
-                special: "cyan",
-                number: "yellow",
-                bigint: "yellow",
-                boolean: "yellow",
-                undefined: "grey",
-                null: "bold",
-                string: "green",
-                symbol: "green",
-                date: "magenta",
-                regexp: "red",
-                module: "underline"
-            }
-        },
-        isArray: <ref *70> ƒ deprecated(length: 0) {},
-        isDeepStrictEqual: <ref *71> ƒ isDeepStrictEqual(length: 2) {},
-        promisify: <ref *72> ƒ promisify(length: 1) {
-            custom: Symbol(nodejs.util.promisify.custom)
-        },
-        stripVTControlCharacters: <ref *73> ƒ stripVTControlCharacters(length: 1) {},
-        toUSVString: <ref *74> ƒ toUSVString(length: 1) {},
-        [get/set] transferableAbortSignal: <ref *75> ƒ transferableAbortSignal(length: 1) {},
-        [get/set] transferableAbortController: <ref *76> ƒ transferableAbortController(length: 0) {},
-        [get/set] aborted: [Circular: *9],
-        types: <ref *77> {
-            isExternal: ƒ isExternal(length: 0) {},
-            isDate: ƒ isDate(length: 0) {},
-            isArgumentsObject: ƒ isArgumentsObject(length: 0) {},
-            isBigIntObject: ƒ isBigIntObject(length: 0) {},
-            isBooleanObject: ƒ isBooleanObject(length: 0) {},
-            isNumberObject: ƒ isNumberObject(length: 0) {},
-            isStringObject: ƒ isStringObject(length: 0) {},
-            isSymbolObject: ƒ isSymbolObject(length: 0) {},
-            isNativeError: ƒ isNativeError(length: 0) {},
-            isRegExp: ƒ isRegExp(length: 0) {},
-            isAsyncFunction: ƒ isAsyncFunction(length: 0) {},
-            isGeneratorFunction: ƒ isGeneratorFunction(length: 0) {},
-            isGeneratorObject: ƒ isGeneratorObject(length: 0) {},
-            isPromise: ƒ isPromise(length: 0) {},
-            isMap: ƒ isMap(length: 0) {},
-            isSet: ƒ isSet(length: 0) {},
-            isMapIterator: ƒ isMapIterator(length: 0) {},
-            isSetIterator: ƒ isSetIterator(length: 0) {},
-            isWeakMap: ƒ isWeakMap(length: 0) {},
-            isWeakSet: ƒ isWeakSet(length: 0) {},
-            isArrayBuffer: ƒ isArrayBuffer(length: 0) {},
-            isDataView: ƒ isDataView(length: 0) {},
-            isSharedArrayBuffer: ƒ isSharedArrayBuffer(length: 0) {},
-            isProxy: ƒ isProxy(length: 0) {},
-            isModuleNamespaceObject: ƒ isModuleNamespaceObject(length: 0) {},
-            isAnyArrayBuffer: ƒ isAnyArrayBuffer(length: 0) {},
-            isBoxedPrimitive: ƒ isBoxedPrimitive(length: 0) {},
-            isArrayBufferView: ƒ isView(length: 1) {},
-            isTypedArray: ƒ isTypedArray(length: 1) {},
-            isUint8Array: ƒ isUint8Array(length: 1) {},
-            isUint8ClampedArray: ƒ isUint8ClampedArray(length: 1) {},
-            isUint16Array: ƒ isUint16Array(length: 1) {},
-            isUint32Array: ƒ isUint32Array(length: 1) {},
-            isInt8Array: ƒ isInt8Array(length: 1) {},
-            isInt16Array: ƒ isInt16Array(length: 1) {},
-            isInt32Array: ƒ isInt32Array(length: 1) {},
-            isFloat32Array: ƒ isFloat32Array(length: 1) {},
-            isFloat64Array: ƒ isFloat64Array(length: 1) {},
-            isBigInt64Array: ƒ isBigInt64Array(length: 1) {},
-            isBigUint64Array: ƒ isBigUint64Array(length: 1) {},
-            isKeyObject: ƒ value(length: 1) {},
-            isCryptoKey: ƒ value(length: 1) {}
-        },
-        parseEnv: <ref *120> ƒ parseEnv(length: 1) {},
-        parseArgs: <ref *121> ƒ parseArgs(length: 0) {},
-        TextDecoder: [Circular: *4],
-        TextEncoder: [Circular: *5],
-        MIMEType: [Circular: *3],
-        MIMEParams: [Circular: *2]
-    },
-    deprecate: [Circular: *13],
-    format: [Circular: *14],
-    formatWithOptions: [Circular: *16],
-    getCallSite: [Circular: *17],
-    getCallSites: [Circular: *18],
-    getSystemErrorMap: [Circular: *19],
-    getSystemErrorMessage: [Circular: *21],
-    getSystemErrorName: [Circular: *20],
-    inherits: [Circular: *22],
-    inspect: [Circular: *23],
-    isArray: [Circular: *70],
-    isDeepStrictEqual: [Circular: *71],
-    parseArgs: [Circular: *121],
-    parseEnv: [Circular: *120],
-    promisify: [Circular: *72],
-    stripVTControlCharacters: [Circular: *73],
-    styleText: [Circular: *15],
-    toUSVString: [Circular: *74],
-    transferableAbortController: [Circular: *76],
-    transferableAbortSignal: [Circular: *75],
-    types: [Circular: *77]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/stream_consumers.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    TextDecoder: <ref *2> class TextDecoder {},
-    TextEncoder: <ref *3> class TextEncoder {},
-    _extend: <ref *4> ƒ _extend(length: 2) {},
-    aborted: <ref *5> async ƒ aborted(length: 2) {},
-    callbackify: <ref *6> ƒ callbackify(length: 1) {},
-    debug: <ref *7> ƒ debuglog(length: 2) {},
-    debuglog: [Circular: *7],
-    default: {
-        format: <ref *9> ƒ format(length: 0) {},
-        formatWithOptions: <ref *10> ƒ formatWithOptions(length: 1) {},
-        inspect: <ref *11> ƒ inspect(length: 2) {
-            colors: {
-                reset: [
-                    0,
-                    0
-                ],
-                bold: [
-                    1,
-                    22
-                ],
-                dim: [
-                    2,
-                    22
-                ],
-                italic: [
-                    3,
-                    23
-                ],
-                underline: [
-                    4,
-                    24
-                ],
-                blink: [
-                    5,
-                    25
-                ],
-                inverse: [
-                    7,
-                    27
-                ],
-                hidden: [
-                    8,
-                    28
-                ],
-                strikethrough: [
-                    9,
-                    29
-                ],
-                doubleunderline: [
-                    21,
-                    24
-                ],
-                black: [
-                    30,
-                    39
-                ],
-                red: [
-                    31,
-                    39
-                ],
-                green: [
-                    32,
-                    39
-                ],
-                yellow: [
-                    33,
-                    39
-                ],
-                blue: [
-                    34,
-                    39
-                ],
-                magenta: [
-                    35,
-                    39
-                ],
-                cyan: [
-                    36,
-                    39
-                ],
-                white: [
-                    37,
-                    39
-                ],
-                bgBlack: [
-                    40,
-                    49
-                ],
-                bgRed: [
-                    41,
-                    49
-                ],
-                bgGreen: [
-                    42,
-                    49
-                ],
-                bgYellow: [
-                    43,
-                    49
-                ],
-                bgBlue: [
-                    44,
-                    49
-                ],
-                bgMagenta: [
-                    45,
-                    49
-                ],
-                bgCyan: [
-                    46,
-                    49
-                ],
-                bgWhite: [
-                    47,
-                    49
-                ],
-                framed: [
-                    51,
-                    54
-                ],
-                overlined: [
-                    53,
-                    55
-                ],
-                gray: [
-                    90,
-                    39
-                ],
-                redBright: [
-                    91,
-                    39
-                ],
-                greenBright: [
-                    92,
-                    39
-                ],
-                yellowBright: [
-                    93,
-                    39
-                ],
-                blueBright: [
-                    94,
-                    39
-                ],
-                magentaBright: [
-                    95,
-                    39
-                ],
-                cyanBright: [
-                    96,
-                    39
-                ],
-                whiteBright: [
-                    97,
-                    39
-                ],
-                bgGray: [
-                    100,
-                    49
-                ],
-                bgRedBright: [
-                    101,
-                    49
-                ],
-                bgGreenBright: [
-                    102,
-                    49
-                ],
-                bgYellowBright: [
-                    103,
-                    49
-                ],
-                bgBlueBright: [
-                    104,
-                    49
-                ],
-                bgMagentaBright: [
-                    105,
-                    49
-                ],
-                bgCyanBright: [
-                    106,
-                    49
-                ],
-                bgWhiteBright: [
-                    107,
-                    49
-                ]
-            },
-            styles: [Object: null prototype] {
-                special: "cyan",
-                number: "yellow",
-                bigint: "yellow",
-                boolean: "yellow",
-                undefined: "grey",
-                null: "bold",
-                string: "green",
-                symbol: "green",
-                date: "magenta",
-                regexp: "red",
-                module: "underline"
-            },
-            custom: Symbol(nodejs.util.inspect.custom)
-        },
-        isArray: <ref *58> ƒ isArray(length: 1) {},
-        isBoolean: <ref *59> ƒ isBoolean(length: 1) {},
-        isNull: <ref *60> ƒ isNull(length: 1) {},
-        isNullOrUndefined: <ref *61> ƒ isNullOrUndefined(length: 1) {},
-        isNumber: <ref *62> ƒ isNumber(length: 1) {},
-        isString: <ref *63> ƒ isString(length: 1) {},
-        isSymbol: <ref *64> ƒ isSymbol(length: 1) {},
-        isUndefined: <ref *65> ƒ isUndefined(length: 1) {},
-        isObject: <ref *66> ƒ isObject(length: 1) {},
-        isError: <ref *67> ƒ isError(length: 1) {},
-        isFunction: <ref *68> ƒ isFunction(length: 1) {},
-        isRegExp: <ref *69> ƒ isRegExp(length: 1) {},
-        isDate: <ref *70> ƒ isDate(length: 1) {},
-        isPrimitive: <ref *71> ƒ isPrimitive(length: 1) {},
-        isBuffer: <ref *72> ƒ isBuffer(length: 1) {},
-        _extend: [Circular: *4],
-        getCallSites: <ref *73> ƒ getCallSites(length: 0) {},
-        getSystemErrorName: <ref *74> ƒ getSystemErrorName(length: 1) {},
-        aborted: [Circular: *5],
-        deprecate: <ref *75> ƒ deprecate(length: 3) {},
-        callbackify: [Circular: *6],
-        parseArgs: <ref *76> ƒ parseArgs(length: 0) {},
-        promisify: <ref *77> ƒ promisify(length: 1) {
-            custom: Symbol(nodejs.util.promisify.custom)
-        },
-        inherits: <ref *78> ƒ inherits(length: 2) {},
-        types: <ref *79> {
-            isAnyArrayBuffer: ƒ isAnyArrayBuffer(length: 1) {},
-            isArgumentsObject: ƒ isArgumentsObject(length: 1) {},
-            isArrayBuffer: ƒ isArrayBuffer(length: 1) {},
-            isArrayBufferView: ƒ isArrayBufferView(length: 1) {},
-            isAsyncFunction: ƒ isAsyncFunction(length: 1) {},
-            isBigInt64Array: ƒ isBigInt64Array(length: 1) {},
-            isBigIntObject: ƒ isBigIntObject(length: 1) {},
-            isBigUint64Array: ƒ isBigUint64Array(length: 1) {},
-            isBooleanObject: ƒ isBooleanObject(length: 1) {},
-            isBoxedPrimitive: ƒ isBoxedPrimitive(length: 1) {},
-            isCryptoKey: ƒ isCryptoKey(length: 1) {},
-            isDataView: ƒ isDataView(length: 1) {},
-            isDate: [Circular: *70],
-            isFloat16Array: ƒ isFloat16Array(length: 1) {},
-            isFloat32Array: ƒ isFloat32Array(length: 1) {},
-            isFloat64Array: ƒ isFloat64Array(length: 1) {},
-            isGeneratorFunction: ƒ isGeneratorFunction(length: 1) {},
-            isGeneratorObject: ƒ isGeneratorObject(length: 1) {},
-            isInt16Array: ƒ isInt16Array(length: 1) {},
-            isInt32Array: ƒ isInt32Array(length: 1) {},
-            isInt8Array: ƒ isInt8Array(length: 1) {},
-            isKeyObject: ƒ isKeyObject(length: 1) {},
-            isMap: ƒ isMap(length: 1) {},
-            isMapIterator: ƒ isMapIterator(length: 1) {},
-            isModuleNamespaceObject: ƒ isModuleNamespaceObject(length: 1) {},
-            isNativeError: ƒ isNativeError(length: 1) {},
-            isNumberObject: ƒ isNumberObject(length: 1) {},
-            isPromise: ƒ isPromise(length: 1) {},
-            isProxy: ƒ isProxy(length: 1) {},
-            isRegExp: [Circular: *69],
-            isSet: ƒ isSet(length: 1) {},
-            isSetIterator: ƒ isSetIterator(length: 1) {},
-            isSharedArrayBuffer: ƒ isSharedArrayBuffer(length: 1) {},
-            isStringObject: ƒ isStringObject(length: 1) {},
-            isSymbolObject: ƒ isSymbolObject(length: 1) {},
-            isTypedArray: ƒ isTypedArray(length: 1) {},
-            isUint16Array: ƒ isUint16Array(length: 1) {},
-            isUint32Array: ƒ isUint32Array(length: 1) {},
-            isUint8Array: ƒ isUint8Array(length: 1) {},
-            isUint8ClampedArray: ƒ isUint8ClampedArray(length: 1) {},
-            isWeakMap: ƒ isWeakMap(length: 1) {},
-            isWeakSet: ƒ isWeakSet(length: 1) {}
-        },
-        stripVTControlCharacters: <ref *120> ƒ stripVTControlCharacters(length: 1) {},
-        TextDecoder: [Circular: *2],
-        TextEncoder: [Circular: *3],
-        toUSVString: <ref *121> ƒ toUSVString(length: 1) {},
-        log: <ref *122> ƒ log(length: 0) {},
-        debuglog: [Circular: *7],
-        debug: [Circular: *7],
-        isDeepStrictEqual: <ref *123> ƒ isDeepStrictEqual(length: 2) {},
-        styleText: <ref *124> ƒ styleText(length: 2) {}
-    },
-    deprecate: [Circular: *75],
-    format: [Circular: *9],
-    formatWithOptions: [Circular: *10],
-    getCallSites: [Circular: *73],
-    getSystemErrorName: [Circular: *74],
-    inherits: [Circular: *78],
-    inspect: [Circular: *11],
-    isArray: [Circular: *58],
-    isBoolean: [Circular: *59],
-    isBuffer: [Circular: *72],
-    isDate: [Circular: *70],
-    isDeepStrictEqual: [Circular: *123],
-    isError: [Circular: *67],
-    isFunction: [Circular: *68],
-    isNull: [Circular: *60],
-    isNullOrUndefined: [Circular: *61],
-    isNumber: [Circular: *62],
-    isObject: [Circular: *66],
-    isPrimitive: [Circular: *71],
-    isRegExp: [Circular: *69],
-    isString: [Circular: *63],
-    isSymbol: [Circular: *64],
-    isUndefined: [Circular: *65],
-    log: [Circular: *122],
-    parseArgs: [Circular: *76],
-    promisify: [Circular: *77],
-    stripVTControlCharacters: [Circular: *120],
-    styleText: [Circular: *124],
-    toUSVString: [Circular: *121],
-    types: [Circular: *79]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/stream_consumers.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="stream-promises"></a>
 <details>
-			<summary><code>timers</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>stream/promises</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    _unrefActive: <ref *2> ƒ deprecated(length: 0) {},
-    active: <ref *3> ƒ deprecated(length: 0) {},
-    clearImmediate: <ref *4> ƒ clearImmediate(length: 1) {},
-    clearInterval: <ref *5> ƒ clearInterval(length: 1) {},
-    clearTimeout: <ref *6> ƒ clearTimeout(length: 1) {},
-    default: {
-        setTimeout: <ref *8> ƒ setTimeout(length: 5) {
-            [get/set] Symbol(nodejs.util.promisify.custom): <ref *9> ƒ setTimeout(length: 2) {}
-        },
-        clearTimeout: [Circular: *6],
-        setImmediate: <ref *10> ƒ setImmediate(length: 4) {
-            [get/set] Symbol(nodejs.util.promisify.custom): <ref *11> ƒ setImmediate(length: 1) {}
-        },
-        clearImmediate: [Circular: *4],
-        setInterval: <ref *12> ƒ setInterval(length: 5) {},
-        clearInterval: [Circular: *5],
-        _unrefActive: [Circular: *2],
-        active: [Circular: *3],
-        unenroll: <ref *13> ƒ deprecated(length: 0) {},
-        enroll: <ref *14> ƒ deprecated(length: 0) {},
-        [get/set] promises: <ref *15> {
-            setTimeout: [Circular: *9],
-            setImmediate: [Circular: *11],
-            setInterval: async ƒ setInterval(length: 2) {},
-            scheduler: Scheduler {
-                Symbol(kScheduler): true
-            }
-        }
-    },
-    enroll: [Circular: *14],
-    promises: [Circular: *15],
-    setImmediate: [Circular: *10],
-    setInterval: [Circular: *12],
-    setTimeout: [Circular: *8],
-    unenroll: [Circular: *13]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/stream_promises.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    clearImmediate: <ref *2> ƒ clearImmediate(length: 1) {},
-    clearInterval: <ref *3> ƒ clearInterval(length: 1) {},
-    clearTimeout: <ref *4> ƒ clearTimeout(length: 1) {},
-    default: {
-        setTimeout: <ref *6> ƒ setTimeout(length: 2) {
-            Symbol(nodejs.util.promisify.custom): <ref *7> ƒ value(length: 1) {}
-        },
-        clearTimeout: [Circular: *4],
-        setInterval: <ref *8> ƒ setInterval(length: 2) {},
-        clearInterval: [Circular: *3],
-        setImmediate: <ref *9> ƒ setImmediate(length: 1) {},
-        setUnrefTimeout: <ref *10> ƒ setUnrefTimeout(length: 2) {},
-        clearImmediate: [Circular: *2],
-        promises: <ref *11> {
-            setTimeout: [Circular: *7],
-            setImmediate: <ref *12> ƒ setImmediate(length: 1) {},
-            setInterval: async ƒ setIntervalAsync(length: 2) {},
-            scheduler: {
-                wait: async ƒ wait(length: 2) {},
-                yield: [Circular: *12]
-            }
-        }
-    },
-    promises: [Circular: *11],
-    setImmediate: [Circular: *9],
-    setInterval: [Circular: *8],
-    setTimeout: [Circular: *6],
-    setUnrefTimeout: [Circular: *10]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/stream_promises.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="stream-web"></a>
 <details>
-			<summary><code>timers/promises</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>stream/web</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    default: {
-        setTimeout: <ref *3> ƒ setTimeout(length: 2) {},
-        setImmediate: <ref *4> ƒ setImmediate(length: 1) {},
-        setInterval: <ref *5> async ƒ setInterval(length: 2) {},
-        scheduler: <ref *6> Scheduler {
-            Symbol(kScheduler): true
-        }
-    },
-    scheduler: [Circular: *6],
-    setImmediate: [Circular: *4],
-    setInterval: [Circular: *5],
-    setTimeout: [Circular: *3]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/stream_web.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    default: {
-        setTimeout: <ref *3> ƒ value(length: 1) {},
-        setImmediate: <ref *4> ƒ setImmediate(length: 1) {},
-        setInterval: <ref *5> async ƒ setIntervalAsync(length: 2) {},
-        scheduler: <ref *6> {
-            wait: async ƒ wait(length: 2) {},
-            yield: [Circular: *4]
-        }
-    },
-    scheduler: [Circular: *6],
-    setImmediate: [Circular: *4],
-    setInterval: [Circular: *5],
-    setTimeout: [Circular: *3]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/stream_web.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="string_decoder"></a>
 <details>
-			<summary><code>tls</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>string_decoder</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    CLIENT_RENEG_LIMIT: 3,
-    CLIENT_RENEG_WINDOW: 600,
-    DEFAULT_CIPHERS: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…",
-    DEFAULT_ECDH_CURVE: "auto",
-    DEFAULT_MAX_VERSION: "TLSv1.3",
-    DEFAULT_MIN_VERSION: "TLSv1.2",
-    SecureContext: <ref *2> ƒ SecureContext(length: 4) {},
-    Server: <ref *3> ƒ Server(length: 2) {},
-    TLSSocket: <ref *4> ƒ TLSSocket(length: 2) {},
-    checkServerIdentity: <ref *5> ƒ checkServerIdentity(length: 2) {},
-    connect: <ref *6> ƒ connect(length: 0) {},
-    convertALPNProtocols: <ref *7> ƒ convertALPNProtocols(length: 2) {},
-    createSecureContext: <ref *8> ƒ createSecureContext(length: 1) {},
-    createSecurePair: <ref *9> ƒ deprecated(length: 0) {},
-    createServer: <ref *10> ƒ createServer(length: 2) {},
-    default: {
-        CLIENT_RENEG_LIMIT: 3,
-        CLIENT_RENEG_WINDOW: 600,
-        DEFAULT_CIPHERS: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-RSA-AES128-GCM-SHA2…",
-        DEFAULT_ECDH_CURVE: "auto",
-        DEFAULT_MIN_VERSION: "TLSv1.2",
-        DEFAULT_MAX_VERSION: "TLSv1.3",
-        getCiphers: <ref *12> ƒ (length: 0) {},
-        [get/set] rootCertificates: <ref *13> [
-            "-----BEGIN CERTIFICATE-----\nMIIDdTCCAl2gAwIBAgILBAAAAAABFUtaw5QwDQYJKoZIhvcNAQEFBQAwVzELMAkGA1UEBhMC…",
-            "-----BEGIN CERTIFICATE-----\nMIIEKjCCAxKgAwIBAgIEOGPe+DANBgkqhkiG9w0BAQUFADCBtDEUMBIGA1UEChMLRW50cnVz…",
-            "-----BEGIN CERTIFICATE-----\nMIIDdzCCAl+gAwIBAgIEAgAAuTANBgkqhkiG9w0BAQUFADBaMQswCQYDVQQGEwJJRTESMBAG…",
-            "-----BEGIN CERTIFICATE-----\nMIIEkTCCA3mgAwIBAgIERWtQVDANBgkqhkiG9w0BAQUFADCBsDELMAkGA1UEBhMCVVMxFjAU…",
-            "-----BEGIN CERTIFICATE-----\nMIIEMjCCAxqgAwIBAgIBATANBgkqhkiG9w0BAQUFADB7MQswCQYDVQQGEwJHQjEbMBkGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIFtzCCA5+gAwIBAgICBQkwDQYJKoZIhvcNAQEFBQAwRTELMAkGA1UEBhMCQk0xGTAXBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIGnTCCBIWgAwIBAgICBcYwDQYJKoZIhvcNAQEFBQAwRTELMAkGA1UEBhMCQk0xGTAXBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIEMDCCAxigAwIBAgIQUJRs7Bjq1ZxN1ZfvdY+grTANBgkqhkiG9w0BAQUFADCBgjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIEADCCAuigAwIBAgIBADANBgkqhkiG9w0BAQUFADBjMQswCQYDVQQGEwJVUzEhMB8GA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIEDzCCAvegAwIBAgIBADANBgkqhkiG9w0BAQUFADBoMQswCQYDVQQGEwJVUzElMCMGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIDtzCCAp+gAwIBAgIQDOfg5RfYRv6P5WD8G/AwOTANBgkqhkiG9w0BAQUFADBlMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBhMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDxTCCAq2gAwIBAgIQAqxcJmoLQJuPC3nyrkYldzANBgkqhkiG9w0BAQUFADBsMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFujCCA6KgAwIBAgIJALtAHEP1Xk+wMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNVBAYTAkNI…",
-            "-----BEGIN CERTIFICATE-----\nMIIFvTCCA6WgAwIBAgIITxvUL1S7L0swDQYJKoZIhvcNAQEFBQAwRzELMAkGA1UEBhMCQ0gx…",
-            "-----BEGIN CERTIFICATE-----\nMIIDuDCCAqCgAwIBAgIQDPCOXAgWpa1Cf/DrJxhZ0DANBgkqhkiG9w0BAQUFADBIMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDvDCCAqSgAwIBAgIQB1YipOjUiolN9BPI8PjqpTANBgkqhkiG9w0BAQUFADBKMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIEHTCCAwWgAwIBAgIQToEtioJl4AsC7j41AkblPTANBgkqhkiG9w0BAQUFADCBgTELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIICiTCCAg+gAwIBAgIQH0evqmIAcFBUTAGem2OZKjAKBggqhkjOPQQDAzCBhTELMAkGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIDqDCCApCgAwIBAgIJAP7c4wEPyUj/MA0GCSqGSIb3DQEBBQUAMDQxCzAJBgNVBAYTAkZS…",
-            "-----BEGIN CERTIFICATE-----\nMIIFsDCCA5igAwIBAgIQFci9ZUdcr7iXAF7kBtK8nTANBgkqhkiG9w0BAQUFADBeMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDODCCAiCgAwIBAgIGIAYFFnACMA0GCSqGSIb3DQEBBQUAMDsxCzAJBgNVBAYTAlJPMREw…",
-            "-----BEGIN CERTIFICATE-----\nMIIEFTCCAv2gAwIBAgIGSUEs5AAQMA0GCSqGSIb3DQEBCwUAMIGnMQswCQYDVQQGEwJIVTER…",
-            "-----BEGIN CERTIFICATE-----\nMIIDbTCCAlWgAwIBAgIBATANBgkqhkiG9w0BAQUFADBYMQswCQYDVQQGEwJKUDErMCkGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIECjCCAvKgAwIBAgIJAMJ+QwRORz8ZMA0GCSqGSIb3DQEBCwUAMIGCMQswCQYDVQQGEwJI…",
-            "-----BEGIN CERTIFICATE-----\nMIIDXzCCAkegAwIBAgILBAAAAAABIVhTCKIwDQYJKoZIhvcNAQELBQAwTDEgMB4GA1UECxMX…",
-            "-----BEGIN CERTIFICATE-----\nMIIF8TCCA9mgAwIBAgIQALC3WhZIX7/hy/WL1xnmfTANBgkqhkiG9w0BAQsFADA4MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDxTCCAq2gAwIBAgIBADANBgkqhkiG9w0BAQsFADCBgzELMAkGA1UEBhMCVVMxEDAOBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIID3TCCAsWgAwIBAgIBADANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxEDAOBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIID7zCCAtegAwIBAgIBADANBgkqhkiG9w0BAQsFADCBmDELMAkGA1UEBhMCVVMxEDAOBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIDTDCCAjSgAwIBAgIId3cGJyapsXwwDQYJKoZIhvcNAQELBQAwRDELMAkGA1UEBhMCVVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIIDTDCCAjSgAwIBAgIIfE8EORzUmS0wDQYJKoZIhvcNAQEFBQAwRDELMAkGA1UEBhMCVVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIIFRjCCAy6gAwIBAgIIbYwURrGmCu4wDQYJKoZIhvcNAQEMBQAwQTELMAkGA1UEBhMCVVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIIB/jCCAYWgAwIBAgIIdJclisc/elQwCgYIKoZIzj0EAwMwRTELMAkGA1UEBhMCVVMxFDAS…",
-            "-----BEGIN CERTIFICATE-----\nMIIDuzCCAqOgAwIBAgIDBETAMA0GCSqGSIb3DQEBBQUAMH4xCzAJBgNVBAYTAlBMMSIwIAYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDezCCAmOgAwIBAgIBATANBgkqhkiG9w0BAQUFADBfMQswCQYDVQQGEwJUVzESMBAGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIDdzCCAl+gAwIBAgIBADANBgkqhkiG9w0BAQsFADBdMQswCQYDVQQGEwJKUDElMCMGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIFuzCCA6OgAwIBAgIIVwoRl0LE48wwDQYJKoZIhvcNAQELBQAwazELMAkGA1UEBhMCSVQx…",
-            "-----BEGIN CERTIFICATE-----\nMIIFWTCCA0GgAwIBAgIBAjANBgkqhkiG9w0BAQsFADBOMQswCQYDVQQGEwJOTzEdMBsGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIFWTCCA0GgAwIBAgIBAjANBgkqhkiG9w0BAQsFADBOMQswCQYDVQQGEwJOTzEdMBsGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUxKzApBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIEMzCCAxugAwIBAgIDCYPzMA0GCSqGSIb3DQEBCwUAME0xCzAJBgNVBAYTAkRFMRUwEwYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIEQzCCAyugAwIBAgIDCYP0MA0GCSqGSIb3DQEBCwUAMFAxCzAJBgNVBAYTAkRFMRUwEwYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFaTCCA1GgAwIBAgIJAJK4iNuwisFjMA0GCSqGSIb3DQEBCwUAMFIxCzAJBgNVBAYTAlNL…",
-            "-----BEGIN CERTIFICATE-----\nMIIH0zCCBbugAwIBAgIIXsO3pkN/pOAwDQYJKoZIhvcNAQEFBQAwQjESMBAGA1UEAwwJQUND…",
-            "-----BEGIN CERTIFICATE-----\nMIIFQTCCAymgAwIBAgICDL4wDQYJKoZIhvcNAQELBQAwUTELMAkGA1UEBhMCVFcxEjAQBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFODCCAyCgAwIBAgIRAJW+FqD3LkbxezmCcvqLzZYwDQYJKoZIhvcNAQEFBQAwNzEUMBIG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUxKzApBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIDdzCCAl+gAwIBAgIIXDPLYixfszIwDQYJKoZIhvcNAQELBQAwPDEeMBwGA1UEAwwVQXRv…",
-            "-----BEGIN CERTIFICATE-----\nMIIFYDCCA0igAwIBAgIUeFhfLq0sGUvjNwc1NBMotZbUZZMwDQYJKoZIhvcNAQELBQAwSDEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFYDCCA0igAwIBAgIURFc0JFuBiZs18s64KztbpybwdSgwDQYJKoZIhvcNAQELBQAwSDEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFYDCCA0igAwIBAgIULvWbAiin23r/1aOp7r0DoM8Sah0wDQYJKoZIhvcNAQELBQAwSDEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIDljCCAn6gAwIBAgIQC5McOtY5Z+pnI7/Dr5r0SzANBgkqhkiG9w0BAQsFADBlMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICRjCCAc2gAwIBAgIQC6Fa+h3foLVJRK/NJKBs7DAKBggqhkjOPQQDAzBlMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDjjCCAnagAwIBAgIQAzrx5qcRqaC7KGSxHQn65TANBgkqhkiG9w0BAQsFADBhMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICPzCCAcWgAwIBAgIQBVVWvPJepDU1w6QP1atFcjAKBggqhkjOPQQDAzBhMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFkDCCA3igAwIBAgIQBZsbV56OITLiOQe9p3d1XDANBgkqhkiG9w0BAQwFADBiMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIF2DCCA8CgAwIBAgIQTKr5yttjb+Af907YWwOGnTANBgkqhkiG9w0BAQwFADCBhTELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIF3jCCA8agAwIBAgIQAf1tMPyjylGoG7xkDjUDLTANBgkqhkiG9w0BAQwFADCBiDELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIICjzCCAhWgAwIBAgIQXIuZxVqUxdJxVt7NiYDMJjAKBggqhkjOPQQDAzCBiDELMAkGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIICHjCCAaSgAwIBAgIRYFlJ4CYuu1X5CneKcflK2GwwCgYIKoZIzj0EAwMwUDEkMCIGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIFYDCCA0igAwIBAgIQCgFCgAAAAUUjyES1AAAAAjANBgkqhkiG9w0BAQsFADBKMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFZjCCA06gAwIBAgIQCgFCgAAAAUUjz0Z8AAAAAjANBgkqhkiG9w0BAQsFADBNMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIEPjCCAyagAwIBAgIESlOMKDANBgkqhkiG9w0BAQsFADCBvjELMAkGA1UEBhMCVVMxFjAU…",
-            "-----BEGIN CERTIFICATE-----\nMIIC+TCCAoCgAwIBAgINAKaLeSkAAAAAUNCR+TAKBggqhkjOPQQDAzCBvzELMAkGA1UEBhMC…",
-            "-----BEGIN CERTIFICATE-----\nMIIFjTCCA3WgAwIBAgIEGErM1jANBgkqhkiG9w0BAQsFADBWMQswCQYDVQQGEwJDTjEwMC4G…",
-            "-----BEGIN CERTIFICATE-----\nMIIDtTCCAp2gAwIBAgIQdrEgUnTwhYdGs/gjGvbCwDANBgkqhkiG9w0BAQsFADBtMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDcjCCAlqgAwIBAgIUPopdB+xV0jLVt+O2XwHrLdzk1uQwDQYJKoZIhvcNAQELBQAwUTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIF0jCCA7qgAwIBAgIQIdbQSk8lD8kyN/yqXhKN6TANBgkqhkiG9w0BAQ0FADCBgDELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIGCzCCA/OgAwIBAgIBADANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UEBhMCR1IxDzANBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIICwzCCAkqgAwIBAgIBADAKBggqhkjOPQQDAjCBqjELMAkGA1UEBhMCR1IxDzANBgNVBAcT…",
-            "-----BEGIN CERTIFICATE-----\nMIIFazCCA1OgAwIBAgIRAIIQz7DSQONZRGPgu2OCiwAwDQYJKoZIhvcNAQELBQAwTzELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFgzCCA2ugAwIBAgIPXZONMGc2yAYdGsdUhGkHMA0GCSqGSIb3DQEBCwUAMDsxCzAJBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsFADA5MQsw…",
-            "-----BEGIN CERTIFICATE-----\nMIIFQTCCAymgAwIBAgITBmyf0pY1hp8KD+WGePhbJruKNzANBgkqhkiG9w0BAQwFADA5MQsw…",
-            "-----BEGIN CERTIFICATE-----\nMIIBtjCCAVugAwIBAgITBmyf1XSXNmY/Owua2eiedgPySjAKBggqhkjOPQQDAjA5MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIB8jCCAXigAwIBAgITBmyf18G7EEwpQ+Vxe3ssyBrBDjAKBggqhkjOPQQDAzA5MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIEYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCB0jELMAkGA1UEBhMCVFIxGDAWBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFiDCCA3CgAwIBAgIIfQmX/vBH6nowDQYJKoZIhvcNAQELBQAwYjELMAkGA1UEBhMCQ04x…",
-            "-----BEGIN CERTIFICATE-----\nMIIF3TCCA8WgAwIBAgIIeyyb0xaAMpkwDQYJKoZIhvcNAQELBQAwfDELMAkGA1UEBhMCVVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIICjTCCAhSgAwIBAgIIdebfy8FoW6gwCgYIKoZIzj0EAwIwfDELMAkGA1UEBhMCVVMxDjAM…",
-            "-----BEGIN CERTIFICATE-----\nMIIF6zCCA9OgAwIBAgIIVrYpzTS8ePYwDQYJKoZIhvcNAQELBQAwgYIxCzAJBgNVBAYTAlVT…",
-            "-----BEGIN CERTIFICATE-----\nMIIClDCCAhqgAwIBAgIILCmcWxbtBZUwCgYIKoZIzj0EAwIwfzELMAkGA1UEBhMCVVMxDjAM…",
-            "-----BEGIN CERTIFICATE-----\nMIIFgzCCA2ugAwIBAgIORea7A4Mzw4VlSOb/RVEwDQYJKoZIhvcNAQEMBQAwTDEgMB4GA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIICaTCCAe+gAwIBAgIQISpWDK7aDKtARb8roi066jAKBggqhkjOPQQDAzBtMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFRjCCAy6gAwIBAgIQXd+x2lqj7V2+WmUgZQOQ7zANBgkqhkiG9w0BAQsFADA9MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFWjCCA0KgAwIBAgIQT9Irj/VkyDOeTzRYZiNwYDANBgkqhkiG9w0BAQsFADBHMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIGWzCCBEOgAwIBAgIRAMrpG4nxVQMNo+ZBbcTjpuEwDQYJKoZIhvcNAQELBQAwWjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDlDCCAnygAwIBAgIKMfXkYgxsWO3W2DANBgkqhkiG9w0BAQsFADBnMQswCQYDVQQGEwJJ…",
-            "-----BEGIN CERTIFICATE-----\nMIICTjCCAdOgAwIBAgIKPPYHqWhwDtqLhDAKBggqhkjOPQQDAzBrMQswCQYDVQQGEwJJTjET…",
-            "-----BEGIN CERTIFICATE-----\nMIIDczCCAlugAwIBAgILAK7PALrEzzL4Q7IwDQYJKoZIhvcNAQELBQAwVjELMAkGA1UEBhMC…",
-            "-----BEGIN CERTIFICATE-----\nMIICKzCCAbGgAwIBAgIKe3G2gla4EnycqDAKBggqhkjOPQQDAzBaMQswCQYDVQQGEwJVUzET…",
-            "-----BEGIN CERTIFICATE-----\nMIIFzzCCA7egAwIBAgIUCBZfikyl7ADJk0DfxMauI7gcWqQwDQYJKoZIhvcNAQELBQAwbzEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIGSzCCBDOgAwIBAgIRANm1Q3+vqTkPAAAAAFVlrVgwDQYJKoZIhvcNAQELBQAwgb4xCzAJ…",
-            "-----BEGIN CERTIFICATE-----\nMIICWTCCAd+gAwIBAgIQZvI9r4fei7FK6gxXMQHC7DAKBggqhkjOPQQDAzBlMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFqDCCA5CgAwIBAgIQHtOXCV/YtLNHcB6qvn9FszANBgkqhkiG9w0BAQwFADBlMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICQDCCAeWgAwIBAgIMAVRI7yH9l1kN9QQKMAoGCCqGSM49BAMCMHExCzAJBgNVBAYTAkhV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFRzCCAy+gAwIBAgIJEQA0tk7GNi02MA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAlJP…",
-            "-----BEGIN CERTIFICATE-----\nMIIF2jCCA8KgAwIBAgIMBfcOhtpJ80Y1LrqyMA0GCSqGSIb3DQEBCwUAMIGIMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICYDCCAgegAwIBAgIMDWpfCD8oXD5Rld9dMAoGCCqGSM49BAMCMIGRMQswCQYDVQQGEwJV…",
-            "-----BEGIN CERTIFICATE-----\nMIICnTCCAiSgAwIBAgIMCL2Fl2yZJ6SAaEc7MAoGCCqGSM49BAMDMIGRMQswCQYDVQQGEwJV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFojCCA4qgAwIBAgIUAZQwHqIL3fXFMyqxQ0Rx+NZQTQ0wDQYJKoZIhvcNAQEMBQAwaTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIICbjCCAfOgAwIBAgIQYvYybOXE42hcG2LdnC6dlTAKBggqhkjOPQQDAzB4MQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFWjCCA0KgAwIBAgISEdK7udcjGJ5AXwqdLdDfJWfRMA0GCSqGSIb3DQEBDAUAMEYxCzAJ…",
-            "-----BEGIN CERTIFICATE-----\nMIICCzCCAZGgAwIBAgISEdK7ujNu1LzmJGjFDYQdmOhDMAoGCCqGSM49BAMDMEYxCzAJBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFgjCCA2qgAwIBAgILWku9WvtPilv6ZeUwDQYJKoZIhvcNAQELBQAwTTELMAkGA1UEBhMC…",
-            "-----BEGIN CERTIFICATE-----\nMIIF7zCCA9egAwIBAgIIDdPjvGz5a7EwDQYJKoZIhvcNAQELBQAwgYQxEjAQBgNVBAUTCUc2…",
-            "-----BEGIN CERTIFICATE-----\nMIICZTCCAeugAwIBAgIQeI8nXIESUiClBNAt3bpz9DAKBggqhkjOPQQDAzB0MQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFwDCCA6igAwIBAgIQHr9ZULjJgDdMBvfrVU+17TANBgkqhkiG9w0BAQ0FADB6MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFszCCA5ugAwIBAgIUEwLV4kBMkkaGFmddtLu7sms+/BMwDQYJKoZIhvcNAQELBQAwYTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFpDCCA4ygAwIBAgIQOcqTHO9D88aOk8f0ZIk4fjANBgkqhkiG9w0BAQsFADBsMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICVDCCAdugAwIBAgIQZ3SdjXfYO2rbIvT/WeK/zjAKBggqhkjOPQQDAzBsMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIGFDCCA/ygAwIBAgIIG3Dp0v+ubHEwDQYJKoZIhvcNAQELBQAwUTELMAkGA1UEBhMCRVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIICDzCCAZWgAwIBAgIUbmq8WapTvpg5Z6LSa6Q75m0c1towCgYIKoZIzj0EAwMwRzELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFVjCCAz6gAwIBAgIUQ+NxE9izWRRdt86M/TX9b7wFjUUwDQYJKoZIhvcNAQELBQAwQzEL…",
-            "-----BEGIN CERTIFICATE-----\nMIICGzCCAaGgAwIBAgIQQdKd0XLq7qeAwSxs6S+HUjAKBggqhkjOPQQDAzBPMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFajCCA1KgAwIBAgIQLd2szmKXlKFD6LDNdmpeYDANBgkqhkiG9w0BAQsFADBPMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIB3DCCAYOgAwIBAgINAgPlfvU/k/2lCSGypjAKBggqhkjOPQQDAjBQMSQwIgYDVQQLExtH…",
-            "-----BEGIN CERTIFICATE-----\nMIIFVzCCAz+gAwIBAgINAgPlk28xsBNJiGuiFzANBgkqhkiG9w0BAQwFADBHMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFVzCCAz+gAwIBAgINAgPlrsWNBCUaqxElqjANBgkqhkiG9w0BAQwFADBHMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJV…",
-            "-----BEGIN CERTIFICATE-----\nMIICCTCCAY6gAwIBAgINAgPlwGjvYxqccpBQUjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFdDCCA1ygAwIBAgIPAWdfJ9b+euPkrL4JWwWeMA0GCSqGSIb3DQEBCwUAMEQxCzAJBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIC2zCCAmCgAwIBAgIQfMmPK4TX3+oPyWWa00tNljAKBggqhkjOPQQDAzBIMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIC2zCCAmCgAwIBAgIQXwJB13qHfEwDo6yWjfv/0DAKBggqhkjOPQQDAzBIMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICGTCCAZ+gAwIBAgIQCeCTZaz32ci5PhwLBCou8zAKBggqhkjOPQQDAzBOMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFZjCCA06gAwIBAgIQCPm0eKj6ftpqMzeJ3nzPijANBgkqhkiG9w0BAQwFADBNMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFRzCCAy+gAwIBAgIRAI4P+UuQcWhlM1T01EQ5t+AwDQYJKoZIhvcNAQELBQAwPTELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIB9zCCAX2gAwIBAgIQBiUzsUcDMydc+Y2aub/M+DAKBggqhkjOPQQDAzA9MQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFfzCCA2egAwIBAgIJAOF8N0D9G/5nMA0GCSqGSIb3DQEBDAUAMF0xCzAJBgNVBAYTAkpQ…",
-            "-----BEGIN CERTIFICATE-----\nMIICODCCAb6gAwIBAgIJANZdm7N4gS7rMAoGCCqGSM49BAMDMGExCzAJBgNVBAYTAkpQMSUw…",
-            "-----BEGIN CERTIFICATE-----\nMIIFdDCCA1ygAwIBAgIQVW9l47TZkGobCdFsPsBsIDANBgkqhkiG9w0BAQsFADBUMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICJTCCAaugAwIBAgIQLBcIfWQqwP6FGFkGz7RK6zAKBggqhkjOPQQDAzBUMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICOjCCAcGgAwIBAgIQQvLM2htpN0RfFf51KBC49DAKBggqhkjOPQQDAzBfMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFijCCA3KgAwIBAgIQdY39i658BwD6qSWn4cetFDANBgkqhkiG9w0BAQwFADBfMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFiTCCA3GgAwIBAgIQb77arXO9CEDii02+1PdbkTANBgkqhkiG9w0BAQsFADBOMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICOjCCAcCgAwIBAgIQFAP1q/s3ixdAW+JDsqXRxDAKBggqhkjOPQQDAzBOMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICFTCCAZugAwIBAgIQPZg7pmY9kGP3fiZXOATvADAKBggqhkjOPQQDAzBMMS4wLAYDVQQD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFZDCCA0ygAwIBAgIQU9XP5hmTC/srBRLYwiqipDANBgkqhkiG9w0BAQwFADBMMS4wLAYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFpTCCA42gAwIBAgIUZPYOZXdhaqs7tOqFhLuxibhxkw8wDQYJKoZIhvcNAQEMBQAwWjEL…",
-            "-----BEGIN CERTIFICATE-----\nMIICVTCCAdygAwIBAgIUTyNkuI6XY57GU4HBdk7LKnQV1tcwCgYIKoZIzj0EAwMwWjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIICHTCCAaOgAwIBAgIUQ3CCd89NXTTxyq4yLzf39H91oJ4wCgYIKoZIzj0EAwMwTjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIICHDCCAaOgAwIBAgIUKP2ZYEFHpgE6yhR7H+/5aAiDXX0wCgYIKoZIzj0EAwMwTjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFbDCCA1SgAwIBAgIUPgNJgXUWdDGOTKvVxZAplsU5EN0wDQYJKoZIhvcNAQELBQAwTjEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFbDCCA1SgAwIBAgIUVBa/O345lXGN0aoApYYNK496BU4wDQYJKoZIhvcNAQELBQAwTjEL…",
-            "-----BEGIN CERTIFICATE-----\nMIICQjCCAcmgAwIBAgIQNjqWjMlcsljN0AFdxeVXADAKBggqhkjOPQQDAzBjMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFszCCA5ugAwIBAgIQIZxULej27HF3+k7ow3BXlzANBgkqhkiG9w0BAQwFADBjMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICejCCAgCgAwIBAgIQMZch7a+JQn81QYehZ1ZMbTAKBggqhkjOPQQDAzBuMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFjTCCA3WgAwIBAgIQQAE0jMIAAAAAAAAAATzyxjANBgkqhkiG9w0BAQwFADBQMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDcjCCAlqgAwIBAgIUZvnHwa/swlG07VOX5uaCwysckBYwDQYJKoZIhvcNAQELBQAwUTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFcjCCA1qgAwIBAgIUZNtaDCBO6Ncpd8hQJ6JaJ90t8sswDQYJKoZIhvcNAQEMBQAwUTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIICIzCCAamgAwIBAgIUFhXHw9hJp75pDIqI7fBw+d23PocwCgYIKoZIzj0EAwMwUTELMAkG…"
-        ],
-        convertALPNProtocols: [Circular: *7],
-        checkServerIdentity: [Circular: *5],
-        createSecureContext: [Circular: *8],
-        SecureContext: [Circular: *2],
-        TLSSocket: [Circular: *4],
-        Server: [Circular: *3],
-        createServer: [Circular: *10],
-        connect: [Circular: *6],
-        createSecurePair: [Circular: *9]
-    },
-    getCiphers: [Circular: *12],
-    rootCertificates: [Circular: *13]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/string_decoder.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    CLIENT_RENEG_LIMIT: 3,
-    CLIENT_RENEG_WINDOW: 600,
-    CryptoStream: <ref *2> class CryptoStream {},
-    DEFAULT_CIPHERS: "AES256-GCM-SHA384:AES128-GCM-SHA256:TLS_CHACHA20_POLY1305_SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE…",
-    DEFAULT_ECDH_CURVE: "auto",
-    DEFAULT_MAX_VERSION: "TLSv1.3",
-    DEFAULT_MIN_VERSION: "TLSv1.2",
-    SecurePair: <ref *3> class SecurePair {},
-    Server: <ref *4> ƒ Server(length: 2) {},
-    TLSSocket: <ref *5> class TLSSocket extends net.Socket {},
-    checkServerIdentity: <ref *6> ƒ checkServerIdentity(length: 2) {},
-    connect: <ref *7> ƒ connect(length: 0) {},
-    createSecureContext: <ref *8> ƒ createSecureContext(length: 1) {},
-    createSecurePair: <ref *9> ƒ createSecurePair(length: 0) {},
-    createServer: <ref *10> ƒ createServer(length: 2) {},
-    default: {
-        CryptoStream: [Circular: *2],
-        SecurePair: [Circular: *3],
-        Server: [Circular: *4],
-        TLSSocket: [Circular: *5],
-        checkServerIdentity: [Circular: *6],
-        connect: [Circular: *7],
-        createSecureContext: [Circular: *8],
-        createSecurePair: [Circular: *9],
-        createServer: [Circular: *10],
-        getCiphers: <ref *12> ƒ getCiphers(length: 0) {},
-        rootCertificates: <ref *13> [
-            "-----BEGIN CERTIFICATE-----\nMIICGTCCAZ+gAwIBAgIQCeCTZaz32ci5PhwLBCou8zAKBggqhkjOPQQDAzBOMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFbDCCA1SgAwIBAgIUPgNJgXUWdDGOTKvVxZAplsU5EN0wDQYJKoZIhvcNAQELBQAwTjEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIC+TCCAoCgAwIBAgINAKaLeSkAAAAAUNCR+TAKBggqhkjOPQQDAzCBvzELMAkGA1UEBhMC…",
-            "-----BEGIN CERTIFICATE-----\nMIIDTDCCAjSgAwIBAgIId3cGJyapsXwwDQYJKoZIhvcNAQELBQAwRDELMAkGA1UEBhMCVVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIIC2zCCAmCgAwIBAgIQXwJB13qHfEwDo6yWjfv/0DAKBggqhkjOPQQDAzBIMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDTDCCAjSgAwIBAgIIfE8EORzUmS0wDQYJKoZIhvcNAQEFBQAwRDELMAkGA1UEBhMCVVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIIEHTCCAwWgAwIBAgIQToEtioJl4AsC7j41AkblPTANBgkqhkiG9w0BAQUFADCBgTELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIICHTCCAaOgAwIBAgIUQ3CCd89NXTTxyq4yLzf39H91oJ4wCgYIKoZIzj0EAwMwTjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDczCCAlugAwIBAgILAK7PALrEzzL4Q7IwDQYJKoZIhvcNAQELBQAwVjELMAkGA1UEBhMC…",
-            "-----BEGIN CERTIFICATE-----\nMIIEDzCCAvegAwIBAgIBADANBgkqhkiG9w0BAQUFADBoMQswCQYDVQQGEwJVUzElMCMGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIDdzCCAl+gAwIBAgIEAgAAuTANBgkqhkiG9w0BAQUFADBaMQswCQYDVQQGEwJJRTESMBAG…",
-            "-----BEGIN CERTIFICATE-----\nMIICiTCCAg+gAwIBAgIQH0evqmIAcFBUTAGem2OZKjAKBggqhkjOPQQDAzCBhTELMAkGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIICHjCCAaSgAwIBAgIRYFlJ4CYuu1X5CneKcflK2GwwCgYIKoZIzj0EAwMwUDEkMCIGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIBtjCCAVugAwIBAgITBmyf1XSXNmY/Owua2eiedgPySjAKBggqhkjOPQQDAjA5MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIGnTCCBIWgAwIBAgICBcYwDQYJKoZIhvcNAQEFBQAwRTELMAkGA1UEBhMCQk0xGTAXBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFQTCCAymgAwIBAgITBmyf0pY1hp8KD+WGePhbJruKNzANBgkqhkiG9w0BAQwFADA5MQsw…",
-            "-----BEGIN CERTIFICATE-----\nMIIClDCCAhqgAwIBAgIILCmcWxbtBZUwCgYIKoZIzj0EAwIwfzELMAkGA1UEBhMCVVMxDjAM…",
-            "-----BEGIN CERTIFICATE-----\nMIIFdDCCA1ygAwIBAgIPAWdfJ9b+euPkrL4JWwWeMA0GCSqGSIb3DQEBCwUAMEQxCzAJBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFfzCCA2egAwIBAgIJAOF8N0D9G/5nMA0GCSqGSIb3DQEBDAUAMF0xCzAJBgNVBAYTAkpQ…",
-            "-----BEGIN CERTIFICATE-----\nMIIF8TCCA9mgAwIBAgIQALC3WhZIX7/hy/WL1xnmfTANBgkqhkiG9w0BAQsFADA4MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFgzCCA2ugAwIBAgIORea7A4Mzw4VlSOb/RVEwDQYJKoZIhvcNAQEMBQAwTDEgMB4GA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIID3TCCAsWgAwIBAgIBADANBgkqhkiG9w0BAQsFADCBjzELMAkGA1UEBhMCVVMxEDAOBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFszCCA5ugAwIBAgIUEwLV4kBMkkaGFmddtLu7sms+/BMwDQYJKoZIhvcNAQELBQAwYTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIF6zCCA9OgAwIBAgIIVrYpzTS8ePYwDQYJKoZIhvcNAQELBQAwgYIxCzAJBgNVBAYTAlVT…",
-            "-----BEGIN CERTIFICATE-----\nMIICHDCCAaOgAwIBAgIUKP2ZYEFHpgE6yhR7H+/5aAiDXX0wCgYIKoZIzj0EAwMwTjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFZjCCA06gAwIBAgIQCgFCgAAAAUUjz0Z8AAAAAjANBgkqhkiG9w0BAQsFADBNMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICDzCCAZWgAwIBAgIUbmq8WapTvpg5Z6LSa6Q75m0c1towCgYIKoZIzj0EAwMwRzELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIICPzCCAcWgAwIBAgIQBVVWvPJepDU1w6QP1atFcjAKBggqhkjOPQQDAzBhMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICjTCCAhSgAwIBAgIIdebfy8FoW6gwCgYIKoZIzj0EAwIwfDELMAkGA1UEBhMCVVMxDjAM…",
-            "-----BEGIN CERTIFICATE-----\nMIICCTCCAY6gAwIBAgINAgPlwGjvYxqccpBQUjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJV…",
-            "-----BEGIN CERTIFICATE-----\nMIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJV…",
-            "-----BEGIN CERTIFICATE-----\nMIICWTCCAd+gAwIBAgIQZvI9r4fei7FK6gxXMQHC7DAKBggqhkjOPQQDAzBlMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFZjCCA06gAwIBAgIQCPm0eKj6ftpqMzeJ3nzPijANBgkqhkiG9w0BAQwFADBNMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIECjCCAvKgAwIBAgIJAMJ+QwRORz8ZMA0GCSqGSIb3DQEBCwUAMIGCMQswCQYDVQQGEwJI…",
-            "-----BEGIN CERTIFICATE-----\nMIIDtzCCAp+gAwIBAgIQDOfg5RfYRv6P5WD8G/AwOTANBgkqhkiG9w0BAQUFADBlMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDcjCCAlqgAwIBAgIUZvnHwa/swlG07VOX5uaCwysckBYwDQYJKoZIhvcNAQELBQAwUTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFjTCCA3WgAwIBAgIQQAE0jMIAAAAAAAAAATzyxjANBgkqhkiG9w0BAQwFADBQMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICVDCCAdugAwIBAgIQZ3SdjXfYO2rbIvT/WeK/zjAKBggqhkjOPQQDAzBsMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDlDCCAnygAwIBAgIKMfXkYgxsWO3W2DANBgkqhkiG9w0BAQsFADBnMQswCQYDVQQGEwJJ…",
-            "-----BEGIN CERTIFICATE-----\nMIIDvDCCAqSgAwIBAgIQB1YipOjUiolN9BPI8PjqpTANBgkqhkiG9w0BAQUFADBKMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBhMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIEPjCCAyagAwIBAgIESlOMKDANBgkqhkiG9w0BAQsFADCBvjELMAkGA1UEBhMCVVMxFjAU…",
-            "-----BEGIN CERTIFICATE-----\nMIICwzCCAkqgAwIBAgIBADAKBggqhkjOPQQDAjCBqjELMAkGA1UEBhMCR1IxDzANBgNVBAcT…",
-            "-----BEGIN CERTIFICATE-----\nMIIDxTCCAq2gAwIBAgIBADANBgkqhkiG9w0BAQsFADCBgzELMAkGA1UEBhMCVVMxEDAOBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIEYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCB0jELMAkGA1UEBhMCVFIxGDAWBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIEMzCCAxugAwIBAgIDCYPzMA0GCSqGSIb3DQEBCwUAME0xCzAJBgNVBAYTAkRFMRUwEwYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFcjCCA1qgAwIBAgIUZNtaDCBO6Ncpd8hQJ6JaJ90t8sswDQYJKoZIhvcNAQEMBQAwUTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFWjCCA0KgAwIBAgISEdK7udcjGJ5AXwqdLdDfJWfRMA0GCSqGSIb3DQEBDAUAMEYxCzAJ…",
-            "-----BEGIN CERTIFICATE-----\nMIICjzCCAhWgAwIBAgIQXIuZxVqUxdJxVt7NiYDMJjAKBggqhkjOPQQDAzCBiDELMAkGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIDdzCCAl+gAwIBAgIBADANBgkqhkiG9w0BAQsFADBdMQswCQYDVQQGEwJKUDElMCMGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIF2DCCA8CgAwIBAgIQTKr5yttjb+Af907YWwOGnTANBgkqhkiG9w0BAQwFADCBhTELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFkDCCA3igAwIBAgIQBZsbV56OITLiOQe9p3d1XDANBgkqhkiG9w0BAQwFADBiMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICbjCCAfOgAwIBAgIQYvYybOXE42hcG2LdnC6dlTAKBggqhkjOPQQDAzB4MQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICnTCCAiSgAwIBAgIMCL2Fl2yZJ6SAaEc7MAoGCCqGSM49BAMDMIGRMQswCQYDVQQGEwJV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFuzCCA6OgAwIBAgIIVwoRl0LE48wwDQYJKoZIhvcNAQELBQAwazELMAkGA1UEBhMCSVQx…",
-            "-----BEGIN CERTIFICATE-----\nMIID7zCCAtegAwIBAgIBADANBgkqhkiG9w0BAQsFADCBmDELMAkGA1UEBhMCVVMxEDAOBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIICJTCCAaugAwIBAgIQLBcIfWQqwP6FGFkGz7RK6zAKBggqhkjOPQQDAzBUMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICQjCCAcmgAwIBAgIQNjqWjMlcsljN0AFdxeVXADAKBggqhkjOPQQDAzBjMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIGFDCCA/ygAwIBAgIIG3Dp0v+ubHEwDQYJKoZIhvcNAQELBQAwUTELMAkGA1UEBhMCRVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIIFQTCCAymgAwIBAgICDL4wDQYJKoZIhvcNAQELBQAwUTELMAkGA1UEBhMCVFcxEjAQBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFzzCCA7egAwIBAgIUCBZfikyl7ADJk0DfxMauI7gcWqQwDQYJKoZIhvcNAQELBQAwbzEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIDuzCCAqOgAwIBAgIDBETAMA0GCSqGSIb3DQEBBQUAMH4xCzAJBgNVBAYTAlBMMSIwIAYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFjTCCA3WgAwIBAgIEGErM1jANBgkqhkiG9w0BAQsFADBWMQswCQYDVQQGEwJDTjEwMC4G…",
-            "-----BEGIN CERTIFICATE-----\nMIIFYDCCA0igAwIBAgIQCgFCgAAAAUUjyES1AAAAAjANBgkqhkiG9w0BAQsFADBKMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFujCCA6KgAwIBAgIJALtAHEP1Xk+wMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNVBAYTAkNI…",
-            "-----BEGIN CERTIFICATE-----\nMIIFRzCCAy+gAwIBAgIJEQA0tk7GNi02MA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAlJP…",
-            "-----BEGIN CERTIFICATE-----\nMIICGzCCAaGgAwIBAgIQQdKd0XLq7qeAwSxs6S+HUjAKBggqhkjOPQQDAzBPMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICZTCCAeugAwIBAgIQeI8nXIESUiClBNAt3bpz9DAKBggqhkjOPQQDAzB0MQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDtTCCAp2gAwIBAgIQdrEgUnTwhYdGs/gjGvbCwDANBgkqhkiG9w0BAQsFADBtMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIEFTCCAv2gAwIBAgIGSUEs5AAQMA0GCSqGSIb3DQEBCwUAMIGnMQswCQYDVQQGEwJIVTER…",
-            "-----BEGIN CERTIFICATE-----\nMIIEKjCCAxKgAwIBAgIEOGPe+DANBgkqhkiG9w0BAQUFADCBtDEUMBIGA1UEChMLRW50cnVz…",
-            "-----BEGIN CERTIFICATE-----\nMIIFRjCCAy6gAwIBAgIIbYwURrGmCu4wDQYJKoZIhvcNAQEMBQAwQTELMAkGA1UEBhMCVVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIIEkTCCA3mgAwIBAgIERWtQVDANBgkqhkiG9w0BAQUFADCBsDELMAkGA1UEBhMCVVMxFjAU…",
-            "-----BEGIN CERTIFICATE-----\nMIIDxTCCAq2gAwIBAgIQAqxcJmoLQJuPC3nyrkYldzANBgkqhkiG9w0BAQUFADBsMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFRzCCAy+gAwIBAgIRAI4P+UuQcWhlM1T01EQ5t+AwDQYJKoZIhvcNAQELBQAwPTELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFijCCA3KgAwIBAgIQdY39i658BwD6qSWn4cetFDANBgkqhkiG9w0BAQwFADBfMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDljCCAn6gAwIBAgIQC5McOtY5Z+pnI7/Dr5r0SzANBgkqhkiG9w0BAQsFADBlMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICRjCCAc2gAwIBAgIQC6Fa+h3foLVJRK/NJKBs7DAKBggqhkjOPQQDAzBlMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFZDCCA0ygAwIBAgIQU9XP5hmTC/srBRLYwiqipDANBgkqhkiG9w0BAQwFADBMMS4wLAYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICaTCCAe+gAwIBAgIQISpWDK7aDKtARb8roi066jAKBggqhkjOPQQDAzBtMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIF3TCCA8WgAwIBAgIIeyyb0xaAMpkwDQYJKoZIhvcNAQELBQAwfDELMAkGA1UEBhMCVVMx…",
-            "-----BEGIN CERTIFICATE-----\nMIIFtzCCA5+gAwIBAgICBQkwDQYJKoZIhvcNAQEFBQAwRTELMAkGA1UEBhMCQk0xGTAXBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIICTjCCAdOgAwIBAgIKPPYHqWhwDtqLhDAKBggqhkjOPQQDAzBrMQswCQYDVQQGEwJJTjET…",
-            "-----BEGIN CERTIFICATE-----\nMIIFYDCCA0igAwIBAgIULvWbAiin23r/1aOp7r0DoM8Sah0wDQYJKoZIhvcNAQELBQAwSDEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFojCCA4qgAwIBAgIUAZQwHqIL3fXFMyqxQ0Rx+NZQTQ0wDQYJKoZIhvcNAQEMBQAwaTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFVjCCAz6gAwIBAgIUQ+NxE9izWRRdt86M/TX9b7wFjUUwDQYJKoZIhvcNAQELBQAwQzEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFYDCCA0igAwIBAgIUeFhfLq0sGUvjNwc1NBMotZbUZZMwDQYJKoZIhvcNAQELBQAwSDEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFVzCCAz+gAwIBAgINAgPlrsWNBCUaqxElqjANBgkqhkiG9w0BAQwFADBHMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsFADA5MQsw…",
-            "-----BEGIN CERTIFICATE-----\nMIIFiTCCA3GgAwIBAgIQb77arXO9CEDii02+1PdbkTANBgkqhkiG9w0BAQsFADBOMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFYDCCA0igAwIBAgIURFc0JFuBiZs18s64KztbpybwdSgwDQYJKoZIhvcNAQELBQAwSDEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUxKzApBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIICYDCCAgegAwIBAgIMDWpfCD8oXD5Rld9dMAoGCCqGSM49BAMCMIGRMQswCQYDVQQGEwJV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFazCCA1OgAwIBAgIRAIIQz7DSQONZRGPgu2OCiwAwDQYJKoZIhvcNAQELBQAwTzELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIF2jCCA8KgAwIBAgIMBfcOhtpJ80Y1LrqyMA0GCSqGSIb3DQEBCwUAMIGIMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFWTCCA0GgAwIBAgIBAjANBgkqhkiG9w0BAQsFADBOMQswCQYDVQQGEwJOTzEdMBsGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIH0zCCBbugAwIBAgIIXsO3pkN/pOAwDQYJKoZIhvcNAQEFBQAwQjESMBAGA1UEAwwJQUND…",
-            "-----BEGIN CERTIFICATE-----\nMIIFRjCCAy6gAwIBAgIQXd+x2lqj7V2+WmUgZQOQ7zANBgkqhkiG9w0BAQsFADA9MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIGCzCCA/OgAwIBAgIBADANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UEBhMCR1IxDzANBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIDcjCCAlqgAwIBAgIUPopdB+xV0jLVt+O2XwHrLdzk1uQwDQYJKoZIhvcNAQELBQAwUTEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIB3DCCAYOgAwIBAgINAgPlfvU/k/2lCSGypjAKBggqhkjOPQQDAjBQMSQwIgYDVQQLExtH…",
-            "-----BEGIN CERTIFICATE-----\nMIICFTCCAZugAwIBAgIQPZg7pmY9kGP3fiZXOATvADAKBggqhkjOPQQDAzBMMS4wLAYDVQQD…",
-            "-----BEGIN CERTIFICATE-----\nMIIB9zCCAX2gAwIBAgIQBiUzsUcDMydc+Y2aub/M+DAKBggqhkjOPQQDAzA9MQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIF0jCCA7qgAwIBAgIQIdbQSk8lD8kyN/yqXhKN6TANBgkqhkiG9w0BAQ0FADCBgDELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIICKzCCAbGgAwIBAgIKe3G2gla4EnycqDAKBggqhkjOPQQDAzBaMQswCQYDVQQGEwJVUzET…",
-            "-----BEGIN CERTIFICATE-----\nMIIB/jCCAYWgAwIBAgIIdJclisc/elQwCgYIKoZIzj0EAwMwRTELMAkGA1UEBhMCVVMxFDAS…",
-            "-----BEGIN CERTIFICATE-----\nMIICVTCCAdygAwIBAgIUTyNkuI6XY57GU4HBdk7LKnQV1tcwCgYIKoZIzj0EAwMwWjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFvTCCA6WgAwIBAgIITxvUL1S7L0swDQYJKoZIhvcNAQEFBQAwRzELMAkGA1UEBhMCQ0gx…",
-            "-----BEGIN CERTIFICATE-----\nMIICQDCCAeWgAwIBAgIMAVRI7yH9l1kN9QQKMAoGCCqGSM49BAMCMHExCzAJBgNVBAYTAkhV…",
-            "-----BEGIN CERTIFICATE-----\nMIICejCCAgCgAwIBAgIQMZch7a+JQn81QYehZ1ZMbTAKBggqhkjOPQQDAzBuMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDbTCCAlWgAwIBAgIBATANBgkqhkiG9w0BAQUFADBYMQswCQYDVQQGEwJKUDErMCkGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIDezCCAmOgAwIBAgIBATANBgkqhkiG9w0BAQUFADBfMQswCQYDVQQGEwJUVzESMBAGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIFiDCCA3CgAwIBAgIIfQmX/vBH6nowDQYJKoZIhvcNAQELBQAwYjELMAkGA1UEBhMCQ04x…",
-            "-----BEGIN CERTIFICATE-----\nMIIFsDCCA5igAwIBAgIQFci9ZUdcr7iXAF7kBtK8nTANBgkqhkiG9w0BAQUFADBeMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICOjCCAcCgAwIBAgIQFAP1q/s3ixdAW+JDsqXRxDAKBggqhkjOPQQDAzBOMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIEADCCAuigAwIBAgIBADANBgkqhkiG9w0BAQUFADBjMQswCQYDVQQGEwJVUzEhMB8GA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIFqDCCA5CgAwIBAgIQHtOXCV/YtLNHcB6qvn9FszANBgkqhkiG9w0BAQwFADBlMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIICOjCCAcGgAwIBAgIQQvLM2htpN0RfFf51KBC49DAKBggqhkjOPQQDAzBfMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDjjCCAnagAwIBAgIQAzrx5qcRqaC7KGSxHQn65TANBgkqhkiG9w0BAQsFADBhMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDXzCCAkegAwIBAgILBAAAAAABIVhTCKIwDQYJKoZIhvcNAQELBQAwTDEgMB4GA1UECxMX…",
-            "-----BEGIN CERTIFICATE-----\nMIICCzCCAZGgAwIBAgISEdK7ujNu1LzmJGjFDYQdmOhDMAoGCCqGSM49BAMDMEYxCzAJBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIEMDCCAxigAwIBAgIQUJRs7Bjq1ZxN1ZfvdY+grTANBgkqhkiG9w0BAQUFADCBgjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFWjCCA0KgAwIBAgIQT9Irj/VkyDOeTzRYZiNwYDANBgkqhkiG9w0BAQsFADBHMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIGWzCCBEOgAwIBAgIRAMrpG4nxVQMNo+ZBbcTjpuEwDQYJKoZIhvcNAQELBQAwWjELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIEMjCCAxqgAwIBAgIBATANBgkqhkiG9w0BAQUFADB7MQswCQYDVQQGEwJHQjEbMBkGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIFVzCCAz+gAwIBAgINAgPlk28xsBNJiGuiFzANBgkqhkiG9w0BAQwFADBHMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFpDCCA4ygAwIBAgIQOcqTHO9D88aOk8f0ZIk4fjANBgkqhkiG9w0BAQsFADBsMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIGSzCCBDOgAwIBAgIRANm1Q3+vqTkPAAAAAFVlrVgwDQYJKoZIhvcNAQELBQAwgb4xCzAJ…",
-            "-----BEGIN CERTIFICATE-----\nMIIFODCCAyCgAwIBAgIRAJW+FqD3LkbxezmCcvqLzZYwDQYJKoZIhvcNAQEFBQAwNzEUMBIG…",
-            "-----BEGIN CERTIFICATE-----\nMIIFpTCCA42gAwIBAgIUZPYOZXdhaqs7tOqFhLuxibhxkw8wDQYJKoZIhvcNAQEMBQAwWjEL…",
-            "-----BEGIN CERTIFICATE-----\nMIIFaTCCA1GgAwIBAgIJAJK4iNuwisFjMA0GCSqGSIb3DQEBCwUAMFIxCzAJBgNVBAYTAlNL…",
-            "-----BEGIN CERTIFICATE-----\nMIIB8jCCAXigAwIBAgITBmyf18G7EEwpQ+Vxe3ssyBrBDjAKBggqhkjOPQQDAzA5MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDqDCCApCgAwIBAgIJAP7c4wEPyUj/MA0GCSqGSIb3DQEBBQUAMDQxCzAJBgNVBAYTAkZS…",
-            "-----BEGIN CERTIFICATE-----\nMIIC2zCCAmCgAwIBAgIQfMmPK4TX3+oPyWWa00tNljAKBggqhkjOPQQDAzBIMQswCQYDVQQG…",
-            "-----BEGIN CERTIFICATE-----\nMIICODCCAb6gAwIBAgIJANZdm7N4gS7rMAoGCCqGSM49BAMDMGExCzAJBgNVBAYTAkpQMSUw…",
-            "-----BEGIN CERTIFICATE-----\nMIICIzCCAamgAwIBAgIUFhXHw9hJp75pDIqI7fBw+d23PocwCgYIKoZIzj0EAwMwUTELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIF3jCCA8agAwIBAgIQAf1tMPyjylGoG7xkDjUDLTANBgkqhkiG9w0BAQwFADCBiDELMAkG…",
-            "-----BEGIN CERTIFICATE-----\nMIIDODCCAiCgAwIBAgIGIAYFFnACMA0GCSqGSIb3DQEBBQUAMDsxCzAJBgNVBAYTAlJPMREw…",
-            "-----BEGIN CERTIFICATE-----\nMIIFgzCCA2ugAwIBAgIPXZONMGc2yAYdGsdUhGkHMA0GCSqGSIb3DQEBCwUAMDsxCzAJBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIDdTCCAl2gAwIBAgILBAAAAAABFUtaw5QwDQYJKoZIhvcNAQEFBQAwVzELMAkGA1UEBhMC…",
-            "-----BEGIN CERTIFICATE-----\nMIIFWTCCA0GgAwIBAgIBAjANBgkqhkiG9w0BAQsFADBOMQswCQYDVQQGEwJOTzEdMBsGA1UE…",
-            "-----BEGIN CERTIFICATE-----\nMIIEQzCCAyugAwIBAgIDCYP0MA0GCSqGSIb3DQEBCwUAMFAxCzAJBgNVBAYTAkRFMRUwEwYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFszCCA5ugAwIBAgIQIZxULej27HF3+k7ow3BXlzANBgkqhkiG9w0BAQwFADBjMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFajCCA1KgAwIBAgIQLd2szmKXlKFD6LDNdmpeYDANBgkqhkiG9w0BAQsFADBPMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDuDCCAqCgAwIBAgIQDPCOXAgWpa1Cf/DrJxhZ0DANBgkqhkiG9w0BAQUFADBIMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIDdzCCAl+gAwIBAgIIXDPLYixfszIwDQYJKoZIhvcNAQELBQAwPDEeMBwGA1UEAwwVQXRv…",
-            "-----BEGIN CERTIFICATE-----\nMIIFdDCCA1ygAwIBAgIQVW9l47TZkGobCdFsPsBsIDANBgkqhkiG9w0BAQsFADBUMQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIF7zCCA9egAwIBAgIIDdPjvGz5a7EwDQYJKoZIhvcNAQELBQAwgYQxEjAQBgNVBAUTCUc2…",
-            "-----BEGIN CERTIFICATE-----\nMIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUxKzApBgNV…",
-            "-----BEGIN CERTIFICATE-----\nMIIFwDCCA6igAwIBAgIQHr9ZULjJgDdMBvfrVU+17TANBgkqhkiG9w0BAQ0FADB6MQswCQYD…",
-            "-----BEGIN CERTIFICATE-----\nMIIFbDCCA1SgAwIBAgIUVBa/O345lXGN0aoApYYNK496BU4wDQYJKoZIhvcNAQELBQAwTjEL…"
-        ],
-        DEFAULT_CIPHERS: "AES256-GCM-SHA384:AES128-GCM-SHA256:TLS_CHACHA20_POLY1305_SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE…",
-        DEFAULT_ECDH_CURVE: "auto",
-        DEFAULT_MAX_VERSION: "TLSv1.3",
-        DEFAULT_MIN_VERSION: "TLSv1.2",
-        CLIENT_RENEG_LIMIT: 3,
-        CLIENT_RENEG_WINDOW: 600
-    },
-    getCiphers: [Circular: *12],
-    rootCertificates: [Circular: *13]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/string_decoder.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="sys"></a>
 <details>
-			<summary><code>trace_events</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>sys</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    createTracing: <ref *2> ƒ createTracing(length: 1) {},
-    default: {
-        createTracing: [Circular: *2],
-        getEnabledCategories: <ref *4> ƒ getEnabledCategories(length: 0) {}
-    },
-    getEnabledCategories: [Circular: *4]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/sys.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-Error importing module: No such built-in module: node:trace_events
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754642932099-12508-1/trace_events.mjs:3:29
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/sys.mjs:7:62
 
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="timers"></a>
 <details>
-			<summary><code>tty</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>timers</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ReadStream: <ref *2> ƒ ReadStream(length: 2) {},
-    WriteStream: <ref *3> ƒ WriteStream(length: 1) {},
-    default: {
-        isatty: <ref *5> ƒ isatty(length: 1) {},
-        ReadStream: [Circular: *2],
-        WriteStream: [Circular: *3]
-    },
-    isatty: [Circular: *5]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/timers.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    ReadStream: <ref *2> class ReadStream extends Socket {},
-    WriteStream: <ref *3> class WriteStream extends Socket {},
-    default: {
-        isatty: <ref *5> ƒ isatty(length: 1) {},
-        WriteStream: [Circular: *3],
-        ReadStream: [Circular: *2]
-    },
-    isatty: [Circular: *5]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/timers.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="timers-promises"></a>
 <details>
-			<summary><code>url</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>timers/promises</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    URL: <ref *2> class URL {
-        parse: ƒ parse(length: 1) {},
-        canParse: ƒ canParse(length: 1) {},
-        createObjectURL: ƒ createObjectURL(length: 1) {},
-        revokeObjectURL: ƒ revokeObjectURL(length: 1) {}
-    },
-    URLSearchParams: <ref *7> class URLSearchParams {},
-    Url: <ref *8> ƒ Url(length: 0) {},
-    default: {
-        Url: [Circular: *8],
-        parse: <ref *10> ƒ urlParse(length: 3) {},
-        resolve: <ref *11> ƒ urlResolve(length: 2) {},
-        resolveObject: <ref *12> ƒ urlResolveObject(length: 2) {},
-        format: <ref *13> ƒ urlFormat(length: 2) {},
-        URL: [Circular: *2],
-        URLSearchParams: [Circular: *7],
-        domainToASCII: <ref *14> ƒ domainToASCII(length: 1) {},
-        domainToUnicode: <ref *15> ƒ domainToUnicode(length: 1) {},
-        pathToFileURL: <ref *16> ƒ pathToFileURL(length: 2) {},
-        fileURLToPath: <ref *17> ƒ fileURLToPath(length: 1) {},
-        urlToHttpOptions: <ref *18> ƒ urlToHttpOptions(length: 1) {}
-    },
-    domainToASCII: [Circular: *14],
-    domainToUnicode: [Circular: *15],
-    fileURLToPath: [Circular: *17],
-    format: [Circular: *13],
-    parse: [Circular: *10],
-    pathToFileURL: [Circular: *16],
-    resolve: [Circular: *11],
-    resolveObject: [Circular: *12],
-    urlToHttpOptions: [Circular: *18]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/timers_promises.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    URL: <ref *2> class URL {
-        parse: ƒ parse(length: 1) {},
-        canParse: ƒ canParse(length: 1) {},
-        createObjectURL: ƒ createObjectURL(length: 1) {},
-        revokeObjectURL: ƒ revokeObjectURL(length: 1) {}
-    },
-    URLSearchParams: <ref *7> class URLSearchParams {},
-    Url: <ref *8> class Url {},
-    default: {
-        parse: <ref *10> ƒ parse(length: 3) {},
-        format: <ref *11> ƒ format(length: 2) {},
-        resolve: <ref *12> ƒ resolve(length: 2) {},
-        resolveObject: <ref *13> ƒ resolveObject(length: 2) {},
-        domainToASCII: <ref *14> ƒ domainToASCII(length: 1) {},
-        domainToUnicode: <ref *15> ƒ domainToUnicode(length: 1) {},
-        fileURLToPath: <ref *16> ƒ fileURLToPath(length: 1) {},
-        pathToFileURL: <ref *17> ƒ pathToFileURL(length: 1) {},
-        urlToHttpOptions: <ref *18> ƒ urlToHttpOptions(length: 1) {},
-        Url: [Circular: *8],
-        URL: [Circular: *2],
-        URLSearchParams: [Circular: *7]
-    },
-    domainToASCII: [Circular: *14],
-    domainToUnicode: [Circular: *15],
-    fileURLToPath: [Circular: *16],
-    format: [Circular: *11],
-    parse: [Circular: *10],
-    pathToFileURL: [Circular: *17],
-    resolve: [Circular: *12],
-    resolveObject: [Circular: *13],
-    urlToHttpOptions: [Circular: *18]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/timers_promises.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="tls"></a>
 <details>
-			<summary><code>util</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>tls</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    MIMEParams: <ref *2> class MIMEParams {},
-    MIMEType: <ref *3> class MIMEType {},
-    TextDecoder: <ref *4> class TextDecoder {},
-    TextEncoder: <ref *5> class TextEncoder {},
-    _errnoException: <ref *6> ƒ _errnoException(length: 0) {},
-    _exceptionWithHostPort: <ref *7> ƒ _exceptionWithHostPort(length: 0) {},
-    _extend: <ref *8> ƒ deprecated(length: 0) {},
-    aborted: <ref *9> async ƒ aborted(length: 2) {},
-    callbackify: <ref *10> ƒ callbackify(length: 1) {},
-    debug: <ref *11> ƒ debuglog(length: 2) {},
-    debuglog: [Circular: *11],
-    default: {
-        _errnoException: [Circular: *6],
-        _exceptionWithHostPort: [Circular: *7],
-        _extend: [Circular: *8],
-        callbackify: [Circular: *10],
-        debug: [Circular: *11],
-        debuglog: [Circular: *11],
-        deprecate: <ref *13> ƒ deprecate(length: 4) {},
-        format: <ref *14> ƒ format(length: 0) {},
-        styleText: <ref *15> ƒ styleText(length: 2) {},
-        formatWithOptions: <ref *16> ƒ formatWithOptions(length: 1) {},
-        getCallSite: <ref *17> ƒ deprecated(length: 0) {},
-        getCallSites: <ref *18> ƒ getCallSites(length: 0) {},
-        getSystemErrorMap: <ref *19> ƒ getSystemErrorMap(length: 0) {},
-        getSystemErrorName: <ref *20> ƒ getSystemErrorName(length: 1) {},
-        getSystemErrorMessage: <ref *21> ƒ getSystemErrorMessage(length: 1) {},
-        inherits: <ref *22> ƒ inherits(length: 2) {},
-        inspect: <ref *23> ƒ inspect(length: 2) {
-            custom: Symbol(nodejs.util.inspect.custom),
-            colors: [Object: null prototype] {
-                reset: [
-                    0,
-                    0
-                ],
-                bold: [
-                    1,
-                    22
-                ],
-                dim: [
-                    2,
-                    22
-                ],
-                italic: [
-                    3,
-                    23
-                ],
-                underline: [
-                    4,
-                    24
-                ],
-                blink: [
-                    5,
-                    25
-                ],
-                inverse: [
-                    7,
-                    27
-                ],
-                hidden: [
-                    8,
-                    28
-                ],
-                strikethrough: [
-                    9,
-                    29
-                ],
-                doubleunderline: [
-                    21,
-                    24
-                ],
-                black: [
-                    30,
-                    39
-                ],
-                red: [
-                    31,
-                    39
-                ],
-                green: [
-                    32,
-                    39
-                ],
-                yellow: [
-                    33,
-                    39
-                ],
-                blue: [
-                    34,
-                    39
-                ],
-                magenta: [
-                    35,
-                    39
-                ],
-                cyan: [
-                    36,
-                    39
-                ],
-                white: [
-                    37,
-                    39
-                ],
-                bgBlack: [
-                    40,
-                    49
-                ],
-                bgRed: [
-                    41,
-                    49
-                ],
-                bgGreen: [
-                    42,
-                    49
-                ],
-                bgYellow: [
-                    43,
-                    49
-                ],
-                bgBlue: [
-                    44,
-                    49
-                ],
-                bgMagenta: [
-                    45,
-                    49
-                ],
-                bgCyan: [
-                    46,
-                    49
-                ],
-                bgWhite: [
-                    47,
-                    49
-                ],
-                framed: [
-                    51,
-                    54
-                ],
-                overlined: [
-                    53,
-                    55
-                ],
-                gray: [
-                    90,
-                    39
-                ],
-                redBright: [
-                    91,
-                    39
-                ],
-                greenBright: [
-                    92,
-                    39
-                ],
-                yellowBright: [
-                    93,
-                    39
-                ],
-                blueBright: [
-                    94,
-                    39
-                ],
-                magentaBright: [
-                    95,
-                    39
-                ],
-                cyanBright: [
-                    96,
-                    39
-                ],
-                whiteBright: [
-                    97,
-                    39
-                ],
-                bgGray: [
-                    100,
-                    49
-                ],
-                bgRedBright: [
-                    101,
-                    49
-                ],
-                bgGreenBright: [
-                    102,
-                    49
-                ],
-                bgYellowBright: [
-                    103,
-                    49
-                ],
-                bgBlueBright: [
-                    104,
-                    49
-                ],
-                bgMagentaBright: [
-                    105,
-                    49
-                ],
-                bgCyanBright: [
-                    106,
-                    49
-                ],
-                bgWhiteBright: [
-                    107,
-                    49
-                ]
-            },
-            styles: [Object: null prototype] {
-                special: "cyan",
-                number: "yellow",
-                bigint: "yellow",
-                boolean: "yellow",
-                undefined: "grey",
-                null: "bold",
-                string: "green",
-                symbol: "green",
-                date: "magenta",
-                regexp: "red",
-                module: "underline"
-            }
-        },
-        isArray: <ref *70> ƒ deprecated(length: 0) {},
-        isDeepStrictEqual: <ref *71> ƒ isDeepStrictEqual(length: 2) {},
-        promisify: <ref *72> ƒ promisify(length: 1) {
-            custom: Symbol(nodejs.util.promisify.custom)
-        },
-        stripVTControlCharacters: <ref *73> ƒ stripVTControlCharacters(length: 1) {},
-        toUSVString: <ref *74> ƒ toUSVString(length: 1) {},
-        [get/set] transferableAbortSignal: <ref *75> ƒ transferableAbortSignal(length: 1) {},
-        [get/set] transferableAbortController: <ref *76> ƒ transferableAbortController(length: 0) {},
-        [get/set] aborted: [Circular: *9],
-        types: <ref *77> {
-            isExternal: ƒ isExternal(length: 0) {},
-            isDate: ƒ isDate(length: 0) {},
-            isArgumentsObject: ƒ isArgumentsObject(length: 0) {},
-            isBigIntObject: ƒ isBigIntObject(length: 0) {},
-            isBooleanObject: ƒ isBooleanObject(length: 0) {},
-            isNumberObject: ƒ isNumberObject(length: 0) {},
-            isStringObject: ƒ isStringObject(length: 0) {},
-            isSymbolObject: ƒ isSymbolObject(length: 0) {},
-            isNativeError: ƒ isNativeError(length: 0) {},
-            isRegExp: ƒ isRegExp(length: 0) {},
-            isAsyncFunction: ƒ isAsyncFunction(length: 0) {},
-            isGeneratorFunction: ƒ isGeneratorFunction(length: 0) {},
-            isGeneratorObject: ƒ isGeneratorObject(length: 0) {},
-            isPromise: ƒ isPromise(length: 0) {},
-            isMap: ƒ isMap(length: 0) {},
-            isSet: ƒ isSet(length: 0) {},
-            isMapIterator: ƒ isMapIterator(length: 0) {},
-            isSetIterator: ƒ isSetIterator(length: 0) {},
-            isWeakMap: ƒ isWeakMap(length: 0) {},
-            isWeakSet: ƒ isWeakSet(length: 0) {},
-            isArrayBuffer: ƒ isArrayBuffer(length: 0) {},
-            isDataView: ƒ isDataView(length: 0) {},
-            isSharedArrayBuffer: ƒ isSharedArrayBuffer(length: 0) {},
-            isProxy: ƒ isProxy(length: 0) {},
-            isModuleNamespaceObject: ƒ isModuleNamespaceObject(length: 0) {},
-            isAnyArrayBuffer: ƒ isAnyArrayBuffer(length: 0) {},
-            isBoxedPrimitive: ƒ isBoxedPrimitive(length: 0) {},
-            isArrayBufferView: ƒ isView(length: 1) {},
-            isTypedArray: ƒ isTypedArray(length: 1) {},
-            isUint8Array: ƒ isUint8Array(length: 1) {},
-            isUint8ClampedArray: ƒ isUint8ClampedArray(length: 1) {},
-            isUint16Array: ƒ isUint16Array(length: 1) {},
-            isUint32Array: ƒ isUint32Array(length: 1) {},
-            isInt8Array: ƒ isInt8Array(length: 1) {},
-            isInt16Array: ƒ isInt16Array(length: 1) {},
-            isInt32Array: ƒ isInt32Array(length: 1) {},
-            isFloat32Array: ƒ isFloat32Array(length: 1) {},
-            isFloat64Array: ƒ isFloat64Array(length: 1) {},
-            isBigInt64Array: ƒ isBigInt64Array(length: 1) {},
-            isBigUint64Array: ƒ isBigUint64Array(length: 1) {},
-            isKeyObject: ƒ value(length: 1) {},
-            isCryptoKey: ƒ value(length: 1) {}
-        },
-        parseEnv: <ref *120> ƒ parseEnv(length: 1) {},
-        parseArgs: <ref *121> ƒ parseArgs(length: 0) {},
-        TextDecoder: [Circular: *4],
-        TextEncoder: [Circular: *5],
-        MIMEType: [Circular: *3],
-        MIMEParams: [Circular: *2]
-    },
-    deprecate: [Circular: *13],
-    format: [Circular: *14],
-    formatWithOptions: [Circular: *16],
-    getCallSite: [Circular: *17],
-    getCallSites: [Circular: *18],
-    getSystemErrorMap: [Circular: *19],
-    getSystemErrorMessage: [Circular: *21],
-    getSystemErrorName: [Circular: *20],
-    inherits: [Circular: *22],
-    inspect: [Circular: *23],
-    isArray: [Circular: *70],
-    isDeepStrictEqual: [Circular: *71],
-    parseArgs: [Circular: *121],
-    parseEnv: [Circular: *120],
-    promisify: [Circular: *72],
-    stripVTControlCharacters: [Circular: *73],
-    styleText: [Circular: *15],
-    toUSVString: [Circular: *74],
-    transferableAbortController: [Circular: *76],
-    transferableAbortSignal: [Circular: *75],
-    types: [Circular: *77]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/tls.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    TextDecoder: <ref *2> class TextDecoder {},
-    TextEncoder: <ref *3> class TextEncoder {},
-    _extend: <ref *4> ƒ _extend(length: 2) {},
-    aborted: <ref *5> async ƒ aborted(length: 2) {},
-    callbackify: <ref *6> ƒ callbackify(length: 1) {},
-    debug: <ref *7> ƒ debuglog(length: 2) {},
-    debuglog: [Circular: *7],
-    default: {
-        format: <ref *9> ƒ format(length: 0) {},
-        formatWithOptions: <ref *10> ƒ formatWithOptions(length: 1) {},
-        inspect: <ref *11> ƒ inspect(length: 2) {
-            colors: {
-                reset: [
-                    0,
-                    0
-                ],
-                bold: [
-                    1,
-                    22
-                ],
-                dim: [
-                    2,
-                    22
-                ],
-                italic: [
-                    3,
-                    23
-                ],
-                underline: [
-                    4,
-                    24
-                ],
-                blink: [
-                    5,
-                    25
-                ],
-                inverse: [
-                    7,
-                    27
-                ],
-                hidden: [
-                    8,
-                    28
-                ],
-                strikethrough: [
-                    9,
-                    29
-                ],
-                doubleunderline: [
-                    21,
-                    24
-                ],
-                black: [
-                    30,
-                    39
-                ],
-                red: [
-                    31,
-                    39
-                ],
-                green: [
-                    32,
-                    39
-                ],
-                yellow: [
-                    33,
-                    39
-                ],
-                blue: [
-                    34,
-                    39
-                ],
-                magenta: [
-                    35,
-                    39
-                ],
-                cyan: [
-                    36,
-                    39
-                ],
-                white: [
-                    37,
-                    39
-                ],
-                bgBlack: [
-                    40,
-                    49
-                ],
-                bgRed: [
-                    41,
-                    49
-                ],
-                bgGreen: [
-                    42,
-                    49
-                ],
-                bgYellow: [
-                    43,
-                    49
-                ],
-                bgBlue: [
-                    44,
-                    49
-                ],
-                bgMagenta: [
-                    45,
-                    49
-                ],
-                bgCyan: [
-                    46,
-                    49
-                ],
-                bgWhite: [
-                    47,
-                    49
-                ],
-                framed: [
-                    51,
-                    54
-                ],
-                overlined: [
-                    53,
-                    55
-                ],
-                gray: [
-                    90,
-                    39
-                ],
-                redBright: [
-                    91,
-                    39
-                ],
-                greenBright: [
-                    92,
-                    39
-                ],
-                yellowBright: [
-                    93,
-                    39
-                ],
-                blueBright: [
-                    94,
-                    39
-                ],
-                magentaBright: [
-                    95,
-                    39
-                ],
-                cyanBright: [
-                    96,
-                    39
-                ],
-                whiteBright: [
-                    97,
-                    39
-                ],
-                bgGray: [
-                    100,
-                    49
-                ],
-                bgRedBright: [
-                    101,
-                    49
-                ],
-                bgGreenBright: [
-                    102,
-                    49
-                ],
-                bgYellowBright: [
-                    103,
-                    49
-                ],
-                bgBlueBright: [
-                    104,
-                    49
-                ],
-                bgMagentaBright: [
-                    105,
-                    49
-                ],
-                bgCyanBright: [
-                    106,
-                    49
-                ],
-                bgWhiteBright: [
-                    107,
-                    49
-                ]
-            },
-            styles: [Object: null prototype] {
-                special: "cyan",
-                number: "yellow",
-                bigint: "yellow",
-                boolean: "yellow",
-                undefined: "grey",
-                null: "bold",
-                string: "green",
-                symbol: "green",
-                date: "magenta",
-                regexp: "red",
-                module: "underline"
-            },
-            custom: Symbol(nodejs.util.inspect.custom)
-        },
-        isArray: <ref *58> ƒ isArray(length: 1) {},
-        isBoolean: <ref *59> ƒ isBoolean(length: 1) {},
-        isNull: <ref *60> ƒ isNull(length: 1) {},
-        isNullOrUndefined: <ref *61> ƒ isNullOrUndefined(length: 1) {},
-        isNumber: <ref *62> ƒ isNumber(length: 1) {},
-        isString: <ref *63> ƒ isString(length: 1) {},
-        isSymbol: <ref *64> ƒ isSymbol(length: 1) {},
-        isUndefined: <ref *65> ƒ isUndefined(length: 1) {},
-        isObject: <ref *66> ƒ isObject(length: 1) {},
-        isError: <ref *67> ƒ isError(length: 1) {},
-        isFunction: <ref *68> ƒ isFunction(length: 1) {},
-        isRegExp: <ref *69> ƒ isRegExp(length: 1) {},
-        isDate: <ref *70> ƒ isDate(length: 1) {},
-        isPrimitive: <ref *71> ƒ isPrimitive(length: 1) {},
-        isBuffer: <ref *72> ƒ isBuffer(length: 1) {},
-        _extend: [Circular: *4],
-        getCallSites: <ref *73> ƒ getCallSites(length: 0) {},
-        getSystemErrorName: <ref *74> ƒ getSystemErrorName(length: 1) {},
-        aborted: [Circular: *5],
-        deprecate: <ref *75> ƒ deprecate(length: 3) {},
-        callbackify: [Circular: *6],
-        parseArgs: <ref *76> ƒ parseArgs(length: 0) {},
-        promisify: <ref *77> ƒ promisify(length: 1) {
-            custom: Symbol(nodejs.util.promisify.custom)
-        },
-        inherits: <ref *78> ƒ inherits(length: 2) {},
-        types: <ref *79> {
-            isAnyArrayBuffer: ƒ isAnyArrayBuffer(length: 1) {},
-            isArgumentsObject: ƒ isArgumentsObject(length: 1) {},
-            isArrayBuffer: ƒ isArrayBuffer(length: 1) {},
-            isArrayBufferView: ƒ isArrayBufferView(length: 1) {},
-            isAsyncFunction: ƒ isAsyncFunction(length: 1) {},
-            isBigInt64Array: ƒ isBigInt64Array(length: 1) {},
-            isBigIntObject: ƒ isBigIntObject(length: 1) {},
-            isBigUint64Array: ƒ isBigUint64Array(length: 1) {},
-            isBooleanObject: ƒ isBooleanObject(length: 1) {},
-            isBoxedPrimitive: ƒ isBoxedPrimitive(length: 1) {},
-            isCryptoKey: ƒ isCryptoKey(length: 1) {},
-            isDataView: ƒ isDataView(length: 1) {},
-            isDate: [Circular: *70],
-            isFloat16Array: ƒ isFloat16Array(length: 1) {},
-            isFloat32Array: ƒ isFloat32Array(length: 1) {},
-            isFloat64Array: ƒ isFloat64Array(length: 1) {},
-            isGeneratorFunction: ƒ isGeneratorFunction(length: 1) {},
-            isGeneratorObject: ƒ isGeneratorObject(length: 1) {},
-            isInt16Array: ƒ isInt16Array(length: 1) {},
-            isInt32Array: ƒ isInt32Array(length: 1) {},
-            isInt8Array: ƒ isInt8Array(length: 1) {},
-            isKeyObject: ƒ isKeyObject(length: 1) {},
-            isMap: ƒ isMap(length: 1) {},
-            isMapIterator: ƒ isMapIterator(length: 1) {},
-            isModuleNamespaceObject: ƒ isModuleNamespaceObject(length: 1) {},
-            isNativeError: ƒ isNativeError(length: 1) {},
-            isNumberObject: ƒ isNumberObject(length: 1) {},
-            isPromise: ƒ isPromise(length: 1) {},
-            isProxy: ƒ isProxy(length: 1) {},
-            isRegExp: [Circular: *69],
-            isSet: ƒ isSet(length: 1) {},
-            isSetIterator: ƒ isSetIterator(length: 1) {},
-            isSharedArrayBuffer: ƒ isSharedArrayBuffer(length: 1) {},
-            isStringObject: ƒ isStringObject(length: 1) {},
-            isSymbolObject: ƒ isSymbolObject(length: 1) {},
-            isTypedArray: ƒ isTypedArray(length: 1) {},
-            isUint16Array: ƒ isUint16Array(length: 1) {},
-            isUint32Array: ƒ isUint32Array(length: 1) {},
-            isUint8Array: ƒ isUint8Array(length: 1) {},
-            isUint8ClampedArray: ƒ isUint8ClampedArray(length: 1) {},
-            isWeakMap: ƒ isWeakMap(length: 1) {},
-            isWeakSet: ƒ isWeakSet(length: 1) {}
-        },
-        stripVTControlCharacters: <ref *120> ƒ stripVTControlCharacters(length: 1) {},
-        TextDecoder: [Circular: *2],
-        TextEncoder: [Circular: *3],
-        toUSVString: <ref *121> ƒ toUSVString(length: 1) {},
-        log: <ref *122> ƒ log(length: 0) {},
-        debuglog: [Circular: *7],
-        debug: [Circular: *7],
-        isDeepStrictEqual: <ref *123> ƒ isDeepStrictEqual(length: 2) {},
-        styleText: <ref *124> ƒ styleText(length: 2) {}
-    },
-    deprecate: [Circular: *75],
-    format: [Circular: *9],
-    formatWithOptions: [Circular: *10],
-    getCallSites: [Circular: *73],
-    getSystemErrorName: [Circular: *74],
-    inherits: [Circular: *78],
-    inspect: [Circular: *11],
-    isArray: [Circular: *58],
-    isBoolean: [Circular: *59],
-    isBuffer: [Circular: *72],
-    isDate: [Circular: *70],
-    isDeepStrictEqual: [Circular: *123],
-    isError: [Circular: *67],
-    isFunction: [Circular: *68],
-    isNull: [Circular: *60],
-    isNullOrUndefined: [Circular: *61],
-    isNumber: [Circular: *62],
-    isObject: [Circular: *66],
-    isPrimitive: [Circular: *71],
-    isRegExp: [Circular: *69],
-    isString: [Circular: *63],
-    isSymbol: [Circular: *64],
-    isUndefined: [Circular: *65],
-    log: [Circular: *122],
-    parseArgs: [Circular: *76],
-    promisify: [Circular: *77],
-    stripVTControlCharacters: [Circular: *120],
-    styleText: [Circular: *124],
-    toUSVString: [Circular: *121],
-    types: [Circular: *79]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/tls.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="trace_events"></a>
 <details>
-			<summary><code>util/types</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>trace_events</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    default: {
-        isExternal: <ref *3> ƒ isExternal(length: 0) {},
-        isDate: <ref *4> ƒ isDate(length: 0) {},
-        isArgumentsObject: <ref *5> ƒ isArgumentsObject(length: 0) {},
-        isBigIntObject: <ref *6> ƒ isBigIntObject(length: 0) {},
-        isBooleanObject: <ref *7> ƒ isBooleanObject(length: 0) {},
-        isNumberObject: <ref *8> ƒ isNumberObject(length: 0) {},
-        isStringObject: <ref *9> ƒ isStringObject(length: 0) {},
-        isSymbolObject: <ref *10> ƒ isSymbolObject(length: 0) {},
-        isNativeError: <ref *11> ƒ isNativeError(length: 0) {},
-        isRegExp: <ref *12> ƒ isRegExp(length: 0) {},
-        isAsyncFunction: <ref *13> ƒ isAsyncFunction(length: 0) {},
-        isGeneratorFunction: <ref *14> ƒ isGeneratorFunction(length: 0) {},
-        isGeneratorObject: <ref *15> ƒ isGeneratorObject(length: 0) {},
-        isPromise: <ref *16> ƒ isPromise(length: 0) {},
-        isMap: <ref *17> ƒ isMap(length: 0) {},
-        isSet: <ref *18> ƒ isSet(length: 0) {},
-        isMapIterator: <ref *19> ƒ isMapIterator(length: 0) {},
-        isSetIterator: <ref *20> ƒ isSetIterator(length: 0) {},
-        isWeakMap: <ref *21> ƒ isWeakMap(length: 0) {},
-        isWeakSet: <ref *22> ƒ isWeakSet(length: 0) {},
-        isArrayBuffer: <ref *23> ƒ isArrayBuffer(length: 0) {},
-        isDataView: <ref *24> ƒ isDataView(length: 0) {},
-        isSharedArrayBuffer: <ref *25> ƒ isSharedArrayBuffer(length: 0) {},
-        isProxy: <ref *26> ƒ isProxy(length: 0) {},
-        isModuleNamespaceObject: <ref *27> ƒ isModuleNamespaceObject(length: 0) {},
-        isAnyArrayBuffer: <ref *28> ƒ isAnyArrayBuffer(length: 0) {},
-        isBoxedPrimitive: <ref *29> ƒ isBoxedPrimitive(length: 0) {},
-        isArrayBufferView: <ref *30> ƒ isView(length: 1) {},
-        isTypedArray: <ref *31> ƒ isTypedArray(length: 1) {},
-        isUint8Array: <ref *32> ƒ isUint8Array(length: 1) {},
-        isUint8ClampedArray: <ref *33> ƒ isUint8ClampedArray(length: 1) {},
-        isUint16Array: <ref *34> ƒ isUint16Array(length: 1) {},
-        isUint32Array: <ref *35> ƒ isUint32Array(length: 1) {},
-        isInt8Array: <ref *36> ƒ isInt8Array(length: 1) {},
-        isInt16Array: <ref *37> ƒ isInt16Array(length: 1) {},
-        isInt32Array: <ref *38> ƒ isInt32Array(length: 1) {},
-        isFloat32Array: <ref *39> ƒ isFloat32Array(length: 1) {},
-        isFloat64Array: <ref *40> ƒ isFloat64Array(length: 1) {},
-        isBigInt64Array: <ref *41> ƒ isBigInt64Array(length: 1) {},
-        isBigUint64Array: <ref *42> ƒ isBigUint64Array(length: 1) {},
-        isKeyObject: <ref *43> ƒ value(length: 1) {},
-        isCryptoKey: <ref *44> ƒ value(length: 1) {}
-    },
-    isAnyArrayBuffer: [Circular: *28],
-    isArgumentsObject: [Circular: *5],
-    isArrayBuffer: [Circular: *23],
-    isArrayBufferView: [Circular: *30],
-    isAsyncFunction: [Circular: *13],
-    isBigInt64Array: [Circular: *41],
-    isBigIntObject: [Circular: *6],
-    isBigUint64Array: [Circular: *42],
-    isBooleanObject: [Circular: *7],
-    isBoxedPrimitive: [Circular: *29],
-    isCryptoKey: [Circular: *44],
-    isDataView: [Circular: *24],
-    isDate: [Circular: *4],
-    isExternal: [Circular: *3],
-    isFloat32Array: [Circular: *39],
-    isFloat64Array: [Circular: *40],
-    isGeneratorFunction: [Circular: *14],
-    isGeneratorObject: [Circular: *15],
-    isInt16Array: [Circular: *37],
-    isInt32Array: [Circular: *38],
-    isInt8Array: [Circular: *36],
-    isKeyObject: [Circular: *43],
-    isMap: [Circular: *17],
-    isMapIterator: [Circular: *19],
-    isModuleNamespaceObject: [Circular: *27],
-    isNativeError: [Circular: *11],
-    isNumberObject: [Circular: *8],
-    isPromise: [Circular: *16],
-    isProxy: [Circular: *26],
-    isRegExp: [Circular: *12],
-    isSet: [Circular: *18],
-    isSetIterator: [Circular: *20],
-    isSharedArrayBuffer: [Circular: *25],
-    isStringObject: [Circular: *9],
-    isSymbolObject: [Circular: *10],
-    isTypedArray: [Circular: *31],
-    isUint16Array: [Circular: *34],
-    isUint32Array: [Circular: *35],
-    isUint8Array: [Circular: *32],
-    isUint8ClampedArray: [Circular: *33],
-    isWeakMap: [Circular: *21],
-    isWeakSet: [Circular: *22]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/trace_events.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    default: {
-        isAnyArrayBuffer: <ref *3> ƒ isAnyArrayBuffer(length: 1) {},
-        isArgumentsObject: <ref *4> ƒ isArgumentsObject(length: 1) {},
-        isArrayBuffer: <ref *5> ƒ isArrayBuffer(length: 1) {},
-        isArrayBufferView: <ref *6> ƒ isArrayBufferView(length: 1) {},
-        isAsyncFunction: <ref *7> ƒ isAsyncFunction(length: 1) {},
-        isBigInt64Array: <ref *8> ƒ isBigInt64Array(length: 1) {},
-        isBigIntObject: <ref *9> ƒ isBigIntObject(length: 1) {},
-        isBigUint64Array: <ref *10> ƒ isBigUint64Array(length: 1) {},
-        isBooleanObject: <ref *11> ƒ isBooleanObject(length: 1) {},
-        isBoxedPrimitive: <ref *12> ƒ isBoxedPrimitive(length: 1) {},
-        isCryptoKey: <ref *13> ƒ isCryptoKey(length: 1) {},
-        isDataView: <ref *14> ƒ isDataView(length: 1) {},
-        isDate: <ref *15> ƒ isDate(length: 1) {},
-        isFloat16Array: <ref *16> ƒ isFloat16Array(length: 1) {},
-        isFloat32Array: <ref *17> ƒ isFloat32Array(length: 1) {},
-        isFloat64Array: <ref *18> ƒ isFloat64Array(length: 1) {},
-        isGeneratorFunction: <ref *19> ƒ isGeneratorFunction(length: 1) {},
-        isGeneratorObject: <ref *20> ƒ isGeneratorObject(length: 1) {},
-        isInt16Array: <ref *21> ƒ isInt16Array(length: 1) {},
-        isInt32Array: <ref *22> ƒ isInt32Array(length: 1) {},
-        isInt8Array: <ref *23> ƒ isInt8Array(length: 1) {},
-        isKeyObject: <ref *24> ƒ isKeyObject(length: 1) {},
-        isMap: <ref *25> ƒ isMap(length: 1) {},
-        isMapIterator: <ref *26> ƒ isMapIterator(length: 1) {},
-        isModuleNamespaceObject: <ref *27> ƒ isModuleNamespaceObject(length: 1) {},
-        isNativeError: <ref *28> ƒ isNativeError(length: 1) {},
-        isNumberObject: <ref *29> ƒ isNumberObject(length: 1) {},
-        isPromise: <ref *30> ƒ isPromise(length: 1) {},
-        isProxy: <ref *31> ƒ isProxy(length: 1) {},
-        isRegExp: <ref *32> ƒ isRegExp(length: 1) {},
-        isSet: <ref *33> ƒ isSet(length: 1) {},
-        isSetIterator: <ref *34> ƒ isSetIterator(length: 1) {},
-        isSharedArrayBuffer: <ref *35> ƒ isSharedArrayBuffer(length: 1) {},
-        isStringObject: <ref *36> ƒ isStringObject(length: 1) {},
-        isSymbolObject: <ref *37> ƒ isSymbolObject(length: 1) {},
-        isTypedArray: <ref *38> ƒ isTypedArray(length: 1) {},
-        isUint16Array: <ref *39> ƒ isUint16Array(length: 1) {},
-        isUint32Array: <ref *40> ƒ isUint32Array(length: 1) {},
-        isUint8Array: <ref *41> ƒ isUint8Array(length: 1) {},
-        isUint8ClampedArray: <ref *42> ƒ isUint8ClampedArray(length: 1) {},
-        isWeakMap: <ref *43> ƒ isWeakMap(length: 1) {},
-        isWeakSet: <ref *44> ƒ isWeakSet(length: 1) {}
-    },
-    isAnyArrayBuffer: [Circular: *3],
-    isArgumentsObject: [Circular: *4],
-    isArrayBuffer: [Circular: *5],
-    isArrayBufferView: [Circular: *6],
-    isAsyncFunction: [Circular: *7],
-    isBigInt64Array: [Circular: *8],
-    isBigIntObject: [Circular: *9],
-    isBigUint64Array: [Circular: *10],
-    isBooleanObject: [Circular: *11],
-    isBoxedPrimitive: [Circular: *12],
-    isCryptoKey: [Circular: *13],
-    isDataView: [Circular: *14],
-    isDate: [Circular: *15],
-    isFloat16Array: [Circular: *16],
-    isFloat32Array: [Circular: *17],
-    isFloat64Array: [Circular: *18],
-    isGeneratorFunction: [Circular: *19],
-    isGeneratorObject: [Circular: *20],
-    isInt16Array: [Circular: *21],
-    isInt32Array: [Circular: *22],
-    isInt8Array: [Circular: *23],
-    isKeyObject: [Circular: *24],
-    isMap: [Circular: *25],
-    isMapIterator: [Circular: *26],
-    isModuleNamespaceObject: [Circular: *27],
-    isNativeError: [Circular: *28],
-    isNumberObject: [Circular: *29],
-    isPromise: [Circular: *30],
-    isProxy: [Circular: *31],
-    isRegExp: [Circular: *32],
-    isSet: [Circular: *33],
-    isSetIterator: [Circular: *34],
-    isSharedArrayBuffer: [Circular: *35],
-    isStringObject: [Circular: *36],
-    isSymbolObject: [Circular: *37],
-    isTypedArray: [Circular: *38],
-    isUint16Array: [Circular: *39],
-    isUint32Array: [Circular: *40],
-    isUint8Array: [Circular: *41],
-    isUint8ClampedArray: [Circular: *42],
-    isWeakMap: [Circular: *43],
-    isWeakSet: [Circular: *44]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/trace_events.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="tty"></a>
 <details>
-			<summary><code>v8</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>tty</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    DefaultDeserializer: <ref *2> class DefaultDeserializer extends Deserializer {},
-    DefaultSerializer: <ref *3> class DefaultSerializer extends Serializer {},
-    Deserializer: <ref *4> ƒ Deserializer(length: 1) {},
-    GCProfiler: <ref *5> class GCProfiler {},
-    Serializer: <ref *6> ƒ Serializer(length: 0) {},
-    cachedDataVersionTag: <ref *7> ƒ cachedDataVersionTag(length: 0) {},
-    default: {
-        cachedDataVersionTag: [Circular: *7],
-        getHeapSnapshot: <ref *9> ƒ getHeapSnapshot(length: 1) {},
-        getHeapStatistics: <ref *10> ƒ getHeapStatistics(length: 0) {},
-        getHeapSpaceStatistics: <ref *11> ƒ getHeapSpaceStatistics(length: 0) {},
-        getHeapCodeStatistics: <ref *12> ƒ getHeapCodeStatistics(length: 0) {},
-        setFlagsFromString: <ref *13> ƒ setFlagsFromString(length: 1) {},
-        Serializer: [Circular: *6],
-        Deserializer: [Circular: *4],
-        DefaultSerializer: [Circular: *3],
-        DefaultDeserializer: [Circular: *2],
-        deserialize: <ref *14> ƒ deserialize(length: 1) {},
-        takeCoverage: <ref *15> ƒ takeCoverage(length: 0) {},
-        stopCoverage: <ref *16> ƒ stopCoverage(length: 0) {},
-        serialize: <ref *17> ƒ serialize(length: 1) {},
-        writeHeapSnapshot: <ref *18> ƒ writeHeapSnapshot(length: 2) {},
-        promiseHooks: <ref *19> {
-            createHook: ƒ createHook(length: 0) {},
-            onInit: ƒ (length: 1) {},
-            onBefore: ƒ (length: 1) {},
-            onAfter: ƒ (length: 1) {},
-            onSettled: ƒ (length: 1) {}
-        },
-        queryObjects: <ref *25> ƒ queryObjects(length: 1) {},
-        startupSnapshot: <ref *26> {
-            addDeserializeCallback: ƒ addDeserializeCallback(length: 2) {},
-            addSerializeCallback: ƒ addSerializeCallback(length: 2) {},
-            setDeserializeMainFunction: ƒ setDeserializeMainFunction(length: 2) {},
-            isBuildingSnapshot: ƒ isBuildingSnapshot(length: 0) {}
-        },
-        setHeapSnapshotNearHeapLimit: <ref *31> ƒ setHeapSnapshotNearHeapLimit(length: 1) {},
-        GCProfiler: [Circular: *5]
-    },
-    deserialize: [Circular: *14],
-    getHeapCodeStatistics: [Circular: *12],
-    getHeapSnapshot: [Circular: *9],
-    getHeapSpaceStatistics: [Circular: *11],
-    getHeapStatistics: [Circular: *10],
-    promiseHooks: [Circular: *19],
-    queryObjects: [Circular: *25],
-    serialize: [Circular: *17],
-    setFlagsFromString: [Circular: *13],
-    setHeapSnapshotNearHeapLimit: [Circular: *31],
-    startupSnapshot: [Circular: *26],
-    stopCoverage: [Circular: *16],
-    takeCoverage: [Circular: *15],
-    writeHeapSnapshot: [Circular: *18]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/tty.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    DefaultDeserializer: <ref *2> class DefaultDeserializer extends Deserializer {},
-    DefaultSerializer: <ref *3> class DefaultSerializer extends Serializer {},
-    Deserializer: <ref *4> class Deserializer {},
-    Serializer: <ref *5> class Serializer {},
-    cachedDataVersionTag: <ref *6> ƒ cachedDataVersionTag(length: 0) {},
-    default: {
-        cachedDataVersionTag: [Circular: *6],
-        getHeapCodeStatistics: <ref *8> ƒ getHeapCodeStatistics(length: 0) {},
-        getHeapSnapshot: <ref *9> ƒ getHeapSnapshot(length: 0) {},
-        getHeapSpaceStatistics: <ref *10> ƒ getHeapSpaceStatistics(length: 0) {},
-        getHeapStatistics: <ref *11> ƒ getHeapStatistics(length: 0) {},
-        setFlagsFromString: <ref *12> ƒ setFlagsFromString(length: 0) {},
-        stopCoverage: <ref *13> ƒ stopCoverage(length: 0) {},
-        takeCoverage: <ref *14> ƒ takeCoverage(length: 0) {},
-        writeHeapSnapshot: <ref *15> ƒ writeHeapSnapshot(length: 0) {},
-        serialize: <ref *16> ƒ serialize(length: 1) {},
-        deserialize: <ref *17> ƒ deserialize(length: 1) {},
-        Serializer: [Circular: *5],
-        Deserializer: [Circular: *4],
-        DefaultSerializer: [Circular: *3],
-        DefaultDeserializer: [Circular: *2]
-    },
-    deserialize: [Circular: *17],
-    getHeapCodeStatistics: [Circular: *8],
-    getHeapSnapshot: [Circular: *9],
-    getHeapSpaceStatistics: [Circular: *10],
-    getHeapStatistics: [Circular: *11],
-    serialize: [Circular: *16],
-    setFlagsFromString: [Circular: *12],
-    stopCoverage: [Circular: *13],
-    takeCoverage: [Circular: *14],
-    writeHeapSnapshot: [Circular: *15]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/tty.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="url"></a>
 <details>
-			<summary><code>vm</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>url</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Script: <ref *2> class Script extends ContextifyScript {},
-    compileFunction: <ref *3> ƒ compileFunction(length: 2) {},
-    constants: <ref *4> [Object: null prototype] {
-        USE_MAIN_CONTEXT_DEFAULT_LOADER: Symbol(vm_dynamic_import_main_context_default),
-        DONT_CONTEXTIFY: Symbol(vm_context_no_contextify)
-    },
-    createContext: <ref *5> ƒ createContext(length: 0) {},
-    createScript: <ref *6> ƒ createScript(length: 2) {},
-    default: {
-        Script: [Circular: *2],
-        createContext: [Circular: *5],
-        createScript: [Circular: *6],
-        runInContext: <ref *8> ƒ runInContext(length: 3) {},
-        runInNewContext: <ref *9> ƒ runInNewContext(length: 3) {},
-        runInThisContext: <ref *10> ƒ runInThisContext(length: 2) {},
-        isContext: <ref *11> ƒ isContext(length: 1) {},
-        compileFunction: [Circular: *3],
-        measureMemory: <ref *12> ƒ measureMemory(length: 0) {},
-        constants: [Circular: *4]
-    },
-    isContext: [Circular: *11],
-    measureMemory: [Circular: *12],
-    runInContext: [Circular: *8],
-    runInNewContext: [Circular: *9],
-    runInThisContext: [Circular: *10]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/url.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    Script: <ref *2> class Script {},
-    compileFunction: <ref *3> ƒ compileFunction(length: 2) {},
-    constants: <ref *4> [Object: null prototype] {
-        USE_MAIN_CONTEXT_DEFAULT_LOADER: Symbol(USE_MAIN_CONTEXT_DEFAULT_LOADER),
-        DONT_CONTEXTIFY: Symbol(DONT_CONTEXTIFY)
-    },
-    createContext: <ref *5> ƒ createContext(length: 0) {},
-    createScript: <ref *6> ƒ createScript(length: 2) {},
-    default: {
-        Script: [Circular: *2],
-        constants: [Circular: *4],
-        createContext: [Circular: *5],
-        createScript: [Circular: *6],
-        runInContext: <ref *8> ƒ runInContext(length: 3) {},
-        runInNewContext: <ref *9> ƒ runInNewContext(length: 3) {},
-        runInThisContext: <ref *10> ƒ runInThisContext(length: 2) {},
-        isContext: <ref *11> ƒ isContext(length: 1) {},
-        compileFunction: [Circular: *3],
-        measureMemory: <ref *12> ƒ measureMemory(length: 1) {}
-    },
-    isContext: [Circular: *11],
-    measureMemory: [Circular: *12],
-    runInContext: [Circular: *8],
-    runInNewContext: [Circular: *9],
-    runInThisContext: [Circular: *10]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/url.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="util"></a>
 <details>
-			<summary><code>wasi</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>util</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-(node:12360) ExperimentalWarning: WASI is an experimental feature and might change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-[Object: null prototype] {
-    WASI: <ref *2> class WASI {},
-    default: {
-        WASI: [Circular: *2]
-    }
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/util.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    WASI: <ref *2> class Context {},
-    default: {
-        WASI: [Circular: *2]
-    }
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/util.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="util-types"></a>
 <details>
-			<summary><code>worker_threads</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>util/types</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    BroadcastChannel: <ref *2> class BroadcastChannel extends EventTarget {},
-    MessageChannel: <ref *3> ƒ MessageChannel(length: 0) {},
-    MessagePort: <ref *4> ƒ MessagePort(length: 0) {},
-    SHARE_ENV: Symbol(nodejs.worker_threads.SHARE_ENV),
-    Worker: <ref *5> class Worker extends EventEmitter {},
-    default: {
-        isMainThread: true,
-        MessagePort: [Circular: *4],
-        MessageChannel: [Circular: *3],
-        markAsUncloneable: <ref *7> ƒ markAsUncloneable(length: 1) {},
-        markAsUntransferable: <ref *8> ƒ markAsUntransferable(length: 1) {},
-        isMarkedAsUntransferable: <ref *9> ƒ isMarkedAsUntransferable(length: 1) {},
-        moveMessagePortToContext: <ref *10> ƒ moveMessagePortToContext(length: 0) {},
-        receiveMessageOnPort: <ref *11> ƒ receiveMessageOnPort(length: 1) {},
-        resourceLimits: <ref *12> {},
-        postMessageToThread: <ref *13> async ƒ postMessageToThread(length: 4) {},
-        threadId: 0,
-        SHARE_ENV: Symbol(nodejs.worker_threads.SHARE_ENV),
-        Worker: [Circular: *5],
-        parentPort: null,
-        workerData: null,
-        BroadcastChannel: [Circular: *2],
-        setEnvironmentData: <ref *14> ƒ setEnvironmentData(length: 2) {},
-        getEnvironmentData: <ref *15> ƒ getEnvironmentData(length: 1) {}
-    },
-    getEnvironmentData: [Circular: *15],
-    isMainThread: true,
-    isMarkedAsUntransferable: [Circular: *9],
-    markAsUncloneable: [Circular: *7],
-    markAsUntransferable: [Circular: *8],
-    moveMessagePortToContext: [Circular: *10],
-    parentPort: null,
-    postMessageToThread: [Circular: *13],
-    receiveMessageOnPort: [Circular: *11],
-    resourceLimits: [Circular: *12],
-    setEnvironmentData: [Circular: *14],
-    threadId: 0,
-    workerData: null
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/util_types.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    BroadcastChannel: <ref *2> class BroadcastChannel extends EventTarget {},
-    MessageChannel: <ref *3> class NodeMessageChannel {},
-    MessagePort: <ref *4> class MessagePort extends EventTarget {},
-    SHARE_ENV: Symbol(nodejs.worker_threads.SHARE_ENV),
-    Worker: <ref *5> class NodeWorker extends EventEmitter {},
-    default: {
-        markAsUntransferable: <ref *7> ƒ markAsUntransferable(length: 0) {},
-        moveMessagePortToContext: <ref *8> ƒ moveMessagePortToContext(length: 0) {},
-        receiveMessageOnPort: <ref *9> ƒ receiveMessageOnPort(length: 1) {},
-        MessagePort: [Circular: *4],
-        MessageChannel: [Circular: *3],
-        BroadcastChannel: [Circular: *2],
-        Worker: [Circular: *5],
-        getEnvironmentData: <ref *10> ƒ getEnvironmentData(length: 1) {},
-        setEnvironmentData: <ref *11> ƒ setEnvironmentData(length: 2) {},
-        SHARE_ENV: Symbol(nodejs.worker_threads.SHARE_ENV),
-        threadId: 0,
-        workerData: null,
-        resourceLimits: <ref *12> {},
-        parentPort: null,
-        isMainThread: true
-    },
-    getEnvironmentData: [Circular: *10],
-    isMainThread: true,
-    markAsUntransferable: [Circular: *7],
-    moveMessagePortToContext: [Circular: *8],
-    parentPort: null,
-    receiveMessageOnPort: [Circular: *9],
-    resourceLimits: [Circular: *12],
-    setEnvironmentData: [Circular: *11],
-    threadId: 0,
-    workerData: null
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/util_types.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="v8"></a>
 <details>
-			<summary><code>zlib</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>v8</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-[Object: null prototype] {
-    BrotliCompress: <ref *2> ƒ BrotliCompress(length: 1) {},
-    BrotliDecompress: <ref *3> ƒ BrotliDecompress(length: 1) {},
-    Deflate: <ref *4> ƒ Deflate(length: 1) {},
-    DeflateRaw: <ref *5> ƒ DeflateRaw(length: 1) {},
-    Gunzip: <ref *6> ƒ Gunzip(length: 1) {},
-    Gzip: <ref *7> ƒ Gzip(length: 1) {},
-    Inflate: <ref *8> ƒ Inflate(length: 1) {},
-    InflateRaw: <ref *9> ƒ InflateRaw(length: 1) {},
-    Unzip: <ref *10> ƒ Unzip(length: 1) {},
-    brotliCompress: <ref *11> ƒ asyncBufferWrapper(length: 3) {},
-    brotliCompressSync: <ref *12> ƒ syncBufferWrapper(length: 2) {},
-    brotliDecompress: <ref *13> ƒ asyncBufferWrapper(length: 3) {},
-    brotliDecompressSync: <ref *14> ƒ syncBufferWrapper(length: 2) {},
-    codes: <ref *15> {
-        0: "Z_OK",
-        1: "Z_STREAM_END",
-        2: "Z_NEED_DICT",
-        Z_OK: 0,
-        Z_STREAM_END: 1,
-        Z_NEED_DICT: 2,
-        Z_ERRNO: -1,
-        Z_STREAM_ERROR: -2,
-        Z_DATA_ERROR: -3,
-        Z_MEM_ERROR: -4,
-        Z_BUF_ERROR: -5,
-        Z_VERSION_ERROR: -6,
-        -1: "Z_ERRNO",
-        -2: "Z_STREAM_ERROR",
-        -3: "Z_DATA_ERROR",
-        -4: "Z_MEM_ERROR",
-        -5: "Z_BUF_ERROR",
-        -6: "Z_VERSION_ERROR"
-    },
-    constants: <ref *16> [Object: null prototype] {
-        Z_NO_FLUSH: 0,
-        Z_PARTIAL_FLUSH: 1,
-        Z_SYNC_FLUSH: 2,
-        Z_FULL_FLUSH: 3,
-        Z_FINISH: 4,
-        Z_BLOCK: 5,
-        Z_OK: 0,
-        Z_STREAM_END: 1,
-        Z_NEED_DICT: 2,
-        Z_ERRNO: -1,
-        Z_STREAM_ERROR: -2,
-        Z_DATA_ERROR: -3,
-        Z_MEM_ERROR: -4,
-        Z_BUF_ERROR: -5,
-        Z_VERSION_ERROR: -6,
-        Z_NO_COMPRESSION: 0,
-        Z_BEST_SPEED: 1,
-        Z_BEST_COMPRESSION: 9,
-        Z_DEFAULT_COMPRESSION: -1,
-        Z_FILTERED: 1,
-        Z_HUFFMAN_ONLY: 2,
-        Z_RLE: 3,
-        Z_FIXED: 4,
-        Z_DEFAULT_STRATEGY: 0,
-        ZLIB_VERNUM: 4865,
-        DEFLATE: 1,
-        INFLATE: 2,
-        GZIP: 3,
-        GUNZIP: 4,
-        DEFLATERAW: 5,
-        INFLATERAW: 6,
-        UNZIP: 7,
-        BROTLI_DECODE: 8,
-        BROTLI_ENCODE: 9,
-        Z_MIN_WINDOWBITS: 8,
-        Z_MAX_WINDOWBITS: 15,
-        Z_DEFAULT_WINDOWBITS: 15,
-        Z_MIN_CHUNK: 64,
-        Z_MAX_CHUNK: Infinity,
-        Z_DEFAULT_CHUNK: 16384,
-        Z_MIN_MEMLEVEL: 1,
-        Z_MAX_MEMLEVEL: 9,
-        Z_DEFAULT_MEMLEVEL: 8,
-        Z_MIN_LEVEL: -1,
-        Z_MAX_LEVEL: 9,
-        Z_DEFAULT_LEVEL: -1,
-        BROTLI_OPERATION_PROCESS: 0,
-        BROTLI_OPERATION_FLUSH: 1,
-        BROTLI_OPERATION_FINISH: 2,
-        BROTLI_OPERATION_EMIT_METADATA: 3,
-        BROTLI_PARAM_MODE: 0,
-        BROTLI_MODE_GENERIC: 0,
-        BROTLI_MODE_TEXT: 1,
-        BROTLI_MODE_FONT: 2,
-        BROTLI_DEFAULT_MODE: 0,
-        BROTLI_PARAM_QUALITY: 1,
-        BROTLI_MIN_QUALITY: 0,
-        BROTLI_MAX_QUALITY: 11,
-        BROTLI_DEFAULT_QUALITY: 11,
-        BROTLI_PARAM_LGWIN: 2,
-        BROTLI_MIN_WINDOW_BITS: 10,
-        BROTLI_MAX_WINDOW_BITS: 24,
-        BROTLI_LARGE_MAX_WINDOW_BITS: 30,
-        BROTLI_DEFAULT_WINDOW: 22,
-        BROTLI_PARAM_LGBLOCK: 3,
-        BROTLI_MIN_INPUT_BLOCK_BITS: 16,
-        BROTLI_MAX_INPUT_BLOCK_BITS: 24,
-        BROTLI_PARAM_DISABLE_LITERAL_CONTEXT_MODELING: 4,
-        BROTLI_PARAM_SIZE_HINT: 5,
-        BROTLI_PARAM_LARGE_WINDOW: 6,
-        BROTLI_PARAM_NPOSTFIX: 7,
-        BROTLI_PARAM_NDIRECT: 8,
-        BROTLI_DECODER_RESULT_ERROR: 0,
-        BROTLI_DECODER_RESULT_SUCCESS: 1,
-        BROTLI_DECODER_RESULT_NEEDS_MORE_INPUT: 2,
-        BROTLI_DECODER_RESULT_NEEDS_MORE_OUTPUT: 3,
-        BROTLI_DECODER_PARAM_DISABLE_RING_BUFFER_REALLOCATION: 0,
-        BROTLI_DECODER_PARAM_LARGE_WINDOW: 1,
-        BROTLI_DECODER_NO_ERROR: 0,
-        BROTLI_DECODER_SUCCESS: 1,
-        BROTLI_DECODER_NEEDS_MORE_INPUT: 2,
-        BROTLI_DECODER_NEEDS_MORE_OUTPUT: 3,
-        BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_NIBBLE: -1,
-        BROTLI_DECODER_ERROR_FORMAT_RESERVED: -2,
-        BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_META_NIBBLE: -3,
-        BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_ALPHABET: -4,
-        BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_SAME: -5,
-        BROTLI_DECODER_ERROR_FORMAT_CL_SPACE: -6,
-        BROTLI_DECODER_ERROR_FORMAT_HUFFMAN_SPACE: -7,
-        BROTLI_DECODER_ERROR_FORMAT_CONTEXT_MAP_REPEAT: -8,
-        BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_1: -9,
-        BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_2: -10,
-        BROTLI_DECODER_ERROR_FORMAT_TRANSFORM: -11,
-        BROTLI_DECODER_ERROR_FORMAT_DICTIONARY: -12,
-        BROTLI_DECODER_ERROR_FORMAT_WINDOW_BITS: -13,
-        BROTLI_DECODER_ERROR_FORMAT_PADDING_1: -14,
-        BROTLI_DECODER_ERROR_FORMAT_PADDING_2: -15,
-        BROTLI_DECODER_ERROR_FORMAT_DISTANCE: -16,
-        BROTLI_DECODER_ERROR_DICTIONARY_NOT_SET: -19,
-        BROTLI_DECODER_ERROR_INVALID_ARGUMENTS: -20,
-        BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MODES: -21,
-        BROTLI_DECODER_ERROR_ALLOC_TREE_GROUPS: -22,
-        BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MAP: -25,
-        BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_1: -26,
-        BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_2: -27,
-        BROTLI_DECODER_ERROR_ALLOC_BLOCK_TYPE_TREES: -30,
-        BROTLI_DECODER_ERROR_UNREACHABLE: -31
-    },
-    crc32: <ref *17> ƒ crc32(length: 1) {},
-    createBrotliCompress: <ref *18> ƒ value(length: 1) {},
-    createBrotliDecompress: <ref *19> ƒ value(length: 1) {},
-    createDeflate: <ref *20> ƒ value(length: 1) {},
-    createDeflateRaw: <ref *21> ƒ value(length: 1) {},
-    createGunzip: <ref *22> ƒ value(length: 1) {},
-    createGzip: <ref *23> ƒ value(length: 1) {},
-    createInflate: <ref *24> ƒ value(length: 1) {},
-    createInflateRaw: <ref *25> ƒ value(length: 1) {},
-    createUnzip: <ref *26> ƒ value(length: 1) {},
-    default: {
-        crc32: [Circular: *17],
-        Deflate: [Circular: *4],
-        Inflate: [Circular: *8],
-        Gzip: [Circular: *7],
-        Gunzip: [Circular: *6],
-        DeflateRaw: [Circular: *5],
-        InflateRaw: [Circular: *9],
-        Unzip: [Circular: *10],
-        BrotliCompress: [Circular: *2],
-        BrotliDecompress: [Circular: *3],
-        deflate: <ref *28> ƒ asyncBufferWrapper(length: 3) {},
-        deflateSync: <ref *29> ƒ syncBufferWrapper(length: 2) {},
-        gzip: <ref *30> ƒ asyncBufferWrapper(length: 3) {},
-        gzipSync: <ref *31> ƒ syncBufferWrapper(length: 2) {},
-        deflateRaw: <ref *32> ƒ asyncBufferWrapper(length: 3) {},
-        deflateRawSync: <ref *33> ƒ syncBufferWrapper(length: 2) {},
-        unzip: <ref *34> ƒ asyncBufferWrapper(length: 3) {},
-        unzipSync: <ref *35> ƒ syncBufferWrapper(length: 2) {},
-        inflate: <ref *36> ƒ asyncBufferWrapper(length: 3) {},
-        inflateSync: <ref *37> ƒ syncBufferWrapper(length: 2) {},
-        gunzip: <ref *38> ƒ asyncBufferWrapper(length: 3) {},
-        gunzipSync: <ref *39> ƒ syncBufferWrapper(length: 2) {},
-        inflateRaw: <ref *40> ƒ asyncBufferWrapper(length: 3) {},
-        inflateRawSync: <ref *41> ƒ syncBufferWrapper(length: 2) {},
-        brotliCompress: [Circular: *11],
-        brotliCompressSync: [Circular: *12],
-        brotliDecompress: [Circular: *13],
-        brotliDecompressSync: [Circular: *14],
-        createDeflate: [Circular: *20],
-        createInflate: [Circular: *24],
-        createDeflateRaw: [Circular: *21],
-        createInflateRaw: [Circular: *25],
-        createGzip: [Circular: *23],
-        createGunzip: [Circular: *22],
-        createUnzip: [Circular: *26],
-        createBrotliCompress: [Circular: *18],
-        createBrotliDecompress: [Circular: *19],
-        constants: [Circular: *16],
-        codes: [Circular: *15]
-    },
-    deflate: [Circular: *28],
-    deflateRaw: [Circular: *32],
-    deflateRawSync: [Circular: *33],
-    deflateSync: [Circular: *29],
-    gunzip: [Circular: *38],
-    gunzipSync: [Circular: *39],
-    gzip: [Circular: *30],
-    gzipSync: [Circular: *31],
-    inflate: [Circular: *36],
-    inflateRaw: [Circular: *40],
-    inflateRawSync: [Circular: *41],
-    inflateSync: [Circular: *37],
-    unzip: [Circular: *34],
-    unzipSync: [Circular: *35]
-}
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/v8.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-[Object: null prototype] {
-    BrotliCompress: <ref *2> class BrotliCompress extends Transform {},
-    BrotliDecompress: <ref *3> class BrotliDecompress extends Transform {},
-    BrotliOptions: <ref *4> class BrotliOptions {},
-    Deflate: <ref *5> ƒ Deflate(length: 1) {},
-    DeflateRaw: <ref *6> ƒ DeflateRaw(length: 1) {},
-    Gunzip: <ref *7> ƒ Gunzip(length: 1) {},
-    Gzip: <ref *8> ƒ Gzip(length: 1) {},
-    Inflate: <ref *9> ƒ Inflate(length: 1) {},
-    InflateRaw: <ref *10> ƒ InflateRaw(length: 1) {},
-    Options: <ref *11> class Options {},
-    Unzip: <ref *12> ƒ Unzip(length: 1) {},
-    brotliCompress: <ref *13> ƒ brotliCompress(length: 3) {},
-    brotliCompressSync: <ref *14> ƒ brotliCompressSync(length: 2) {},
-    brotliDecompress: <ref *15> ƒ brotliDecompress(length: 3) {},
-    brotliDecompressSync: <ref *16> ƒ brotliDecompressSync(length: 1) {},
-    codes: <ref *17> {
-        0: "Z_OK",
-        1: "Z_STREAM_END",
-        2: "Z_NEED_DICT",
-        Z_OK: 0,
-        Z_STREAM_END: 1,
-        Z_NEED_DICT: 2,
-        Z_ERRNO: -1,
-        Z_STREAM_ERROR: -2,
-        Z_DATA_ERROR: -3,
-        Z_MEM_ERROR: -4,
-        Z_BUF_ERROR: -5,
-        Z_VERSION_ERROR: -6,
-        -1: "Z_ERRNO",
-        -2: "Z_STREAM_ERROR",
-        -3: "Z_DATA_ERROR",
-        -4: "Z_MEM_ERROR",
-        -5: "Z_BUF_ERROR",
-        -6: "Z_VERSION_ERROR"
-    },
-    constants: <ref *18> {
-        Z_NO_FLUSH: 0,
-        Z_PARTIAL_FLUSH: 1,
-        Z_SYNC_FLUSH: 2,
-        Z_FULL_FLUSH: 3,
-        Z_FINISH: 4,
-        Z_BLOCK: 5,
-        Z_OK: 0,
-        Z_STREAM_END: 1,
-        Z_NEED_DICT: 2,
-        Z_ERRNO: -1,
-        Z_STREAM_ERROR: -2,
-        Z_DATA_ERROR: -3,
-        Z_MEM_ERROR: -4,
-        Z_BUF_ERROR: -5,
-        Z_VERSION_ERROR: -6,
-        Z_NO_COMPRESSION: 0,
-        Z_BEST_SPEED: 1,
-        Z_BEST_COMPRESSION: 9,
-        Z_DEFAULT_COMPRESSION: -1,
-        Z_FILTERED: 1,
-        Z_HUFFMAN_ONLY: 2,
-        Z_RLE: 3,
-        Z_FIXED: 4,
-        Z_DEFAULT_STRATEGY: 0,
-        ZLIB_VERNUM: 4784,
-        DEFLATE: 1,
-        INFLATE: 2,
-        GZIP: 3,
-        GUNZIP: 4,
-        DEFLATERAW: 5,
-        INFLATERAW: 6,
-        UNZIP: 7,
-        BROTLI_DECODE: 8,
-        BROTLI_ENCODE: 9,
-        Z_MIN_WINDOWBITS: 8,
-        Z_MAX_WINDOWBITS: 15,
-        Z_DEFAULT_WINDOWBITS: 15,
-        Z_MIN_CHUNK: 64,
-        Z_MAX_CHUNK: Infinity,
-        Z_DEFAULT_CHUNK: 16384,
-        Z_MIN_MEMLEVEL: 1,
-        Z_MAX_MEMLEVEL: 9,
-        Z_DEFAULT_MEMLEVEL: 8,
-        Z_MIN_LEVEL: -1,
-        Z_MAX_LEVEL: 9,
-        Z_DEFAULT_LEVEL: -1,
-        BROTLI_OPERATION_PROCESS: 0,
-        BROTLI_OPERATION_FLUSH: 1,
-        BROTLI_OPERATION_FINISH: 2,
-        BROTLI_OPERATION_EMIT_METADATA: 3,
-        BROTLI_PARAM_MODE: 0,
-        BROTLI_MODE_GENERIC: 0,
-        BROTLI_MODE_TEXT: 1,
-        BROTLI_MODE_FONT: 2,
-        BROTLI_DEFAULT_MODE: 0,
-        BROTLI_PARAM_QUALITY: 1,
-        BROTLI_MIN_QUALITY: 0,
-        BROTLI_MAX_QUALITY: 11,
-        BROTLI_DEFAULT_QUALITY: 11,
-        BROTLI_PARAM_LGWIN: 2,
-        BROTLI_MIN_WINDOW_BITS: 10,
-        BROTLI_MAX_WINDOW_BITS: 24,
-        BROTLI_LARGE_MAX_WINDOW_BITS: 30,
-        BROTLI_DEFAULT_WINDOW: 22,
-        BROTLI_PARAM_LGBLOCK: 3,
-        BROTLI_MIN_INPUT_BLOCK_BITS: 16,
-        BROTLI_MAX_INPUT_BLOCK_BITS: 24,
-        BROTLI_PARAM_DISABLE_LITERAL_CONTEXT_MODELING: 4,
-        BROTLI_PARAM_SIZE_HINT: 5,
-        BROTLI_PARAM_LARGE_WINDOW: 6,
-        BROTLI_PARAM_NPOSTFIX: 7,
-        BROTLI_PARAM_NDIRECT: 8,
-        BROTLI_DECODER_RESULT_ERROR: 0,
-        BROTLI_DECODER_RESULT_SUCCESS: 1,
-        BROTLI_DECODER_RESULT_NEEDS_MORE_INPUT: 2,
-        BROTLI_DECODER_RESULT_NEEDS_MORE_OUTPUT: 3,
-        BROTLI_DECODER_PARAM_DISABLE_RING_BUFFER_REALLOCATION: 0,
-        BROTLI_DECODER_PARAM_LARGE_WINDOW: 1,
-        BROTLI_DECODER_NO_ERROR: 0,
-        BROTLI_DECODER_SUCCESS: 1,
-        BROTLI_DECODER_NEEDS_MORE_INPUT: 2,
-        BROTLI_DECODER_NEEDS_MORE_OUTPUT: 3,
-        BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_NIBBLE: -1,
-        BROTLI_DECODER_ERROR_FORMAT_RESERVED: -2,
-        BROTLI_DECODER_ERROR_FORMAT_EXUBERANT_META_NIBBLE: -3,
-        BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_ALPHABET: -4,
-        BROTLI_DECODER_ERROR_FORMAT_SIMPLE_HUFFMAN_SAME: -5,
-        BROTLI_DECODER_ERROR_FORMAT_CL_SPACE: -6,
-        BROTLI_DECODER_ERROR_FORMAT_HUFFMAN_SPACE: -7,
-        BROTLI_DECODER_ERROR_FORMAT_CONTEXT_MAP_REPEAT: -8,
-        BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_1: -9,
-        BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_2: -10,
-        BROTLI_DECODER_ERROR_FORMAT_TRANSFORM: -11,
-        BROTLI_DECODER_ERROR_FORMAT_DICTIONARY: -12,
-        BROTLI_DECODER_ERROR_FORMAT_WINDOW_BITS: -13,
-        BROTLI_DECODER_ERROR_FORMAT_PADDING_1: -14,
-        BROTLI_DECODER_ERROR_FORMAT_PADDING_2: -15,
-        BROTLI_DECODER_ERROR_FORMAT_DISTANCE: -16,
-        BROTLI_DECODER_ERROR_DICTIONARY_NOT_SET: -19,
-        BROTLI_DECODER_ERROR_INVALID_ARGUMENTS: -20,
-        BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MODES: -21,
-        BROTLI_DECODER_ERROR_ALLOC_TREE_GROUPS: -22,
-        BROTLI_DECODER_ERROR_ALLOC_CONTEXT_MAP: -25,
-        BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_1: -26,
-        BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_2: -27,
-        BROTLI_DECODER_ERROR_ALLOC_BLOCK_TYPE_TREES: -30,
-        BROTLI_DECODER_ERROR_UNREACHABLE: -31
-    },
-    crc32: <ref *19> ƒ crc32(length: 1) {},
-    createBrotliCompress: <ref *20> ƒ createBrotliCompress(length: 1) {},
-    createBrotliDecompress: <ref *21> ƒ createBrotliDecompress(length: 1) {},
-    createDeflate: <ref *22> ƒ createDeflate(length: 1) {},
-    createDeflateRaw: <ref *23> ƒ createDeflateRaw(length: 1) {},
-    createGunzip: <ref *24> ƒ createGunzip(length: 1) {},
-    createGzip: <ref *25> ƒ createGzip(length: 1) {},
-    createInflate: <ref *26> ƒ createInflate(length: 1) {},
-    createInflateRaw: <ref *27> ƒ createInflateRaw(length: 1) {},
-    createUnzip: <ref *28> ƒ createUnzip(length: 1) {},
-    default: {
-        brotliCompress: [Circular: *13],
-        BrotliCompress: [Circular: *2],
-        brotliCompressSync: [Circular: *14],
-        brotliDecompress: [Circular: *15],
-        BrotliDecompress: [Circular: *3],
-        brotliDecompressSync: [Circular: *16],
-        BrotliOptions: [Circular: *4],
-        codes: [Circular: *17],
-        constants: [Circular: *18],
-        crc32: [Circular: *19],
-        createBrotliCompress: [Circular: *20],
-        createBrotliDecompress: [Circular: *21],
-        createDeflate: [Circular: *22],
-        createDeflateRaw: [Circular: *23],
-        createGunzip: [Circular: *24],
-        createGzip: [Circular: *25],
-        createInflate: [Circular: *26],
-        createInflateRaw: [Circular: *27],
-        createUnzip: [Circular: *28],
-        deflate: <ref *30> ƒ deflate(length: 3) {},
-        Deflate: [Circular: *5],
-        DEFLATE: 1,
-        deflateRaw: <ref *31> ƒ deflateRaw(length: 3) {},
-        DeflateRaw: [Circular: *6],
-        DEFLATERAW: 5,
-        deflateRawSync: <ref *32> ƒ deflateRawSync(length: 2) {},
-        deflateSync: <ref *33> ƒ deflateSync(length: 2) {},
-        gunzip: <ref *34> ƒ gunzip(length: 3) {},
-        Gunzip: [Circular: *7],
-        GUNZIP: 4,
-        gunzipSync: <ref *35> ƒ gunzipSync(length: 2) {},
-        gzip: <ref *36> ƒ gzip(length: 3) {},
-        Gzip: [Circular: *8],
-        GZIP: 3,
-        gzipSync: <ref *37> ƒ gzipSync(length: 2) {},
-        inflate: <ref *38> ƒ inflate(length: 3) {},
-        Inflate: [Circular: *9],
-        INFLATE: 2,
-        inflateRaw: <ref *39> ƒ inflateRaw(length: 3) {},
-        InflateRaw: [Circular: *10],
-        INFLATERAW: 6,
-        inflateRawSync: <ref *40> ƒ inflateRawSync(length: 2) {},
-        inflateSync: <ref *41> ƒ inflateSync(length: 2) {},
-        Options: [Circular: *11],
-        unzip: <ref *42> ƒ unzip(length: 3) {},
-        Unzip: [Circular: *12],
-        UNZIP: 7,
-        unzipSync: <ref *43> ƒ unzipSync(length: 2) {},
-        Z_BEST_COMPRESSION: 9,
-        Z_BEST_SPEED: 1,
-        Z_BLOCK: 5,
-        Z_BUF_ERROR: -5,
-        Z_DATA_ERROR: -3,
-        Z_DEFAULT_CHUNK: 16384,
-        Z_DEFAULT_COMPRESSION: -1,
-        Z_DEFAULT_LEVEL: -1,
-        Z_DEFAULT_MEMLEVEL: 8,
-        Z_DEFAULT_STRATEGY: 0,
-        Z_DEFAULT_WINDOWBITS: 15,
-        Z_ERRNO: -1,
-        Z_FILTERED: 1,
-        Z_FINISH: 4,
-        Z_FIXED: 4,
-        Z_FULL_FLUSH: 3,
-        Z_HUFFMAN_ONLY: 2,
-        Z_MAX_CHUNK: Infinity,
-        Z_MAX_LEVEL: 9,
-        Z_MAX_MEMLEVEL: 9,
-        Z_MAX_WINDOWBITS: 15,
-        Z_MEM_ERROR: -4,
-        Z_MIN_CHUNK: 64,
-        Z_MIN_LEVEL: -1,
-        Z_MIN_MEMLEVEL: 1,
-        Z_MIN_WINDOWBITS: 8,
-        Z_NEED_DICT: 2,
-        Z_NO_COMPRESSION: 0,
-        Z_NO_FLUSH: 0,
-        Z_OK: 0,
-        Z_PARTIAL_FLUSH: 1,
-        Z_RLE: 3,
-        Z_STREAM_END: 1,
-        Z_STREAM_ERROR: -2,
-        Z_SYNC_FLUSH: 2,
-        Z_VERSION_ERROR: -6,
-        ZLIB_VERNUM: 4784
-    },
-    deflate: [Circular: *30],
-    deflateRaw: [Circular: *31],
-    deflateRawSync: [Circular: *32],
-    deflateSync: [Circular: *33],
-    gunzip: [Circular: *34],
-    gunzipSync: [Circular: *35],
-    gzip: [Circular: *36],
-    gzipSync: [Circular: *37],
-    inflate: [Circular: *38],
-    inflateRaw: [Circular: *39],
-    inflateRawSync: [Circular: *40],
-    inflateSync: [Circular: *41],
-    unzip: [Circular: *42],
-    unzipSync: [Circular: *43]
-}
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/v8.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="vm"></a>
 <details>
-			<summary><code>node:sea</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>vm</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-Error importing module: No such built-in module: node:node:sea
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/vm.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-error: No such built-in module: node:sea.mjs
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/vm.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="wasi"></a>
 <details>
-			<summary><code>node:sqlite</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>wasi</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-Error importing module: No such built-in module: node:node:sqlite
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/wasi.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-error: No such built-in module: node:sqlite.mjs
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/wasi.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="worker_threads"></a>
 <details>
-			<summary><code>node:test</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>worker_threads</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-Error importing module: No such built-in module: node:node:test
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/worker_threads.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-error: No such built-in module: node:test.mjs
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/worker_threads.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
+<a id="zlib"></a>
 <details>
-			<summary><code>node:test/reporters</code></summary>
-			<br>
-
-<table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+  <summary><code>zlib</code> — Unavailable in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-Error importing module: No such built-in module: node:node:test/reporters
+file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/zlib.mjs:7
+      console.error('Error importing module:', error.message));
+                                                             ^
+
+SyntaxError: Unexpected token ')'
+    at compileSourceTextModule (node:internal/modules/esm/utils:357:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:108:18)
+    at #translate (node:internal/modules/esm/loader:550:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:597:27)
+    at async #link (node:internal/modules/esm/module_job:180:19)
+
+Node.js v24.5.0
 ```
 
 </td><td valign="top">
 
 ```js
-error: No such built-in module: node:test_reporters.mjs
+error: The module's source code could not be parsed: Expected ';', '}' or <eof> at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1754645417786-17284-1/zlib.mjs:7:62
+
+        console.error('Error importing module:', error.message));
+                                                               ~
 ```
 
 </td></tr></table>
-		</details>
+</details>
 
 ## Credits
-Code from [compare-bun-node](https://github.com/privatenumber/compare-bun-node/) by [@privatenumber](https://github.com/privatenumber).
+Code adapted from [compare-bun-node](https://github.com/privatenumber/compare-bun-node/) by [@privatenumber](https://github.com/privatenumber).
