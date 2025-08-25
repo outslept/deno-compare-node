@@ -66,7 +66,7 @@ const entries = supportedModules.map(m => {
       const { inspect } = await import('./inspect.mjs');
       console.log(inspect(all));
     } catch (error) {
-      console.error('Error importing module:', error.message));
+      console.error('Error importing module:', error.message);
     }
     `;
 
