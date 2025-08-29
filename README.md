@@ -3,7 +3,7 @@ This repository provides a comparative overview of the Deno and Node.js runtime 
 
 Scrolling down, you should be able to see what's available in Deno, what's not, and how they differ.
 
-Updated Aug 25, 2025 • Node.js v23.5.0 • deno 2.4.2 (stable, release, x86_64-pc-windows-msvc)
+Updated Aug 29, 2025 • Node.js v23.5.0 • deno 2.4.2 (stable, release, x86_64-pc-windows-msvc)
 
 ## Module details
 
@@ -592,132 +592,6 @@ Updated Aug 25, 2025 • Node.js v23.5.0 • deno 2.4.2 (stable, release, x86_64
     kStringMaxLength: 536870888,
     transcode: [Circular: *22]
 }
-```
-
-</td></tr></table>
-</details>
-
-<a id="bun"></a>
-<details>
-  <summary><code>bun</code> — Available in both</summary>
-  <br>
-  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun
-```
-
-</td><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/bun.mjs:3:32
-
-```
-
-</td></tr></table>
-</details>
-
-<a id="bun-ffi"></a>
-<details>
-  <summary><code>bun:ffi</code> — Available in both</summary>
-  <br>
-  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:ffi
-```
-
-</td><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:ffi
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/bun_ffi.mjs:3:32
-
-```
-
-</td></tr></table>
-</details>
-
-<a id="bun-jsc"></a>
-<details>
-  <summary><code>bun:jsc</code> — Available in both</summary>
-  <br>
-  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:jsc
-```
-
-</td><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:jsc
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/bun_jsc.mjs:3:32
-
-```
-
-</td></tr></table>
-</details>
-
-<a id="bun-sqlite"></a>
-<details>
-  <summary><code>bun:sqlite</code> — Available in both</summary>
-  <br>
-  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:sqlite
-```
-
-</td><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:sqlite
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/bun_sqlite.mjs:3:32
-
-```
-
-</td></tr></table>
-</details>
-
-<a id="bun-test"></a>
-<details>
-  <summary><code>bun:test</code> — Available in both</summary>
-  <br>
-  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:test
-```
-
-</td><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:test
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/bun_test.mjs:3:32
-
-```
-
-</td></tr></table>
-</details>
-
-<a id="bun-wrap"></a>
-<details>
-  <summary><code>bun:wrap</code> — Available in both</summary>
-  <br>
-  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:wrap
-```
-
-</td><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:bun:wrap
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/bun_wrap.mjs:3:32
-
 ```
 
 </td></tr></table>
@@ -5570,7 +5444,7 @@ Error importing module: No such built-in module: node:bun:wrap
     Module: <ref *2> ƒ Module(length: 0) {
         _cache: <ref *3> [Object: null prototype] {},
         _pathCache: <ref *4> [Object: null prototype] {
-            C:\Users\Eugene\AppData\Local\Temp\fs-fixture-1756121819988-6100-1\module.mjs: "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1756121819988-6100-1\\module.mjs"
+            C:\Users\Eugene\AppData\Local\Temp\fs-fixture-1756472185832-8404-1\module.mjs: "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1756472185832-8404-1\\module.mjs"
         },
         _extensions: <ref *5> [Object: null prototype] {
             .js: ƒ (length: 2) {},
@@ -5578,6 +5452,10 @@ Error importing module: No such built-in module: node:bun:wrap
             .node: ƒ (length: 2) {}
         },
         globalPaths: <ref *9> [
+            "E:\\deno-compare-node\\node_modules\\.pnpm\\tsx@4.20.3\\node_modules\\tsx\\dist\\node_modules",
+            "E:\\deno-compare-node\\node_modules\\.pnpm\\tsx@4.20.3\\node_modules\\tsx\\node_modules",
+            "E:\\deno-compare-node\\node_modules\\.pnpm\\tsx@4.20.3\\node_modules",
+            "E:\\deno-compare-node\\node_modules\\.pnpm\\node_modules",
             "C:\\Users\\Eugene\\.node_modules",
             "C:\\Users\\Eugene\\.node_libraries",
             "E:\\Tools\\nodejs\\lib\\node"
@@ -5967,6 +5845,226 @@ Error importing module: No such built-in module: node:bun:wrap
     setDefaultAutoSelectFamily: [Circular: *16],
     setDefaultAutoSelectFamilyAttemptTimeout: [Circular: *17]
 }
+```
+
+</td></tr></table>
+</details>
+
+<a id="sea"></a>
+<details>
+  <summary><code>node:sea</code> — Available in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+
+```js
+[Object: null prototype] {
+    default: {
+        isSea: <ref *3> ƒ isSea(length: 0) {},
+        getAsset: <ref *4> ƒ getAsset(length: 2) {},
+        getRawAsset: <ref *5> ƒ getRawAsset(length: 1) {},
+        getAssetAsBlob: <ref *6> ƒ getAssetAsBlob(length: 2) {}
+    },
+    getAsset: [Circular: *4],
+    getAssetAsBlob: [Circular: *6],
+    getRawAsset: [Circular: *5],
+    isSea: [Circular: *3]
+}
+```
+
+</td><td valign="top">
+
+```js
+Error importing module: No such built-in module: node:sea
+    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756472185832-8404-1/sea.mjs:3:32
+
+```
+
+</td></tr></table>
+</details>
+
+<a id="sqlite"></a>
+<details>
+  <summary><code>node:sqlite</code> — Available in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+
+```js
+(node:4640) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[Object: null prototype] {
+    DatabaseSync: <ref *2> ƒ DatabaseSync(length: 0) {},
+    StatementSync: <ref *3> ƒ StatementSync(length: 0) {},
+    constants: <ref *4> {
+        SQLITE_CHANGESET_OMIT: 0,
+        SQLITE_CHANGESET_REPLACE: 1,
+        SQLITE_CHANGESET_ABORT: 2
+    },
+    default:  {
+        DatabaseSync: [Circular: *2],
+        StatementSync: [Circular: *3],
+        constants: [Circular: *4]
+    }
+}
+```
+
+</td><td valign="top">
+
+```js
+[Object: null prototype] {
+    DatabaseSync: <ref *2> ƒ DatabaseSync(length: 3) {},
+    StatementSync: <ref *3> ƒ StatementSync(length: 1) {},
+    constants: <ref *4> {
+        SQLITE_CHANGESET_OMIT: 0,
+        SQLITE_CHANGESET_REPLACE: 1,
+        SQLITE_CHANGESET_ABORT: 2,
+        SQLITE_CHANGESET_DATA: 1,
+        SQLITE_CHANGESET_NOTFOUND: 2,
+        SQLITE_CHANGESET_CONFLICT: 3,
+        SQLITE_CHANGESET_CONSTRAINT: 4,
+        SQLITE_CHANGESET_FOREIGN_KEY: 5
+    },
+    default: {
+        constants: [Circular: *4],
+        DatabaseSync: [Circular: *2],
+        StatementSync: [Circular: *3]
+    }
+}
+```
+
+</td></tr></table>
+</details>
+
+<a id="test"></a>
+<details>
+  <summary><code>node:test</code> — Available in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+
+```js
+[Object: null prototype] {
+    after: <ref *2> ƒ (length: 2) {},
+    afterEach: <ref *3> ƒ (length: 2) {},
+    before: <ref *4> ƒ (length: 2) {},
+    beforeEach: <ref *5> ƒ (length: 2) {},
+    default: <ref *6> ƒ test(length: 3) {
+        skip: <ref *7> ƒ (length: 3) {},
+        todo: <ref *8> ƒ (length: 3) {},
+        only: <ref *9> ƒ (length: 3) {},
+        after: [Circular: *2],
+        afterEach: [Circular: *3],
+        before: [Circular: *4],
+        beforeEach: [Circular: *5],
+        describe: <ref *10> ƒ test(length: 3) {
+            skip: ƒ (length: 3) {},
+            todo: ƒ (length: 3) {},
+            only: ƒ (length: 3) {}
+        },
+        it: [Circular: *6],
+        run: <ref *14> ƒ run(length: 0) {},
+        suite: [Circular: *10],
+        test: [Circular: *6],
+        [get/set] mock: <ref *15> MockTracker {},
+        [get/set] snapshot: <ref *16> [Object: null prototype] {
+            setDefaultSnapshotSerializers: ƒ setDefaultSnapshotSerializers(length: 1) {},
+            setResolveSnapshotPath: ƒ setResolveSnapshotPath(length: 1) {}
+        }
+    },
+    describe: [Circular: *10],
+    it: [Circular: *6],
+    mock: [Circular: *15],
+    only: [Circular: *9],
+    run: [Circular: *14],
+    skip: [Circular: *7],
+    snapshot: [Circular: *16],
+    suite: [Circular: *10],
+    test: [Circular: *6],
+    todo: [Circular: *8]
+}
+```
+
+</td><td valign="top">
+
+```js
+[Object: null prototype] {
+    after: ƒ after(length: 0) {},
+    afterEach: ƒ afterEach(length: 0) {},
+    before: ƒ before(length: 0) {},
+    beforeEach: ƒ beforeEach(length: 0) {},
+    default: <ref *6> ƒ test(length: 4) {
+        skip: ƒ skip(length: 3) {},
+        todo: ƒ todo(length: 3) {},
+        only: ƒ only(length: 3) {},
+        it: <ref *10> ƒ it(length: 3) {
+            skip: ƒ skip(length: 3) {},
+            todo: ƒ todo(length: 3) {},
+            only: ƒ only(length: 3) {}
+        },
+        describe: <ref *14> ƒ describe(length: 3) {
+            skip: ƒ skip(length: 3) {},
+            todo: ƒ todo(length: 3) {},
+            only: ƒ only(length: 3) {}
+        },
+        suite: <ref *18> ƒ suite(length: 4) {
+            skip: ƒ skip(length: 3) {},
+            todo: ƒ todo(length: 3) {},
+            only: ƒ only(length: 3) {}
+        },
+        test: [Circular: *6]
+    },
+    describe: [Circular: *14],
+    it: [Circular: *10],
+    mock: {
+        fn: ƒ fn(length: 0) {},
+        getter: ƒ getter(length: 0) {},
+        method: ƒ method(length: 0) {},
+        reset: ƒ reset(length: 0) {},
+        restoreAll: ƒ restoreAll(length: 0) {},
+        setter: ƒ setter(length: 0) {},
+        timers: {
+            enable: ƒ enable(length: 0) {},
+            reset: ƒ reset(length: 0) {},
+            tick: ƒ tick(length: 0) {},
+            runAll: ƒ runAll(length: 0) {}
+        }
+    },
+    run: ƒ run(length: 0) {},
+    suite: [Circular: *18],
+    test: [Circular: *6]
+}
+```
+
+</td></tr></table>
+</details>
+
+<a id="test-reporters"></a>
+<details>
+  <summary><code>node:test/reporters</code> — Available in both</summary>
+  <br>
+  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
+
+```js
+[Object: null prototype] {
+    default: {
+        [get/set] dot: <ref *3> async ƒ dot(length: 1) {},
+        [get/set] junit: <ref *4> async ƒ junitReporter(length: 1) {},
+        spec: <ref *5> ƒ value(length: 0) {},
+        [get/set] tap: <ref *6> async ƒ tapReporter(length: 1) {},
+        lcov: <ref *7> ƒ value(length: 0) {}
+    },
+    dot: [Circular: *3],
+    junit: [Circular: *4],
+    lcov: [Circular: *7],
+    spec: [Circular: *5],
+    tap: [Circular: *6]
+}
+```
+
+</td><td valign="top">
+
+```js
+Error importing module: No such built-in module: node:test/reporters
+    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756472185832-8404-1/test_reporters.mjs:3:32
+
 ```
 
 </td></tr></table>
@@ -7230,7 +7328,7 @@ Error importing module: No such built-in module: node:bun:wrap
     arch: "x64",
     argv: <ref *26> [
         "E:\\Tools\\nodejs\\node.exe",
-        "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1756121819988-6100-1\\process.mjs"
+        "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1756472185832-8404-1\\process.mjs"
     ],
     argv0: "node",
     availableMemory: <ref *27> ƒ availableMemory(length: 0) {},
@@ -8173,8 +8271,10 @@ Error importing module: No such built-in module: node:bun:wrap
             FZF_DEFAULT_OPTS: "--height 40% --layout=reverse --border --color=dark",
             GIT_ASKPASS: "e:\\VSCode\\resources\\app\\extensions\\git\\dist\\askpass.sh",
             GOPATH: "C:\\Users\\Eugene\\go",
+            HOME: "C:\\Users\\Eugene",
             HOMEDRIVE: "C:",
             HOMEPATH: "\\Users\\Eugene",
+            INIT_CWD: "E:\\deno-compare-node",
             LANG: "en_US.UTF-8",
             LOCALAPPDATA: "C:\\Users\\Eugene\\AppData\\Local",
             LOGONSERVER: "\\\\OUTSLEPT",
@@ -8185,23 +8285,42 @@ Error importing module: No such built-in module: node:bun:wrap
             MAGICK_CODER_MODULE_PATH: "C:\\Users\\Eugene\\scoop\\apps\\imagemagick\\current\\modules\\coders",
             MAGICK_CONFIGURE_PATH: "C:\\Users\\Eugene\\scoop\\apps\\imagemagick\\current",
             MAGICK_HOME: "C:\\Users\\Eugene\\scoop\\apps\\imagemagick\\current",
+            NODE: "E:\\Tools\\nodejs\\node.exe",
             NODE_COMPILE_CACHE: "C:\\Users\\Eugene\\.cache\\nodejs-compile-cache",
+            NODE_PATH: "E:\\deno-compare-node\\node_modules\\.pnpm\\tsx@4.20.3\\node_modules\\tsx\\dist\\node_modules;E:\\deno-compar…",
+            npm_command: "run-script",
             npm_config_cache: "E:\\.devtools\\npm\\cache",
+            npm_config_frozen_lockfile: "",
+            npm_config_ignore_scripts: "",
+            npm_config_node_gyp: "E:\\.devtools\\pnpm\\global\\.tools\\pnpm\\10.10.0\\node_modules\\pnpm\\dist\\node_modules\\node-gyp\\bin\\node-g…",
             npm_config_prefix: "E:\\.devtools\\npm\\global",
+            npm_config_registry: "https://registry.npmjs.org/",
+            npm_config_user_agent: "pnpm/10.10.0 npm/? node/v23.5.0 win32 x64",
+            npm_config_verify_deps_before_run: "false",
+            npm_config__jsr_registry: "https://npm.jsr.io/",
+            npm_execpath: "E:\\.devtools\\pnpm\\global\\.tools\\pnpm\\10.10.0\\node_modules\\pnpm\\bin\\pnpm.cjs",
+            npm_lifecycle_event: "start",
+            npm_lifecycle_script: "tsx index.ts",
+            npm_node_execpath: "E:\\Tools\\nodejs\\node.exe",
+            npm_package_engines_node: ">=20.0.0",
+            npm_package_json: "E:\\deno-compare-node\\package.json",
+            npm_package_name: "deno-compare-node",
+            npm_package_version: "0.0.1",
             NUMBER_OF_PROCESSORS: "4",
             NVM_HOME: "C:\\Users\\Eugene\\scoop\\apps\\nvm\\current",
             NVM_SYMLINK: "C:\\Users\\Eugene\\scoop\\persist\\nvm\\nodejs\\nodejs",
             OneDrive: "C:\\Users\\Eugene\\OneDrive",
             ORIGINAL_XDG_CURRENT_DESKTOP: "undefined",
             OS: "Windows_NT",
-            Path: "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.5.2.0_x64__8wekyb3d8bbwe;C:\\Program Files\\Alacri…",
-            PATHEXT: ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe;.PY;.PYW;.CPL",
+            Path: "E:\\deno-compare-node\\node_modules\\.bin;E:\\.devtools\\pnpm\\global\\.tools\\pnpm\\10.10.0\\node_modules\\pnp…",
+            PATHEXT: ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe;.PY;.PYW;.CPL",
             PLAYWRIGHT_BROWSERS_PATH: "E:\\.devtools\\ms-playwright",
             PNPM_HOME: "E:\\.devtools\\pnpm\\global",
+            PNPM_SCRIPT_SRC_DIR: "E:\\deno-compare-node",
             POSH_CURSOR_COLUMN: "1",
-            POSH_CURSOR_LINE: "11",
+            POSH_CURSOR_LINE: "17",
             POSH_INSTALLER: "winget",
-            POSH_SESSION_ID: "18804067-1412-4410-ac64-a9352913289a",
+            POSH_SESSION_ID: "a705af1c-9e54-47dd-a6cf-ff4b0b93a598",
             POSH_SHELL: "pwsh",
             POSH_SHELL_VERSION: "7.5.2",
             POSH_THEME: "C:\\Users\\Eugene\\.devtools\\pwsh\\outslept.omp.json",
@@ -8240,7 +8359,7 @@ Error importing module: No such built-in module: node:bun:wrap
             VSCODE_GIT_ASKPASS_EXTRA_ARGS: "",
             VSCODE_GIT_ASKPASS_MAIN: "e:\\VSCode\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
             VSCODE_GIT_ASKPASS_NODE: "E:\\VSCode\\Code.exe",
-            VSCODE_GIT_IPC_HANDLE: "\\\\.\\pipe\\vscode-git-9e1dc13b20-sock",
+            VSCODE_GIT_IPC_HANDLE: "\\\\.\\pipe\\vscode-git-b89bca6a6e-sock",
             VSCODE_INJECTION: "1",
             windir: "C:\\Windows",
             YARN_CACHE_FOLDER: "E:\\.devtools\\yarn\\cache",
@@ -8250,8 +8369,8 @@ Error importing module: No such built-in module: node:bun:wrap
         title: "E:\\Tools\\nodejs\\node.exe",
         argv: [Circular: *26],
         execArgv: <ref *107> [],
-        pid: 15180,
-        ppid: 6100,
+        pid: 9592,
+        ppid: 8404,
         execPath: "E:\\Tools\\nodejs\\node.exe",
         debugPort: 9229,
         argv0: "node",
@@ -8292,9 +8411,9 @@ Error importing module: No such built-in module: node:bun:wrap
     moduleLoadList: [Circular: *50],
     nextTick: [Circular: *72],
     openStdin: [Circular: *67],
-    pid: 15180,
+    pid: 9592,
     platform: "win32",
-    ppid: 6100,
+    ppid: 8404,
     reallyExit: [Circular: *54],
     release: [Circular: *49],
     report: [Circular: *108],
@@ -8479,7 +8598,7 @@ Error importing module: No such built-in module: node:bun:wrap
     arch: "x64",
     argv: <ref *6> [
         "E:\\.devtools\\npm\\global\\node_modules\\deno\\deno.exe",
-        "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1756121819988-6100-1\\process.mjs"
+        "C:\\Users\\Eugene\\AppData\\Local\\Temp\\fs-fixture-1756472185832-8404-1\\process.mjs"
     ],
     argv0: "E:\\.devtools\\npm\\global\\node_modules\\deno\\deno.exe",
     chdir: <ref *7> ƒ chdir(length: 1) {},
@@ -8686,7 +8805,7 @@ Error importing module: No such built-in module: node:bun:wrap
     loadEnvFile: [Circular: *64],
     memoryUsage: [Circular: *29],
     nextTick: [Circular: *22],
-    pid: 13868,
+    pid: 15888,
     platform: "win32",
     removeAllListeners: ƒ removeAllListeners(length: 1) {},
     removeListener: ƒ (length: 2) {},
@@ -8709,7 +8828,7 @@ Error importing module: No such built-in module: node:bun:wrap
   <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-(node:13852) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:15288) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 [Object: null prototype] {
     decode: <ref *2> ƒ decode(length: 1) {},
@@ -9454,7 +9573,7 @@ Error importing module: No such built-in module: node:bun:wrap
   <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-(node:7288) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.
+(node:15428) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 [Object: null prototype] {
     MIMEParams: <ref *2> class MIMEParams {},
@@ -10637,7 +10756,7 @@ Error importing module: No such built-in module: node:bun:wrap
 
 ```js
 Error importing module: No such built-in module: node:trace_events
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/trace_events.mjs:3:32
+    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756472185832-8404-1/trace_events.mjs:3:32
 
 ```
 
@@ -10676,27 +10795,6 @@ Error importing module: No such built-in module: node:trace_events
     },
     isatty: [Circular: *5]
 }
-```
-
-</td></tr></table>
-</details>
-
-<a id="undici"></a>
-<details>
-  <summary><code>undici</code> — Available in both</summary>
-  <br>
-  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:undici
-```
-
-</td><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:undici
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/undici.mjs:3:32
-
 ```
 
 </td></tr></table>
@@ -11801,7 +11899,7 @@ Error importing module: No such built-in module: node:undici
   <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
 
 ```js
-(node:16508) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(node:14728) ExperimentalWarning: WASI is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 [Object: null prototype] {
     WASI: <ref *2> class WASI {},
@@ -11911,27 +12009,6 @@ Error importing module: No such built-in module: node:undici
     threadId: 0,
     workerData: null
 }
-```
-
-</td></tr></table>
-</details>
-
-<a id="ws"></a>
-<details>
-  <summary><code>ws</code> — Available in both</summary>
-  <br>
-  <table><tr><th>Node.js</th><th>Deno</th></tr><tr><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:ws
-```
-
-</td><td valign="top">
-
-```js
-Error importing module: No such built-in module: node:ws
-    at file:///C:/Users/Eugene/AppData/Local/Temp/fs-fixture-1756121819988-6100-1/ws.mjs:3:32
-
 ```
 
 </td></tr></table>
