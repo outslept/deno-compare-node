@@ -3,7 +3,7 @@ This repository provides a comparative overview of the Deno and Node.js runtime 
 
 Scrolling down, you should be able to see what's available in Deno, what's not, and how they differ.
 
-Updated Sep 8, 2025 • Node.js v24.7.0 • deno 2.4.5+54bda9f (canary, release, x86_64-unknown-linux-gnu)
+Updated Sep 15, 2025 • Node.js v24.8.0 • deno 2.5.0+9e2472a (canary, release, x86_64-unknown-linux-gnu)
 
 ## Module details
 
@@ -370,26 +370,27 @@ Updated Sep 8, 2025 • Node.js v24.7.0 • deno 2.4.5+54bda9f (canary, release,
         UDPWRAP: 44,
         SIGINTWATCHDOG: 45,
         WORKER: 46,
-        WORKERCPUUSAGE: 47,
-        WORKERHEAPSNAPSHOT: 48,
-        WORKERHEAPSTATISTICS: 49,
-        WRITEWRAP: 50,
-        ZLIB: 51,
-        CHECKPRIMEREQUEST: 52,
-        PBKDF2REQUEST: 53,
-        KEYPAIRGENREQUEST: 54,
-        KEYGENREQUEST: 55,
-        KEYEXPORTREQUEST: 56,
-        ARGON2REQUEST: 57,
-        CIPHERREQUEST: 58,
-        DERIVEBITSREQUEST: 59,
-        HASHREQUEST: 60,
-        RANDOMBYTESREQUEST: 61,
-        RANDOMPRIMEREQUEST: 62,
-        SCRYPTREQUEST: 63,
-        SIGNREQUEST: 64,
-        TLSWRAP: 65,
-        VERIFYREQUEST: 66
+        WORKERCPUPROFILE: 47,
+        WORKERCPUUSAGE: 48,
+        WORKERHEAPSNAPSHOT: 49,
+        WORKERHEAPSTATISTICS: 50,
+        WRITEWRAP: 51,
+        ZLIB: 52,
+        CHECKPRIMEREQUEST: 53,
+        PBKDF2REQUEST: 54,
+        KEYPAIRGENREQUEST: 55,
+        KEYGENREQUEST: 56,
+        KEYEXPORTREQUEST: 57,
+        ARGON2REQUEST: 58,
+        CIPHERREQUEST: 59,
+        DERIVEBITSREQUEST: 60,
+        HASHREQUEST: 61,
+        RANDOMBYTESREQUEST: 62,
+        RANDOMPRIMEREQUEST: 63,
+        SCRYPTREQUEST: 64,
+        SIGNREQUEST: 65,
+        TLSWRAP: 66,
+        VERIFYREQUEST: 67
     },
     createHook: <ref *5> ƒ createHook(length: 1) {},
     default: {
@@ -5482,16 +5483,47 @@ Updated Sep 8, 2025 • Node.js v24.7.0 • deno 2.4.5+54bda9f (canary, release,
 ```js
 [Object: null prototype] {
     Module: <ref *2> ƒ Module(length: 0) {
-        _cache: <ref *3> [Object: null prototype] {},
-        _pathCache: <ref *4> [Object: null prototype] {
-            /tmp/fs-fixture-1757293636298-2227-1/module.mjs: "/tmp/fs-fixture-1757293636298-2227-1/module.mjs"
+        _cache: <ref *3> [Object: null prototype] {
+            /tmp/fs-fixture-1757898502845-2251-1/module.mjs: Module {
+                id: "/tmp/fs-fixture-1757898502845-2251-1/module.mjs",
+                path: "/tmp/fs-fixture-1757898502845-2251-1",
+                exports: {},
+                filename: "/tmp/fs-fixture-1757898502845-2251-1/module.mjs",
+                loaded: false,
+                children: [
+                    <ref *7> Module {
+                        id: "/tmp/fs-fixture-1757898502845-2251-1/inspect.mjs",
+                        path: "/tmp/fs-fixture-1757898502845-2251-1",
+                        exports: {},
+                        filename: "/tmp/fs-fixture-1757898502845-2251-1/inspect.mjs",
+                        loaded: false,
+                        children: [],
+                        paths: [
+                            "/tmp/fs-fixture-1757898502845-2251-1/node_modules",
+                            "/tmp/node_modules",
+                            "/node_modules"
+                        ],
+                        Symbol(kIsCachedByESMLoader): true
+                    }
+                ],
+                paths: [
+                    "/tmp/fs-fixture-1757898502845-2251-1/node_modules",
+                    "/tmp/node_modules",
+                    "/node_modules"
+                ],
+                Symbol(kIsCachedByESMLoader): true
+            },
+            /tmp/fs-fixture-1757898502845-2251-1/inspect.mjs: [Circular: *7]
         },
-        _extensions: <ref *5> [Object: null prototype] {
+        _pathCache: <ref *12> [Object: null prototype] {
+            /tmp/fs-fixture-1757898502845-2251-1/module.mjs: "/tmp/fs-fixture-1757898502845-2251-1/module.mjs"
+        },
+        _extensions: <ref *13> [Object: null prototype] {
             .js: ƒ (length: 2) {},
             .json: ƒ (length: 2) {},
             .node: ƒ (length: 2) {}
         },
-        globalPaths: <ref *9> [
+        globalPaths: <ref *17> [
             "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.pnpm/tsx@4.20.3/node_modules/tsx…",
             "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.pnpm/tsx@4.20.3/node_modules/tsx…",
             "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.pnpm/tsx@4.20.3/node_modules",
@@ -5502,22 +5534,22 @@ Updated Sep 8, 2025 • Node.js v24.7.0 • deno 2.4.5+54bda9f (canary, release,
             "/home/runner/setup-pnpm/node_modules/.pnpm/node_modules",
             "/home/runner/.node_modules",
             "/home/runner/.node_libraries",
-            "/opt/hostedtoolcache/node/24.7.0/x64/lib/node"
+            "/opt/hostedtoolcache/node/24.8.0/x64/lib/node"
         ],
-        _debug: <ref *10> ƒ deprecated(length: 0) {},
-        isBuiltin: <ref *11> ƒ isBuiltin(length: 1) {},
-        _findPath: <ref *12> ƒ (length: 3) {},
-        _nodeModulePaths: <ref *13> ƒ (length: 1) {},
-        _resolveLookupPaths: <ref *14> ƒ (length: 2) {},
-        _load: <ref *15> ƒ (length: 3) {},
-        _resolveFilename: <ref *16> ƒ (length: 4) {},
-        createRequire: <ref *17> ƒ createRequire(length: 1) {},
-        _initPaths: <ref *18> ƒ (length: 0) {},
-        _preloadModules: <ref *19> ƒ (length: 1) {},
-        syncBuiltinESMExports: <ref *20> ƒ syncBuiltinESMExports(length: 0) {},
+        _debug: <ref *18> ƒ deprecated(length: 0) {},
+        isBuiltin: <ref *19> ƒ isBuiltin(length: 1) {},
+        _findPath: <ref *20> ƒ (length: 3) {},
+        _nodeModulePaths: <ref *21> ƒ (length: 1) {},
+        _resolveLookupPaths: <ref *22> ƒ (length: 2) {},
+        _load: <ref *23> ƒ (length: 3) {},
+        _resolveFilename: <ref *24> ƒ (length: 4) {},
+        createRequire: <ref *25> ƒ createRequire(length: 1) {},
+        _initPaths: <ref *26> ƒ (length: 0) {},
+        _preloadModules: <ref *27> ƒ (length: 1) {},
+        syncBuiltinESMExports: <ref *28> ƒ syncBuiltinESMExports(length: 0) {},
         Module: [Circular: *2],
-        registerHooks: <ref *21> ƒ registerHooks(length: 1) {},
-        builtinModules: <ref *22> [
+        registerHooks: <ref *29> ƒ registerHooks(length: 1) {},
+        builtinModules: <ref *30> [
             "_http_agent",
             "_http_client",
             "_http_common",
@@ -5591,9 +5623,9 @@ Updated Sep 8, 2025 • Node.js v24.7.0 • deno 2.4.5+54bda9f (canary, release,
             "node:test",
             "node:test/reporters"
         ],
-        runMain: <ref *23> ƒ executeUserEntryPoint(length: 0) {},
-        register: <ref *24> ƒ register(length: 1) {},
-        constants: <ref *25> [Object: null prototype] {
+        runMain: <ref *31> ƒ executeUserEntryPoint(length: 0) {},
+        register: <ref *32> ƒ register(length: 1) {},
+        constants: <ref *33> [Object: null prototype] {
             compileCacheStatus: [Object: null prototype] {
                 FAILED: 0,
                 ENABLED: 1,
@@ -5601,46 +5633,46 @@ Updated Sep 8, 2025 • Node.js v24.7.0 • deno 2.4.5+54bda9f (canary, release,
                 DISABLED: 3
             }
         },
-        enableCompileCache: <ref *27> ƒ enableCompileCache(length: 1) {},
-        findPackageJSON: <ref *28> ƒ findPackageJSON(length: 1) {},
-        flushCompileCache: <ref *29> ƒ flushCompileCache(length: 0) {},
-        getCompileCacheDir: <ref *30> ƒ getCompileCacheDir(length: 0) {},
-        stripTypeScriptTypes: <ref *31> ƒ stripTypeScriptTypes(length: 1) {},
-        findSourceMap: <ref *32> ƒ findSourceMap(length: 1) {},
-        SourceMap: <ref *33> class SourceMap {},
-        getSourceMapsSupport: <ref *34> ƒ getSourceMapsSupport(length: 0) {},
-        setSourceMapsSupport: <ref *35> ƒ setSourceMapsSupport(length: 1) {}
+        enableCompileCache: <ref *35> ƒ enableCompileCache(length: 1) {},
+        findPackageJSON: <ref *36> ƒ findPackageJSON(length: 1) {},
+        flushCompileCache: <ref *37> ƒ flushCompileCache(length: 0) {},
+        getCompileCacheDir: <ref *38> ƒ getCompileCacheDir(length: 0) {},
+        stripTypeScriptTypes: <ref *39> ƒ stripTypeScriptTypes(length: 1) {},
+        findSourceMap: <ref *40> ƒ findSourceMap(length: 1) {},
+        SourceMap: <ref *41> class SourceMap {},
+        getSourceMapsSupport: <ref *42> ƒ getSourceMapsSupport(length: 0) {},
+        setSourceMapsSupport: <ref *43> ƒ setSourceMapsSupport(length: 1) {}
     },
-    SourceMap: [Circular: *33],
+    SourceMap: [Circular: *41],
     _cache: [Circular: *3],
-    _debug: [Circular: *10],
-    _extensions: [Circular: *5],
-    _findPath: [Circular: *12],
-    _initPaths: [Circular: *18],
-    _load: [Circular: *15],
-    _nodeModulePaths: [Circular: *13],
-    _pathCache: [Circular: *4],
-    _preloadModules: [Circular: *19],
-    _resolveFilename: [Circular: *16],
-    _resolveLookupPaths: [Circular: *14],
-    builtinModules: [Circular: *22],
-    constants: [Circular: *25],
-    createRequire: [Circular: *17],
+    _debug: [Circular: *18],
+    _extensions: [Circular: *13],
+    _findPath: [Circular: *20],
+    _initPaths: [Circular: *26],
+    _load: [Circular: *23],
+    _nodeModulePaths: [Circular: *21],
+    _pathCache: [Circular: *12],
+    _preloadModules: [Circular: *27],
+    _resolveFilename: [Circular: *24],
+    _resolveLookupPaths: [Circular: *22],
+    builtinModules: [Circular: *30],
+    constants: [Circular: *33],
+    createRequire: [Circular: *25],
     default: [Circular: *2],
-    enableCompileCache: [Circular: *27],
-    findPackageJSON: [Circular: *28],
-    findSourceMap: [Circular: *32],
-    flushCompileCache: [Circular: *29],
-    getCompileCacheDir: [Circular: *30],
-    getSourceMapsSupport: [Circular: *34],
-    globalPaths: [Circular: *9],
-    isBuiltin: [Circular: *11],
-    register: [Circular: *24],
-    registerHooks: [Circular: *21],
-    runMain: [Circular: *23],
-    setSourceMapsSupport: [Circular: *35],
-    stripTypeScriptTypes: [Circular: *31],
-    syncBuiltinESMExports: [Circular: *20]
+    enableCompileCache: [Circular: *35],
+    findPackageJSON: [Circular: *36],
+    findSourceMap: [Circular: *40],
+    flushCompileCache: [Circular: *37],
+    getCompileCacheDir: [Circular: *38],
+    getSourceMapsSupport: [Circular: *42],
+    globalPaths: [Circular: *17],
+    isBuiltin: [Circular: *19],
+    register: [Circular: *32],
+    registerHooks: [Circular: *29],
+    runMain: [Circular: *31],
+    setSourceMapsSupport: [Circular: *43],
+    stripTypeScriptTypes: [Circular: *39],
+    syncBuiltinESMExports: [Circular: *28]
 }
 ```
 
@@ -5908,10 +5940,12 @@ Updated Sep 8, 2025 • Node.js v24.7.0 • deno 2.4.5+54bda9f (canary, release,
         isSea: <ref *3> ƒ isSea(length: 0) {},
         getAsset: <ref *4> ƒ getAsset(length: 2) {},
         getRawAsset: <ref *5> ƒ getRawAsset(length: 1) {},
-        getAssetAsBlob: <ref *6> ƒ getAssetAsBlob(length: 2) {}
+        getAssetAsBlob: <ref *6> ƒ getAssetAsBlob(length: 2) {},
+        getAssetKeys: <ref *7> ƒ getAssetKeys(length: 0) {}
     },
     getAsset: [Circular: *4],
     getAssetAsBlob: [Circular: *6],
+    getAssetKeys: [Circular: *7],
     getRawAsset: [Circular: *5],
     isSea: [Circular: *3]
 }
@@ -5921,7 +5955,7 @@ Updated Sep 8, 2025 • Node.js v24.7.0 • deno 2.4.5+54bda9f (canary, release,
 
 ```js
 Error importing module: No such built-in module: node:sea
-    at file:///tmp/fs-fixture-1757293636298-2227-1/sea.mjs:3:32
+    at file:///tmp/fs-fixture-1757898502845-2251-1/sea.mjs:3:32
 
 ```
 
@@ -5956,7 +5990,7 @@ Error importing module: No such built-in module: node:sea
         backup: [Circular: *4]
     }
 }
-(node:3053) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(node:3079) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 ```
 
@@ -6122,7 +6156,7 @@ Error importing module: No such built-in module: node:sea
 
 ```js
 Error importing module: No such built-in module: node:test/reporters
-    at file:///tmp/fs-fixture-1757293636298-2227-1/test_reporters.mjs:3:32
+    at file:///tmp/fs-fixture-1757898502845-2251-1/test_reporters.mjs:3:32
 
 ```
 
@@ -7353,8 +7387,8 @@ Error importing module: No such built-in module: node:test/reporters
     },
     arch: "x64",
     argv: <ref *26> [
-        "/opt/hostedtoolcache/node/24.7.0/x64/bin/node",
-        "/tmp/fs-fixture-1757293636298-2227-1/process.mjs"
+        "/opt/hostedtoolcache/node/24.8.0/x64/bin/node",
+        "/tmp/fs-fixture-1757898502845-2251-1/process.mjs"
     ],
     argv0: "node",
     availableMemory: <ref *27> ƒ availableMemory(length: 0) {},
@@ -7440,6 +7474,7 @@ Error importing module: No such built-in module: node:test/reporters
                 "test/cctest/test_quic_tokens.cc",
                 "test/cctest/test_report.cc",
                 "test/cctest/test_sockaddr.cc",
+                "test/cctest/test_string_bytes.cc",
                 "test/cctest/test_traced_value.cc",
                 "test/cctest/test_util.cc",
                 "test/cctest/node_test_fixture.h"
@@ -7447,6 +7482,7 @@ Error importing module: No such built-in module: node:test/reporters
             node_debug_lib: false,
             node_enable_d8: false,
             node_enable_v8_vtunejit: false,
+            node_enable_v8windbg: false,
             node_fipsinstall: false,
             node_install_corepack: true,
             node_install_npm: true,
@@ -7585,6 +7621,7 @@ Error importing module: No such built-in module: node:test/reporters
                 "lib/internal/http2/util.js",
                 "lib/internal/inspector/network.js",
                 "lib/internal/inspector/network_http.js",
+                "lib/internal/inspector/network_http2.js",
                 "lib/internal/inspector/network_resources.js",
                 "lib/internal/inspector/network_undici.js",
                 "lib/internal/inspector_async_hook.js",
@@ -7871,12 +7908,12 @@ Error importing module: No such built-in module: node:test/reporters
     cwd: <ref *47> ƒ wrappedCwd(length: 0) {},
     debugPort: 9229,
     default: process {
-        version: "v24.7.0",
+        version: "v24.8.0",
         versions: <ref *49> {
-            node: "24.7.0",
+            node: "24.8.0",
             acorn: "8.15.0",
             ada: "3.2.7",
-            amaro: "1.1.1",
+            amaro: "1.1.2",
             ares: "1.34.5",
             brotli: "1.1.0",
             cjs_module_lexer: "2.1.0",
@@ -7896,8 +7933,8 @@ Error importing module: No such built-in module: node:test/reporters
             undici: "7.14.0",
             unicode: "16.0",
             uv: "1.51.0",
-            uvwasi: "0.0.21",
-            v8: "13.6.233.10-node.26",
+            uvwasi: "0.0.23",
+            v8: "13.6.233.10-node.27",
             zlib: "1.3.1-470d3a2",
             zstd: "1.5.7"
         },
@@ -7905,8 +7942,8 @@ Error importing module: No such built-in module: node:test/reporters
         platform: "linux",
         release: <ref *50> {
             name: "node",
-            sourceUrl: "https://nodejs.org/download/release/v24.7.0/node-v24.7.0.tar.gz",
-            headersUrl: "https://nodejs.org/download/release/v24.7.0/node-v24.7.0-headers.tar.gz"
+            sourceUrl: "https://nodejs.org/download/release/v24.8.0/node-v24.8.0.tar.gz",
+            headersUrl: "https://nodejs.org/download/release/v24.8.0/node-v24.8.0-headers.tar.gz"
         },
         _rawDebug: [Circular: *18],
         moduleLoadList: <ref *51> [
@@ -8329,15 +8366,15 @@ Error importing module: No such built-in module: node:test/reporters
         setgid: <ref *118> ƒ (length: 1) {},
         setuid: <ref *119> ƒ (length: 1) {},
         env: <ref *120>  {
-            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_44ab4715-33d5-45f8-81d8-8aca1d5a48f8",
+            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_41cbfbb0-3136-41ab-955d-6dacae9f35b2",
             DOTNET_NOLOGO: "1",
             USER: "runner",
-            npm_config_user_agent: "pnpm/10.10.0 npm/? node/v24.7.0 linux x64",
+            npm_config_user_agent: "pnpm/10.10.0 npm/? node/v24.8.0 linux x64",
             CI: "true",
             RUNNER_ENVIRONMENT: "github-hosted",
-            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_44ab4715-33d5-45f8-81d8-8aca1d5a48f8",
+            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_41cbfbb0-3136-41ab-955d-6dacae9f35b2",
             PIPX_HOME: "/opt/pipx",
-            npm_node_execpath: "/opt/hostedtoolcache/node/24.7.0/x64/bin/node",
+            npm_node_execpath: "/opt/hostedtoolcache/node/24.8.0/x64/bin/node",
             JAVA_HOME_8_X64: "/usr/lib/jvm/temurin-8-jdk-amd64",
             SHLVL: "1",
             HOME: "/home/runner",
@@ -8356,12 +8393,12 @@ Error importing module: No such built-in module: node:test/reporters
             POWERSHELL_DISTRIBUTION_CHANNEL: "GitHub-Actions-ubuntu24",
             AZURE_EXTENSION_DIR: "/opt/az/azcliextensions",
             GITHUB_HEAD_REF: "",
-            SYSTEMD_EXEC_PID: "1886",
+            SYSTEMD_EXEC_PID: "1884",
             GITHUB_GRAPHQL_URL: "https://api.github.com/graphql",
             NVM_DIR: "/home/runner/.nvm",
             DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1",
             JAVA_HOME_17_X64: "/usr/lib/jvm/temurin-17-jdk-amd64",
-            ImageVersion: "20250831.1.0",
+            ImageVersion: "20250907.24.1",
             LOGNAME: "runner",
             RUNNER_OS: "Linux",
             GITHUB_API_URL: "https://api.github.com",
@@ -8369,17 +8406,17 @@ Error importing module: No such built-in module: node:test/reporters
             SWIFT_PATH: "/usr/share/swift/usr/bin",
             CHROMEWEBDRIVER: "/usr/local/share/chromedriver-linux64",
             GOROOT_1_23_X64: "/opt/hostedtoolcache/go/1.23.12/x64",
-            JOURNAL_STREAM: "9:14021",
+            JOURNAL_STREAM: "9:11045",
             GITHUB_WORKFLOW: "Comparison",
             _: "/home/runner/setup-pnpm/node_modules/.bin/pnpm",
             MEMORY_PRESSURE_WATCH: "/sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure",
-            GOROOT_1_24_X64: "/opt/hostedtoolcache/go/1.24.6/x64",
+            GOROOT_1_24_X64: "/opt/hostedtoolcache/go/1.24.7/x64",
             npm_config_registry: "https://registry.npmjs.org/",
             ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE: "/opt/actionarchivecache",
-            GITHUB_RUN_ID: "17536616979",
+            GITHUB_RUN_ID: "17719301103",
             GITHUB_REF_TYPE: "branch",
             BOOTSTRAP_HASKELL_NONINTERACTIVE: "1",
-            GITHUB_WORKFLOW_SHA: "3bf57c18f11cb414ff13b2bab002c5f828cf44e6",
+            GITHUB_WORKFLOW_SHA: "c8e9c2b402ff8efe0f969e7b7480879d531bb0db",
             GITHUB_BASE_REF: "",
             ImageOS: "ubuntu24",
             GITHUB_WORKFLOW_REF: "outslept/deno-compare-node/.github/workflows/compare.yml@refs/heads/main",
@@ -8389,13 +8426,13 @@ Error importing module: No such built-in module: node:test/reporters
             PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.bin:/home/runner/setup-pnpm/node…",
             ANT_HOME: "/usr/share/ant",
             DOTNET_MULTILEVEL_LOOKUP: "0",
-            RUNNER_TRACKING_ID: "github_f8d16832-1add-4723-b88d-dd0c43cb150d",
-            INVOCATION_ID: "b53723c0d3cc4c13a039185d45a439fd",
+            RUNNER_TRACKING_ID: "github_ede079f0-56fb-4476-8f24-4ba40dd8b5db",
+            INVOCATION_ID: "ff652cce2ab44dc69e380e9e5de77201",
             RUNNER_TOOL_CACHE: "/opt/hostedtoolcache",
             npm_package_name: "deno-compare-node",
-            NODE: "/opt/hostedtoolcache/node/24.7.0/x64/bin/node",
+            NODE: "/opt/hostedtoolcache/node/24.8.0/x64/bin/node",
             GITHUB_ACTION: "__run_3",
-            GITHUB_RUN_NUMBER: "8",
+            GITHUB_RUN_NUMBER: "9",
             GITHUB_TRIGGERING_ACTOR: "outslept",
             RUNNER_ARCH: "X64",
             XDG_RUNTIME_DIR: "/run/user/1001",
@@ -8404,7 +8441,7 @@ Error importing module: No such built-in module: node:test/reporters
             LANG: "C.UTF-8",
             VCPKG_INSTALLATION_ROOT: "/usr/local/share/vcpkg",
             CONDA: "/usr/share/miniconda",
-            RUNNER_NAME: "GitHub Actions 1000002500",
+            RUNNER_NAME: "GitHub Actions 1000002580",
             XDG_CONFIG_HOME: "/home/runner/.config",
             GITHUB_REF_NAME: "main",
             GITHUB_REPOSITORY: "outslept/deno-compare-node",
@@ -8423,12 +8460,12 @@ Error importing module: No such built-in module: node:test/reporters
             GITHUB_WORKSPACE: "/home/runner/work/deno-compare-node/deno-compare-node",
             ACCEPT_EULA: "Y",
             GITHUB_JOB: "comparison",
-            GITHUB_SHA: "3bf57c18f11cb414ff13b2bab002c5f828cf44e6",
+            GITHUB_SHA: "c8e9c2b402ff8efe0f969e7b7480879d531bb0db",
             GITHUB_RUN_ATTEMPT: "1",
             GITHUB_REF: "refs/heads/main",
             GITHUB_ACTOR: "outslept",
             ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk",
-            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_44ab4715-33d5-45f8-81d8-8aca1d5a48f8",
+            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_41cbfbb0-3136-41ab-955d-6dacae9f35b2",
             JAVA_HOME: "/usr/lib/jvm/temurin-17-jdk-amd64",
             PWD: "/home/runner/work/deno-compare-node/deno-compare-node",
             GITHUB_ACTOR_ID: "135520429",
@@ -8441,7 +8478,7 @@ Error importing module: No such built-in module: node:test/reporters
             GITHUB_SERVER_URL: "https://github.com",
             GECKOWEBDRIVER: "/usr/local/share/gecko_driver",
             GHCUP_INSTALL_BASE_PREFIX: "/usr/local",
-            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_44ab4715-33d5-45f8-81d8-8aca1d5a48f8",
+            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_41cbfbb0-3136-41ab-955d-6dacae9f35b2",
             EDGEWEBDRIVER: "/usr/local/share/edge_driver",
             npm_config__jsr_registry: "https://npm.jsr.io/",
             npm_command: "run-script",
@@ -8453,15 +8490,15 @@ Error importing module: No such built-in module: node:test/reporters
             MEMORY_PRESSURE_WRITE: "c29tZSAyMDAwMDAgMjAwMDAwMAA=",
             PNPM_HOME: "/home/runner/setup-pnpm/node_modules/.bin",
             ANDROID_NDK_HOME: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_44ab4715-33d5-45f8-81d8-8aca1d5a48f8",
+            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_41cbfbb0-3136-41ab-955d-6dacae9f35b2",
             INIT_CWD: "/home/runner/work/deno-compare-node/deno-compare-node"
         },
         title: "node",
         argv: [Circular: *26],
         execArgv: <ref *121> [],
-        pid: 2669,
-        ppid: 2227,
-        execPath: "/opt/hostedtoolcache/node/24.7.0/x64/bin/node",
+        pid: 2694,
+        ppid: 2251,
+        execPath: "/opt/hostedtoolcache/node/24.8.0/x64/bin/node",
         debugPort: 9229,
         argv0: "node",
         _preload_modules: [Circular: *17],
@@ -8486,7 +8523,7 @@ Error importing module: No such built-in module: node:test/reporters
     emitWarning: [Circular: *81],
     env: [Circular: *120],
     execArgv: [Circular: *121],
-    execPath: "/opt/hostedtoolcache/node/24.7.0/x64/bin/node",
+    execPath: "/opt/hostedtoolcache/node/24.8.0/x64/bin/node",
     execve: [Circular: *63],
     exit: [Circular: *62],
     exitCode: undefined,
@@ -8508,9 +8545,9 @@ Error importing module: No such built-in module: node:test/reporters
     moduleLoadList: [Circular: *51],
     nextTick: [Circular: *82],
     openStdin: [Circular: *72],
-    pid: 2669,
+    pid: 2694,
     platform: "linux",
-    ppid: 2227,
+    ppid: 2251,
     reallyExit: [Circular: *55],
     ref: [Circular: *64],
     release: [Circular: *50],
@@ -8532,7 +8569,7 @@ Error importing module: No such built-in module: node:test/reporters
     umask: [Circular: *113],
     unref: [Circular: *65],
     uptime: [Circular: *53],
-    version: "v24.7.0",
+    version: "v24.8.0",
     versions: [Circular: *49]
 }
 ```
@@ -8703,7 +8740,7 @@ Error importing module: No such built-in module: node:test/reporters
     arch: "x64",
     argv: <ref *6> [
         "deno",
-        "/tmp/fs-fixture-1757293636298-2227-1/process.mjs"
+        "/tmp/fs-fixture-1757898502845-2251-1/process.mjs"
     ],
     argv0: "deno",
     chdir: <ref *7> ƒ chdir(length: 1) {},
@@ -8874,8 +8911,8 @@ Error importing module: No such built-in module: node:test/reporters
             unicode: "14.0",
             ngtcp2: "0.8.1",
             nghttp3: "0.7.0",
-            deno: "2.4.5+54bda9f",
-            v8: "13.7.152.14-rusty",
+            deno: "2.5.0+9e2472a",
+            v8: "14.0.365.4-rusty",
             typescript: "5.9.2"
         },
         emitWarning: <ref *61> ƒ emitWarning(length: 4) {},
@@ -8915,7 +8952,7 @@ Error importing module: No such built-in module: node:test/reporters
     loadEnvFile: [Circular: *69],
     memoryUsage: [Circular: *30],
     nextTick: [Circular: *23],
-    pid: 2680,
+    pid: 2701,
     platform: "linux",
     removeAllListeners: ƒ removeAllListeners(length: 1) {},
     removeListener: ƒ (length: 2) {},
@@ -8957,7 +8994,7 @@ Error importing module: No such built-in module: node:test/reporters
     ucs2: [Circular: *4],
     version: "2.1.0"
 }
-(node:2686) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2708) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 ```
 
@@ -9176,8 +9213,10 @@ Error importing module: No such built-in module: node:test/reporters
         REPLServer: [Circular: *2],
         REPL_MODE_SLOPPY: Symbol(repl-sloppy),
         REPL_MODE_STRICT: Symbol(repl-strict),
-        Recoverable: [Circular: *3]
+        Recoverable: [Circular: *3],
+        isValidSyntax: <ref *8> ƒ isValidSyntax(length: 1) {}
     },
+    isValidSyntax: [Circular: *8],
     start: [Circular: *5],
     writer: [Circular: *6]
 }
@@ -9938,7 +9977,7 @@ Error importing module: No such built-in module: node:test/reporters
     transferableAbortSignal: [Circular: *75],
     types: [Circular: *77]
 }
-(node:2830) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.
+(node:2853) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 ```
 
@@ -10775,7 +10814,7 @@ Error importing module: No such built-in module: node:test/reporters
 
 ```js
 Error importing module: No such built-in module: node:trace_events
-    at file:///tmp/fs-fixture-1757293636298-2227-1/trace_events.mjs:3:32
+    at file:///tmp/fs-fixture-1757898502845-2251-1/trace_events.mjs:3:32
 
 ```
 
@@ -11911,7 +11950,7 @@ Error importing module: No such built-in module: node:trace_events
         WASI: [Circular: *2]
     }
 }
-(node:2998) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(node:3019) ExperimentalWarning: WASI is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 ```
 
