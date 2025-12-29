@@ -3,7 +3,7 @@ This repository provides a comparative overview of the Deno and Node.js runtime 
 
 Scrolling down, you should be able to see what's available in Deno, what's not, and how they differ.
 
-Updated Dec 22, 2025 • Node.js v25.2.1 • deno 2.6.2+9cd8077 (canary, release, x86_64-unknown-linux-gnu)
+Updated Dec 29, 2025 • Node.js v25.2.1 • deno 2.6.3+ce1d451 (canary, release, x86_64-unknown-linux-gnu)
 
 ## Module details
 
@@ -5460,7 +5460,7 @@ Updated Dec 22, 2025 • Node.js v25.2.1 • deno 2.6.2+9cd8077 (canary, release
     Module: <ref *2> ƒ Module(length: 0) {
         _cache: <ref *3> [Object: null prototype] {},
         _pathCache: <ref *4> [Object: null prototype] {
-            /tmp/fs-fixture-1766366192848-2254-1/module.mjs: "/tmp/fs-fixture-1766366192848-2254-1/module.mjs"
+            /tmp/fs-fixture-1766971160127-2246-1/module.mjs: "/tmp/fs-fixture-1766971160127-2246-1/module.mjs"
         },
         _extensions: <ref *5> [Object: null prototype] {
             .js: ƒ (length: 2) {},
@@ -5750,9 +5750,7 @@ Updated Dec 22, 2025 • Node.js v25.2.1 • deno 2.6.2+9cd8077 (canary, release
         syncBuiltinESMExports: ƒ syncBuiltinESMExports(length: 0) {},
         runMain: ƒ (length: 0) {},
         Module: [Circular: *2],
-        findSourceMap: <ref *26> ƒ findSourceMap(length: 1) {},
-        register: <ref *27> ƒ register(length: 3) {},
-        registerHooks: <ref *28> ƒ registerHooks(length: 1) {}
+        findSourceMap: <ref *26> ƒ findSourceMap(length: 1) {}
     },
     _cache: [Circular: *10],
     _extensions: [Circular: *4],
@@ -5771,8 +5769,7 @@ Updated Dec 22, 2025 • Node.js v25.2.1 • deno 2.6.2+9cd8077 (canary, release
     getBuiltinModule: ƒ getBuiltinModule(length: 1) {},
     globalPaths: [Circular: *12],
     isBuiltin: [Circular: *21],
-    register: [Circular: *27],
-    registerHooks: [Circular: *28],
+    register: ƒ register(length: 3) {},
     wrap: [Circular: *20]
 }
 ```
@@ -5900,7 +5897,7 @@ Updated Dec 22, 2025 • Node.js v25.2.1 • deno 2.6.2+9cd8077 (canary, release
 
 ```js
 Error importing module: No such built-in module: node:sea
-    at file:///tmp/fs-fixture-1766366192848-2254-1/sea.mjs:3:32
+    at file:///tmp/fs-fixture-1766971160127-2246-1/sea.mjs:3:32
 
 ```
 
@@ -5974,7 +5971,7 @@ Error importing module: No such built-in module: node:sea
         backup: [Circular: *5]
     }
 }
-(node:3070) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(node:3061) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 ```
 
@@ -6142,7 +6139,7 @@ Error importing module: No such built-in module: node:sea
 
 ```js
 Error importing module: No such built-in module: node:test/reporters
-    at file:///tmp/fs-fixture-1766366192848-2254-1/test_reporters.mjs:3:32
+    at file:///tmp/fs-fixture-1766971160127-2246-1/test_reporters.mjs:3:32
 
 ```
 
@@ -7386,7 +7383,7 @@ Error importing module: No such built-in module: node:test/reporters
     arch: "x64",
     argv: <ref *22> [
         "/opt/hostedtoolcache/node/25.2.1/x64/bin/node",
-        "/tmp/fs-fixture-1766366192848-2254-1/process.mjs"
+        "/tmp/fs-fixture-1766971160127-2246-1/process.mjs"
     ],
     argv0: "node",
     availableMemory: <ref *23> ƒ availableMemory(length: 0) {},
@@ -8370,13 +8367,13 @@ Error importing module: No such built-in module: node:test/reporters
         setgid: <ref *114> ƒ (length: 1) {},
         setuid: <ref *115> ƒ (length: 1) {},
         env: <ref *116>  {
-            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_049f76e7-4c02-483b-9483-c46f9ebe052a",
+            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_8cefd1ef-22cc-4101-ad46-988d982888b5",
             DOTNET_NOLOGO: "1",
             USER: "runner",
             npm_config_user_agent: "pnpm/10.10.0 npm/? node/v25.2.1 linux x64",
             CI: "true",
             RUNNER_ENVIRONMENT: "github-hosted",
-            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_049f76e7-4c02-483b-9483-c46f9ebe052a",
+            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_8cefd1ef-22cc-4101-ad46-988d982888b5",
             PIPX_HOME: "/opt/pipx",
             npm_node_execpath: "/opt/hostedtoolcache/node/25.2.1/x64/bin/node",
             JAVA_HOME_8_X64: "/usr/lib/jvm/temurin-8-jdk-amd64",
@@ -8397,7 +8394,7 @@ Error importing module: No such built-in module: node:test/reporters
             POWERSHELL_DISTRIBUTION_CHANNEL: "GitHub-Actions-ubuntu24",
             AZURE_EXTENSION_DIR: "/opt/az/azcliextensions",
             GITHUB_HEAD_REF: "",
-            SYSTEMD_EXEC_PID: "1918",
+            SYSTEMD_EXEC_PID: "1913",
             GITHUB_GRAPHQL_URL: "https://api.github.com/graphql",
             JAVA_HOME_25_X64: "/usr/lib/jvm/temurin-25-jdk-amd64",
             NVM_DIR: "/home/runner/.nvm",
@@ -8411,7 +8408,7 @@ Error importing module: No such built-in module: node:test/reporters
             SWIFT_PATH: "/usr/share/swift/usr/bin",
             CHROMEWEBDRIVER: "/usr/local/share/chromedriver-linux64",
             GOROOT_1_23_X64: "/opt/hostedtoolcache/go/1.23.12/x64",
-            JOURNAL_STREAM: "9:12826",
+            JOURNAL_STREAM: "9:11678",
             GITHUB_WORKFLOW: "Comparison",
             _: "/home/runner/setup-pnpm/node_modules/.bin/pnpm",
             MEMORY_PRESSURE_WATCH: "/sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure",
@@ -8419,10 +8416,10 @@ Error importing module: No such built-in module: node:test/reporters
             npm_config_registry: "https://registry.npmjs.org/",
             ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE: "/opt/actionarchivecache",
             GOROOT_1_25_X64: "/opt/hostedtoolcache/go/1.25.5/x64",
-            GITHUB_RUN_ID: "20418865976",
+            GITHUB_RUN_ID: "20562408829",
             GITHUB_REF_TYPE: "branch",
             BOOTSTRAP_HASKELL_NONINTERACTIVE: "1",
-            GITHUB_WORKFLOW_SHA: "930150fe0fddef125b63b1fcef08ef24dc43b24e",
+            GITHUB_WORKFLOW_SHA: "fc93f47dc6e22da1790613195d94f91db04f191b",
             GITHUB_BASE_REF: "",
             ImageOS: "ubuntu24",
             GITHUB_WORKFLOW_REF: "outslept/deno-compare-node/.github/workflows/compare.yml@refs/heads/main",
@@ -8432,13 +8429,13 @@ Error importing module: No such built-in module: node:test/reporters
             PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.bin:/home/runner/setup-pnpm/node…",
             ANT_HOME: "/usr/share/ant",
             DOTNET_MULTILEVEL_LOOKUP: "0",
-            RUNNER_TRACKING_ID: "github_f46635e6-5f44-4312-a6e9-cf0b5744e465",
-            INVOCATION_ID: "b8825cb5b9ae4545ba7834d97da22bcb",
+            RUNNER_TRACKING_ID: "github_57b9370f-ba10-4dcc-8072-c119b999e32b",
+            INVOCATION_ID: "aff51d14c66647068646acde31922b0b",
             RUNNER_TOOL_CACHE: "/opt/hostedtoolcache",
             npm_package_name: "deno-compare-node",
             NODE: "/opt/hostedtoolcache/node/25.2.1/x64/bin/node",
             GITHUB_ACTION: "__run_3",
-            GITHUB_RUN_NUMBER: "23",
+            GITHUB_RUN_NUMBER: "24",
             GITHUB_TRIGGERING_ACTOR: "outslept",
             RUNNER_ARCH: "X64",
             XDG_RUNTIME_DIR: "/run/user/1001",
@@ -8447,7 +8444,7 @@ Error importing module: No such built-in module: node:test/reporters
             LANG: "C.UTF-8",
             VCPKG_INSTALLATION_ROOT: "/usr/local/share/vcpkg",
             CONDA: "/usr/share/miniconda",
-            RUNNER_NAME: "GitHub Actions 1000003490",
+            RUNNER_NAME: "GitHub Actions 1000003500",
             XDG_CONFIG_HOME: "/home/runner/.config",
             GITHUB_REF_NAME: "main",
             GITHUB_REPOSITORY: "outslept/deno-compare-node",
@@ -8466,12 +8463,12 @@ Error importing module: No such built-in module: node:test/reporters
             GITHUB_WORKSPACE: "/home/runner/work/deno-compare-node/deno-compare-node",
             ACCEPT_EULA: "Y",
             GITHUB_JOB: "comparison",
-            GITHUB_SHA: "930150fe0fddef125b63b1fcef08ef24dc43b24e",
+            GITHUB_SHA: "fc93f47dc6e22da1790613195d94f91db04f191b",
             GITHUB_RUN_ATTEMPT: "1",
             GITHUB_REF: "refs/heads/main",
             GITHUB_ACTOR: "outslept",
             ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk",
-            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_049f76e7-4c02-483b-9483-c46f9ebe052a",
+            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_8cefd1ef-22cc-4101-ad46-988d982888b5",
             JAVA_HOME: "/usr/lib/jvm/temurin-17-jdk-amd64",
             PWD: "/home/runner/work/deno-compare-node/deno-compare-node",
             GITHUB_ACTOR_ID: "135520429",
@@ -8484,7 +8481,7 @@ Error importing module: No such built-in module: node:test/reporters
             GITHUB_SERVER_URL: "https://github.com",
             GECKOWEBDRIVER: "/usr/local/share/gecko_driver",
             GHCUP_INSTALL_BASE_PREFIX: "/usr/local",
-            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_049f76e7-4c02-483b-9483-c46f9ebe052a",
+            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_8cefd1ef-22cc-4101-ad46-988d982888b5",
             EDGEWEBDRIVER: "/usr/local/share/edge_driver",
             npm_config__jsr_registry: "https://npm.jsr.io/",
             npm_command: "run-script",
@@ -8496,14 +8493,14 @@ Error importing module: No such built-in module: node:test/reporters
             MEMORY_PRESSURE_WRITE: "c29tZSAyMDAwMDAgMjAwMDAwMAA=",
             PNPM_HOME: "/home/runner/setup-pnpm/node_modules/.bin",
             ANDROID_NDK_HOME: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_049f76e7-4c02-483b-9483-c46f9ebe052a",
+            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_8cefd1ef-22cc-4101-ad46-988d982888b5",
             INIT_CWD: "/home/runner/work/deno-compare-node/deno-compare-node"
         },
         title: "node",
         argv: [Circular: *22],
         execArgv: <ref *117> [],
-        pid: 2699,
-        ppid: 2254,
+        pid: 2683,
+        ppid: 2246,
         execPath: "/opt/hostedtoolcache/node/25.2.1/x64/bin/node",
         debugPort: 9229,
         argv0: "node",
@@ -8551,9 +8548,9 @@ Error importing module: No such built-in module: node:test/reporters
     moduleLoadList: [Circular: *47],
     nextTick: [Circular: *78],
     openStdin: [Circular: *68],
-    pid: 2699,
+    pid: 2683,
     platform: "linux",
-    ppid: 2254,
+    ppid: 2246,
     reallyExit: [Circular: *51],
     ref: [Circular: *60],
     release: [Circular: *46],
@@ -8746,7 +8743,7 @@ Error importing module: No such built-in module: node:test/reporters
     arch: "x64",
     argv: <ref *6> [
         "deno",
-        "/tmp/fs-fixture-1766366192848-2254-1/process.mjs"
+        "/tmp/fs-fixture-1766971160127-2246-1/process.mjs"
     ],
     argv0: "deno",
     chdir: <ref *7> ƒ chdir(length: 1) {},
@@ -8774,134 +8771,134 @@ Error importing module: No such built-in module: node:test/reporters
         cpuUsage: [Circular: *8],
         cwd: [Circular: *9],
         env: <ref *18> {
-            RUNNER_WORKSPACE: "/home/runner/work/deno-compare-node",
-            DOTNET_MULTILEVEL_LOOKUP: "0",
-            GITHUB_REPOSITORY: "outslept/deno-compare-node",
-            ANT_HOME: "/usr/share/ant",
-            GITHUB_REF_PROTECTED: "false",
-            HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS: "3650",
-            PNPM_SCRIPT_SRC_DIR: "/home/runner/work/deno-compare-node/deno-compare-node",
-            ANDROID_NDK_ROOT: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            BOOTSTRAP_HASKELL_NONINTERACTIVE: "1",
-            JAVA_HOME: "/usr/lib/jvm/temurin-17-jdk-amd64",
-            npm_node_execpath: "/opt/hostedtoolcache/node/25.2.1/x64/bin/node",
-            ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk",
-            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_049f76e7-4c02-483b-9483-c46f9ebe052a",
-            GITHUB_ACTOR: "outslept",
-            JAVA_HOME_8_X64: "/usr/lib/jvm/temurin-8-jdk-amd64",
-            NODE_PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.pnpm/tsx@4.20.3/node_modules/tsx…",
-            GITHUB_SHA: "930150fe0fddef125b63b1fcef08ef24dc43b24e",
             RUNNER_ARCH: "X64",
-            ImageVersion: "20251215.174.1",
-            GHCUP_INSTALL_BASE_PREFIX: "/usr/local",
-            NVM_DIR: "/home/runner/.nvm",
-            npm_lifecycle_script: "tsx index.ts",
-            GITHUB_WORKSPACE: "/home/runner/work/deno-compare-node/deno-compare-node",
-            GITHUB_EVENT_NAME: "schedule",
-            GITHUB_WORKFLOW: "Comparison",
-            ENABLE_RUNNER_TRACING: "true",
-            GITHUB_REF: "refs/heads/main",
-            npm_package_engines_node: ">=20.0.0",
-            npm_package_json: "/home/runner/work/deno-compare-node/deno-compare-node/package.json",
-            JAVA_HOME_21_X64: "/usr/lib/jvm/temurin-21-jdk-amd64",
-            GITHUB_WORKFLOW_SHA: "930150fe0fddef125b63b1fcef08ef24dc43b24e",
-            npm_config_node_gyp: "/home/runner/setup-pnpm/node_modules/.pnpm/pnpm@10.10.0/node_modules/pnpm/dist/node_modules/node-gyp…",
-            GITHUB_JOB: "comparison",
-            DOTNET_NOLOGO: "1",
-            XDG_RUNTIME_DIR: "/run/user/1001",
-            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_049f76e7-4c02-483b-9483-c46f9ebe052a",
-            INIT_CWD: "/home/runner/work/deno-compare-node/deno-compare-node",
             GITHUB_RETENTION_DAYS: "90",
+            ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk",
+            HOMEBREW_NO_AUTO_UPDATE: "1",
+            ImageVersion: "20251215.174.1",
+            NODE: "/opt/hostedtoolcache/node/25.2.1/x64/bin/node",
+            GITHUB_ACTOR_ID: "135520429",
+            GITHUB_EVENT_NAME: "schedule",
+            npm_config_user_agent: "pnpm/10.10.0 npm/? node/v25.2.1 linux x64",
+            GOROOT_1_25_X64: "/opt/hostedtoolcache/go/1.25.5/x64",
+            npm_package_engines_node: ">=20.0.0",
+            SHELL: "/bin/bash",
+            HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS: "3650",
+            ANDROID_HOME: "/usr/local/lib/android/sdk",
+            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_8cefd1ef-22cc-4101-ad46-988d982888b5",
+            NODE_PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.pnpm/tsx@4.20.3/node_modules/tsx…",
+            ANDROID_NDK_LATEST_HOME: "/usr/local/lib/android/sdk/ndk/29.0.14206865",
+            npm_command: "run-script",
+            CONDA: "/usr/share/miniconda",
+            GOROOT_1_24_X64: "/opt/hostedtoolcache/go/1.24.11/x64",
+            RUNNER_NAME: "GitHub Actions 1000003500",
+            GITHUB_ACTION_REPOSITORY: "",
+            npm_package_name: "deno-compare-node",
+            MEMORY_PRESSURE_WATCH: "/sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure",
+            MEMORY_PRESSURE_WRITE: "c29tZSAyMDAwMDAgMjAwMDAwMAA=",
+            JAVA_HOME: "/usr/lib/jvm/temurin-17-jdk-amd64",
             GITHUB_REPOSITORY_OWNER_ID: "135520429",
-            SYSTEMD_EXEC_PID: "1918",
+            npm_lifecycle_script: "tsx index.ts",
+            AZURE_EXTENSION_DIR: "/opt/az/azcliextensions",
+            GITHUB_GRAPHQL_URL: "https://api.github.com/graphql",
+            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_8cefd1ef-22cc-4101-ad46-988d982888b5",
+            GITHUB_HEAD_REF: "",
+            XDG_CONFIG_HOME: "/home/runner/.config",
+            SELENIUM_JAR_PATH: "/usr/share/java/selenium-server.jar",
+            JAVA_HOME_8_X64: "/usr/lib/jvm/temurin-8-jdk-amd64",
+            PIPX_BIN_DIR: "/opt/pipx_bin",
+            GITHUB_RUN_ID: "20562408829",
+            ENABLE_RUNNER_TRACING: "true",
+            GITHUB_REPOSITORY: "outslept/deno-compare-node",
+            ANDROID_NDK: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
+            RUNNER_TRACKING_ID: "github_57b9370f-ba10-4dcc-8072-c119b999e32b",
+            GITHUB_WORKSPACE: "/home/runner/work/deno-compare-node/deno-compare-node",
+            XDG_RUNTIME_DIR: "/run/user/1001",
+            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_8cefd1ef-22cc-4101-ad46-988d982888b5",
+            _: "/home/runner/setup-pnpm/node_modules/.bin/pnpm",
+            GITHUB_REPOSITORY_ID: "1034352965",
+            PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.bin:/home/runner/setup-pnpm/node…",
+            JAVA_HOME_11_X64: "/usr/lib/jvm/temurin-11-jdk-amd64",
+            DOTNET_NOLOGO: "1",
+            JAVA_HOME_21_X64: "/usr/lib/jvm/temurin-21-jdk-amd64",
+            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_8cefd1ef-22cc-4101-ad46-988d982888b5",
+            npm_execpath: "/home/runner/setup-pnpm/node_modules/.pnpm/pnpm@10.10.0/node_modules/pnpm/bin/pnpm.cjs",
+            SWIFT_PATH: "/usr/share/swift/usr/bin",
+            JOURNAL_STREAM: "9:11678",
+            SGX_AESM_ADDR: "1",
+            JAVA_HOME_25_X64: "/usr/lib/jvm/temurin-25-jdk-amd64",
+            SHLVL: "1",
             GITHUB_ACTION: "__run_3",
             USER: "runner",
-            RUNNER_TRACKING_ID: "github_f46635e6-5f44-4312-a6e9-cf0b5744e465",
-            SHELL: "/bin/bash",
-            PWD: "/home/runner/work/deno-compare-node/deno-compare-node",
-            PIPX_HOME: "/opt/pipx",
-            GITHUB_ACTIONS: "true",
-            npm_package_version: "0.0.1",
-            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_049f76e7-4c02-483b-9483-c46f9ebe052a",
-            GITHUB_SERVER_URL: "https://github.com",
-            ANDROID_NDK_HOME: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            AGENT_TOOLSDIRECTORY: "/opt/hostedtoolcache",
-            npm_config_frozen_lockfile: "",
-            SELENIUM_JAR_PATH: "/usr/share/java/selenium-server.jar",
-            GOROOT_1_25_X64: "/opt/hostedtoolcache/go/1.25.5/x64",
-            PNPM_HOME: "/home/runner/setup-pnpm/node_modules/.bin",
-            npm_lifecycle_event: "start",
-            INVOCATION_ID: "b8825cb5b9ae4545ba7834d97da22bcb",
-            GITHUB_EVENT_PATH: "/home/runner/work/_temp/_github_workflow/event.json",
-            RUNNER_ENVIRONMENT: "github-hosted",
-            ImageOS: "ubuntu24",
-            npm_command: "run-script",
-            PIPX_BIN_DIR: "/opt/pipx_bin",
-            npm_config_verify_deps_before_run: "false",
-            npm_config_registry: "https://registry.npmjs.org/",
-            ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE: "/opt/actionarchivecache",
-            npm_config__jsr_registry: "https://npm.jsr.io/",
-            JAVA_HOME_17_X64: "/usr/lib/jvm/temurin-17-jdk-amd64",
-            GITHUB_REPOSITORY_ID: "1034352965",
-            CHROME_BIN: "/usr/bin/google-chrome",
-            GITHUB_ACTION_REF: "",
-            GITHUB_ACTION_REPOSITORY: "",
-            npm_execpath: "/home/runner/setup-pnpm/node_modules/.pnpm/pnpm@10.10.0/node_modules/pnpm/bin/pnpm.cjs",
-            GITHUB_REPOSITORY_OWNER: "outslept",
-            GRADLE_HOME: "/usr/share/gradle-9.2.1",
-            VCPKG_INSTALLATION_ROOT: "/usr/local/share/vcpkg",
-            GITHUB_RUN_ID: "20418865976",
-            MEMORY_PRESSURE_WRITE: "c29tZSAyMDAwMDAgMjAwMDAwMAA=",
-            RUNNER_TEMP: "/home/runner/work/_temp",
-            SWIFT_PATH: "/usr/share/swift/usr/bin",
-            npm_config_user_agent: "pnpm/10.10.0 npm/? node/v25.2.1 linux x64",
+            DOTNET_MULTILEVEL_LOOKUP: "0",
             DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1",
-            RUNNER_OS: "Linux",
-            MEMORY_PRESSURE_WATCH: "/sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure",
-            _: "/home/runner/setup-pnpm/node_modules/.bin/pnpm",
-            GITHUB_HEAD_REF: "",
-            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_049f76e7-4c02-483b-9483-c46f9ebe052a",
-            JAVA_HOME_11_X64: "/usr/lib/jvm/temurin-11-jdk-amd64",
-            ANDROID_HOME: "/usr/local/lib/android/sdk",
-            RUNNER_TOOL_CACHE: "/opt/hostedtoolcache",
+            npm_config_verify_deps_before_run: "false",
+            npm_node_execpath: "/opt/hostedtoolcache/node/25.2.1/x64/bin/node",
             GITHUB_REF_TYPE: "branch",
-            GITHUB_RUN_NUMBER: "23",
-            GITHUB_GRAPHQL_URL: "https://api.github.com/graphql",
-            XDG_CONFIG_HOME: "/home/runner/.config",
-            ACCEPT_EULA: "Y",
-            JAVA_HOME_25_X64: "/usr/lib/jvm/temurin-25-jdk-amd64",
-            GITHUB_RUN_ATTEMPT: "1",
-            PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.bin:/home/runner/setup-pnpm/node…",
-            NODE: "/opt/hostedtoolcache/node/25.2.1/x64/bin/node",
-            GITHUB_REF_NAME: "main",
-            HOMEBREW_NO_AUTO_UPDATE: "1",
-            GITHUB_ACTOR_ID: "135520429",
-            CONDA: "/usr/share/miniconda",
-            EDGEWEBDRIVER: "/usr/local/share/edge_driver",
-            DEBIAN_FRONTEND: "noninteractive",
-            GITHUB_TRIGGERING_ACTOR: "outslept",
-            GECKOWEBDRIVER: "/usr/local/share/gecko_driver",
-            LOGNAME: "runner",
-            GITHUB_BASE_REF: "",
-            CI: "true",
-            POWERSHELL_DISTRIBUTION_CHANNEL: "GitHub-Actions-ubuntu24",
-            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_049f76e7-4c02-483b-9483-c46f9ebe052a",
+            GITHUB_ACTIONS: "true",
             LANG: "C.UTF-8",
-            GOROOT_1_24_X64: "/opt/hostedtoolcache/go/1.24.11/x64",
-            CHROMEWEBDRIVER: "/usr/local/share/chromedriver-linux64",
-            npm_package_name: "deno-compare-node",
-            HOME: "/home/runner",
+            npm_lifecycle_event: "start",
+            GITHUB_WORKFLOW: "Comparison",
+            GITHUB_ACTOR: "outslept",
+            GITHUB_RUN_ATTEMPT: "1",
+            GITHUB_WORKFLOW_SHA: "fc93f47dc6e22da1790613195d94f91db04f191b",
+            GITHUB_TRIGGERING_ACTOR: "outslept",
+            ACCEPT_EULA: "Y",
+            INIT_CWD: "/home/runner/work/deno-compare-node/deno-compare-node",
+            GITHUB_SERVER_URL: "https://github.com",
+            CI: "true",
+            PNPM_HOME: "/home/runner/setup-pnpm/node_modules/.bin",
+            GITHUB_BASE_REF: "",
+            npm_config_frozen_lockfile: "",
+            PNPM_SCRIPT_SRC_DIR: "/home/runner/work/deno-compare-node/deno-compare-node",
+            ANDROID_NDK_HOME: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
+            ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE: "/opt/actionarchivecache",
+            GECKOWEBDRIVER: "/usr/local/share/gecko_driver",
+            PWD: "/home/runner/work/deno-compare-node/deno-compare-node",
             GOROOT_1_22_X64: "/opt/hostedtoolcache/go/1.22.12/x64",
-            ANDROID_NDK: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            SHLVL: "1",
-            JOURNAL_STREAM: "9:12826",
-            SGX_AESM_ADDR: "1",
             GITHUB_WORKFLOW_REF: "outslept/deno-compare-node/.github/workflows/compare.yml@refs/heads/main",
+            JAVA_HOME_17_X64: "/usr/lib/jvm/temurin-17-jdk-amd64",
+            ANT_HOME: "/usr/share/ant",
+            GITHUB_RUN_NUMBER: "24",
+            LOGNAME: "runner",
+            npm_package_version: "0.0.1",
+            RUNNER_OS: "Linux",
+            PIPX_HOME: "/opt/pipx",
+            RUNNER_TOOL_CACHE: "/opt/hostedtoolcache",
+            HOME: "/home/runner",
+            VCPKG_INSTALLATION_ROOT: "/usr/local/share/vcpkg",
+            GITHUB_SHA: "fc93f47dc6e22da1790613195d94f91db04f191b",
+            AGENT_TOOLSDIRECTORY: "/opt/hostedtoolcache",
+            BOOTSTRAP_HASKELL_NONINTERACTIVE: "1",
+            EDGEWEBDRIVER: "/usr/local/share/edge_driver",
+            SYSTEMD_EXEC_PID: "1913",
+            RUNNER_WORKSPACE: "/home/runner/work/deno-compare-node",
+            POWERSHELL_DISTRIBUTION_CHANNEL: "GitHub-Actions-ubuntu24",
+            RUNNER_ENVIRONMENT: "github-hosted",
+            GRADLE_HOME: "/usr/share/gradle-9.2.1",
+            RUNNER_TEMP: "/home/runner/work/_temp",
+            GITHUB_JOB: "comparison",
+            GITHUB_REF: "refs/heads/main",
+            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_8cefd1ef-22cc-4101-ad46-988d982888b5",
+            INVOCATION_ID: "aff51d14c66647068646acde31922b0b",
+            DEBIAN_FRONTEND: "noninteractive",
+            ANDROID_NDK_ROOT: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
+            ImageOS: "ubuntu24",
+            CHROME_BIN: "/usr/bin/google-chrome",
             GITHUB_API_URL: "https://api.github.com",
-            RUNNER_NAME: "GitHub Actions 1000003490",
+            GHCUP_INSTALL_BASE_PREFIX: "/usr/local",
+            npm_config_registry: "https://registry.npmjs.org/",
+            npm_config__jsr_registry: "https://npm.jsr.io/",
             GOROOT_1_23_X64: "/opt/hostedtoolcache/go/1.23.12/x64",
-            ANDROID_NDK_LATEST_HOME: "/usr/local/lib/android/sdk/ndk/29.0.14206865",
-            AZURE_EXTENSION_DIR: "/opt/az/azcliextensions"
+            GITHUB_REF_NAME: "main",
+            CHROMEWEBDRIVER: "/usr/local/share/chromedriver-linux64",
+            GITHUB_REF_PROTECTED: "false",
+            GITHUB_REPOSITORY_OWNER: "outslept",
+            GITHUB_EVENT_PATH: "/home/runner/work/_temp/_github_workflow/event.json",
+            npm_package_json: "/home/runner/work/deno-compare-node/deno-compare-node/package.json",
+            NVM_DIR: "/home/runner/.nvm",
+            GITHUB_ACTION_REF: "",
+            npm_config_node_gyp: "/home/runner/setup-pnpm/node_modules/.pnpm/pnpm@10.10.0/node_modules/pnpm/dist/node_modules/node-gyp…"
         },
         execArgv: <ref *19> [],
         exit: <ref *20> ƒ exit(length: 1) {},
@@ -9048,7 +9045,7 @@ Error importing module: No such built-in module: node:test/reporters
             ngtcp2: "0.8.1",
             nghttp3: "0.7.0",
             sqlite: "3.49.0",
-            deno: "2.6.2+9cd8077",
+            deno: "2.6.3+ce1d451",
             v8: "14.2.231.17-rusty",
             typescript: "5.9.2"
         },
@@ -9094,9 +9091,9 @@ Error importing module: No such built-in module: node:test/reporters
     loadEnvFile: [Circular: *73],
     memoryUsage: [Circular: *30],
     nextTick: [Circular: *23],
-    pid: 2701,
+    pid: 2688,
     platform: "linux",
-    ppid: 2254,
+    ppid: 2246,
     removeAllListeners: ƒ removeAllListeners(length: 1) {},
     removeListener: ƒ (length: 2) {},
     setegid: [Circular: *68],
@@ -9141,7 +9138,7 @@ Error importing module: No such built-in module: node:test/reporters
     ucs2: [Circular: *4],
     version: "2.1.0"
 }
-(node:2705) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2693) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 ```
 
@@ -10130,7 +10127,7 @@ Error importing module: No such built-in module: node:test/reporters
     transferableAbortSignal: [Circular: *76],
     types: [Circular: *78]
 }
-(node:2855) [DEP0025] DeprecationWarning: sys is deprecated. Use `node:util` instead.
+(node:2845) [DEP0025] DeprecationWarning: sys is deprecated. Use `node:util` instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 ```
 
@@ -10969,7 +10966,7 @@ Error importing module: No such built-in module: node:test/reporters
 
 ```js
 Error importing module: No such built-in module: node:trace_events
-    at file:///tmp/fs-fixture-1766366192848-2254-1/trace_events.mjs:3:32
+    at file:///tmp/fs-fixture-1766971160127-2246-1/trace_events.mjs:3:32
 
 ```
 
@@ -12115,7 +12112,7 @@ Error importing module: No such built-in module: node:trace_events
         WASI: [Circular: *2]
     }
 }
-(node:3027) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(node:3011) ExperimentalWarning: WASI is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 ```
 
