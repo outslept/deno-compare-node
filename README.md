@@ -3,7 +3,7 @@ This repository provides a comparative overview of the Deno and Node.js runtime 
 
 Scrolling down, you should be able to see what's available in Deno, what's not, and how they differ.
 
-Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, release, x86_64-unknown-linux-gnu)
+Updated May 4, 2026 • Node.js v25.9.0 • deno 2.7.14+5a970fa (canary, release, x86_64-unknown-linux-gnu)
 
 ## Module details
 
@@ -707,23 +707,25 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
 [Object: null prototype] {
     SCHED_NONE: 1,
     SCHED_RR: 2,
-    Worker: <ref *2> class Worker {},
+    Worker: <ref *2> class Worker extends EventEmitter {},
     default: EventEmitter {
         _events: [Object: null prototype] {},
         _eventsCount: 0,
         _maxListeners: undefined,
-        isWorker: false,
-        isMaster: true,
-        isPrimary: true,
         Worker: [Circular: *2],
         workers: <ref *5> {},
-        settings: {},
-        setupPrimary: <ref *7> ƒ setupPrimary(length: 0) {},
+        settings: <ref *6> {},
+        setupPrimary: <ref *7> ƒ setupPrimary(length: 1) {},
         setupMaster: [Circular: *7],
         fork: <ref *8> ƒ fork(length: 1) {},
-        disconnect: <ref *9> ƒ disconnect(length: 0) {},
+        disconnect: <ref *9> ƒ disconnect(length: 1) {},
         SCHED_NONE: 1,
         SCHED_RR: 2,
+        [get/set] isPrimary: true,
+        [get/set] isWorker: false,
+        [get/set] isMaster: true,
+        [get/set] worker: undefined,
+        [get/set] schedulingPolicy: 2,
         Symbol(kCapture): false
     },
     disconnect: [Circular: *9],
@@ -731,8 +733,8 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
     isMaster: true,
     isPrimary: true,
     isWorker: false,
-    schedulingPolicy: undefined,
-    settings: {},
+    schedulingPolicy: 2,
+    settings: [Circular: *6],
     setupMaster: [Circular: *7],
     setupPrimary: [Circular: *7],
     worker: undefined,
@@ -2345,8 +2347,8 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
     ECDH: <ref *10> ƒ ECDH(length: 1) {
         convertKey: ƒ convertKey(length: 5) {}
     },
-    Hash: <ref *12> ƒ deprecated(length: 0) {},
-    Hmac: <ref *13> ƒ deprecated(length: 0) {},
+    Hash: <ref *12> ƒ deprecated(length: 2) {},
+    Hmac: <ref *13> ƒ deprecated(length: 3) {},
     KeyObject: <ref *14> class KeyObject {},
     Sign: <ref *15> ƒ Sign(length: 2) {},
     Verify: <ref *16> ƒ Verify(length: 2) {},
@@ -3611,7 +3613,7 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
     Dir: <ref *4> class Dir {},
     Dirent: <ref *5> class Dirent {},
     ReadStream: <ref *6> ƒ ReadStream(length: 2) {},
-    Stats: <ref *7> ƒ deprecated(length: 0) {},
+    Stats: <ref *7> ƒ deprecated(length: 14) {},
     SyncWriteStream: <ref *8> ƒ SyncWriteStream(length: 2) {},
     Utf8Stream: <ref *9> class Utf8Stream extends EventEmitter {},
     WriteStream: <ref *10> ƒ WriteStream(length: 2) {},
@@ -4553,18 +4555,22 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
         ServerResponse: [Circular: *9],
         request: <ref *21> ƒ request(length: 0) {},
         get: <ref *22> ƒ get(length: 0) {},
-        validateHeaderName: <ref *23> ƒ __node_internal_(length: 2) {},
-        validateHeaderValue: <ref *24> ƒ __node_internal_(length: 2) {},
-        setMaxIdleHTTPParsers: <ref *25> ƒ setMaxIdleHTTPParsers(length: 1) {},
+        validateHeaderName: <ref *23> ƒ __node_internal_(length: 0) {
+            withoutStackTrace: ƒ __node_internal_(length: 2) {}
+        },
+        validateHeaderValue: <ref *25> ƒ __node_internal_(length: 0) {
+            withoutStackTrace: ƒ __node_internal_(length: 2) {}
+        },
+        setMaxIdleHTTPParsers: <ref *27> ƒ setMaxIdleHTTPParsers(length: 1) {},
         maxHeaderSize: 16384
     },
     get: [Circular: *22],
     globalAgent: [Circular: *13],
     maxHeaderSize: 16384,
     request: [Circular: *21],
-    setMaxIdleHTTPParsers: [Circular: *25],
+    setMaxIdleHTTPParsers: [Circular: *27],
     validateHeaderName: [Circular: *23],
-    validateHeaderValue: [Circular: *24]
+    validateHeaderValue: [Circular: *25]
 }
 ```
 
@@ -4851,44 +4857,63 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
 
 ```js
 [Object: null prototype] {
-    Http2ServerRequest: <ref *2> class Http2ServerRequest extends Readable {},
-    Http2ServerResponse: <ref *3> class Http2ServerResponse extends Stream {},
+    ClientHttp2Session: class ClientHttp2Session extends Http2Session {},
+    Http2ServerRequest: <ref *3> class Http2ServerRequest extends Readable {},
+    Http2ServerResponse: <ref *4> class Http2ServerResponse extends Stream {},
+    Http2Session: class Http2Session extends EventEmitter {},
+    Http2Stream: class Http2Stream extends Duplex {},
+    ServerHttp2Session: class ServerHttp2Session extends Http2Session {},
     addAbortListener: ƒ addAbortListener(length: 2) {},
-    connect: <ref *5> ƒ connect(length: 3) {},
-    constants: <ref *6> [Object: null prototype] {
+    connect: <ref *9> ƒ connect(length: 3) {},
+    constants: <ref *10> [Object: null prototype] {
         DEFAULT_SETTINGS_ENABLE_CONNECT_PROTOCOL: 0,
         DEFAULT_SETTINGS_ENABLE_PUSH: 1,
         DEFAULT_SETTINGS_HEADER_TABLE_SIZE: 4096,
         DEFAULT_SETTINGS_INITIAL_WINDOW_SIZE: 65535,
         DEFAULT_SETTINGS_MAX_CONCURRENT_STREAMS: 4294967295,
         DEFAULT_SETTINGS_MAX_FRAME_SIZE: 16384,
-        DEFAULT_SETTINGS_MAX_HEADER_LIST_SIZE: 4294967295,
+        DEFAULT_SETTINGS_MAX_HEADER_LIST_SIZE: 65535,
         ENABLE_CONNECT_PROTOCOL: 8,
         ENABLE_PUSH: 2,
         HEADER_TABLE_SIZE: 1,
         HTTP2_HEADER_ACCEPT: "accept",
+        HTTP2_HEADER_ACCEPT_CHARSET: "accept-charset",
         HTTP2_HEADER_ACCEPT_ENCODING: "accept-encoding",
         HTTP2_HEADER_ACCEPT_LANGUAGE: "accept-language",
         HTTP2_HEADER_ACCEPT_RANGES: "accept-ranges",
         HTTP2_HEADER_ACCESS_CONTROL_ALLOW_CREDENTIALS: "access-control-allow-credentials",
+        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_HEADERS: "access-control-allow-headers",
+        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_METHODS: "access-control-allow-methods",
+        HTTP2_HEADER_ACCESS_CONTROL_ALLOW_ORIGIN: "access-control-allow-origin",
+        HTTP2_HEADER_ACCESS_CONTROL_EXPOSE_HEADERS: "access-control-expose-headers",
         HTTP2_HEADER_ACCESS_CONTROL_MAX_AGE: "access-control-max-age",
+        HTTP2_HEADER_ACCESS_CONTROL_REQUEST_HEADERS: "access-control-request-headers",
         HTTP2_HEADER_ACCESS_CONTROL_REQUEST_METHOD: "access-control-request-method",
         HTTP2_HEADER_AGE: "age",
+        HTTP2_HEADER_ALLOW: "allow",
+        HTTP2_HEADER_ALT_SVC: "alt-svc",
         HTTP2_HEADER_AUTHORITY: ":authority",
         HTTP2_HEADER_AUTHORIZATION: "authorization",
+        HTTP2_HEADER_CACHE_CONTROL: "cache-control",
         HTTP2_HEADER_CONNECTION: "connection",
+        HTTP2_HEADER_CONTENT_DISPOSITION: "content-disposition",
         HTTP2_HEADER_CONTENT_ENCODING: "content-encoding",
         HTTP2_HEADER_CONTENT_LANGUAGE: "content-language",
         HTTP2_HEADER_CONTENT_LENGTH: "content-length",
         HTTP2_HEADER_CONTENT_LOCATION: "content-location",
         HTTP2_HEADER_CONTENT_MD5: "content-md5",
         HTTP2_HEADER_CONTENT_RANGE: "content-range",
+        HTTP2_HEADER_CONTENT_SECURITY_POLICY: "content-security-policy",
         HTTP2_HEADER_CONTENT_TYPE: "content-type",
         HTTP2_HEADER_COOKIE: "cookie",
         HTTP2_HEADER_DATE: "date",
         HTTP2_HEADER_DNT: "dnt",
+        HTTP2_HEADER_EARLY_DATA: "early-data",
         HTTP2_HEADER_ETAG: "etag",
+        HTTP2_HEADER_EXPECT: "expect",
+        HTTP2_HEADER_EXPECT_CT: "expect-ct",
         HTTP2_HEADER_EXPIRES: "expires",
+        HTTP2_HEADER_FORWARDED: "forwarded",
         HTTP2_HEADER_FROM: "from",
         HTTP2_HEADER_HOST: "host",
         HTTP2_HEADER_HTTP2_SETTINGS: "http2-settings",
@@ -4899,26 +4924,44 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
         HTTP2_HEADER_IF_UNMODIFIED_SINCE: "if-unmodified-since",
         HTTP2_HEADER_KEEP_ALIVE: "keep-alive",
         HTTP2_HEADER_LAST_MODIFIED: "last-modified",
+        HTTP2_HEADER_LINK: "link",
         HTTP2_HEADER_LOCATION: "location",
         HTTP2_HEADER_MAX_FORWARDS: "max-forwards",
         HTTP2_HEADER_METHOD: ":method",
+        HTTP2_HEADER_ORIGIN: "origin",
         HTTP2_HEADER_PATH: ":path",
+        HTTP2_HEADER_PREFER: "prefer",
+        HTTP2_HEADER_PRIORITY: "priority",
         HTTP2_HEADER_PROTOCOL: ":protocol",
+        HTTP2_HEADER_PROXY_AUTHENTICATE: "proxy-authenticate",
         HTTP2_HEADER_PROXY_AUTHORIZATION: "proxy-authorization",
         HTTP2_HEADER_PROXY_CONNECTION: "proxy-connection",
+        HTTP2_HEADER_PURPOSE: "purpose",
         HTTP2_HEADER_RANGE: "range",
         HTTP2_HEADER_REFERER: "referer",
+        HTTP2_HEADER_REFRESH: "refresh",
         HTTP2_HEADER_RETRY_AFTER: "retry-after",
         HTTP2_HEADER_SCHEME: ":scheme",
+        HTTP2_HEADER_SERVER: "server",
         HTTP2_HEADER_SET_COOKIE: "set-cookie",
         HTTP2_HEADER_STATUS: ":status",
+        HTTP2_HEADER_STRICT_TRANSPORT_SECURITY: "strict-transport-security",
         HTTP2_HEADER_TE: "te",
+        HTTP2_HEADER_TIMING_ALLOW_ORIGIN: "timing-allow-origin",
         HTTP2_HEADER_TK: "tk",
+        HTTP2_HEADER_TRAILER: "trailer",
         HTTP2_HEADER_TRANSFER_ENCODING: "transfer-encoding",
         HTTP2_HEADER_UPGRADE: "upgrade",
         HTTP2_HEADER_UPGRADE_INSECURE_REQUESTS: "upgrade-insecure-requests",
         HTTP2_HEADER_USER_AGENT: "user-agent",
+        HTTP2_HEADER_VARY: "vary",
+        HTTP2_HEADER_VIA: "via",
+        HTTP2_HEADER_WARNING: "warning",
+        HTTP2_HEADER_WWW_AUTHENTICATE: "www-authenticate",
         HTTP2_HEADER_X_CONTENT_TYPE_OPTIONS: "x-content-type-options",
+        HTTP2_HEADER_X_FORWARDED_FOR: "x-forwarded-for",
+        HTTP2_HEADER_X_FRAME_OPTIONS: "x-frame-options",
+        HTTP2_HEADER_X_XSS_PROTECTION: "x-xss-protection",
         HTTP2_METHOD_CONNECT: "CONNECT",
         HTTP2_METHOD_DELETE: "DELETE",
         HTTP2_METHOD_GET: "GET",
@@ -4990,29 +5033,31 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
         NGHTTP2_STREAM_STATE_RESERVED_LOCAL: 3,
         NGHTTP2_STREAM_STATE_RESERVED_REMOTE: 4,
         PADDING_STRATEGY_ALIGNED: 1,
-        PADDING_STRATEGY_CALLBACK: 3,
+        PADDING_STRATEGY_CALLBACK: 1,
         PADDING_STRATEGY_MAX: 2,
         PADDING_STRATEGY_NONE: 0,
         STREAM_OPTION_EMPTY_PAYLOAD: 1,
         STREAM_OPTION_GET_TRAILERS: 2
     },
-    createSecureServer: <ref *7> ƒ createSecureServer(length: 2) {},
-    createServer: <ref *8> ƒ createServer(length: 2) {},
+    createSecureServer: <ref *11> ƒ createSecureServer(length: 2) {},
+    createServer: <ref *12> ƒ createServer(length: 2) {},
     default: {
-        constants: [Circular: *6],
-        connect: [Circular: *5],
-        createServer: [Circular: *8],
-        createSecureServer: [Circular: *7],
-        getDefaultSettings: <ref *10> ƒ getDefaultSettings(length: 0) {},
-        getPackedSettings: <ref *11> ƒ getPackedSettings(length: 1) {},
-        getUnpackedSettings: <ref *12> ƒ getUnpackedSettings(length: 1) {},
-        Http2ServerRequest: [Circular: *2],
-        Http2ServerResponse: [Circular: *3],
+        constants: [Circular: *10],
+        connect: [Circular: *9],
+        createServer: [Circular: *12],
+        createSecureServer: [Circular: *11],
+        getDefaultSettings: <ref *14> ƒ getDefaultSettings(length: 0) {},
+        getPackedSettings: <ref *15> ƒ getPackedSettings(length: 1) {},
+        getUnpackedSettings: <ref *16> ƒ getUnpackedSettings(length: 1) {},
+        Http2ServerRequest: [Circular: *3],
+        Http2ServerResponse: [Circular: *4],
+        performServerHandshake: <ref *17> ƒ performServerHandshake(length: 1) {},
         sensitiveHeaders: Symbol(sensitiveHeaders)
     },
-    getDefaultSettings: [Circular: *10],
-    getPackedSettings: [Circular: *11],
-    getUnpackedSettings: [Circular: *12],
+    getDefaultSettings: [Circular: *14],
+    getPackedSettings: [Circular: *15],
+    getUnpackedSettings: [Circular: *16],
+    performServerHandshake: [Circular: *17],
     sensitiveHeaders: Symbol(sensitiveHeaders)
 }
 ```
@@ -5086,7 +5131,7 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
 
 ```js
 [Object: null prototype] {
-    Agent: <ref *2> class Agent extends HttpAgent {},
+    Agent: <ref *2> ƒ Agent(length: 1) {},
     Server: <ref *3> ƒ Server(length: 2) {},
     createServer: <ref *4> ƒ createServer(length: 2) {},
     default: {
@@ -5408,7 +5453,7 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
     Module: <ref *2> ƒ Module(length: 0) {
         _cache: <ref *3> [Object: null prototype] {},
         _pathCache: <ref *4> [Object: null prototype] {
-            /tmp/fs-fixture-1777255846859-2472-1/module.mjs: "/tmp/fs-fixture-1777255846859-2472-1/module.mjs"
+            /tmp/fs-fixture-1777860865189-2444-1/module.mjs: "/tmp/fs-fixture-1777860865189-2444-1/module.mjs"
         },
         _extensions: <ref *5> [Object: null prototype] {
             .js: ƒ (length: 2) {},
@@ -5663,7 +5708,8 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
         syncBuiltinESMExports: ƒ syncBuiltinESMExports(length: 0) {},
         runMain: ƒ (length: 0) {},
         Module: [Circular: *2],
-        findSourceMap: <ref *24> ƒ findSourceMap(length: 1) {}
+        findSourceMap: <ref *24> ƒ findSourceMap(length: 1) {},
+        registerHooks: <ref *25> ƒ registerHooks(length: 1) {}
     },
     _cache: [Circular: *10],
     _extensions: [Circular: *4],
@@ -5683,6 +5729,7 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
     globalPaths: [Circular: *12],
     isBuiltin: [Circular: *19],
     register: ƒ register(length: 3) {},
+    registerHooks: [Circular: *25],
     wrap: ƒ wrap(length: 1) {}
 }
 ```
@@ -5810,7 +5857,7 @@ Updated Apr 27, 2026 • Node.js v25.9.0 • deno 2.7.13+a5284c1 (canary, releas
 
 ```js
 Error importing module: No such built-in module: node:sea
-    at file:///tmp/fs-fixture-1777255846859-2472-1/sea.mjs:3:32
+    at file:///tmp/fs-fixture-1777860865189-2444-1/sea.mjs:3:32
 
 ```
 
@@ -6011,31 +6058,23 @@ Error importing module: No such built-in module: node:sea
 
 ```js
 [Object: null prototype] {
-    after: ƒ after(length: 0) {},
-    afterEach: ƒ afterEach(length: 0) {},
-    before: ƒ before(length: 0) {},
-    beforeEach: ƒ beforeEach(length: 0) {},
+    after: ƒ after(length: 2) {},
+    afterEach: ƒ afterEach(length: 2) {},
+    before: ƒ before(length: 2) {},
+    beforeEach: ƒ beforeEach(length: 2) {},
     default: <ref *6> ƒ test(length: 4) {
         skip: ƒ skip(length: 3) {},
         todo: ƒ todo(length: 3) {},
         only: ƒ only(length: 3) {},
-        it: <ref *10> ƒ it(length: 3) {
+        it: [Circular: *6],
+        describe: <ref *10> ƒ suite(length: 4) {
             skip: ƒ skip(length: 3) {},
             todo: ƒ todo(length: 3) {},
             only: ƒ only(length: 3) {}
         },
-        describe: <ref *14> ƒ describe(length: 3) {
-            skip: ƒ skip(length: 3) {},
-            todo: ƒ todo(length: 3) {},
-            only: ƒ only(length: 3) {}
-        },
-        suite: <ref *18> ƒ suite(length: 4) {
-            skip: ƒ skip(length: 3) {},
-            todo: ƒ todo(length: 3) {},
-            only: ƒ only(length: 3) {}
-        },
+        suite: [Circular: *10],
         test: [Circular: *6],
-        mock: <ref *22> {
+        mock: <ref *14> {
             fn: ƒ fn(length: 3) {},
             getter: ƒ getter(length: 4) {},
             method: ƒ method(length: 4) {},
@@ -6050,11 +6089,11 @@ Error importing module: No such built-in module: node:sea
             }
         }
     },
-    describe: [Circular: *14],
-    it: [Circular: *10],
-    mock: [Circular: *22],
+    describe: [Circular: *10],
+    it: [Circular: *6],
+    mock: [Circular: *14],
     run: ƒ run(length: 0) {},
-    suite: [Circular: *18],
+    suite: [Circular: *10],
     test: [Circular: *6]
 }
 ```
@@ -6089,7 +6128,7 @@ Error importing module: No such built-in module: node:sea
 
 ```js
 Error importing module: No such built-in module: node:test/reporters
-    at file:///tmp/fs-fixture-1777255846859-2472-1/test_reporters.mjs:3:32
+    at file:///tmp/fs-fixture-1777860865189-2444-1/test_reporters.mjs:3:32
 
 ```
 
@@ -7004,27 +7043,25 @@ Error importing module: No such built-in module: node:test/reporters
     },
     default: {
         performance: <ref *7> Performance {
-            eventLoopUtilization: ƒ (length: 0) {},
+            eventLoopUtilization: <ref *8> ƒ eventLoopUtilization(length: 0) {},
             nodeTiming: {},
-            timerify: ƒ (length: 1) {},
+            timerify: <ref *10> ƒ timerify(length: 1) {},
             markResourceTiming: ƒ (length: 0) {},
-            Symbol(): {
-                assignedSlot: false,
-                hasActivationBehavior: false,
-                host: null,
-                listeners: [Object: null prototype] {},
-                mode: ""
-            },
             Symbol([[webidl.brand]]): Symbol([[webidl.brand]])
         },
         PerformanceObserver: [Circular: *3],
         PerformanceObserverEntryList: [Circular: *4],
         PerformanceEntry: [Circular: *2],
-        monitorEventLoopDelay: <ref *14> ƒ monitorEventLoopDelay(length: 0) {},
+        monitorEventLoopDelay: <ref *12> ƒ monitorEventLoopDelay(length: 0) {},
+        eventLoopUtilization: [Circular: *8],
+        timerify: [Circular: *10],
         constants: [Circular: *5]
     },
-    monitorEventLoopDelay: [Circular: *14],
-    performance: [Circular: *7]
+    enqueueNodePerformanceEntry: ƒ enqueueNodePerformanceEntry(length: 1) {},
+    eventLoopUtilization: [Circular: *8],
+    monitorEventLoopDelay: [Circular: *12],
+    performance: [Circular: *7],
+    timerify: [Circular: *10]
 }
 ```
 
@@ -7351,7 +7388,7 @@ Error importing module: No such built-in module: node:test/reporters
     arch: "x64",
     argv: <ref *23> [
         "/opt/hostedtoolcache/node/25.9.0/x64/bin/node",
-        "/tmp/fs-fixture-1777255846859-2472-1/process.mjs"
+        "/tmp/fs-fixture-1777860865189-2444-1/process.mjs"
     ],
     argv0: "node",
     availableMemory: <ref *24> ƒ availableMemory(length: 0) {},
@@ -8364,14 +8401,14 @@ Error importing module: No such built-in module: node:test/reporters
         setgid: <ref *114> ƒ (length: 1) {},
         setuid: <ref *115> ƒ (length: 1) {},
         env: <ref *116>  {
-            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
+            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
             DOTNET_NOLOGO: "1",
             USER: "runner",
             npm_config_user_agent: "pnpm/10.10.0 npm/? node/v25.9.0 linux x64",
             CI: "true",
             USE_BAZEL_FALLBACK_VERSION: "silent:",
             RUNNER_ENVIRONMENT: "github-hosted",
-            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
+            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
             PIPX_HOME: "/opt/pipx",
             npm_node_execpath: "/opt/hostedtoolcache/node/25.9.0/x64/bin/node",
             JAVA_HOME_8_X64: "/usr/lib/jvm/temurin-8-jdk-amd64",
@@ -8392,8 +8429,8 @@ Error importing module: No such built-in module: node:test/reporters
             POWERSHELL_DISTRIBUTION_CHANNEL: "GitHub-Actions-ubuntu24",
             AZURE_EXTENSION_DIR: "/opt/az/azcliextensions",
             GITHUB_HEAD_REF: "",
-            SYSTEMD_EXEC_PID: "2093",
-            ACTIONS_ORCHESTRATION_ID: "ffe38c4f-9517-486c-842b-34279057a4aa.comparison.__default",
+            SYSTEMD_EXEC_PID: "2112",
+            ACTIONS_ORCHESTRATION_ID: "6cfb8384-aa8a-428b-b833-b087657bb576.comparison.__default",
             GITHUB_GRAPHQL_URL: "https://api.github.com/graphql",
             JAVA_HOME_25_X64: "/usr/lib/jvm/temurin-25-jdk-amd64",
             NVM_DIR: "/home/runner/.nvm",
@@ -8407,7 +8444,7 @@ Error importing module: No such built-in module: node:test/reporters
             SWIFT_PATH: "/usr/share/swift/usr/bin",
             CHROMEWEBDRIVER: "/usr/local/share/chromedriver-linux64",
             GOROOT_1_23_X64: "/opt/hostedtoolcache/go/1.23.12/x64",
-            JOURNAL_STREAM: "9:15475",
+            JOURNAL_STREAM: "9:16694",
             GITHUB_WORKFLOW: "Comparison",
             _: "/home/runner/setup-pnpm/node_modules/.bin/pnpm",
             MEMORY_PRESSURE_WATCH: "/sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure",
@@ -8415,10 +8452,10 @@ Error importing module: No such built-in module: node:test/reporters
             npm_config_registry: "https://registry.npmjs.org/",
             ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE: "/opt/actionarchivecache",
             GOROOT_1_25_X64: "/opt/hostedtoolcache/go/1.25.9/x64",
-            GITHUB_RUN_ID: "24973274193",
+            GITHUB_RUN_ID: "25297757343",
             GITHUB_REF_TYPE: "branch",
             BOOTSTRAP_HASKELL_NONINTERACTIVE: "1",
-            GITHUB_WORKFLOW_SHA: "1532add5566a4ff283318a90e2502f90a331360a",
+            GITHUB_WORKFLOW_SHA: "2308180d11f244f613c34d1993543e245cec2569",
             GITHUB_BASE_REF: "",
             ImageOS: "ubuntu24",
             GITHUB_WORKFLOW_REF: "outslept/deno-compare-node/.github/workflows/compare.yml@refs/heads/main",
@@ -8428,13 +8465,13 @@ Error importing module: No such built-in module: node:test/reporters
             PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.bin:/home/runner/setup-pnpm/node…",
             ANT_HOME: "/usr/share/ant",
             DOTNET_MULTILEVEL_LOOKUP: "0",
-            RUNNER_TRACKING_ID: "github_f0c0029e-57d6-4177-8053-2e252980b256",
-            INVOCATION_ID: "03192bd271354e1dab9d3fdd6a7e0c05",
+            RUNNER_TRACKING_ID: "github_70ee5870-8c14-4688-89ec-37d41e89c91f",
+            INVOCATION_ID: "06d81bcb937c48888030e46c489163fc",
             RUNNER_TOOL_CACHE: "/opt/hostedtoolcache",
             npm_package_name: "deno-compare-node",
             NODE: "/opt/hostedtoolcache/node/25.9.0/x64/bin/node",
             GITHUB_ACTION: "__run_3",
-            GITHUB_RUN_NUMBER: "41",
+            GITHUB_RUN_NUMBER: "42",
             GITHUB_TRIGGERING_ACTOR: "outslept",
             RUNNER_ARCH: "X64",
             XDG_RUNTIME_DIR: "/run/user/1001",
@@ -8443,7 +8480,7 @@ Error importing module: No such built-in module: node:test/reporters
             LANG: "C.UTF-8",
             VCPKG_INSTALLATION_ROOT: "/usr/local/share/vcpkg",
             CONDA: "/usr/share/miniconda",
-            RUNNER_NAME: "GitHub Actions 1000003789",
+            RUNNER_NAME: "GitHub Actions 1000003800",
             XDG_CONFIG_HOME: "/home/runner/.config",
             GITHUB_REF_NAME: "main",
             GITHUB_REPOSITORY: "outslept/deno-compare-node",
@@ -8462,12 +8499,12 @@ Error importing module: No such built-in module: node:test/reporters
             GITHUB_WORKSPACE: "/home/runner/work/deno-compare-node/deno-compare-node",
             ACCEPT_EULA: "Y",
             GITHUB_JOB: "comparison",
-            GITHUB_SHA: "1532add5566a4ff283318a90e2502f90a331360a",
+            GITHUB_SHA: "2308180d11f244f613c34d1993543e245cec2569",
             GITHUB_RUN_ATTEMPT: "1",
             GITHUB_REF: "refs/heads/main",
             GITHUB_ACTOR: "outslept",
             ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk",
-            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
+            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
             JAVA_HOME: "/usr/lib/jvm/temurin-17-jdk-amd64",
             PWD: "/home/runner/work/deno-compare-node/deno-compare-node",
             GITHUB_ACTOR_ID: "135520429",
@@ -8480,7 +8517,7 @@ Error importing module: No such built-in module: node:test/reporters
             GITHUB_SERVER_URL: "https://github.com",
             GECKOWEBDRIVER: "/usr/local/share/gecko_driver",
             GHCUP_INSTALL_BASE_PREFIX: "/usr/local",
-            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
+            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
             EDGEWEBDRIVER: "/usr/local/share/edge_driver",
             npm_config__jsr_registry: "https://npm.jsr.io/",
             npm_command: "run-script",
@@ -8493,14 +8530,14 @@ Error importing module: No such built-in module: node:test/reporters
             MEMORY_PRESSURE_WRITE: "c29tZSAyMDAwMDAgMjAwMDAwMAA=",
             PNPM_HOME: "/home/runner/setup-pnpm/node_modules/.bin",
             ANDROID_NDK_HOME: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
+            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
             INIT_CWD: "/home/runner/work/deno-compare-node/deno-compare-node"
         },
         title: "node",
         argv: [Circular: *23],
         execArgv: <ref *117> [],
-        pid: 2908,
-        ppid: 2472,
+        pid: 2891,
+        ppid: 2444,
         execPath: "/opt/hostedtoolcache/node/25.9.0/x64/bin/node",
         debugPort: 9229,
         argv0: "node",
@@ -8548,9 +8585,9 @@ Error importing module: No such built-in module: node:test/reporters
     moduleLoadList: [Circular: *47],
     nextTick: [Circular: *78],
     openStdin: [Circular: *68],
-    pid: 2908,
+    pid: 2891,
     platform: "linux",
-    ppid: 2472,
+    ppid: 2444,
     reallyExit: [Circular: *51],
     ref: [Circular: *60],
     release: [Circular: *46],
@@ -8742,8 +8779,8 @@ Error importing module: No such built-in module: node:test/reporters
     },
     arch: "x64",
     argv: <ref *6> [
-        "/opt/hostedtoolcache/deno/0.0.0-a5284c16b5e762156b07742a191590d5379eb99a/x64/deno",
-        "/tmp/fs-fixture-1777255846859-2472-1/process.mjs"
+        "/opt/hostedtoolcache/deno/0.0.0-5a970fae8095932e7bb86cee9a74b71c016f236c/x64/deno",
+        "/tmp/fs-fixture-1777860865189-2444-1/process.mjs"
     ],
     argv0: "deno",
     availableMemory: <ref *7> ƒ availableMemory(length: 0) {},
@@ -8766,137 +8803,137 @@ Error importing module: No such built-in module: node:test/reporters
         threadCpuUsage: <ref *17> ƒ threadCpuUsage(length: 1) {},
         cwd: [Circular: *11],
         env: <ref *18> {
-            npm_execpath: "/home/runner/setup-pnpm/node_modules/.pnpm/pnpm@10.10.0/node_modules/pnpm/bin/pnpm.cjs",
-            GITHUB_BASE_REF: "",
-            EDGEWEBDRIVER: "/usr/local/share/edge_driver",
-            GITHUB_RUN_NUMBER: "41",
-            CHROMEWEBDRIVER: "/usr/local/share/chromedriver-linux64",
-            GITHUB_RUN_ID: "24973274193",
-            DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1",
-            npm_config__jsr_registry: "https://npm.jsr.io/",
-            DOTNET_MULTILEVEL_LOOKUP: "0",
-            PSModulePath: "/root/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/…",
-            GITHUB_API_URL: "https://api.github.com",
-            GITHUB_SHA: "1532add5566a4ff283318a90e2502f90a331360a",
-            GITHUB_WORKFLOW_SHA: "1532add5566a4ff283318a90e2502f90a331360a",
-            JAVA_HOME_21_X64: "/usr/lib/jvm/temurin-21-jdk-amd64",
-            npm_node_execpath: "/opt/hostedtoolcache/node/25.9.0/x64/bin/node",
-            GITHUB_RETENTION_DAYS: "90",
-            GITHUB_SERVER_URL: "https://github.com",
-            PWD: "/home/runner/work/deno-compare-node/deno-compare-node",
-            GITHUB_WORKFLOW: "Comparison",
-            GITHUB_REF_PROTECTED: "false",
-            MEMORY_PRESSURE_WRITE: "c29tZSAyMDAwMDAgMjAwMDAwMAA=",
-            DEBIAN_FRONTEND: "noninteractive",
-            GITHUB_ACTOR: "outslept",
-            HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS: "3650",
-            CONDA: "/usr/share/miniconda",
-            GITHUB_ACTOR_ID: "135520429",
-            npm_package_version: "0.0.1",
-            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
-            GECKOWEBDRIVER: "/usr/local/share/gecko_driver",
-            XDG_CONFIG_HOME: "/home/runner/.config",
-            VCPKG_INSTALLATION_ROOT: "/usr/local/share/vcpkg",
-            GITHUB_WORKFLOW_REF: "outslept/deno-compare-node/.github/workflows/compare.yml@refs/heads/main",
-            ACTIONS_ORCHESTRATION_ID: "ffe38c4f-9517-486c-842b-34279057a4aa.comparison.__default",
-            npm_config_node_gyp: "/home/runner/setup-pnpm/node_modules/.pnpm/pnpm@10.10.0/node_modules/pnpm/dist/node_modules/node-gyp…",
-            GITHUB_TRIGGERING_ACTOR: "outslept",
-            GITHUB_EVENT_NAME: "schedule",
-            npm_command: "run-script",
-            GITHUB_REPOSITORY: "outslept/deno-compare-node",
-            JOURNAL_STREAM: "9:15475",
-            MEMORY_PRESSURE_WATCH: "/sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure",
-            npm_config_verify_deps_before_run: "false",
-            GOROOT_1_24_X64: "/opt/hostedtoolcache/go/1.24.13/x64",
-            RUNNER_ENVIRONMENT: "github-hosted",
-            GITHUB_ACTION: "__run_3",
-            npm_package_engines_node: ">=20.0.0",
-            JAVA_HOME_25_X64: "/usr/lib/jvm/temurin-25-jdk-amd64",
-            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
-            ANDROID_HOME: "/usr/local/lib/android/sdk",
-            npm_package_name: "deno-compare-node",
-            GITHUB_GRAPHQL_URL: "https://api.github.com/graphql",
-            ANDROID_NDK_HOME: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            GITHUB_WORKSPACE: "/home/runner/work/deno-compare-node/deno-compare-node",
-            HOME: "/home/runner",
-            npm_package_json: "/home/runner/work/deno-compare-node/deno-compare-node/package.json",
-            GOROOT_1_23_X64: "/opt/hostedtoolcache/go/1.23.12/x64",
-            GHCUP_INSTALL_BASE_PREFIX: "/usr/local",
-            NVM_DIR: "/home/runner/.nvm",
-            npm_config_frozen_lockfile: "",
-            GITHUB_EVENT_PATH: "/home/runner/work/_temp/_github_workflow/event.json",
-            GITHUB_JOB: "comparison",
-            ImageVersion: "20260413.86.1",
-            SYSTEMD_EXEC_PID: "2093",
-            GOROOT_1_22_X64: "/opt/hostedtoolcache/go/1.22.12/x64",
-            GITHUB_REF_NAME: "main",
-            ANDROID_NDK: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            npm_lifecycle_event: "start",
-            ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk",
-            POWERSHELL_DISTRIBUTION_CHANNEL: "GitHub-Actions-ubuntu24",
-            PIPX_HOME: "/opt/pipx",
-            NODE: "/opt/hostedtoolcache/node/25.9.0/x64/bin/node",
-            DOTNET_NOLOGO: "1",
-            SELENIUM_JAR_PATH: "/usr/share/java/selenium-server.jar",
-            BOOTSTRAP_HASKELL_NONINTERACTIVE: "1",
-            GITHUB_REF_TYPE: "branch",
-            RUNNER_OS: "Linux",
-            SWIFT_PATH: "/usr/share/swift/usr/bin",
-            INVOCATION_ID: "03192bd271354e1dab9d3fdd6a7e0c05",
-            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
-            JAVA_HOME_17_X64: "/usr/lib/jvm/temurin-17-jdk-amd64",
-            RUNNER_TRACKING_ID: "github_f0c0029e-57d6-4177-8053-2e252980b256",
-            XDG_RUNTIME_DIR: "/run/user/1001",
-            CI: "true",
-            HOMEBREW_NO_AUTO_UPDATE: "1",
-            USER: "runner",
-            SHLVL: "1",
-            ImageOS: "ubuntu24",
-            ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE: "/opt/actionarchivecache",
-            RUNNER_TOOL_CACHE: "/opt/hostedtoolcache",
-            JAVA_HOME_11_X64: "/usr/lib/jvm/temurin-11-jdk-amd64",
-            GITHUB_REPOSITORY_OWNER_ID: "135520429",
-            RUNNER_NAME: "GitHub Actions 1000003789",
-            ANT_HOME: "/usr/share/ant",
-            CHROME_BIN: "/usr/bin/google-chrome",
-            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_5242970e-92f9-4b5f-876d-fb5c4cee87d5",
-            PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.bin:/home/runner/setup-pnpm/node…",
-            GITHUB_RUN_ATTEMPT: "1",
             AGENT_TOOLSDIRECTORY: "/opt/hostedtoolcache",
-            GITHUB_ACTIONS: "true",
-            npm_config_registry: "https://registry.npmjs.org/",
-            AZURE_EXTENSION_DIR: "/opt/az/azcliextensions",
-            _: "/home/runner/setup-pnpm/node_modules/.bin/pnpm",
-            GRADLE_HOME: "/usr/share/gradle-9.4.1",
-            GITHUB_ACTION_REPOSITORY: "",
-            LANG: "C.UTF-8",
-            GITHUB_REF: "refs/heads/main",
-            PNPM_SCRIPT_SRC_DIR: "/home/runner/work/deno-compare-node/deno-compare-node",
-            SHELL: "/bin/bash",
-            ANDROID_NDK_LATEST_HOME: "/usr/local/lib/android/sdk/ndk/29.0.14206865",
-            SGX_AESM_ADDR: "1",
-            INIT_CWD: "/home/runner/work/deno-compare-node/deno-compare-node",
-            PIPX_BIN_DIR: "/opt/pipx_bin",
-            RUNNER_TEMP: "/home/runner/work/_temp",
-            GITHUB_ACTION_REF: "",
+            GITHUB_WORKFLOW: "Comparison",
+            npm_package_name: "deno-compare-node",
+            GITHUB_JOB: "comparison",
+            GITHUB_RUN_NUMBER: "42",
+            GITHUB_SERVER_URL: "https://github.com",
             GOROOT_1_25_X64: "/opt/hostedtoolcache/go/1.25.9/x64",
-            GITHUB_REPOSITORY_OWNER: "outslept",
-            LOGNAME: "runner",
-            ANDROID_NDK_ROOT: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
-            JAVA_HOME: "/usr/lib/jvm/temurin-17-jdk-amd64",
-            RUNNER_WORKSPACE: "/home/runner/work/deno-compare-node",
-            USE_BAZEL_FALLBACK_VERSION: "silent:",
-            npm_lifecycle_script: "tsx index.ts",
-            NODE_PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.pnpm/tsx@4.20.3/node_modules/tsx…",
-            npm_config_user_agent: "pnpm/10.10.0 npm/? node/v25.9.0 linux x64",
-            ACCEPT_EULA: "Y",
-            GITHUB_HEAD_REF: "",
+            JOURNAL_STREAM: "9:16694",
+            GRADLE_HOME: "/usr/share/gradle-9.4.1",
+            LANG: "C.UTF-8",
+            GITHUB_ENV: "/home/runner/work/_temp/_runner_file_commands/set_env_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
+            CI: "true",
+            EDGEWEBDRIVER: "/usr/local/share/edge_driver",
+            GITHUB_REPOSITORY: "outslept/deno-compare-node",
+            npm_config_registry: "https://registry.npmjs.org/",
+            PIPX_HOME: "/opt/pipx",
             GITHUB_REPOSITORY_ID: "1034352965",
-            PNPM_HOME: "/home/runner/setup-pnpm/node_modules/.bin",
-            ENABLE_RUNNER_TRACING: "true",
-            JAVA_HOME_8_X64: "/usr/lib/jvm/temurin-8-jdk-amd64",
+            GITHUB_ACTIONS: "true",
+            npm_lifecycle_event: "start",
+            npm_config_verify_deps_before_run: "false",
+            npm_config_user_agent: "pnpm/10.10.0 npm/? node/v25.9.0 linux x64",
+            HOME: "/home/runner",
+            GITHUB_TRIGGERING_ACTOR: "outslept",
+            SYSTEMD_EXEC_PID: "2112",
+            RUNNER_OS: "Linux",
+            DEBIAN_FRONTEND: "noninteractive",
+            GITHUB_SHA: "2308180d11f244f613c34d1993543e245cec2569",
+            npm_package_json: "/home/runner/work/deno-compare-node/deno-compare-node/package.json",
+            USE_BAZEL_FALLBACK_VERSION: "silent:",
+            GITHUB_ACTION_REF: "",
             RUNNER_ARCH: "X64",
-            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_5242970e-92f9-4b5f-876d-fb5c4cee87d5"
+            RUNNER_NAME: "GitHub Actions 1000003800",
+            GITHUB_RETENTION_DAYS: "90",
+            NVM_DIR: "/home/runner/.nvm",
+            npm_package_version: "0.0.1",
+            npm_config__jsr_registry: "https://npm.jsr.io/",
+            GITHUB_STATE: "/home/runner/work/_temp/_runner_file_commands/save_state_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
+            GITHUB_EVENT_NAME: "schedule",
+            ANDROID_NDK: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
+            GITHUB_PATH: "/home/runner/work/_temp/_runner_file_commands/add_path_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
+            JAVA_HOME_25_X64: "/usr/lib/jvm/temurin-25-jdk-amd64",
+            GITHUB_WORKFLOW_SHA: "2308180d11f244f613c34d1993543e245cec2569",
+            ANT_HOME: "/usr/share/ant",
+            ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE: "/opt/actionarchivecache",
+            GITHUB_ACTOR_ID: "135520429",
+            BOOTSTRAP_HASKELL_NONINTERACTIVE: "1",
+            ANDROID_NDK_HOME: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
+            GITHUB_EVENT_PATH: "/home/runner/work/_temp/_github_workflow/event.json",
+            SHLVL: "1",
+            GITHUB_REF: "refs/heads/main",
+            INVOCATION_ID: "06d81bcb937c48888030e46c489163fc",
+            npm_lifecycle_script: "tsx index.ts",
+            RUNNER_ENVIRONMENT: "github-hosted",
+            ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk",
+            GITHUB_OUTPUT: "/home/runner/work/_temp/_runner_file_commands/set_output_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
+            CHROMEWEBDRIVER: "/usr/local/share/chromedriver-linux64",
+            GECKOWEBDRIVER: "/usr/local/share/gecko_driver",
+            SELENIUM_JAR_PATH: "/usr/share/java/selenium-server.jar",
+            GHCUP_INSTALL_BASE_PREFIX: "/usr/local",
+            GITHUB_HEAD_REF: "",
+            USER: "runner",
+            GITHUB_REPOSITORY_OWNER_ID: "135520429",
+            GOROOT_1_23_X64: "/opt/hostedtoolcache/go/1.23.12/x64",
+            CONDA: "/usr/share/miniconda",
+            GITHUB_WORKSPACE: "/home/runner/work/deno-compare-node/deno-compare-node",
+            JAVA_HOME_11_X64: "/usr/lib/jvm/temurin-11-jdk-amd64",
+            ImageVersion: "20260413.86.1",
+            DOTNET_MULTILEVEL_LOOKUP: "0",
+            MEMORY_PRESSURE_WRITE: "c29tZSAyMDAwMDAgMjAwMDAwMAA=",
+            POWERSHELL_DISTRIBUTION_CHANNEL: "GitHub-Actions-ubuntu24",
+            GITHUB_ACTION: "__run_3",
+            GOROOT_1_22_X64: "/opt/hostedtoolcache/go/1.22.12/x64",
+            XDG_CONFIG_HOME: "/home/runner/.config",
+            HOMEBREW_NO_AUTO_UPDATE: "1",
+            npm_config_frozen_lockfile: "",
+            GITHUB_REF_PROTECTED: "false",
+            GITHUB_ACTION_REPOSITORY: "",
+            SGX_AESM_ADDR: "1",
+            HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS: "3650",
+            GITHUB_REPOSITORY_OWNER: "outslept",
+            VCPKG_INSTALLATION_ROOT: "/usr/local/share/vcpkg",
+            ANDROID_NDK_ROOT: "/usr/local/lib/android/sdk/ndk/27.3.13750724",
+            GITHUB_ACTOR: "outslept",
+            JAVA_HOME_21_X64: "/usr/lib/jvm/temurin-21-jdk-amd64",
+            DOTNET_NOLOGO: "1",
+            GITHUB_GRAPHQL_URL: "https://api.github.com/graphql",
+            MEMORY_PRESSURE_WATCH: "/sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure",
+            RUNNER_TEMP: "/home/runner/work/_temp",
+            GITHUB_STEP_SUMMARY: "/home/runner/work/_temp/_runner_file_commands/step_summary_08fd2ea8-87b2-4212-9c84-109afa8c4fdd",
+            ImageOS: "ubuntu24",
+            PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.bin:/home/runner/setup-pnpm/node…",
+            DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1",
+            GITHUB_RUN_ATTEMPT: "1",
+            SWIFT_PATH: "/usr/share/swift/usr/bin",
+            PWD: "/home/runner/work/deno-compare-node/deno-compare-node",
+            PNPM_HOME: "/home/runner/setup-pnpm/node_modules/.bin",
+            JAVA_HOME_17_X64: "/usr/lib/jvm/temurin-17-jdk-amd64",
+            npm_command: "run-script",
+            CHROME_BIN: "/usr/bin/google-chrome",
+            LOGNAME: "runner",
+            ENABLE_RUNNER_TRACING: "true",
+            SHELL: "/bin/bash",
+            PSModulePath: "/root/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/…",
+            RUNNER_WORKSPACE: "/home/runner/work/deno-compare-node",
+            INIT_CWD: "/home/runner/work/deno-compare-node/deno-compare-node",
+            RUNNER_TRACKING_ID: "github_70ee5870-8c14-4688-89ec-37d41e89c91f",
+            GOROOT_1_24_X64: "/opt/hostedtoolcache/go/1.24.13/x64",
+            ANDROID_NDK_LATEST_HOME: "/usr/local/lib/android/sdk/ndk/29.0.14206865",
+            GITHUB_API_URL: "https://api.github.com",
+            ACTIONS_ORCHESTRATION_ID: "6cfb8384-aa8a-428b-b833-b087657bb576.comparison.__default",
+            npm_package_engines_node: ">=20.0.0",
+            _: "/home/runner/setup-pnpm/node_modules/.bin/pnpm",
+            RUNNER_TOOL_CACHE: "/opt/hostedtoolcache",
+            npm_execpath: "/home/runner/setup-pnpm/node_modules/.pnpm/pnpm@10.10.0/node_modules/pnpm/bin/pnpm.cjs",
+            ANDROID_HOME: "/usr/local/lib/android/sdk",
+            npm_node_execpath: "/opt/hostedtoolcache/node/25.9.0/x64/bin/node",
+            GITHUB_BASE_REF: "",
+            PIPX_BIN_DIR: "/opt/pipx_bin",
+            GITHUB_REF_NAME: "main",
+            NODE_PATH: "/home/runner/work/deno-compare-node/deno-compare-node/node_modules/.pnpm/tsx@4.20.3/node_modules/tsx…",
+            PNPM_SCRIPT_SRC_DIR: "/home/runner/work/deno-compare-node/deno-compare-node",
+            AZURE_EXTENSION_DIR: "/opt/az/azcliextensions",
+            GITHUB_REF_TYPE: "branch",
+            GITHUB_WORKFLOW_REF: "outslept/deno-compare-node/.github/workflows/compare.yml@refs/heads/main",
+            npm_config_node_gyp: "/home/runner/setup-pnpm/node_modules/.pnpm/pnpm@10.10.0/node_modules/pnpm/dist/node_modules/node-gyp…",
+            JAVA_HOME_8_X64: "/usr/lib/jvm/temurin-8-jdk-amd64",
+            GITHUB_RUN_ID: "25297757343",
+            JAVA_HOME: "/usr/lib/jvm/temurin-17-jdk-amd64",
+            ACCEPT_EULA: "Y",
+            NODE: "/opt/hostedtoolcache/node/25.9.0/x64/bin/node",
+            XDG_RUNTIME_DIR: "/run/user/1001"
         },
         execArgv: <ref *19> [],
         exit: <ref *20> ƒ exit(length: 1) {},
@@ -9057,7 +9094,7 @@ Error importing module: No such built-in module: node:test/reporters
             ngtcp2: "0.8.1",
             nghttp3: "0.7.0",
             sqlite: "3.49.0",
-            deno: "2.7.13+a5284c1",
+            deno: "2.7.14+5a970fa",
             v8: "14.7.173.20-rusty",
             typescript: "5.9.2"
         },
@@ -9100,7 +9137,7 @@ Error importing module: No such built-in module: node:test/reporters
     emitWarning: [Circular: *72],
     env: [Circular: *18],
     execArgv: [Circular: *19],
-    execPath: "/opt/hostedtoolcache/deno/0.0.0-a5284c16b5e762156b07742a191590d5379eb99a/x64/deno",
+    execPath: "/opt/hostedtoolcache/deno/0.0.0-5a970fae8095932e7bb86cee9a74b71c016f236c/x64/deno",
     exit: [Circular: *20],
     getBuiltinModule: [Circular: *84],
     getegid: [Circular: *78],
@@ -9112,9 +9149,9 @@ Error importing module: No such built-in module: node:test/reporters
     loadEnvFile: [Circular: *85],
     memoryUsage: [Circular: *34],
     nextTick: [Circular: *27],
-    pid: 2927,
+    pid: 2895,
     platform: "linux",
-    ppid: 2472,
+    ppid: 2444,
     removeAllListeners: ƒ (length: 1) {},
     removeListener: ƒ (length: 2) {},
     setegid: [Circular: *80],
@@ -9160,7 +9197,7 @@ Error importing module: No such built-in module: node:test/reporters
     ucs2: [Circular: *4],
     version: "2.1.0"
 }
-(node:2935) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(node:2901) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 ```
 
@@ -10377,7 +10414,7 @@ Error importing module: No such built-in module: node:test/reporters
     transferableAbortSignal: [Circular: *77],
     types: [Circular: *79]
 }
-(node:3080) [DEP0025] DeprecationWarning: sys is deprecated. Use `node:util` instead.
+(node:3047) [DEP0025] DeprecationWarning: sys is deprecated. Use `node:util` instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 ```
 
@@ -10660,7 +10697,7 @@ Error importing module: No such built-in module: node:test/reporters
         debug: [Circular: *10],
         isDeepStrictEqual: <ref *114> ƒ isDeepStrictEqual(length: 3) {},
         isArray: <ref *115> ƒ isArray(length: 1) {},
-        styleText: <ref *116> ƒ styleText(length: 2) {},
+        styleText: <ref *116> ƒ styleText(length: 3) {},
         parseEnv: <ref *117> ƒ parseEnv(length: 1) {}
     },
     deprecate: [Circular: *64],
@@ -11029,14 +11066,15 @@ Error importing module: No such built-in module: node:test/reporters
         createServer: [Circular: *10],
         convertALPNProtocols: ƒ convertALPNProtocols(length: 2) {},
         getCiphers: <ref *13> ƒ getCiphers(length: 0) {},
-        setDefaultCACertificates: <ref *14> ƒ setDefaultCACertificates(length: 1) {},
+        getCACertificates: <ref *14> ƒ getCACertificates(length: 0) {},
+        setDefaultCACertificates: <ref *15> ƒ setDefaultCACertificates(length: 1) {},
         DEFAULT_CIPHERS: "AES256-GCM-SHA384:AES128-GCM-SHA256:TLS_CHACHA20_POLY1305_SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE…",
         DEFAULT_ECDH_CURVE: "auto",
         DEFAULT_MAX_VERSION: "TLSv1.3",
         DEFAULT_MIN_VERSION: "TLSv1.2",
         CLIENT_RENEG_LIMIT: 3,
         CLIENT_RENEG_WINDOW: 600,
-        [get/set] rootCertificates: <ref *15> [
+        [get/set] rootCertificates: <ref *16> [
             "-----BEGIN CERTIFICATE-----\nMIICGTCCAZ+gAwIBAgIQCeCTZaz32ci5PhwLBCou8zAKBggqhkjOPQQDAzBOMQswCQYDVQQG…",
             "-----BEGIN CERTIFICATE-----\nMIIFbDCCA1SgAwIBAgIUPgNJgXUWdDGOTKvVxZAplsU5EN0wDQYJKoZIhvcNAQELBQAwTjEL…",
             "-----BEGIN CERTIFICATE-----\nMIIC+TCCAoCgAwIBAgINAKaLeSkAAAAAUNCR+TAKBggqhkjOPQQDAzCBvzELMAkGA1UEBhMC…",
@@ -11190,9 +11228,10 @@ Error importing module: No such built-in module: node:test/reporters
             "-----BEGIN CERTIFICATE-----\nMIIFbDCCA1SgAwIBAgIUVBa/O345lXGN0aoApYYNK496BU4wDQYJKoZIhvcNAQELBQAwTjEL…"
         ]
     },
+    getCACertificates: [Circular: *14],
     getCiphers: [Circular: *13],
-    rootCertificates: [Circular: *15],
-    setDefaultCACertificates: [Circular: *14]
+    rootCertificates: [Circular: *16],
+    setDefaultCACertificates: [Circular: *15]
 }
 ```
 
@@ -11220,7 +11259,7 @@ Error importing module: No such built-in module: node:test/reporters
 
 ```js
 Error importing module: No such built-in module: node:trace_events
-    at file:///tmp/fs-fixture-1777255846859-2472-1/trace_events.mjs:3:32
+    at file:///tmp/fs-fixture-1777860865189-2444-1/trace_events.mjs:3:32
 
 ```
 
@@ -11958,7 +11997,7 @@ Error importing module: No such built-in module: node:trace_events
         debug: [Circular: *10],
         isDeepStrictEqual: <ref *114> ƒ isDeepStrictEqual(length: 3) {},
         isArray: <ref *115> ƒ isArray(length: 1) {},
-        styleText: <ref *116> ƒ styleText(length: 2) {},
+        styleText: <ref *116> ƒ styleText(length: 3) {},
         parseEnv: <ref *117> ƒ parseEnv(length: 1) {}
     },
     deprecate: [Circular: *64],
@@ -12376,7 +12415,7 @@ Error importing module: No such built-in module: node:trace_events
         WASI: [Circular: *2]
     }
 }
-(node:3239) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(node:3220) ExperimentalWarning: WASI is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 ```
 
