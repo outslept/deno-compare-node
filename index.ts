@@ -137,8 +137,26 @@ const date = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
 });
 
-const nodeVersion = nodeResult.stdout.trim(); // e.g. 1.2.3
-const denoVersionLine = denoResult.stdout.split('\n')[0].trim(); // e.g. deno 1.23.4
+const nodeVersion = nodeResult.stdout.trim();
+
+const denoOutputLine = denoResult.stdout.split('\n')[0].trim();
+const denoMatch = denoOutputLine.match(/^deno\s+([0-9.]+)(?:\+([a-f0-9]+))?(?:\s+\((.+?)\))?$/i);
+let denoVersionLine;
+
+if (denoMatch) {
+  const version = denoMatch[1];
+  const hash = denoMatch[2];
+  const rest = denoMatch[3] || '';
+
+  if (hash) {
+    const shortHash = hash.slice(0, 7);
+    denoVersionLine = `[deno ${version}+${shortHash}](https://github.com/denoland/deno/commit/${hash})${rest ? ` (${rest})` : ''}`;
+  } else {
+    denoVersionLine = denoOutputLine;
+  }
+} else {
+  denoVersionLine = denoOutputLine;
+}
 
 const bothOK = results.filter(r => r.nodeExit === 0 && r.denoExit === 0);
 const nodeOnly = results.filter(r => r.nodeExit === 0 && r.denoExit !== 0);
