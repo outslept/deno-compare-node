@@ -1,4 +1,5 @@
 # Deno vs Node.js: Built-in API comparison
+
 This repository provides a comparative overview of the Deno and Node.js runtime API.
 
 Scrolling down, you should be able to see what's available in Deno, what's not, and how they differ.
@@ -13461,4 +13462,5 @@ Error importing module: No such built-in module: node:sea
 </details>
 
 ## Credits
+
 Code adapted from [compare-bun-node](https://github.com/privatenumber/compare-bun-node/) by [@privatenumber](https://github.com/privatenumber).
