@@ -150,7 +150,7 @@ if (denoMatch) {
 
   if (hash) {
     const shortHash = hash.slice(0, 7);
-    denoVersionLine = `[deno ${version}+${shortHash}](https://github.com/denoland/deno/commit/${hash})${rest ? ` (${rest})` : ''}`;
+    denoVersionLine = `deno ${version}+[${shortHash}](https://github.com/denoland/deno/commit/${hash})${rest ? ` (${rest})` : ''}`;
   } else {
     denoVersionLine = denoOutputLine;
   }
